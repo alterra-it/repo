@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="106e2cba-553c-48b8-92aa-172a9293252e">
+  <producedTypes>
+    <selectionType typeId="704ee687-4c68-4ce3-86a1-7a031b626be5" valueTypeId="02dde3ef-fbe1-454f-8013-26aee5f58d19"/>
+    <listType typeId="34121eb2-7b99-47b2-9722-50d0a01ba047" valueTypeId="93e96964-0134-47e3-be3e-5f71e06cf17e"/>
+    <managerType typeId="f7b8db89-520a-4d6f-9db8-008c86ad9804" valueTypeId="d6eb3617-ea55-42e3-9568-7b8e8ae00e38"/>
+    <recordSetType typeId="c985171f-10ca-44ef-a3cd-be5441364793" valueTypeId="be27caa1-5bf8-4525-bcf2-02d93ef1127c"/>
+    <recordKeyType typeId="18c5e507-3be3-4603-9bc5-0bf20128c834" valueTypeId="8924bd30-9cf0-4c48-a744-84e26e1aba64"/>
+    <recordType typeId="664b1536-320f-470c-b687-5c4bfbbcdbb8" valueTypeId="b336db9f-b7d3-4cc7-abbe-4254f0f1cf7c"/>
+    <recordManagerType typeId="3358d4da-515f-4973-a597-29dcecbcd536" valueTypeId="0975bf3c-e339-464e-90e9-b478683110a4"/>
+  </producedTypes>
+  <name>КассовыеСсылкиСБП</name>
+  <synonym>
+    <key>ru</key>
+    <value>Кассовые ссылки СБП</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="fe6a4cc4-801d-4668-b48f-177fff47a894">
+    <name>ИдентификаторСсылки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Идентификатор ссылки</value>
+    </synonym>
+    <comment>qrcId</comment>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>32</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </resources>
+  <resources uuid="cb0607ae-ed03-4c74-a89a-49e475feb00e">
+    <name>КассоваяСсылкаНаОплату</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кассовая ссылка на оплату</value>
+    </synonym>
+    <comment>payload</comment>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </resources>
+  <dimensions uuid="57f45bd8-977d-4d29-a66a-8f6ed23b4717">
+    <name>КассаККМ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Касса ККМ</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.КассыККМ</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="6ec3cc08-b1b7-48a3-ae0b-25d4bae7f7be">
+    <name>ЭквайринговыйТерминал</name>
+    <synonym>
+      <key>ru</key>
+      <value>Эквайринговый терминал</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ЭквайринговыеТерминалы</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

@@ -1,0 +1,99 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.7"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="CanceledGpb" type="d2p1:CanceledGpbType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="CanceledGpbDebit" type="d2p1:CanceledGpbDebitType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="CreateGpb" type="d2p1:CreateGpbType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="CreateGpbDebit" type="d2p1:CreateGpbDebitType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="ListGpb" type="d2p1:ListGpbType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="ListGpbDebit" type="d2p1:ListGpbDebitType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="RecordGpb" type="d2p1:RecordGpbType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="RecordGpbDebit" type="d2p1:RecordGpbDebitType"/>
+	<valueType name="GpbKindType" base="xs:string" variety="Atomic">
+		<enumeration>RESIDUES</enumeration>
+		<enumeration>ANOTHER_BATCH_GRAIN</enumeration>
+		<enumeration>EXTINGUISH</enumeration>
+		<enumeration>SDIZ</enumeration>
+		<enumeration>PART</enumeration>
+		<enumeration>IMPORTED</enumeration>
+		<enumeration>IN_PRODUCT</enumeration>
+	</valueType>
+	<valueType name="GpbStatusType" base="xs:string" variety="Atomic">
+		<enumeration>SUBSCRIBED</enumeration>
+		<enumeration>CANCELED</enumeration>
+		<enumeration>BLOCKED</enumeration>
+		<enumeration>IN_ARCHIVE</enumeration>
+	</valueType>
+	<objectType name="CanceledGpbDebitType">
+		<property name="gpbDebitId" type="xs:integer" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType name="CanceledGpbType">
+		<property name="gpbNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType name="CreateGpbDebitType">
+		<property name="amount" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property name="gpbNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="comment" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7" name="Reason" type="d3p1:ReasonWriteOffCodeType"/>
+	</objectType>
+	<objectType name="CreateGpbFromAnotherType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="ParentGpb" type="d3p1:ParentGpbType" upperBound="-1"/>
+	</objectType>
+	<objectType name="CreateGpbFromImportType">
+		<property name="amount" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="PlaceOfOrigin" type="d3p1:AddressType"/>
+	</objectType>
+	<objectType name="CreateGpbFromInProductType">
+		<property name="amount" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="ParentGpb" type="d3p1:ParentGpbType" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="ParentLot" type="d3p1:ParentLotType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="CreateGpbFromPaperSDIZType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="ParentGpb" type="d3p1:ParentGpbType"/>
+	</objectType>
+	<objectType name="CreateGpbFromResiduesType">
+		<property name="amount" type="xs:decimal" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType name="CreateGpbType" ordered="false" sequenced="true">
+		<property name="createDate" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="GpbFromAnother" type="d3p1:CreateGpbFromAnotherType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="GpbFromResidues" type="d3p1:CreateGpbFromResiduesType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="GpbFromInProduct" type="d3p1:CreateGpbFromInProductType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="GpbFromImport" type="d3p1:CreateGpbFromImportType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="GpbFromPaperSDIZ" type="d3p1:CreateGpbFromPaperSDIZType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.7" name="Product" type="d3p1:GrainProductType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7" name="Target" type="d3p1:LotsTargetCodeType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7" name="Purpose" type="d3p1:LotsPurposeCodeType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="StoragePlace" type="d3p1:AddressRFType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Manufacturer" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.7" name="ListValueQualityIndicator" type="d3p1:ListValueQualityIndicatorType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="CountryDestination" type="d3p1:CountryType" lowerBound="0"/>
+	</objectType>
+	<objectType name="ListGpbDebitType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="Record" type="d3p1:RecordGpbDebitType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ListGpbType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="Record" type="d3p1:RecordGpbType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ParentGpbType">
+		<property name="gpbNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="amount" type="xs:decimal" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="RecordGpbDebitType" base="d2p1:CreateGpbDebitType">
+		<property name="id" type="xs:integer" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.7" name="status" type="d3p1:StatusRecordType" lowerBound="1" form="Attribute"/>
+		<property name="dateRegistration" type="xs:date" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/gpb/1.0.7" name="RecordGpbType" base="d2p1:CreateGpbType">
+		<property name="id" type="xs:integer" lowerBound="1" form="Attribute"/>
+		<property name="number" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="status" type="d2p1:GpbStatusType" lowerBound="1" form="Attribute"/>
+		<property name="amountOriginal" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property name="amountAvailable" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property name="dateRegistration" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="lastModified" type="xs:dateTime" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Owner" type="d3p1:SubjectType"/>
+	</objectType>
+</package>

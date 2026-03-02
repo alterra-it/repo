@@ -1,0 +1,146 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" elementFormQualified="true" attributeFormQualified="false">
+	<valueType name="EmailAddressType" base="xs:string" variety="Atomic" maxLength="100">
+		<pattern>[0-9a-zA-Z_.\-]{2,50}[@]{1}[0-9a-zA-Z_./-]{2,50}[.]{1}[a-zA-Z]{2,5}</pattern>
+	</valueType>
+	<valueType name="KPPType" base="xs:string" variety="Atomic" length="9">
+		<pattern>\d{9}</pattern>
+	</valueType>
+	<valueType name="LegalPersonINNType" base="xs:string" variety="Atomic" length="10">
+		<pattern>\d{10}</pattern>
+	</valueType>
+	<valueType name="OGRNCompanyType" base="xs:string" variety="Atomic" length="13"/>
+	<valueType name="OGRNSoleProprietorType" base="xs:string" variety="Atomic" length="15"/>
+	<valueType name="OPFType" base="xs:string" variety="Atomic" length="5">
+		<pattern>\d{5}</pattern>
+	</valueType>
+	<valueType name="PhoneNumberRFType" base="xs:string" variety="Atomic" maxLength="10">
+		<pattern>\d{10}</pattern>
+	</valueType>
+	<valueType name="PhysicalPersonINNType" base="xs:string" variety="Atomic" length="12">
+		<pattern>\d{12}</pattern>
+	</valueType>
+	<valueType name="PostalCodeRFType" base="xs:string" variety="Atomic" length="6">
+		<pattern>\d{6}</pattern>
+	</valueType>
+	<valueType name="RAFPType" base="xs:string" variety="Atomic" length="11"/>
+	<valueType name="SNILSType" base="xs:string" variety="Atomic" length="11">
+		<pattern>\d{11}</pattern>
+	</valueType>
+	<valueType name="digits-4" base="xs:string" variety="Atomic" length="4">
+		<pattern>\d{4}</pattern>
+	</valueType>
+	<valueType name="digits-6" base="xs:string" variety="Atomic" length="6">
+		<pattern>\d{6}</pattern>
+	</valueType>
+	<valueType name="digits-7" base="xs:string" variety="Atomic" length="7">
+		<pattern>\d{7}</pattern>
+	</valueType>
+	<valueType name="rus-100" base="xs:string" variety="Atomic" maxLength="100">
+		<pattern>[а-яА-ЯёЁ\-\s,.]{1,100}</pattern>
+	</valueType>
+	<valueType name="rus-and-num-200" base="xs:string" variety="Atomic" maxLength="200">
+		<pattern>[а-яА-ЯёЁ\-\s,.0-9]{1,200}</pattern>
+	</valueType>
+	<valueType name="string-100" base="xs:string" variety="Atomic" maxLength="100"/>
+	<valueType name="string-20" base="xs:string" variety="Atomic" maxLength="20"/>
+	<valueType name="string-200" base="xs:string" variety="Atomic" maxLength="200"/>
+	<valueType name="string-3" base="xs:string" variety="Atomic" maxLength="3"/>
+	<valueType name="string-50" base="xs:string" variety="Atomic" maxLength="50"/>
+	<valueType name="string-500" base="xs:string" variety="Atomic" maxLength="500"/>
+	<objectType name="AddressRFType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="PostalCode" type="d3p1:PostalCodeRFType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Address" type="d3p1:string-500"/>
+	</objectType>
+	<objectType name="AddressType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Address" type="d3p1:string-500"/>
+	</objectType>
+	<objectType name="CountryType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="alpha_3" type="d3p1:string-3" localName="alpha-3"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="ShortName" type="d3p1:string-500" lowerBound="0"/>
+	</objectType>
+	<objectType name="ForeignLegalEntityType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Name" type="d3p1:string-500"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="INN" type="d3p1:LegalPersonINNType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="KPP" type="d3p1:KPPType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="RAFP" type="d3p1:RAFPType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Country" type="d3p1:CountryType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Address" type="d3p1:AddressRFType" lowerBound="0"/>
+	</objectType>
+	<objectType name="ForeignType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Name" type="d3p1:string-500"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Country" type="d3p1:CountryType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Address" type="d3p1:AddressType"/>
+	</objectType>
+	<objectType name="IdentityDocumentType" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="PassportRF" type="d3p1:PassportRFType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="MilitaryPassport" type="d3p1:MilitaryPassportDocumentType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="ForeignPassport" type="d3p1:NotRestrictedDocumentType" lowerBound="0"/>
+	</objectType>
+	<objectType name="LegalEntityType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Name" type="d3p1:string-500"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="ShortName" type="d3p1:string-500" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="INN" type="d3p1:LegalPersonINNType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="OGRN" type="d3p1:OGRNCompanyType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="KPP" type="d3p1:KPPType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="OPF" type="d3p1:OPFType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Address" type="d3p1:AddressRFType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="PhoneNumber" type="d3p1:PhoneNumberRFType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="EmailAddress" type="d3p1:EmailAddressType" lowerBound="0"/>
+	</objectType>
+	<objectType name="MilitaryPassportDocumentType">
+		<property name="Series">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="2">
+				<pattern>[А-Я]{2}</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Number" type="d3p1:digits-7"/>
+		<property name="IssueDate" type="xs:date"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Issuer" type="d3p1:rus-and-num-200"/>
+	</objectType>
+	<objectType name="NotRestrictedDocumentType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Series" type="d3p1:string-20" lowerBound="0"/>
+		<property name="Number">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>[0-9а-яА-ЯA-Za-z]{1,25}</pattern>
+			</typeDef>
+		</property>
+		<property name="IssueDate" type="xs:date"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Issuer" type="d3p1:rus-and-num-200"/>
+	</objectType>
+	<objectType name="PassportRFType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Series" type="d3p1:digits-4"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Number" type="d3p1:digits-6"/>
+		<property name="IssueDate" type="xs:date"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Issuer" type="d3p1:rus-and-num-200"/>
+	</objectType>
+	<objectType name="SelfEmployedType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="FamilyName" type="d3p1:rus-100"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="FirstName" type="d3p1:rus-100"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Patronymic" type="d3p1:rus-100" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="INN" type="d3p1:PhysicalPersonINNType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Address" type="d3p1:AddressRFType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="SNILS" type="d3p1:SNILSType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="IdentityDocument" type="d3p1:IdentityDocumentType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="PhoneNumber" type="d3p1:PhoneNumberRFType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="EmailAddress" type="d3p1:EmailAddressType" lowerBound="0"/>
+	</objectType>
+	<objectType name="SoleProprietorType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="FamilyName" type="d3p1:rus-100"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="FirstName" type="d3p1:rus-100"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Patronymic" type="d3p1:rus-100" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="INN" type="d3p1:PhysicalPersonINNType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="OGRN" type="d3p1:OGRNSoleProprietorType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Address" type="d3p1:AddressRFType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="SNILS" type="d3p1:SNILSType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="IdentityDocument" type="d3p1:IdentityDocumentType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="PhoneNumber" type="d3p1:PhoneNumberRFType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="EmailAddress" type="d3p1:EmailAddressType" lowerBound="0"/>
+	</objectType>
+	<objectType name="SubjectType" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="LegalEntity" type="d3p1:LegalEntityType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="SoleProprietor" type="d3p1:SoleProprietorType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="SelfEmployed" type="d3p1:SelfEmployedType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="ForeignLegalEntity" type="d3p1:ForeignLegalEntityType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="ForeignEntity" type="d3p1:ForeignType" lowerBound="0"/>
+	</objectType>
+</package>

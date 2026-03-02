@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="8fdb01f6-4967-4863-8211-300891e04633">
+  <producedTypes>
+    <selectionType typeId="b48b5028-fbe2-4c4f-be9a-9011e5304627" valueTypeId="fa0b221c-67c2-45ac-832c-4571e957a217"/>
+    <listType typeId="ff138a70-3d6e-4061-b33d-7d2da62feab6" valueTypeId="054ef3cb-a66e-4e36-ad2f-7e5580aa6ba6"/>
+    <managerType typeId="8f88ee35-ea60-485b-a5f1-9688c9c2b471" valueTypeId="931ebdb9-b7d9-433d-8165-36bc0428a764"/>
+    <recordSetType typeId="bbaf6fa8-fafd-4514-a48b-a55aa5ce51c2" valueTypeId="d1057d07-25c7-4320-82c9-ab4ab7ffb1cc"/>
+    <recordKeyType typeId="eafce414-729e-4070-83cd-1922187e7859" valueTypeId="b5cae988-10d1-4898-91c9-c269b885a8fb"/>
+    <recordType typeId="14c576df-8051-495a-8908-fc7f5678ae6c" valueTypeId="1e0919a9-54c3-4644-8084-0699a106e528"/>
+    <recordManagerType typeId="677eb3ce-3384-485e-909f-a08ea6027f6b" valueTypeId="e25b6af7-5fea-49e9-ba37-310d8658e4ec"/>
+  </producedTypes>
+  <name>АналогиНоменклатуры</name>
+  <synonym>
+    <key>ru</key>
+    <value>Аналоги номенклатуры</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="5101c189-e0d9-4d7a-ad43-75fe9ff7c368">
+    <name>Кратность</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кратность</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>3</precision>
+        <scale>1</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="c8b16b72-9107-42cd-bc6b-e7ed0308c512">
+    <name>Приоритет</name>
+    <synonym>
+      <key>ru</key>
+      <value>Приоритет</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>2</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="ed55715d-dbff-4f56-9d3f-c1366a117f76">
+    <name>ОбратнаяАналогия</name>
+    <synonym>
+      <key>ru</key>
+      <value>Обратная аналогия</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="56dd2c22-0fcc-4868-b308-1d6f8a56ed55">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="ed23a32e-e185-4b37-b18e-204672040e54">
+    <name>Характеристика</name>
+    <synonym>
+      <key>ru</key>
+      <value>Характеристика</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ХарактеристикиНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameterLinks>
+      <name>Отбор.Владелец</name>
+      <field>InformationRegister.АналогиНоменклатуры.Dimension.Номенклатура</field>
+    </choiceParameterLinks>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="8754e396-036b-4c70-867f-6bf8ed950029">
+    <name>АналогНоменклатуры</name>
+    <synonym>
+      <key>ru</key>
+      <value>Аналог номенклатуры</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="26f13074-bd31-45ce-8888-d525330b5e0b">
+    <name>АналогХарактеристики</name>
+    <synonym>
+      <key>ru</key>
+      <value>Аналог характеристики</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ХарактеристикиНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameterLinks>
+      <name>Отбор.Владелец</name>
+      <field>InformationRegister.АналогиНоменклатуры.Dimension.АналогНоменклатуры</field>
+    </choiceParameterLinks>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

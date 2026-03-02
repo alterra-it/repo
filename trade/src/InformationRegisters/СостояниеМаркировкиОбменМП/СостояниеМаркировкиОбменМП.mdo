@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="4527e858-7fd2-4c16-8482-1cfc5a44584c">
+  <producedTypes>
+    <selectionType typeId="bf577e0f-0f93-46e7-9d21-443e189bc222" valueTypeId="8f05bf3e-de30-4cae-8707-09ce420290ae"/>
+    <listType typeId="2927d1dd-f4e0-49ea-a245-fcde351c85cf" valueTypeId="b8ac4a26-fda9-4fe8-8ad9-6c2b584e0508"/>
+    <managerType typeId="3fa9b0f9-83d5-43e4-9e21-aa414e09b41e" valueTypeId="ade53601-3bf6-426c-9acd-9a1f6e9c836b"/>
+    <recordSetType typeId="19060613-0130-45af-886d-15ef38fcef8d" valueTypeId="6f9dcfa0-d418-417f-9880-c5be1445ccdd"/>
+    <recordKeyType typeId="4a1891f0-765d-4c64-8609-cd21765b9c8c" valueTypeId="f6ca621f-831a-4d97-b127-f45801664caf"/>
+    <recordType typeId="3e791098-b652-45f4-91c3-d17348863453" valueTypeId="785a2205-3656-4303-9899-6d23143c5c96"/>
+    <recordManagerType typeId="c251767c-cc70-4692-ae2e-27252a014ba5" valueTypeId="aadb760a-16c1-4e49-bb1c-66261356f173"/>
+  </producedTypes>
+  <name>СостояниеМаркировкиОбменМП</name>
+  <synonym>
+    <key>ru</key>
+    <value>Состояние маркировки обмен МП</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="66725c81-7ba4-49c7-bffe-85517d898b03">
+    <name>Обработано</name>
+    <synonym>
+      <key>ru</key>
+      <value>Обработано</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="52b196ca-9b28-421a-960c-ec7c28463357">
+    <name>Ошибка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ошибка</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="4ad86973-b390-4329-b7c9-a3e25956429a">
+    <name>Сотрудник</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сотрудник</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Сотрудники</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="3ca1079b-d35c-492f-8207-ee9a8c105b4e">
+    <name>ИДклиента</name>
+    <synonym>
+      <key>ru</key>
+      <value>И дклиента</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>20</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </attributes>
+  <dimensions uuid="a6dd8413-6490-4d7f-a0cc-47d60c59629d">
+    <name>ДокументОрдер</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ ордер</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.РасходныйОрдерНаТовары</types>
+      <types>DocumentRef.ПересчетТоваров</types>
+      <types>DocumentRef.ПриходныйОрдерНаТовары</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="21fd514e-e016-44df-a1f7-e2f76ea28a11">
+    <name>ШтрихкодМаркировки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Штрихкод маркировки</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ШтрихкодыУпаковокТоваров</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

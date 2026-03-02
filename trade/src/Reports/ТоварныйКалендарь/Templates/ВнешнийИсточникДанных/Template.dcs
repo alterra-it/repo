@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Набор</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Назначение</dataPath>
+			<field>Назначение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначение</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Характеристика</dataPath>
+			<field>Характеристика</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Характеристика</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад / Подразделение</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоПриход</dataPath>
+			<field>КоличествоПриход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество приход</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СегментНоменклатуры</dataPath>
+			<field>СегментНоменклатуры</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сегмент номенклатуры</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоПриходВес</dataPath>
+			<field>КоличествоПриходВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество приход вес</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоРасход</dataPath>
+			<field>КоличествоРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество расход</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоПриходОбъем</dataPath>
+			<field>КоличествоПриходОбъем</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество приход объем</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоРасходВес</dataPath>
+			<field>КоличествоРасходВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество расход вес</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоРасходОбъем</dataPath>
+			<field>КоличествоРасходОбъем</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество расход объем</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистратор</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГруппаПериодов</dataPath>
+			<field>ГруппаПериодов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа периодов</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачальныйОстаток</dataPath>
+			<field>НачальныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начальный остаток</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачальныйОстатокВес</dataPath>
+			<field>НачальныйОстатокВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начальный остаток вес</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачальныйОстатокОбъем</dataPath>
+			<field>НачальныйОстатокОбъем</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начальный остаток объем</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказ</dataPath>
+			<field>Заказ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаСобытия</dataPath>
+			<field>ДатаСобытия</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>////////////////////////////////////////////////////////
+// Отбор по сегментам.
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Сегменты.Номенклатура,
+	Сегменты.Характеристика,
+	ИСТИНА КАК ИспользуетсяОтборПоСегментуНоменклатуры
+ПОМЕСТИТЬ ОтборПоСегментуНоменклатуры
+ИЗ
+	РегистрСведений.НоменклатураСегмента КАК Сегменты
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура,
+	Характеристика,
+	ИспользуетсяОтборПоСегментуНоменклатуры
+{ГДЕ
+	Сегменты.Сегмент.* КАК СегментНоменклатуры,
+	Сегменты.Номенклатура.* КАК Номенклатура,
+	Сегменты.Характеристика.* КАК Характеристика}
+;
+////////////////////////////////////////////////////////
+// Запланированные поступления по данным регистра накопления.
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	2 КАК ГруппаПериодов,
+	ИнформацияОДоступности.Номенклатура КАК Номенклатура,
+	ИнформацияОДоступности.Характеристика КАК Характеристика,
+	ИнформацияОДоступности.Склад КАК Склад,
+	ИнформацияОДоступности.Назначение КАК Назначение,
+	ИнформацияОДоступности.Заказ КАК Заказ,
+	ИнформацияОДоступности.ДатаСобытия КАК ДатаСобытия,
+	ИнформацияОДоступности.ЗаказаноОстаток - ИнформацияОДоступности.ПоступитОстаток КАК Количество
+ПОМЕСТИТЬ ЗапасыИПотребности
+ИЗ
+	РегистрНакопления.ЗапасыИПотребности.Остатки(,
+		Склад ССЫЛКА Справочник.Склады
+			{(Номенклатура, Характеристика) В(
+				ВЫБРАТЬ
+					ТаблицаОтбора.Номенклатура КАК Номенклатура,
+					ТаблицаОтбора.Характеристика КАК Характеристика
+				ИЗ
+					ОтборПоСегментуНоменклатуры КАК ТаблицаОтбора
+				ГДЕ
+					ТаблицаОтбора.ИспользуетсяОтборПоСегментуНоменклатуры = &amp;ИспользуетсяОтборПоСегментуНоменклатуры)}
+			{ВЫБОР
+				КОГДА ДатаСобытия &lt; &amp;ТекущаяДата
+					ТОГДА ИСТИНА
+				ИНАЧЕ ДатаСобытия &lt;= КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+			КОНЕЦ}
+			{Номенклатура.* КАК Номенклатура,
+			Характеристика.* КАК Характеристика,
+			Склад.* КАК Склад,
+			Назначение.* КАК Назначение}) КАК ИнформацияОДоступности
+ГДЕ
+	ИнформацияОДоступности.ЗаказаноОстаток - ИнформацияОДоступности.ПоступитОстаток &gt; 0
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВЫБОР
+		КОГДА ИнформацияОДоступности.ДатаСобытия &lt; &amp;ТекущаяДата
+			ТОГДА 0
+		ИНАЧЕ 1
+	КОНЕЦ КАК ГруппаПериодов,
+	ИнформацияОДоступности.Номенклатура КАК Номенклатура,
+	ИнформацияОДоступности.Характеристика КАК Характеристика,
+	ИнформацияОДоступности.Склад КАК Склад,
+	ИнформацияОДоступности.Назначение КАК Назначение,
+	ИнформацияОДоступности.Заказ КАК Заказ,
+	ИнформацияОДоступности.ДатаСобытия КАК ДатаСобытия,
+	ИнформацияОДоступности.ПоступитОстаток КАК Количество
+ИЗ
+	РегистрНакопления.ЗапасыИПотребности.Остатки(,
+		Склад ССЫЛКА Справочник.Склады
+			{(Номенклатура, Характеристика) В(
+				ВЫБРАТЬ
+					ТаблицаОтбора.Номенклатура КАК Номенклатура,
+					ТаблицаОтбора.Характеристика КАК Характеристика
+				ИЗ
+					ОтборПоСегментуНоменклатуры КАК ТаблицаОтбора
+				ГДЕ
+					ТаблицаОтбора.ИспользуетсяОтборПоСегментуНоменклатуры = &amp;ИспользуетсяОтборПоСегментуНоменклатуры)}
+			{ВЫБОР
+				КОГДА ДатаСобытия &lt; &amp;ТекущаяДата
+					ТОГДА ИСТИНА
+				ИНАЧЕ ДатаСобытия &lt;= КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+			КОНЕЦ}
+			{Номенклатура.* КАК Номенклатура,
+			Характеристика.* КАК Характеристика,
+			Склад.* КАК Склад,
+			Назначение.* КАК Назначение}) КАК ИнформацияОДоступности
+ГДЕ
+	ИнформацияОДоступности.ПоступитОстаток &gt; 0
+
+ИНДЕКСИРОВАТЬ ПО
+	Заказ
+;
+////////////////////////////////////////////////////////
+// Запасы на складе.
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ИнформацияОДоступности.Номенклатура КАК Номенклатура,
+	ИнформацияОДоступности.Характеристика КАК Характеристика,
+	ИнформацияОДоступности.Склад КАК Склад,
+	ИнформацияОДоступности.Назначение КАК Назначение,
+	ИнформацияОДоступности.ВНаличииОстаток КАК Запас
+ПОМЕСТИТЬ ЗапасыНаСкладе
+ИЗ
+	РегистрНакопления.ЗапасыИПотребности.Остатки(,
+		Склад ССЫЛКА Справочник.Склады
+			{(Номенклатура, Характеристика) В(
+				ВЫБРАТЬ
+					ТаблицаОтбора.Номенклатура КАК Номенклатура,
+					ТаблицаОтбора.Характеристика КАК Характеристика
+				ИЗ
+					ОтборПоСегментуНоменклатуры КАК ТаблицаОтбора
+				ГДЕ
+					ТаблицаОтбора.ИспользуетсяОтборПоСегментуНоменклатуры = &amp;ИспользуетсяОтборПоСегментуНоменклатуры)}
+			{ВЫБОР
+				КОГДА ДатаСобытия &lt; &amp;ТекущаяДата
+					ТОГДА ИСТИНА
+				ИНАЧЕ ДатаСобытия &lt;= КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+			КОНЕЦ}
+			{Номенклатура.* КАК Номенклатура,
+			Характеристика.* КАК Характеристика,
+			Склад.* КАК Склад,
+			Назначение.* КАК Назначение}) КАК ИнформацияОДоступности
+ГДЕ
+	ИнформацияОДоступности.ВНаличииОстаток &gt; 0
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура, Характеристика, Склад, Назначение
+;
+////////////////////////////////////////////////////////
+// Временная таблица потребности по графику производства.
+
+
+////////////////////////////////////////////////////////
+// Временная таблица запланированных поступлений и отгрузок.
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Набор.Номенклатура КАК Номенклатура,
+	Набор.Характеристика КАК Характеристика,
+	Набор.Склад КАК Склад,
+	Набор.Назначение КАК Назначение,
+	Набор.Регистратор КАК Регистратор,
+	Набор.Дата КАК Дата,
+	Набор.ГруппаПериодов,
+	НАЧАЛОПЕРИОДА(Набор.Период, ДЕНЬ) КАК Период,
+	СУММА(Набор.КоличествоПриход) КАК КоличествоПриход,
+	СУММА(Набор.КоличествоПриходВес) КАК КоличествоПриходВес,
+	СУММА(Набор.КоличествоПриходОбъем) КАК КоличествоПриходОбъем,
+	СУММА(Набор.КоличествоРасход) КАК КоличествоРасход,
+	СУММА(Набор.КоличествоРасходВес) КАК КоличествоРасходВес,
+	СУММА(Набор.КоличествоРасходОбъем) КАК КоличествоРасходОбъем
+ПОМЕСТИТЬ ПриходИРасход
+ИЗ(
+	ВЫБРАТЬ
+		ВЫБОР
+			КОГДА &amp;ОтображатьОтгрузкиНаДатуОбеспечения
+					И ИнформацияОДоступности.Состояние В(
+						ЗНАЧЕНИЕ(Перечисление.РаспределениеЗапасовСостояния.Обеспечить),
+						ЗНАЧЕНИЕ(Перечисление.РаспределениеЗапасовСостояния.ОжидаетсяПоНеподтвержденномуЗаказу))
+				ТОГДА 2
+			КОГДА &amp;ПодстановкаМаксимумДатаОтгрузкиДатаПоступления &lt; &amp;ТекущаяДата
+				ТОГДА 0
+			ИНАЧЕ 1
+		КОНЕЦ КАК ГруппаПериодов,
+		ИнформацияОДоступности.Номенклатура КАК Номенклатура,
+		ИнформацияОДоступности.Характеристика КАК Характеристика,
+		ИнформацияОДоступности.Склад КАК Склад,
+		ИнформацияОДоступности.Назначение КАК Назначение,
+		ЗаказыРеестра.ДатаДокументаИБ КАК Дата,
+		ИнформацияОДоступности.ЗаказНаОтгрузку КАК Регистратор,
+		ВЫБОР
+			КОГДА &amp;ОтображатьОтгрузкиНаДатуОбеспечения
+						И ИнформацияОДоступности.Состояние В(
+							ЗНАЧЕНИЕ(Перечисление.РаспределениеЗапасовСостояния.Обеспечить),
+							ЗНАЧЕНИЕ(Перечисление.РаспределениеЗапасовСостояния.ОжидаетсяПоНеподтвержденномуЗаказу))
+					ИЛИ &amp;ПодстановкаМаксимумДатаОтгрузкиДатаПоступления &lt; &amp;ТекущаяДата
+				ТОГДА ДАТАВРЕМЯ(1, 1, 1)
+			ИНАЧЕ &amp;ПодстановкаМаксимумДатаОтгрузкиДатаПоступления
+		КОНЕЦ КАК Период,
+		0 КАК КоличествоПриход,
+		0 КАК КоличествоПриходВес,
+		0 КАК КоличествоПриходОбъем,
+		(ИнформацияОДоступности.НеОбеспечено + ИнформацияОДоступности.Зарезервировано + ИнформацияОДоступности.Обеспечено)
+			* &amp;ТекстЗапросаКоэффициентЕдиницы КАК КоличествоРасход,
+		(ИнформацияОДоступности.НеОбеспечено + ИнформацияОДоступности.Зарезервировано + ИнформацияОДоступности.Обеспечено)
+			* &amp;ТекстЗапросаВесНоменклатуры КАК КоличествоРасходВес,
+		(ИнформацияОДоступности.НеОбеспечено + ИнформацияОДоступности.Зарезервировано + ИнформацияОДоступности.Обеспечено)
+			* &amp;ТекстЗапросаОбъемНоменклатуры КАК КоличествоРасходОбъем
+	ИЗ
+		РегистрСведений.РаспределениеЗапасов КАК ИнформацияОДоступности
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.РеестрДокументов КАК ЗаказыРеестра
+			ПО ЗаказыРеестра.Ссылка = ИнформацияОДоступности.ЗаказНаОтгрузку
+			И НЕ ЗаказыРеестра.ДополнительнаяЗапись
+			{ВНУТРЕННЕЕ СОЕДИНЕНИЕ ОтборПоСегментуНоменклатуры КАК ТаблицаОтбора
+			ПО ТаблицаОтбора.Номенклатура   = ИнформацияОДоступности.Номенклатура
+			 И ТаблицаОтбора.Характеристика = ИнформацияОДоступности.Характеристика}
+	ГДЕ
+		ИнформацияОДоступности.Состояние В(
+				ЗНАЧЕНИЕ(Перечисление.РаспределениеЗапасовСостояния.Обеспечить),
+				ЗНАЧЕНИЕ(Перечисление.РаспределениеЗапасовСостояния.ОжидаетсяПоНеподтвержденномуЗаказу),
+				ЗНАЧЕНИЕ(Перечисление.РаспределениеЗапасовСостояния.ОбеспеченКДате),
+				ЗНАЧЕНИЕ(Перечисление.РаспределениеЗапасовСостояния.ОбеспеченНаСкладе),
+				ЗНАЧЕНИЕ(Перечисление.РаспределениеЗапасовСостояния.ЗарезервированПриПоступлении),
+				ЗНАЧЕНИЕ(Перечисление.РаспределениеЗапасовСостояния.ВРезерве))
+			И ИнформацияОДоступности.Склад ССЫЛКА Справочник.Склады
+	{ГДЕ
+		ТаблицаОтбора.ИспользуетсяОтборПоСегментуНоменклатуры = &amp;ИспользуетсяОтборПоСегментуНоменклатуры
+	}
+	{ГДЕ
+		ВЫБОР
+			КОГДА &amp;ОтображатьОтгрузкиНаДатуОбеспечения
+						И ИнформацияОДоступности.Состояние В(
+							ЗНАЧЕНИЕ(Перечисление.РаспределениеЗапасовСостояния.Обеспечить),
+							ЗНАЧЕНИЕ(Перечисление.РаспределениеЗапасовСостояния.ОжидаетсяПоНеподтвержденномуЗаказу))
+					ИЛИ &amp;ПодстановкаМаксимумДатаОтгрузкиДатаПоступления &lt; &amp;ТекущаяДата
+				ТОГДА ИСТИНА
+			ИНАЧЕ &amp;ПодстановкаМаксимумДатаОтгрузкиДатаПоступления &lt;= КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+		КОНЕЦ}
+	{ГДЕ
+		ИнформацияОДоступности.Номенклатура.*   КАК Номенклатура,
+		ИнформацияОДоступности.Характеристика.* КАК Характеристика,
+		ИнформацияОДоступности.Склад.*          КАК Склад,
+		ИнформацияОДоступности.Назначение.*     КАК Назначение}
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ИнформацияОДоступности.ГруппаПериодов КАК ГруппаПериодов,
+		ИнформацияОДоступности.Номенклатура КАК Номенклатура,
+		ИнформацияОДоступности.Характеристика КАК Характеристика,
+		ИнформацияОДоступности.Склад КАК Склад,
+		ИнформацияОДоступности.Назначение КАК Назначение,
+		ЗаказыРеестра.ДатаДокументаИБ КАК Дата,
+		ИнформацияОДоступности.Заказ КАК Регистратор,
+		ВЫБОР
+			КОГДА ИнформацияОДоступности.ДатаСобытия &lt; &amp;ТекущаяДата
+				ТОГДА ДАТАВРЕМЯ(1, 1, 1)
+			ИНАЧЕ ИнформацияОДоступности.ДатаСобытия
+		КОНЕЦ КАК Период,
+		ИнформацияОДоступности.Количество * &amp;ТекстЗапросаКоэффициентЕдиницы КАК КоличествоПриход,
+		ИнформацияОДоступности.Количество * &amp;ТекстЗапросаВесНоменклатуры КАК КоличествоПриходВес,
+		ИнформацияОДоступности.Количество * &amp;ТекстЗапросаОбъемНоменклатуры КАК КоличествоПриходОбъем,
+		0 КАК КоличествоРасход,
+		0 КАК КоличествоРасходВес,
+		0 КАК КоличествоРасходОбъем
+	ИЗ
+		ЗапасыИПотребности КАК ИнформацияОДоступности
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.РеестрДокументов КАК ЗаказыРеестра
+			ПО ЗаказыРеестра.Ссылка = ИнформацияОДоступности.Заказ
+			И НЕ ЗаказыРеестра.ДополнительнаяЗапись
+	
+			) КАК Набор
+СГРУППИРОВАТЬ ПО
+	Набор.Номенклатура,
+	Набор.Характеристика,
+	Набор.Склад,
+	Набор.Назначение,
+	Набор.Дата,
+	Набор.Регистратор,
+	Набор.ГруппаПериодов,
+	НАЧАЛОПЕРИОДА(Набор.Период, ДЕНЬ)
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура, Характеристика, Склад, Назначение
+;
+////////////////////////////////////////////////////////
+// Основная таблица для построения отчета.
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ПриходИРасход.Номенклатура КАК Номенклатура,
+	ПриходИРасход.Характеристика КАК Характеристика,
+	ВЫРАЗИТЬ(ПриходИРасход.Склад КАК Справочник.Склады) КАК Склад,
+	ПриходИРасход.Назначение КАК Назначение,
+	ПриходИРасход.Регистратор КАК Регистратор,
+	ПриходИРасход.Дата КАК Дата,
+	ПриходИРасход.ГруппаПериодов КАК ГруппаПериодов,
+	ПриходИРасход.Период КАК Период,
+	ПриходИРасход.КоличествоПриход КАК КоличествоПриход,
+	ПриходИРасход.КоличествоПриходВес КАК КоличествоПриходВес,
+	ПриходИРасход.КоличествоПриходОбъем КАК КоличествоПриходОбъем,
+	ПриходИРасход.КоличествоРасход КАК КоличествоРасход,
+	ПриходИРасход.КоличествоРасходВес КАК КоличествоРасходВес,
+	ПриходИРасход.КоличествоРасходОбъем КАК КоличествоРасходОбъем,
+	ЕСТЬNULL(ИнформацияОДоступности.Запас, 0) * &amp;ТекстЗапросаКоэффициентЕдиницы КАК НачальныйОстаток,
+	ЕСТЬNULL(ИнформацияОДоступности.Запас, 0) * &amp;ТекстЗапросаВесНоменклатуры КАК НачальныйОстатокВес,
+	ЕСТЬNULL(ИнформацияОДоступности.Запас, 0) * &amp;ТекстЗапросаОбъемНоменклатуры КАК НачальныйОстатокОбъем
+ПОМЕСТИТЬ ВтТоварныйКалендарь
+ИЗ
+	ПриходИРасход КАК ПриходИРасход
+		
+		ЛЕВОЕ СОЕДИНЕНИЕ ЗапасыНаСкладе КАК ИнформацияОДоступности
+		ПО ИнформацияОДоступности.Номенклатура = ПриходИРасход.Номенклатура
+		 И ИнформацияОДоступности.Характеристика = ПриходИРасход.Характеристика
+		 И ИнформацияОДоступности.Склад = ПриходИРасход.Склад
+		 И ИнформацияОДоступности.Назначение = ПриходИРасход.Назначение
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ИнформацияОДоступности.Номенклатура КАК Номенклатура,
+	ИнформацияОДоступности.Характеристика КАК Характеристика,
+	ВЫРАЗИТЬ(ИнформацияОДоступности.Склад КАК Справочник.Склады) КАК Склад,
+	ИнформацияОДоступности.Назначение КАК Назначение,
+	НЕОПРЕДЕЛЕНО КАК Регистратор,
+	ДАТАВРЕМЯ(1, 1, 1) КАК Дата,
+	-1 КАК ГруппаПериодов,
+	ДАТАВРЕМЯ(1, 1, 1) КАК Период,
+	0 КАК КоличествоПриход,
+	0 КАК КоличествоПриходВес,
+	0 КАК КоличествоПриходОбъем,
+	0 КАК КоличествоРасход,
+	0 КАК КоличествоРасходВес,
+	0 КАК КоличествоРасходОбъем,
+	ИнформацияОДоступности.Запас * &amp;ТекстЗапросаКоэффициентЕдиницы КАК НачальныйОстаток,
+	ИнформацияОДоступности.Запас * &amp;ТекстЗапросаВесНоменклатуры КАК НачальныйОстатокВес,
+	ИнформацияОДоступности.Запас * &amp;ТекстЗапросаОбъемНоменклатуры КАК НачальныйОстатокОбъем
+ИЗ
+	ЗапасыНаСкладе КАК ИнформацияОДоступности
+		
+		ЛЕВОЕ СОЕДИНЕНИЕ ПриходИРасход КАК ЕстьЗаписи
+		ПО ЕстьЗаписи.Номенклатура = ИнформацияОДоступности.Номенклатура
+		 И ЕстьЗаписи.Характеристика = ИнформацияОДоступности.Характеристика
+		 И ЕстьЗаписи.Склад = ИнформацияОДоступности.Склад
+		 И ЕстьЗаписи.Назначение = ИнформацияОДоступности.Назначение
+ГДЕ
+	ЕстьЗаписи.Номенклатура ЕСТЬ NULL
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура, Характеристика, Склад, Назначение
+;
+////////////////////////////////////////////////////////
+ВЫБРАТЬ ПЕРВЫЕ 1
+	Таблица.Номенклатура КАК Номенклатура,
+	Таблица.Характеристика КАК Характеристика,
+	Таблица.Склад КАК Склад,
+	Таблица.Назначение КАК Назначение,
+	Таблица.Регистратор КАК Регистратор,
+	Таблица.Дата КАК Дата,
+	Таблица.ГруппаПериодов КАК ГруппаПериодов,
+	Таблица.Период КАК Период,
+	Таблица.КоличествоПриход КАК КоличествоПриход,
+	Таблица.КоличествоПриходВес КАК КоличествоПриходВес,
+	Таблица.КоличествоПриходОбъем КАК КоличествоПриходОбъем,
+	Таблица.КоличествоРасход КАК КоличествоРасход,
+	Таблица.КоличествоРасходВес КАК КоличествоРасходВес,
+	Таблица.КоличествоРасходОбъем КАК КоличествоРасходОбъем,
+	Таблица.НачальныйОстаток КАК НачальныйОстаток,
+	Таблица.НачальныйОстатокВес КАК НачальныйОстатокВес,
+	Таблица.НачальныйОстатокОбъем КАК НачальныйОстатокОбъем
+ИЗ
+	ВтТоварныйКалендарь КАК Таблица</query>
+		<useQueryGroupIfPossible>false</useQueryGroupIfPossible>
+	</dataSet>
+	<totalField>
+		<dataPath>КоличествоПриход</dataPath>
+		<expression>Сумма(КоличествоПриход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоПриходВес</dataPath>
+		<expression>Сумма(КоличествоПриходВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоПриходОбъем</dataPath>
+		<expression>Сумма(КоличествоПриходОбъем)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоРасход</dataPath>
+		<expression>Сумма(КоличествоРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоРасходВес</dataPath>
+		<expression>Сумма(КоличествоРасходВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоРасходОбъем</dataPath>
+		<expression>Сумма(КоличествоРасходОбъем)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ТекущаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ОтображатьОтгрузкиНаДатуОбеспечения</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отображать отгрузки на дату обеспечения</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ИспользуетсяОтборПоСегментуНоменклатуры</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Используется отбор по сегменту номенклатуры</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПодстановкаМаксимумДатаОтгрузкиДатаПоступления</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Подстановка максимум дата отгрузки дата поступления</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТекстЗапросаВесНоменклатуры</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текст запроса вес номенклатуры</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТекстЗапросаКоэффициентЕдиницы</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текст запроса коэффициент единицы</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТекстЗапросаОбъемНоменклатуры</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текст запроса объем номенклатуры</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПодстановкаМаксимумГрафикПроизводстваДатаОтгрузкиДатаПоступления</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Подстановка максимум график производства дата отгрузки дата поступления</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПодстановкаДатаПоступленияПоГрафикуПроизводства</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Подстановка дата поступления по графику производства</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоПриход</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоРасход</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Назначение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Период</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Регистратор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Склад</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Характеристика</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоПриходВес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоРасходВес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоПриходОбъем</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоРасходОбъем</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГруппаПериодов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:userSettingID>5052a13f-f380-402e-8000-7e19393bb465</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:userSettingID>9991b1db-84a2-4806-9c4d-37a7f1b7b4ac</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:order>
+				<dcsset:userSettingID>11ce02fa-6430-4b28-b137-48fef3741222</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:filter>
+					<dcsset:userSettingID>6a915a0c-4318-4693-a8c5-9aec0b71bb1e</dcsset:userSettingID>
+				</dcsset:filter>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					<dcsset:userSettingID>7c608aef-01c1-4ca2-ae94-3585520d8bd2</dcsset:userSettingID>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					<dcsset:userSettingID>d3c9ed1c-7ed6-4773-8597-cfbd767ffba1</dcsset:userSettingID>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

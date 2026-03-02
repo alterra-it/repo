@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="42186348-cb3d-4204-953f-c439632f9425">
+  <producedTypes>
+    <selectionType typeId="f5b34701-ce81-4f4a-8336-1c1ee35b87c5" valueTypeId="d581084b-07a7-4fc6-b1b2-d8299041d15a"/>
+    <listType typeId="5e9c4f99-9ece-4a72-bc2c-355f9e1389dc" valueTypeId="e8bc9aa5-9a36-4bb1-bca8-94051d911c0d"/>
+    <managerType typeId="21146136-c031-4992-9c5c-9c9ee6e6c401" valueTypeId="a2a50add-c336-425e-a34a-4ce3da2c2c92"/>
+    <recordSetType typeId="72a80df5-c6b0-41ff-85af-b1ae06e79d07" valueTypeId="3afd4eb8-b1b9-4d0a-952d-f90769e5aeb2"/>
+    <recordKeyType typeId="3e19505b-8829-4ad9-a995-eb71afbf8975" valueTypeId="2110ba67-af5c-4c87-a477-8f13ae4ea4ea"/>
+    <recordType typeId="1ae160a3-72c1-40c1-aa59-b62df9548e1d" valueTypeId="e0c9fc7e-dbff-4308-8c1c-ae94a940557e"/>
+  </producedTypes>
+  <name>ИспользованиеИнтерваловДоставки</name>
+  <synonym>
+    <key>ru</key>
+    <value>Использование интервалов доставки</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <registerType>Turnovers</registerType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="6dbbc069-fe60-43b1-9d29-d644aff9c61c">
+    <name>Количество</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <resources uuid="2d7a8ca7-2d99-4de7-9370-0d3765b27371">
+    <name>КоличествоСРазгрузкой</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество с разгрузкой</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <dimensions uuid="4db400cf-4112-4ddd-acca-aea97e692178">
+    <name>Интервал</name>
+    <synonym>
+      <key>ru</key>
+      <value>Интервал</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ИнтервалыДоставки</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="264a1281-d7cf-4244-82be-3e3237263802">
+    <name>ВидДоставки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид доставки</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ВидыДоставокДоКлиента</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="a6742b6d-33f2-4e42-be3d-7b1fd0236602">
+    <name>Подразделение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Подразделение</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СтруктураПредприятия</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="969ead9d-a961-4c9a-8ef6-f0dbe449fee9">
+    <name>ДатаИспользования</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата использования</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="2ccf327f-1c7d-4d6d-8887-cbb5193cb7c8">
+    <name>ДляРазгрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Для разгрузки</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

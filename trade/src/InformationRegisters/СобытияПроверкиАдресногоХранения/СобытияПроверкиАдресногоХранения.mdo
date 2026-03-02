@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="47350683-0725-47ec-8136-558053b1c878">
+  <producedTypes>
+    <selectionType typeId="9b75721a-104d-47a3-ad2a-4b8174794eb2" valueTypeId="1e3bcc04-5b4d-434d-b3f8-068e2bf04fb2"/>
+    <listType typeId="6cb252c2-2266-416c-b396-7f9ea3ccf866" valueTypeId="d5da5e9d-d7c8-4fe4-94d5-eb09556d6d0e"/>
+    <managerType typeId="d7118755-6c6a-4b59-a247-bc4537da64db" valueTypeId="b0b36c84-f975-4faa-a2fc-4053ff6c45ad"/>
+    <recordSetType typeId="6370f4ab-44a7-40a0-a722-f6ab8168aca9" valueTypeId="9b94d547-8706-4af5-afc5-0b86979f0272"/>
+    <recordKeyType typeId="801ddaa6-1648-40e2-8c48-03593ee95c5d" valueTypeId="ca853d80-a14a-4c7c-8b30-bd4deb941470"/>
+    <recordType typeId="b06e17cc-b0fb-4aa7-96ba-35bbaf370475" valueTypeId="9e3c635d-1eaa-4acb-b4e8-f83479d109c5"/>
+    <recordManagerType typeId="db739804-11c7-4a84-9c3c-a6b743657751" valueTypeId="48ec59f3-7349-40d6-97f1-79228b98d4fe"/>
+  </producedTypes>
+  <name>СобытияПроверкиАдресногоХранения</name>
+  <synonym>
+    <key>ru</key>
+    <value>События проверки адресного хранения</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <informationRegisterPeriodicity>Second</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="2df28ecf-5257-4671-bb7a-ad7cc2f5f6eb">
+    <name>Проверено</name>
+    <synonym>
+      <key>ru</key>
+      <value>Проверено</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="bff81d12-91a3-43b6-9f11-8960e3e4dc0f">
+    <name>Действие</name>
+    <synonym>
+      <key>ru</key>
+      <value>Действие</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ДействияПриПроверкеАдресногоХранения</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="f2ae8157-b79e-4025-bee0-3f6832ecdf2c">
+    <name>НетЭтикетки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Нет этикетки</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="d1537522-9531-4f12-88c8-155135baf886">
+    <name>Сотрудник</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сотрудник</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Сотрудники</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="4fdf94da-beed-4ead-9e06-f33557f7cd70">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="96a38692-bf35-44f1-a587-459d871a122b">
+    <name>Склад</name>
+    <synonym>
+      <key>ru</key>
+      <value>Склад</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Склады</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="86bbe8d9-5cd5-490b-bfe3-722a19f1681b">
+    <name>ИсходнаяЯчейка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Исходная ячейка</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СкладскиеЯчейки</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="6377fbf1-2b56-4c9c-a808-efcb01fc0469">
+    <name>ЦелеваяЯчейка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Фактическая ячейка</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СкладскиеЯчейки</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

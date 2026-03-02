@@ -1,0 +1,267 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" elementFormQualified="false" attributeFormQualified="false">
+	<property xmlns:d2p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TSE_StatemAccNubp_D13" type="d2p1:tTSE_StatemAccNubp_D13"/>
+	<valueType name="tDate" base="xs:date" variety="Atomic"/>
+	<valueType name="tFormularTypes" base="xs:string" variety="Atomic">
+		<enumeration>formular</enumeration>
+		<enumeration>dictionary</enumeration>
+		<enumeration>service</enumeration>
+	</valueType>
+	<valueType name="tGuid" base="xs:string" variety="Atomic">
+		<pattern>[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}</pattern>
+	</valueType>
+	<valueType name="tSUMM" base="xs:decimal" variety="Atomic" totalDigits="20" fractionDigits="2"/>
+	<valueType name="tText1-4" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="tText1-7" base="xs:string" variety="Atomic" minLength="1" maxLength="7"/>
+	<valueType name="tText1-8" base="xs:string" variety="Atomic" minLength="1" maxLength="8"/>
+	<valueType name="tText10" base="xs:string" variety="Atomic" length="10">
+		<pattern>[0-9]+</pattern>
+	</valueType>
+	<valueType name="tText11" base="xs:string" variety="Atomic" length="11"/>
+	<valueType name="tText14" base="xs:string" variety="Atomic" length="14"/>
+	<valueType name="tText4" base="xs:string" variety="Atomic" length="4">
+		<pattern>[0-9]+</pattern>
+	</valueType>
+	<valueType name="tText8" base="xs:string" variety="Atomic" length="8"/>
+	<valueType name="tText_1" base="xs:string" variety="Atomic" minLength="1" maxLength="1"/>
+	<valueType name="tText_100" base="xs:string" variety="Atomic" minLength="1" maxLength="100"/>
+	<valueType name="tText_150" base="xs:string" variety="Atomic" minLength="1" maxLength="150"/>
+	<valueType name="tText_20" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+	<valueType name="tText_200" base="xs:string" variety="Atomic" minLength="1" maxLength="200"/>
+	<valueType name="tText_2000" base="xs:string" variety="Atomic" minLength="1" maxLength="2000"/>
+	<valueType name="tText_20_25" base="xs:string" variety="Atomic" minLength="1" maxLength="25"/>
+	<valueType name="tText_24" base="xs:string" variety="Atomic" minLength="1" maxLength="24"/>
+	<valueType name="tText_50" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+	<valueType name="t_DocType_3" base="xs:string" variety="Atomic">
+		<enumeration>1</enumeration>
+		<enumeration>2</enumeration>
+	</valueType>
+	<valueType name="t_PrivacyComplex_3" base="xs:string" variety="Atomic">
+		<enumeration>0</enumeration>
+	</valueType>
+	<valueType name="t_IGK" base="xs:string" variety="Atomic"/>
+	<valueType name="tText36" base="xs:string" variety="Atomic" length="36"/>
+	<objectType name="extraData" open="true" sequenced="true"/>
+	<objectType name="tDocType" mixed="true" sequenced="true">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="code" type="d3p1:t_DocType_3" lowerBound="1" form="Attribute"/>
+		<property name="value" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration>Промежуточный</enumeration>
+				<enumeration>Итоговый</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="tFormular" abstract="true">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="metaType" type="d3p1:tFormularTypes" lowerBound="0" form="Attribute"/>
+		<property name="Version" lowerBound="1" fixed="true" default="4.0" form="Attribute"/>
+	</objectType>
+	<objectType name="tTSE_BalanAcc_D13">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TSE_BalanAcc_D13_ITEM" type="d3p1:tTSE_BalanAcc_D13_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tTSE_BalanAcc_D13_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="AnalitCode" type="d3p1:tText1-8" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SDTotal" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="EDTotal" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SDNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="EDNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+	</objectType>
+	<objectType name="tTSE_KaznOO_D13">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TSE_KaznOO_D13_ITEM" type="d3p1:tTSE_KaznOO_D13_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tTSE_KaznOO_D13_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="ConfDocNum" type="d3p1:tText_200" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="ConfDocDate" type="d3p1:tDate" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="DocULNum" type="d3p1:tText_200" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="DocULDate" type="d3p1:tDate" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Received" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Transfered" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Executed" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Note" type="d3p1:tText_2000" lowerBound="0"/>
+	</objectType>
+	<objectType name="tTSE_OperUL_D13">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TSE_OperUL_D13_ITEM" type="d3p1:tTSE_OperUL_D13_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tTSE_OperUL_D13_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="DocName" type="d3p1:tText_2000" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="DocNumber" type="d3p1:tText_200" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="DocDate" type="d3p1:tDate" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="ConfDoc_Num" type="d3p1:tText_200" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="ConfDoc_Date" type="d3p1:tDate" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CodFAIP" type="d3p1:tText_24" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CodeSourceExpend" type="d3p1:tText1-7" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Receipts" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Payments" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Note" type="d3p1:tText_2000" lowerBound="0"/>
+	</objectType>
+	<objectType name="tTSE_Razdel1_D13">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TSE_Razdel1_D13_ITEM" type="d3p1:tTSE_Razdel1_D13_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tTSE_Razdel1_D13_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="DocName" type="d3p1:tText_2000" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="DocNum" type="d3p1:tText_100" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="DocDate" type="d3p1:tDate" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="IGKID" type="d3p1:tText_20_25" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="AnalyticalCode" type="d3p1:tText1-8" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TBalanse_SDTotal" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TBalanse_RecTotal" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TBalanse_PayTotal" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TBalanse_EDTotal" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TBalanse_SDNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TBalanse_RecNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TBalanse_EDNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Sum3_1" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Sum3_2" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Sum4_1" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Sum4_2" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Sum4_3" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SDReceived" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SDTransfered" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SDExecuted" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="EDReceived" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="EDTransfered" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="EDExecuted" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TSE_OperUL_D13" type="d3p1:tTSE_OperUL_D13" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TSE_KaznOO_D13" type="d3p1:tTSE_KaznOO_D13" lowerBound="0"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="tTSE_StatemAccNubp_D13" base="d2p1:tFormular">
+		<property name="BasicRequisites_DocDate" type="d2p1:tDate"/>
+		<property name="BasicRequisites_DatePrevStatement" type="d2p1:tDate" lowerBound="0"/>
+		<property name="BasicRequisites_PrivacyLabel" type="d2p1:t_PrivacyComplex"/>
+		<property name="BasicRequisites_ListItem" type="d2p1:tText_150" lowerBound="0"/>
+		<property name="BasicRequisites_AccNum" type="d2p1:tText11"/>
+		<property name="BasicRequisites_DocType" type="d2p1:tDocType"/>
+		<property name="BasicRequisites_BudgetCode" type="d2p1:tText8"/>
+		<property name="ORFK_NameFK" type="d2p1:tText_2000"/>
+		<property name="ORFK_CodeFK" type="d2p1:tText4"/>
+		<property name="LegalEntity_NameUL" type="d2p1:tText_2000"/>
+		<property name="LegalEntity_CodeReestr" type="d2p1:tText8"/>
+		<property name="LegalEntity_BudgetLevel" type="d2p1:tText_1"/>
+		<property name="TSE_BalanAcc_D13" type="d2p1:tTSE_BalanAcc_D13" lowerBound="0"/>
+		<property name="TSE_Razdel1_D13" type="d2p1:tTSE_Razdel1_D13" lowerBound="0"/>
+		<property name="SYTotalSum" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="SDTotalSum" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="EDTotalSum" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="LYSDNotPermTotalSum" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="LYEDNotPermTotalSum" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="CYSDNotPermTotalSum" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="CYEDNotPermTotalSum" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="SDNotPermSum" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="EDNotPermSum" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="SBalanceBeginningYear" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="SBalanceBeginningDay" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="SBalanceEndingDay" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="Sign_FIO" type="d2p1:tText_50" lowerBound="0"/>
+		<property name="Sign_Position" type="d2p1:tText_100" lowerBound="0"/>
+		<property name="Sign_Phone" type="d2p1:tText_50" lowerBound="0"/>
+		<property name="Sign_DateSign" type="d2p1:tDate" lowerBound="0"/>
+		<property name="TSE_BalanAcc2_D13" type="d2p1:tTSE_BalanAcc2_D13"/>
+		<property name="TSE_Attach_D13" type="d2p1:tTSE_Attach_D13"/>
+	</objectType>
+	<objectType name="t_PrivacyComplex" mixed="true" sequenced="true">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="code" type="d3p1:t_PrivacyComplex_3" lowerBound="1" form="Attribute"/>
+		<property name="value" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration>Несекретно</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="tTSE_BalanAcc2_D13">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TSE_BalanAcc2_D13_ITEM" type="d3p1:tTSE_BalanAcc2_D13_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tTSE_BalanAcc2_D13_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="AnalitCode" type="d3p1:tText8" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SDTotal" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="EDTotal" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SYTotal" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="LYSDNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="LYEDNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CYSDNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CYEDNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+	</objectType>
+	<objectType name="tTSE_Attach_D13">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TSE_Attach_D13_ITEM" type="d3p1:tTSE_Attach_D13_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tTSE_Attach_D13_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="DocName" type="d3p1:tText_2000" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="DocNum" type="d3p1:tText_100" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="DocDate" type="d3p1:tDate" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="IGKID" type="d3p1:t_IGK" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="AKR" type="d3p1:tText1-8" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TSE_AllowOp2_D13" type="d3p1:tTSE_AllowOp2_D13" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="ChangeBalances" type="d3p1:tChangeBalances" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="OperKOO_D13" type="d3p1:tOperKOO_D13" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SBalanceTrustFunds" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SSumDbtBackPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SPlanRecItog" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SPlanRec" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SPlanRecFirstYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SPlanRecSecYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SPlanRecNextYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SPlanPayItog" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SPlanPay" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SPlanPayFirstYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SPlanPaySecYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SPlanPayNextYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SFactRec" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SFactPay" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SNotUsedPermRec" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SNotUsedPermPay" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TotalReceived" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TotalTransfered" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TotalExecuted" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="LYSDNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="LYEDNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CYSDNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CYEDNotPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SYTotal" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SDTotal" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="EDTotal" type="d3p1:tSUMM" lowerBound="0"/>
+	</objectType>
+	<objectType name="tTSE_AllowOp2_D13">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="TSE_AllowOp2_D13_ITEM" type="d3p1:tTSE_AllowOp2_D13_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tTSE_AllowOp2_D13_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CodeCS" type="d3p1:tText1-7" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CodeCS1" type="d3p1:tText_20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CodFAIP" type="d3p1:tText_24" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="BalanceTrustFunds" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SumDbtBackPerm" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="PlanRecItog" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="PlanRec" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="PlanRecFirstYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="PlanRecSecYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="PlanRecNextYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="PlanPayItog" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="PlanPay" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="PlanPayFirstYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="PlanPaySecYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="PlanPayNextYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="FactRec" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="FactPay" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="NotUsedPermRec" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="NotUsedPermPay" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Note" type="d3p1:tText_2000" lowerBound="0"/>
+	</objectType>
+	<objectType name="tChangeBalances">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="ChangeBalances_ITEM" type="d3p1:tChangeBalances_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tChangeBalances_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="SourceCode" type="d3p1:tText4" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CodFAIP" type="d3p1:tText_24" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="BalanceBeginningYear" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="BalanceBeginningDay" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="BalanceEndingDay" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Note" type="d3p1:tText_2000" lowerBound="0"/>
+	</objectType>
+	<objectType name="tOperKOO_D13">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="OperKOO_D13_ITEM" type="d3p1:tOperKOO_D13_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tOperKOO_D13_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CodeCS" type="d3p1:tText1-4" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CodeCS1" type="d3p1:tText_20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="CodFAIP" type="d3p1:tText_24" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Received" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Transfered" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Executed" type="d3p1:tSUMM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_StatemAccNubp_D13/formular" name="Note" type="d3p1:tText_2000" lowerBound="0"/>
+	</objectType>
+</package>

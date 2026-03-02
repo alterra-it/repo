@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="2ed4858b-b9c3-4ad9-bd8b-dbfdb829d111">
+  <producedTypes>
+    <objectType typeId="1ced269c-dcf0-41ec-b6cb-58ae9a42a19b" valueTypeId="2db3231c-54b2-484c-bf2b-669486095da1"/>
+    <refType typeId="95ea4972-2aef-40a9-8b32-0431b019b90a" valueTypeId="4a4a0d30-037f-477f-a756-dfadcdc0cc97"/>
+    <selectionType typeId="57e1306d-9783-497d-beee-274795c86865" valueTypeId="3dbe364b-79df-42ad-bd49-ee11e5399112"/>
+    <listType typeId="1682f103-5be1-4b0a-ac21-70b964e0afa5" valueTypeId="ea84f198-7255-42c1-9784-218543d7c520"/>
+    <managerType typeId="b0cace6e-38d0-4469-8cdf-1ff85aed1064" valueTypeId="eb06c303-409d-445f-8d98-246a59c62535"/>
+  </producedTypes>
+  <name>ВидыРаботИТехническогоОбслуживания</name>
+  <synonym>
+    <key>ru</key>
+    <value>Виды работ и технического обслуживания</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Catalog.ВидыРаботИТехническогоОбслуживания.StandardAttribute.Description</inputByString>
+  <inputByString>Catalog.ВидыРаботИТехническогоОбслуживания.StandardAttribute.Code</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <levelCount>2</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <codeLength>9</codeLength>
+  <descriptionLength>50</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <predefined>
+    <items id="ab5d6ef9-fe44-47a7-831d-96a86750e629">
+      <name>КапитальныйРемонт</name>
+      <description>Капитальный ремонт</description>
+      <code xsi:type="core:StringValue">
+        <value>000000001</value>
+      </code>
+    </items>
+  </predefined>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <attributes uuid="4c205846-e5d0-451b-adc2-890d704a290b">
+    <name>ТипРемонта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тип ремонта</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ТипыРемонтов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <tabularSections uuid="31208f04-223b-4c0d-9dc8-e8a594b62eff">
+    <producedTypes>
+      <objectType typeId="2582cfe3-eb86-49bf-adb6-0d0c1189105f" valueTypeId="74b835ff-af3c-46d8-98f5-63dd6a0dba9d"/>
+      <rowType typeId="c83a9dd7-c29d-43ad-ab4c-d42fbda4dbe1" valueTypeId="186f863d-3ca7-4204-a3a8-83a54cccd964"/>
+    </producedTypes>
+    <name>ВидыНоменклатуры</name>
+    <synonym>
+      <key>ru</key>
+      <value>Виды номенклатуры</value>
+    </synonym>
+    <attributes uuid="c669187f-9161-405a-9d93-61df8b3d8827">
+      <name>ВидНоменклатуры</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид номенклатуры</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.ВидыНоменклатуры</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+  </tabularSections>
+</mdclass:Catalog>

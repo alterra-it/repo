@@ -1,0 +1,45 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/dictionaries/1.0.7" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/dictionaries/1.0.7" name="Request" type="d2p1:DictionaryRequestType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/dictionaries/1.0.7" name="Response" type="d2p1:DictionaryResponseType"/>
+	<valueType name="DictionaryType" base="xs:string" variety="Atomic">
+		<enumeration>OKPD2</enumeration>
+		<enumeration>TNVED</enumeration>
+		<enumeration>Agriculture</enumeration>
+		<enumeration>ReasonWriteOff</enumeration>
+		<enumeration>Probe</enumeration>
+		<enumeration>Transport</enumeration>
+		<enumeration>UnitOfMeasure</enumeration>
+		<enumeration>WeightDiscrepancyCause</enumeration>
+		<enumeration>Document</enumeration>
+		<enumeration>IndicatorPurpose</enumeration>
+		<enumeration>LotDocument</enumeration>
+		<enumeration>LotReturnReason</enumeration>
+		<enumeration>PropertyRightTransferDoc</enumeration>
+		<enumeration>QualityIndicator</enumeration>
+		<enumeration>QualityIndicatorLimit</enumeration>
+		<enumeration>ProcessingMethod</enumeration>
+		<enumeration>PropertyRight</enumeration>
+		<enumeration>LotsPurpose</enumeration>
+		<enumeration>LotsTarget</enumeration>
+		<enumeration>ElevatorService</enumeration>
+		<enumeration>Storage</enumeration>
+	</valueType>
+	<objectType name="DictionaryRequestType">
+		<property name="lastModified" type="xs:dateTime" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/dictionaries/1.0.7" name="Dictionary" type="d3p1:DictionaryType"/>
+		<property name="IsActual" type="xs:boolean" lowerBound="0" fixed="false" default="true"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="Paging" type="d3p1:PagingType" lowerBound="0"/>
+	</objectType>
+	<objectType name="DictionaryResponseType">
+		<property name="hasMore" type="xs:boolean" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7" name="Items" type="d3p1:ItemListType"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/dictionaries/1.0.7" name="QualityIndicatorRequestType" base="d2p1:DictionaryRequestType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7" name="OKPD2" type="d3p1:OKPD2CodeType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7" name="Country" type="d3p1:CountryCodeType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7" name="IndicatorPurpose" type="d3p1:IndicatorPurposeCodeType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7" name="QualityIndicator" type="d3p1:QualityIndicatorCodeType"/>
+	</objectType>
+</package>

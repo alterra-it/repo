@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="7ca7cf10-0cc4-4cf4-84c6-612941e02e8f">
+  <producedTypes>
+    <objectType typeId="0582882b-d30f-462e-859d-1a4a4bb30c64" valueTypeId="98dca26b-abaa-428d-88b9-acd8cbc39949"/>
+    <refType typeId="1dc941b0-7e91-44e7-b777-ebedc3aa3c54" valueTypeId="13a61365-997f-4dde-a446-93e89404bd30"/>
+    <selectionType typeId="cc5ad86a-2a7c-4d16-9db0-95c4198d9b5d" valueTypeId="992ae907-ed14-44b6-9ef2-ad84e3f85092"/>
+    <listType typeId="e415cb67-e346-4bd1-a934-177e6dd11cdf" valueTypeId="bcfd8f9a-23fa-462c-9568-8ac6230f95ee"/>
+    <managerType typeId="4858f2c1-a4eb-4eb7-8413-47d846253f8e" valueTypeId="bbebc098-ffb6-44f4-924a-5f1510b57289"/>
+  </producedTypes>
+  <name>СторноПоАннулированнымЛистам</name>
+  <synonym>
+    <key>ru</key>
+    <value>Сторно по аннулированным листам</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Document.СторноПоАннулированнымЛистам.StandardAttribute.Number</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <numberType>String</numberType>
+  <numberLength>9</numberLength>
+  <numberAllowedLength>Variable</numberAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <registerRecords>AccumulationRegister.НачисленияУдержаний</registerRecords>
+  <postInPrivilegedMode>true</postInPrivilegedMode>
+  <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
+  <attributes uuid="8f5b3b66-eb3a-430b-a0cf-23b12e290f62">
+    <name>ПериодНачисления</name>
+    <synonym>
+      <key>ru</key>
+      <value>Период начисления</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="40fb35ea-e4ba-4119-b1d6-3b1c1a368bb8">
+    <name>Автор</name>
+    <synonym>
+      <key>ru</key>
+      <value>Автор</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="e23f7e90-3a9c-41ee-a008-e96fdfbabd6f">
+    <name>Комментарий</name>
+    <synonym>
+      <key>ru</key>
+      <value>Комментарий</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>150</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <tabularSections uuid="47c5a54d-c150-4849-8e70-375419c407ea">
+    <producedTypes>
+      <objectType typeId="063d9b69-9b93-4eaf-95af-cb71797544d8" valueTypeId="eae8ae82-d103-4655-b6d8-bfec56298090"/>
+      <rowType typeId="592edff8-3e45-42cb-aaa8-59d638d91698" valueTypeId="fe65dee6-3ed2-45bf-be98-fcb8ba8d8dcc"/>
+    </producedTypes>
+    <name>Начисления</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начисления</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="43cd3a44-4e73-4526-b4f3-f4e1cc231858">
+      <name>Сотрудник</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сотрудник</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Пользователи</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="c540cfeb-934e-42e3-ae36-dfddb8b579bb">
+      <name>Удержание</name>
+      <synonym>
+        <key>ru</key>
+        <value>Удержание</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Удержания</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="68221aab-86b5-4a9a-8a53-6342ad1b13f2">
+      <name>Сторно</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сторно</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="b73dcae7-2745-4b88-a714-8cbe27dfd4d1">
+      <name>РегистраторУдержания</name>
+      <synonym>
+        <key>ru</key>
+        <value>Регистратор удержания</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.ЛистСогласованияДоговоров</types>
+        <types>DocumentRef.РегистрацияУдержаний</types>
+        <types>DocumentRef.ЛистСогласования</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+  </tabularSections>
+</mdclass:Document>

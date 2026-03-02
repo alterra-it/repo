@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="d1debd3c-ebad-4fd6-b5cc-a168c5541d0c">
+  <producedTypes>
+    <selectionType typeId="99d90fbc-3292-4126-8712-a3ac3ab15869" valueTypeId="1200affb-4370-494d-ba81-e7597965aa2d"/>
+    <listType typeId="95256315-f1dc-40d2-92bc-fc842327ef7f" valueTypeId="45593950-d9b2-40e0-8993-9f1fa50e99b7"/>
+    <managerType typeId="4465f5f0-ab69-49e4-abf6-0e9274a47c70" valueTypeId="6f491ef0-7db2-4815-8e62-f3e5db8cccec"/>
+    <recordSetType typeId="4452726e-fc9a-4f00-b338-08f6fbfbe60d" valueTypeId="d139f86f-3f78-458a-b4c5-e11d6fe94ba8"/>
+    <recordKeyType typeId="bb457447-9777-44f6-87a5-2d6135332593" valueTypeId="8442df69-93a9-444e-9799-1f6cfd207bc7"/>
+    <recordType typeId="db78b2bc-e6b1-4cc0-99e4-272b2a561f4f" valueTypeId="85931bce-2538-4747-9d7a-7120b0d0ca8c"/>
+  </producedTypes>
+  <name>БлокировкаДвиженияТоваров</name>
+  <synonym>
+    <key>ru</key>
+    <value>Блокировка движения товаров</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="0f146454-5751-41ac-9858-ed8e82493ca9">
+    <name>Количество</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>3</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <resources uuid="7c348c43-92a1-4176-b0bb-e441e8e06dd0">
+    <name>КоличествоПлан</name>
+    <synonym>
+      <key>ru</key>
+      <value>Планируемое количество</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>3</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <dimensions uuid="ff486bfa-32f9-483b-a31f-217330dd926b">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="ab8e653a-6710-4566-aa65-0d5ea7f238c5">
+    <name>Характеристика</name>
+    <synonym>
+      <key>ru</key>
+      <value>Характеристика</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ХарактеристикиНоменклатуры</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Характеристика номенклатуры, остатки которой учитываются на складах.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameterLinks>
+      <name>Номенклатура</name>
+      <field>AccumulationRegister.БлокировкаДвиженияТоваров.Dimension.Номенклатура</field>
+    </choiceParameterLinks>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="ce328e11-efc3-4665-b4b8-c81faf099f64">
+    <name>Склад</name>
+    <synonym>
+      <key>ru</key>
+      <value>Склад</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Склады</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Склад, на котором учитываются остатки номенклатуры.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="cd3fb855-d4a5-4870-b2f5-784d225e96f4">
+    <name>ПричинаБлокировки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Причина блокировки</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ПричиныБлокировкиДвиженияТоваров</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Причина, по которой заблокировали движение номенклатуры.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

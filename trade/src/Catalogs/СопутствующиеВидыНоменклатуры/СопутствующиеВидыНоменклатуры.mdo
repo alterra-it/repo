@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="595a9fce-03c6-4237-b949-62aee592b782">
+  <producedTypes>
+    <objectType typeId="89c55b1e-4ff5-45a4-a9a6-bd23ee23f6e8" valueTypeId="92a60c43-8b9c-4894-ab41-4bb8b9e2fa87"/>
+    <refType typeId="e8fbb483-232a-422f-b30c-c82da6c14a9c" valueTypeId="8381480f-334b-45e7-8375-a8ef6ba385e6"/>
+    <selectionType typeId="5c92cc2c-d4c9-4adf-9c1d-02d94f35488a" valueTypeId="4ab8fec7-202c-4178-a522-4ce305acfc38"/>
+    <listType typeId="0cc9cdf2-c560-4a4b-b905-85a6d9c0b873" valueTypeId="71b1b540-96c3-4d9e-ae82-9df25cbdcd60"/>
+    <managerType typeId="4a561b9c-14cc-43c0-b773-7d14d2391b81" valueTypeId="bab26d2a-ea0c-4f3b-969b-f6de71d0cfe0"/>
+  </producedTypes>
+  <name>СопутствующиеВидыНоменклатуры</name>
+  <synonym>
+    <key>ru</key>
+    <value>Сопутствующие виды номенклатуры</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Catalog.СопутствующиеВидыНоменклатуры.StandardAttribute.Description</inputByString>
+  <inputByString>Catalog.СопутствующиеВидыНоменклатуры.StandardAttribute.Code</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <levelCount>2</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <owners>Catalog.ВидыНоменклатуры</owners>
+  <codeLength>9</codeLength>
+  <descriptionLength>100</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <attributes uuid="34a9d3dd-56b9-41f2-98c8-21cc19d49bfc">
+    <name>СопутствующийВидНоменклатуры</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сопутствующий вид номенклатуры</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ВидыНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <tabularSections uuid="9d49288d-0bc5-44a0-a4b0-86c210086ef1">
+    <producedTypes>
+      <objectType typeId="0f620e06-7101-44bd-b8d9-a2e603c10a76" valueTypeId="da6d90ae-43e5-4536-b89f-1181e9912b9e"/>
+      <rowType typeId="be74f8c9-a292-4eda-98a2-cb3ffba893ff" valueTypeId="8c9d66fc-9944-4132-8057-e447347f6264"/>
+    </producedTypes>
+    <name>СопутствующаяНоменклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сопутствующая номенклатура</value>
+    </synonym>
+    <fillChecking>ShowError</fillChecking>
+    <attributes uuid="01f05813-f228-4eb8-acc4-b44df91fe5a3">
+      <name>Номенклатура</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номенклатура</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Номенклатура</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameterLinks>
+        <name>Отбор.ВидНоменклатуры</name>
+        <field>Catalog.СопутствующиеВидыНоменклатуры.Attribute.СопутствующийВидНоменклатуры</field>
+      </choiceParameterLinks>
+      <choiceForm>Catalog.Номенклатура.Form.ФормаВыбораГруппИЭлементов</choiceForm>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+  </tabularSections>
+</mdclass:Catalog>

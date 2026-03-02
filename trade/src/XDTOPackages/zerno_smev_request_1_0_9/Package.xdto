@@ -1,0 +1,19 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/smev-zerno-request/1.0.9" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.9"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.9"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.9"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.9"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.9"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/faults/1.0.5"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/smev-zerno-request/1.0.9" name="ZernoRequest" type="d2p1:ZernoRequestType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/smev-zerno-request/1.0.9" name="ZernoResponse" type="d2p1:ZernoResponseType"/>
+	<objectType name="ZernoRequestType" ordered="false" sequenced="true">
+		<property name="LotNumber" type="xs:string" lowerBound="0"/>
+		<property name="SDIZNumber" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ZernoResponseType" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.9" name="lot" type="d3p1:RecordLotType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.9" name="SDIZ" type="d3p1:RecordSDIZType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/faults/1.0.5" name="Fault" type="d3p1:FaultType" lowerBound="0"/>
+	</objectType>
+</package>

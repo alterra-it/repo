@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="545d17ac-0e90-48b1-8c2f-a39030521465">
+  <producedTypes>
+    <selectionType typeId="3fed977e-7220-4079-ab1f-f5b4a8b37830" valueTypeId="0eda4754-6020-476c-ab36-c17d2904db1f"/>
+    <listType typeId="643c9447-af36-4260-8439-6f274bb375c5" valueTypeId="7ccff28c-5ab3-45db-a19d-1237fa2ddab7"/>
+    <managerType typeId="f6585940-4fef-44a3-a5d8-46c0bb369fee" valueTypeId="76bb5ee1-2955-4ed7-bed4-ed9e6ac63aaa"/>
+    <recordSetType typeId="020bfde2-0fc1-44d2-a2c2-2506aa665bb9" valueTypeId="3ef9a39b-eb06-449e-9971-3257633de813"/>
+    <recordKeyType typeId="6a132b78-d9cd-417d-ba5b-3065c320025a" valueTypeId="f7cbc450-c9cf-461b-9fec-d0a8cebab94e"/>
+    <recordType typeId="45afa0ae-2719-4b00-a19f-dc654c025d71" valueTypeId="4dc8c0cc-31ef-4d4f-8491-536d3b3340ab"/>
+  </producedTypes>
+  <name>ЗатратыПоДоставкеОтПоставщика</name>
+  <synonym>
+    <key>ru</key>
+    <value>Затраты по доставке от поставщика</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="7d074a69-8ef7-4a52-bbb5-af786b566393">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <attributes uuid="eb22b9d3-92f6-4d37-b2b8-2e4a69a3b5a2">
+    <name>ЗаказНаДоставку</name>
+    <synonym>
+      <key>ru</key>
+      <value>Заказ на доставку</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ЗаказНаДоставкуОтПоставщика</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="4b6fcbf9-c3bb-48e7-b31f-58d73056c093">
+    <name>ДокументОснование</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ основание</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ПриобретениеТоваровУслуг</types>
+      <types>DocumentRef.ЗаказПоставщику</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <dimensions uuid="c99814ac-b0b7-4d4a-9b8e-a02cd01bcc21">
+    <name>Перевозчик</name>
+    <synonym>
+      <key>ru</key>
+      <value>Перевозчик</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Организация, осуществляющая доставку товаров клиенту</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="3b1a5703-8382-42a9-ada8-9489846e93c6">
+    <name>Документ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ПриобретениеТоваровУслуг</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

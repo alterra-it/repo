@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="70d56e94-a86d-4915-92a5-6167bd5f744b">
+  <producedTypes>
+    <selectionType typeId="9e1b7def-e935-4bda-97e2-efe65fbe4bc7" valueTypeId="a66c1f4e-66f0-4c57-9b1d-fd44d8656281"/>
+    <listType typeId="368d3b68-3368-45bc-96ca-a49b96f990a5" valueTypeId="79d68877-0e74-412e-8fa9-72ae9bc536f0"/>
+    <managerType typeId="83e8fc4a-5df9-4385-b530-7a8f06135b4a" valueTypeId="c1f390c9-c5da-4fc9-9ef3-109a9e470bca"/>
+    <recordSetType typeId="4beea6bf-ac82-42f1-a338-b1203e6eb768" valueTypeId="be984244-17bf-487b-aa2f-ea1090d31883"/>
+    <recordKeyType typeId="aa0b63c9-e7ec-42d8-9c9d-0426d335713a" valueTypeId="7f33b088-d031-480c-a2d2-c5ba031f02dd"/>
+    <recordType typeId="0a2a679a-5542-432e-989e-a8f55d6c1efe" valueTypeId="7a39603b-420d-4f57-b58f-9e186edd4a32"/>
+  </producedTypes>
+  <name>ДвижениеМаркированногоТовара</name>
+  <synonym>
+    <key>ru</key>
+    <value>Движение маркированного товара</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="9ef50358-4b4c-4f8d-8f3c-c39ae0f8284a">
+    <name>Количество</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <attributes uuid="5ba02f5d-2d6b-4d24-8c8b-d729ad55c7ba">
+    <name>Статус</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статус</value>
+    </synonym>
+    <type>
+      <types>EnumRef.СтатусыКодовМаркировкиИСМП</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <dimensions uuid="27a718ab-e501-4f96-a32f-314d4c6668c8">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="02701afa-eb9c-4ab0-83ef-0735eb368b9b">
+    <name>Склад</name>
+    <synonym>
+      <key>ru</key>
+      <value>Склад</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Склады</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="22aee441-98fe-4f62-a188-d07f0fc890a6">
+    <name>Штрихкод</name>
+    <synonym>
+      <key>ru</key>
+      <value>Штрихкод</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ШтрихкодыУпаковокТоваров</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="ce0c1123-07f1-40d4-936e-14f1e588c802">
+    <name>ШтрихкодУпаковки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Штрихкод упаковки</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ШтрихкодыУпаковокТоваров</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

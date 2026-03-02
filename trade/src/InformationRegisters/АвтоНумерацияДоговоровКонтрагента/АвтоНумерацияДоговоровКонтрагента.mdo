@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="aabda6fb-3dde-4a68-b172-2510f4d81b0a">
+  <producedTypes>
+    <selectionType typeId="e106af72-8d1f-48ae-8bf5-6afd763b6d69" valueTypeId="005830c1-a044-4659-8d4b-682ae5a2bc36"/>
+    <listType typeId="1fb1dade-6a42-4ec3-9d51-0696bc4c1d39" valueTypeId="34e111ac-2b22-43b0-920b-bd2fbc6b56d9"/>
+    <managerType typeId="43cdc22c-47f4-447d-b2e9-328d416401ce" valueTypeId="d0ee69f2-3983-43a0-8734-39956073ee09"/>
+    <recordSetType typeId="85e005d8-1b0c-4f74-a75a-675cc910cdb3" valueTypeId="00861b26-875c-4b43-b643-b203e890800c"/>
+    <recordKeyType typeId="f2b46844-d377-409d-b881-f2131c15f86f" valueTypeId="12696436-c2c1-4785-8741-4d6e1353ee50"/>
+    <recordType typeId="50c6ccf5-e547-41ef-ba32-9ec343c6a957" valueTypeId="3838996b-e57d-4adc-ac67-ddb97eb5747a"/>
+    <recordManagerType typeId="d307064c-d864-4a92-ad3d-e472a6c21356" valueTypeId="c99d78a5-a685-4c22-85c3-f3dc6b96e209"/>
+  </producedTypes>
+  <name>АвтоНумерацияДоговоровКонтрагента</name>
+  <synonym>
+    <key>ru</key>
+    <value>Автонумерация договоров контрагента</value>
+  </synonym>
+  <comment>Хранит последний номер договора за каждый пеиод</comment>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="91403acb-a029-4567-badf-8742cb6751c7">
+    <name>ТекущийНомер</name>
+    <synonym>
+      <key>ru</key>
+      <value>Текущий номер</value>
+    </synonym>
+    <comment>последний занятый номер</comment>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="4c3e7e41-cdf8-4ddc-9ee4-fb68fc12c5cc">
+    <name>ПериодНумерации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Период нумерации</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

@@ -1,0 +1,68 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.6"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5"/>
+	<valueType name="KindDocumentType" base="xs:string" variety="Atomic">
+		<enumeration>PAPER</enumeration>
+		<enumeration>ELECTRONIC</enumeration>
+	</valueType>
+	<valueType name="KindSDIZType" base="xs:string" variety="Atomic">
+		<enumeration>OUTGOING</enumeration>
+		<enumeration>INCOMING</enumeration>
+	</valueType>
+	<valueType name="OperationSDIZType" base="xs:string" variety="Atomic">
+		<enumeration>ACCEPTANCE</enumeration>
+		<enumeration>SHIPMENT</enumeration>
+		<enumeration>SHIPPING</enumeration>
+		<enumeration>REALIZATION</enumeration>
+	</valueType>
+	<valueType name="ResultOperationType" base="xs:string" variety="Atomic">
+		<enumeration>DONE</enumeration>
+		<enumeration>NOT_DONE</enumeration>
+	</valueType>
+	<valueType name="StatusRecordType" base="xs:string" variety="Atomic">
+		<enumeration>SUBSCRIBED</enumeration>
+		<enumeration>CANCELED</enumeration>
+	</valueType>
+	<objectType name="DeclarationOfConformitType">
+		<property name="number" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property name="date" type="xs:date" lowerBound="0" form="Attribute"/>
+		<property name="dateEnd" type="xs:date" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="DocNumberDateType">
+		<property name="number" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property name="date" type="xs:date" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="DocOtherNumberDateType" base="d2p1:DocNumberDateType">
+		<property name="KindDoc" type="xs:string"/>
+	</objectType>
+	<objectType name="ElevatorNumberType">
+		<property name="number" type="xs:string" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="GrainProductType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.6" name="OKPD2" type="d3p1:OKPD2CodeType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.6" name="TNVED" type="d3p1:TNVEDCodeType" lowerBound="0"/>
+	</objectType>
+	<objectType name="ListValueQualityIndicatorType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="Value" type="d3p1:ValueQualityIndicatorType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="PhytosanitaryCertificateType">
+		<property name="number" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property name="date" type="xs:date" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="TransportInfoType">
+		<property name="numberTransport" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property name="numberContainer" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.6" name="TransportCode" type="d3p1:TransportCodeType"/>
+	</objectType>
+	<objectType name="ValueQualityIndicatorType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.6" name="qualityIndicatorCode" type="d3p1:QualityIndicatorCodeType" lowerBound="1" form="Attribute"/>
+		<property name="__content" type="xs:string" form="Text"/>
+	</objectType>
+	<objectType name="VeterinaryCertificateType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="KindDoc" type="d3p1:KindDocumentType" lowerBound="1" form="Attribute"/>
+		<property name="date" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="number" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property name="series" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="uuid" type="d3p1:UUID" lowerBound="0" form="Attribute"/>
+	</objectType>
+</package>

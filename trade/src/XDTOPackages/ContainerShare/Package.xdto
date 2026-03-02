@@ -1,0 +1,83 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="https://sh.1cfresh.com/files/docs/ContainerShare">
+	<property xmlns:d2p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="ContainerShare" type="d2p1:ContainerShare"/>
+	<valueType name="TINType" base="xs:string" variety="Atomic" minLength="1" maxLength="14"/>
+	<valueType name="KPPType" base="xs:string" variety="Atomic" length="9">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})([0-9]{2})([0-9A-Z]{2})([0-9]{3})</pattern>
+	</valueType>
+	<valueType name="IdentifierGuid" base="xs:string" length="36">
+		<pattern>[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}</pattern>
+	</valueType>
+	<valueType name="SumType" base="xs:decimal" variety="Atomic" totalDigits="15" fractionDigits="2"/>
+	<valueType name="String255" base="xs:string" variety="Atomic" maxLength="255"/>
+	<valueType name="String150" base="xs:string" variety="Atomic" maxLength="150"/>
+	<valueType name="String50" base="xs:string" variety="Atomic" maxLength="50"/>
+	<valueType name="DigitalCode" base="xs:string" variety="Atomic" length="3">
+		<pattern>([0-9]{3})</pattern>
+	</valueType>
+	<objectType name="ContainerShare">
+		<property name="Card">
+			<typeDef xsi:type="ObjectType">
+				<property name="FormatVersion" nillable="false" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="10"/>
+				</property>
+				<property xmlns:d5p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="Identifier" type="d5p1:IdentifierGuid" form="Attribute"/>
+				<property xmlns:d5p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="DocumentType" type="d5p1:String150" form="Attribute"/>
+				<property xmlns:d5p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="TitleDocumentSender" type="d5p1:String150" form="Attribute"/>
+				<property xmlns:d5p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="MetadataType" type="d5p1:String150" form="Attribute"/>
+				<property name="Description">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="TitleDocumentRecipient" type="d7p1:String150" form="Attribute"/>
+						<property name="Date" type="xs:dateTime" lowerBound="0" nillable="false" form="Attribute"/>
+						<property name="Number" lowerBound="0" nillable="false" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" maxLength="25"/>
+						</property>
+						<property xmlns:d7p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="Sum" type="d7p1:SumType" lowerBound="0" nillable="false" form="Attribute"/>
+						<property xmlns:d7p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="VATSum" type="d7p1:SumType" lowerBound="0" nillable="false" form="Attribute"/>
+						<property name="Currency" lowerBound="0" nillable="false">
+							<typeDef xsi:type="ObjectType">
+								<property xmlns:d9p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="Code" type="d9p1:DigitalCode" form="Attribute"/>
+								<property xmlns:d9p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="Name" type="d9p1:String50" form="Attribute"/>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+				<property name="Sender">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="Name" type="d7p1:String255" form="Attribute"/>
+						<property xmlns:d7p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="TIN" type="d7p1:TINType" form="Attribute"/>
+						<property xmlns:d7p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="KPP" type="d7p1:KPPType" lowerBound="0" form="Attribute"/>
+						<property xmlns:d7p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="CodeCountry" type="d7p1:DigitalCode" lowerBound="0" form="Attribute"/>
+					</typeDef>
+				</property>
+				<property name="Recipient">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="Name" type="d7p1:String255" form="Attribute"/>
+						<property xmlns:d7p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="TIN" type="d7p1:TINType" form="Attribute"/>
+						<property xmlns:d7p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="KPP" type="d7p1:KPPType" lowerBound="0" form="Attribute"/>
+						<property xmlns:d7p1="https://sh.1cfresh.com/files/docs/ContainerShare" name="CodeCountry" type="d7p1:DigitalCode" lowerBound="0" form="Attribute"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Meta">
+			<typeDef xsi:type="ObjectType">
+				<property name="MainFile">
+					<typeDef xsi:type="ObjectType">
+						<property name="Path" form="Attribute"/>
+						<property name="AttachedFiles" type="xs:boolean" form="Attribute"/>
+					</typeDef>
+				</property>
+				<property name="FilesVisualization" form="Element">
+					<typeDef xsi:type="ObjectType">
+						<property name="File" upperBound="-1" form="Element">
+							<typeDef xsi:type="ObjectType">
+								<property name="Path" type="xs:string" form="Attribute"/>
+								<property name="Name" type="xs:string" form="Attribute"/>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+</package>

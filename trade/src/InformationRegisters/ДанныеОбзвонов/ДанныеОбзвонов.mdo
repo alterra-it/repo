@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="6f111f6a-958a-4b3a-9a75-6a707eaf8554">
+  <producedTypes>
+    <selectionType typeId="2cf344ee-5dc4-460d-8d9c-6d9172fc7bd7" valueTypeId="99033fb5-9f46-40f2-84f7-741144fc4c8e"/>
+    <listType typeId="0b63bbc3-b904-4f4c-9fef-bf53f53bafac" valueTypeId="8c0bf494-7c38-4d1c-bac5-15c7cbf09693"/>
+    <managerType typeId="0b2a6b7a-63c2-47bf-8935-39a049fc7164" valueTypeId="dcfdfb55-7347-4210-9707-b4fd4fef524a"/>
+    <recordSetType typeId="1c536fa3-02f4-44c2-837d-039d04390ffb" valueTypeId="7517b11c-0efc-4444-ac1a-4fd97fe374f0"/>
+    <recordKeyType typeId="b94b7b53-3663-41aa-9adf-adacf1e70ea4" valueTypeId="b594ead0-8471-4067-9026-d445d7da6c48"/>
+    <recordType typeId="b531eedc-9a70-49bd-b5ed-81d03120a900" valueTypeId="959fc328-4008-4a71-9653-2a12fc479039"/>
+    <recordManagerType typeId="f43e6f2b-4115-4027-ac48-a19e543f9c79" valueTypeId="25e011bc-e44b-409f-9d62-90a1dccd6543"/>
+  </producedTypes>
+  <name>ДанныеОбзвонов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Данные обзвонов</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <informationRegisterPeriodicity>Second</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="323e441b-3165-421f-a733-a90134867003">
+    <name>НомерТелефона</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номер телефона</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>20</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </resources>
+  <resources uuid="082dcc11-761b-4227-920b-bb413d9fcd8b">
+    <name>Комментарий</name>
+    <synonym>
+      <key>ru</key>
+      <value>Комментарий</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>150</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </resources>
+  <resources uuid="95f0c8c7-69ff-4061-af04-3e92b5e4e552">
+    <name>Оценка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Оценка</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ОценкиКлиентов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="008336a3-ae9f-49c9-9f70-144e6f50f21b">
+    <name>ОценкаКачестваДоставки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Оценка качества доставки</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ОценкиКлиентов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="5e5cc76f-03c4-4fb5-b318-ae8527ec7a6f">
+    <name>Примечание</name>
+    <synonym>
+      <key>ru</key>
+      <value>Примечание</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>150</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </attributes>
+  <attributes uuid="5fb28313-e205-4a4e-8191-47629a22d048">
+    <name>Пользователь</name>
+    <synonym>
+      <key>ru</key>
+      <value>Пользователь</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="0126f346-11ce-499e-a2a1-9d53880a81e1">
+    <name>ОбъектОбзвона</name>
+    <synonym>
+      <key>ru</key>
+      <value>Объект обзвона</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ЗаказНаДоставкуКлиенту</types>
+      <types>CatalogRef.Пользователи</types>
+      <types>DocumentRef.КорректировкаРеализации</types>
+      <types>DocumentRef.РеализацияТоваровУслуг</types>
+      <types>String</types>
+      <types>DocumentRef.ЧекККМ</types>
+      <types>DocumentRef.ЗаказКлиента</types>
+      <stringQualifiers>
+        <length>150</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="2224e507-f0ae-4580-88f8-b369e0c759fb">
+    <name>ВидОбзвона</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид обзвона</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ВидыОбзвонов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="ca5eda48-3440-4dad-94f8-7b659598e611">
+    <name>Партнер</name>
+    <synonym>
+      <key>ru</key>
+      <value>Партнер</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Партнеры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

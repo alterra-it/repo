@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="3c7eba47-a7bb-4562-861d-881f11aa7241">
+  <producedTypes>
+    <selectionType typeId="7e233510-6bb5-47b1-a9ee-6b48ace19ede" valueTypeId="c84c9e32-c5a2-4cc6-9604-d233c37f44ca"/>
+    <listType typeId="dfc6450f-016e-4900-939a-f2f4df25d52e" valueTypeId="e7dff1ac-5b99-42c8-b555-a1740e43ca02"/>
+    <managerType typeId="b70d713b-6816-491c-9884-047d1f050d49" valueTypeId="75caaad7-3755-438d-85cc-3dc39afe210b"/>
+    <recordSetType typeId="1089bb6f-6dd5-4e02-a298-c0025206b9a8" valueTypeId="9b2b99df-24f3-4c84-a5fe-8e865935c116"/>
+    <recordKeyType typeId="fd3e9038-2857-44f0-a4b7-0f389fbb3a34" valueTypeId="6362465a-ce36-4eed-a8a9-53d7e5746de4"/>
+    <recordType typeId="829ef250-b583-4e3d-86b1-1fa4d812ce6c" valueTypeId="7d308926-e9b7-4470-8bac-3775af8960d8"/>
+    <recordManagerType typeId="c5178ba3-5a2e-4203-8c27-4667e803935a" valueTypeId="1b1f3faf-1303-436f-9d3e-540ea465dd64"/>
+  </producedTypes>
+  <name>ОстаткиНаСкладеПоставщика</name>
+  <synonym>
+    <key>ru</key>
+    <value>Остатки на складе поставщика</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <informationRegisterPeriodicity>Day</informationRegisterPeriodicity>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="bf41649c-2b06-421d-ac74-f824573c7227">
+    <name>Количество</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество поставщика</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <scale>5</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="e369bd6b-7879-4106-9706-d0ff4aeb65c5">
+    <name>КоличествоПреобразованное</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество преобразованное</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <scale>5</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="95d313fb-bf8b-4a35-8292-022008b08e24">
+    <name>Ответственный</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ответственный</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="9ad8f000-a320-43ba-a27f-4042545daff5">
+    <name>НоменклатураПоставщика</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура поставщика</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.НоменклатураКонтрагентов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="7348398f-c437-43b8-b3ed-1d15fbe51fd3">
+    <name>СкладПоставщика</name>
+    <synonym>
+      <key>ru</key>
+      <value>Склад поставщика</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СкладыПоставщиков</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

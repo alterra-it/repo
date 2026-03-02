@@ -1,0 +1,82 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" elementFormQualified="true" attributeFormQualified="false">
+	<property name="AckRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="MessageData" type="d4p1:MessageDataType"/>
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="InformationSystemSignature" type="d4p1:XMLDSigSignatureType"/>
+		</typeDef>
+	</property>
+	<property name="AckResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="ResponseCode" type="d4p1:ResponseCodeType"/>
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="InformationSystemSignature" type="d4p1:XMLDSigSignatureType" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="SendRequestRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="MessageData" type="d4p1:MessageDataType"/>
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="InformationSystemSignature" type="d4p1:XMLDSigSignatureType"/>
+		</typeDef>
+	</property>
+	<property name="SendRequestResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="ResponseCode" type="d4p1:ResponseCodeType"/>
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="MessageData" type="d4p1:MessageDataType" lowerBound="0"/>
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="InformationSystemSignature" type="d4p1:XMLDSigSignatureType" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="SendResponseRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="MessageData" type="d4p1:MessageDataType"/>
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="InformationSystemSignature" type="d4p1:XMLDSigSignatureType"/>
+		</typeDef>
+	</property>
+	<property name="SendResponseResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="ResponseCode" type="d4p1:ResponseCodeType"/>
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="MessageData" type="d4p1:MessageDataType" lowerBound="0"/>
+			<property xmlns:d4p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="InformationSystemSignature" type="d4p1:XMLDSigSignatureType" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<valueType name="RFC2046MimeTypesType" base="xs:string" variety="Atomic">
+		<pattern>(text|image|audio|video|application)/[a-zA-Z\d\-+.]*</pattern>
+	</valueType>
+	<valueType name="ResponseCodeType" base="xs:string" variety="Atomic">
+		<enumeration>success</enumeration>
+		<enumeration>accepted</enumeration>
+		<enumeration>queue-is-empty</enumeration>
+		<enumeration>ignored</enumeration>
+	</valueType>
+	<valueType name="UUID" base="xs:string" variety="Atomic">
+		<pattern>[\da-f]{8}-[\da-f]{4}-[\da-f]{4}-[\da-f]{4}-[\da-f]{12}</pattern>
+	</valueType>
+	<valueType name="string-10" base="xs:string" variety="Atomic" maxLength="10"/>
+	<valueType name="string-100" base="xs:string" variety="Atomic" maxLength="100"/>
+	<valueType name="string-1500" base="xs:string" variety="Atomic" maxLength="1500"/>
+	<valueType name="string-200" base="xs:string" variety="Atomic" maxLength="200"/>
+	<valueType name="string-4000" base="xs:string" variety="Atomic" maxLength="4000"/>
+	<valueType name="string-50" base="xs:string" variety="Atomic" maxLength="50"/>
+	<valueType name="string-500" base="xs:string" variety="Atomic" maxLength="500"/>
+	<objectType name="AttachmentType">
+		<property name="Id" type="xs:ID"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="MimeType" type="d3p1:RFC2046MimeTypesType"/>
+		<property name="Hash" type="xs:string"/>
+	</objectType>
+	<objectType name="MessageDataType">
+		<property name="Id" type="xs:ID" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="MessageID" type="d3p1:UUID"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="ReferenceMessageID" type="d3p1:UUID"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="MessagePrimaryContent" type="d3p1:MessagePrimaryContentType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/ws/types/1.0.5" name="TestMessage" type="d3p1:Void" lowerBound="0"/>
+	</objectType>
+	<objectType name="MessagePrimaryContentType" open="true" sequenced="true"/>
+	<objectType name="PagingType">
+		<property name="pageNumber" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:nonNegativeInteger" variety="Atomic"/>
+		</property>
+		<property name="pageLength" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:nonNegativeInteger" variety="Atomic" minInclusive="1"/>
+		</property>
+	</objectType>
+	<objectType name="Void"/>
+	<objectType name="XMLDSigSignatureType" open="true" sequenced="true"/>
+</package>

@@ -1,0 +1,1198 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="DP_PAKET_EIS_01_00" elementFormQualified="true" attributeFormQualified="true">
+	<property name="ФайлЗапросРезул">
+		<typeDef xsi:type="ObjectType">
+			<property name="Документ">
+				<typeDef xsi:type="ObjectType">
+					<property name="ИдТрПакет" form="Attribute"/>
+				</typeDef>
+			</property>
+			<property name="ИдФайл" form="Attribute"/>
+			<property name="СистОтпр" form="Attribute"/>
+			<property name="СистПол" form="Attribute"/>
+			<property name="ДатаВрФормир" type="xs:dateTime" form="Attribute"/>
+			<property name="ВерсПрог" form="Attribute">
+				<typeDef xsi:type="ValueType" base="xs:string" minLength="1" maxLength="40"/>
+			</property>
+			<property name="ВерсФорм" form="Attribute">
+				<typeDef xmlns:d5p1="DP_PAKET_EIS_01_00" xsi:type="ValueType" base="d5p1:Строка5Тип">
+					<enumeration>1.01</enumeration>
+					<enumeration>1.02</enumeration>
+					<enumeration>1.03</enumeration>
+					<enumeration>1.04</enumeration>
+					<enumeration>1.05</enumeration>
+					<enumeration>1.06</enumeration>
+				</typeDef>
+			</property>
+		</typeDef>
+	</property>
+	<property name="ФайлУведУточ">
+		<typeDef xsi:type="ObjectType">
+			<property name="Вложен" lowerBound="0" upperBound="-1"/>
+			<property name="ИдПрилож" form="Attribute"/>
+			<property name="ИдФайл" form="Attribute"/>
+			<property name="ВерсФорм" form="Attribute">
+				<typeDef xmlns:d5p1="DP_PAKET_EIS_01_00" xsi:type="ValueType" base="d5p1:Строка5Тип">
+					<enumeration>1.00</enumeration>
+					<enumeration>1.01</enumeration>
+					<enumeration>1.02</enumeration>
+					<enumeration>1.03</enumeration>
+					<enumeration>1.04</enumeration>
+					<enumeration>1.05</enumeration>
+					<enumeration>1.06</enumeration>
+				</typeDef>
+			</property>
+			<property name="ХэшФайл" form="Attribute"/>
+		</typeDef>
+	</property>
+	<property name="ФайлПакет">
+		<typeDef xsi:type="ObjectType">
+			<property name="Документ" lowerBound="0">
+				<typeDef xsi:type="ObjectType">
+					<property name="Контент"/>
+					<property name="ПодписьДокумент" lowerBound="0" upperBound="-1"/>
+				</typeDef>
+			</property>
+			<property name="Прилож" lowerBound="0">
+				<typeDef xsi:type="ObjectType">
+					<property name="Контент"/>
+					<property name="ПодписьПрилож" lowerBound="0" upperBound="-1"/>
+				</typeDef>
+			</property>
+			<property name="Вложен" lowerBound="0" upperBound="-1">
+				<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+					<property name="Ссылк" lowerBound="0"/>
+					<property name="ОтносСсылка" lowerBound="0">
+						<typeDef xsi:type="ObjectType">
+							<property name="КонтентИд" form="Attribute"/>
+							<property name="ТипФХ" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:string">
+									<enumeration>ЛКП</enumeration>
+									<enumeration>РК</enumeration>
+								</typeDef>
+							</property>
+						</typeDef>
+					</property>
+					<property name="Контент" lowerBound="0"/>
+					<property name="ПодписьВлож" lowerBound="0" upperBound="-1"/>
+					<property name="КонтентИд" form="Attribute"/>
+					<property name="ВнешКонтентИд" form="Attribute"/>
+					<property name="ИмяФайл" form="Attribute"/>
+					<property name="РазмерФайл" form="Attribute"/>
+					<property name="Ссылка" form="Attribute"/>
+				</typeDef>
+			</property>
+			<property name="ИдТрПакет" form="Attribute"/>
+			<property name="СистОтпр" form="Attribute"/>
+			<property name="СистПол" form="Attribute"/>
+			<property name="ИдОбъект" form="Attribute"/>
+			<property name="ВнешИд" form="Attribute"/>
+			<property name="ИдФайл" form="Attribute"/>
+			<property name="ИдПрилож" form="Attribute"/>
+			<property name="ДатаВрФормир" type="xs:dateTime" form="Attribute"/>
+			<property name="ТипПрилож" form="Attribute">
+				<typeDef xsi:type="ValueType" base="xs:string">
+					<enumeration>УПДПрод</enumeration>
+					<enumeration>УКДПрод</enumeration>
+					<enumeration>УПДПок</enumeration>
+					<enumeration>УКДПок</enumeration>
+					<enumeration>УвУточ</enumeration>
+					<enumeration>ИзвУч</enumeration>
+					<enumeration>ПодтвОтпр</enumeration>
+					<enumeration>ПодтвПолуч</enumeration>
+					<enumeration>ИзвПол</enumeration>
+					<enumeration>ПрОтз</enumeration>
+					<enumeration>УвОбж</enumeration>
+					<enumeration>УПДПродЗакрыт</enumeration>
+					<enumeration>УКДПродЗакрыт</enumeration>
+					<enumeration>УПДПокЗакрыт</enumeration>
+					<enumeration>УКДПокЗакрыт</enumeration>
+					<enumeration>УвУточЗакрыт</enumeration>
+					<enumeration>ИзвУчЗакрыт</enumeration>
+					<enumeration>ПодтвОтпрЗакрыт</enumeration>
+					<enumeration>ПодтвПолучЗакрыт</enumeration>
+					<enumeration>ИзвПолЗакрыт</enumeration>
+					<enumeration>ПрОтзЗакрыт</enumeration>
+					<enumeration>УвОбжЗакрыт</enumeration>
+				</typeDef>
+			</property>
+			<property name="ВерсФорм" form="Attribute">
+				<typeDef xmlns:d5p1="DP_PAKET_EIS_01_00" xsi:type="ValueType" base="d5p1:Строка5Тип">
+					<enumeration>1.00</enumeration>
+					<enumeration>1.01</enumeration>
+					<enumeration>1.02</enumeration>
+					<enumeration>1.03</enumeration>
+					<enumeration>1.04</enumeration>
+					<enumeration>1.05</enumeration>
+					<enumeration>1.06</enumeration>
+				</typeDef>
+			</property>
+			<property name="ИдОтпр" form="Attribute"/>
+			<property name="ИдПол" form="Attribute"/>
+		</typeDef>
+	</property>
+	<property name="ФайлУКДПокуп">
+		<typeDef xsi:type="ObjectType">
+			<property name="СвПриемКом" lowerBound="0">
+				<typeDef xsi:type="ObjectType">
+					<property name="ЧленПриемКом" lowerBound="0" upperBound="-1">
+						<typeDef xsi:type="ObjectType">
+							<property name="СвРеш" lowerBound="0">
+								<typeDef xsi:type="ObjectType">
+									<property name="КодРеш" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:string" minLength="1" maxLength="2">
+											<enumeration>1</enumeration>
+											<enumeration>2</enumeration>
+										</typeDef>
+									</property>
+									<property name="Реш" form="Attribute"/>
+								</typeDef>
+							</property>
+							<property name="НомерПодпис" form="Attribute"/>
+							<property name="Роль" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:string" minLength="1" maxLength="2">
+									<enumeration>1</enumeration>
+									<enumeration>2</enumeration>
+								</typeDef>
+							</property>
+							<property name="ОснПолн" form="Attribute"/>
+						</typeDef>
+					</property>
+					<property name="Осн" form="Attribute"/>
+					<property name="КодРеш" form="Attribute">
+						<typeDef xsi:type="ValueType" base="xs:string" minLength="1" maxLength="2">
+							<enumeration>1</enumeration>
+							<enumeration>2</enumeration>
+						</typeDef>
+					</property>
+					<property name="Реш" form="Attribute"/>
+				</typeDef>
+			</property>
+			<property name="ПрочиеНачислен" lowerBound="0">
+				<typeDef xsi:type="ObjectType">
+					<property name="ИнфНачислНеуст">
+						<typeDef xsi:type="ObjectType">
+							<property name="ТребЗакНеуст" upperBound="-1"/>
+						</typeDef>
+					</property>
+					<property name="СумНеуст" form="Attribute"/>
+					<property name="СумОпл" form="Attribute"/>
+				</typeDef>
+			</property>
+			<property name="Вложен" lowerBound="0" upperBound="-1"/>
+			<property name="ИдПрилож" form="Attribute"/>
+			<property name="ИдФайл" form="Attribute"/>
+			<property name="ВерсФорм" form="Attribute">
+				<typeDef xmlns:d5p1="DP_PAKET_EIS_01_00" xsi:type="ValueType" base="d5p1:Строка5Тип">
+					<enumeration>1.00</enumeration>
+					<enumeration>1.01</enumeration>
+					<enumeration>1.02</enumeration>
+					<enumeration>1.03</enumeration>
+					<enumeration>1.04</enumeration>
+					<enumeration>1.05</enumeration>
+					<enumeration>1.06</enumeration>
+				</typeDef>
+			</property>
+			<property name="СоглИзмСтоим" form="Attribute"/>
+			<property name="ХэшФайл" form="Attribute"/>
+		</typeDef>
+	</property>
+	<property name="ФайлРезул">
+		<typeDef xsi:type="ObjectType">
+			<property name="Документ">
+				<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+					<property name="СведФайл">
+						<typeDef xsi:type="ObjectType">
+							<property name="ИдТрПакет" form="Attribute"/>
+							<property name="ИдФайл" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:string" minLength="1" maxLength="150"/>
+							</property>
+							<property name="ИдОбъект" form="Attribute"/>
+						</typeDef>
+					</property>
+					<property name="УспешОбр" lowerBound="0">
+						<typeDef xsi:type="ObjectType">
+							<property name="ПредупрежденияПр" lowerBound="0">
+								<typeDef xsi:type="ObjectType">
+									<property name="ПредупреждениеПр" upperBound="-1"/>
+								</typeDef>
+							</property>
+							<property name="ИдОбъект" form="Attribute"/>
+						</typeDef>
+					</property>
+					<property name="ОшибкиПр" lowerBound="0">
+						<typeDef xsi:type="ObjectType">
+							<property name="ОшибкаПр" upperBound="-1"/>
+						</typeDef>
+					</property>
+					<property name="Процесс" type="xs:boolean" lowerBound="0"/>
+				</typeDef>
+			</property>
+			<property name="ИдФайл" form="Attribute"/>
+			<property name="СистОтпр" form="Attribute"/>
+			<property name="СистПол" form="Attribute"/>
+			<property name="ДатаВрФормир" type="xs:dateTime" form="Attribute"/>
+			<property name="ВерсПрог" form="Attribute">
+				<typeDef xsi:type="ValueType" base="xs:string" minLength="1" maxLength="40"/>
+			</property>
+			<property name="ВерсФорм" form="Attribute">
+				<typeDef xmlns:d5p1="DP_PAKET_EIS_01_00" xsi:type="ValueType" base="d5p1:Строка5Тип">
+					<enumeration>1.01</enumeration>
+					<enumeration>1.02</enumeration>
+					<enumeration>1.03</enumeration>
+					<enumeration>1.04</enumeration>
+					<enumeration>1.05</enumeration>
+					<enumeration>1.06</enumeration>
+				</typeDef>
+			</property>
+		</typeDef>
+	</property>
+	<property name="ФайлУКДПрод">
+		<typeDef xsi:type="ObjectType">
+			<property name="СведКонт">
+				<typeDef xsi:type="ObjectType">
+					<property name="РеестрНомКонт" form="Attribute"/>
+					<property name="ИдВерсКонт" type="xs:long" form="Attribute"/>
+					<property name="ИдЭтапКонт" form="Attribute"/>
+					<property name="ТехИдЭтапКонт" type="xs:long" form="Attribute"/>
+					<property name="ВнешТехИдЭтапКонт" form="Attribute"/>
+					<property name="НомерГосКонт" form="Attribute"/>
+					<property name="ДатаГосКонт" form="Attribute"/>
+					<property name="ИКЗ" form="Attribute"/>
+				</typeDef>
+			</property>
+			<property name="СведПоставщик" lowerBound="0">
+				<typeDef xsi:type="ObjectType">
+					<property name="ЮЛ">
+						<typeDef xsi:type="ObjectType">
+							<property name="ФирмНаимОрг" form="Attribute"/>
+							<property name="ПрКрКПП" type="xs:boolean" form="Attribute"/>
+						</typeDef>
+					</property>
+				</typeDef>
+			</property>
+			<property name="СведТов" lowerBound="0">
+				<typeDef xsi:type="ObjectType">
+					<property name="ТРУ" upperBound="-1">
+						<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+							<property name="НеЛПСвед" lowerBound="0">
+								<typeDef xsi:type="ObjectType">
+									<property name="ОбРабУсл" lowerBound="0">
+										<typeDef xsi:type="ObjectType">
+											<property name="ДоИзм" form="Attribute"/>
+											<property name="ПослеИзм" form="Attribute"/>
+										</typeDef>
+									</property>
+									<property name="НаимЕдИзм" lowerBound="0">
+										<typeDef xsi:type="ObjectType">
+											<property name="ДоИзм" form="Attribute"/>
+											<property name="ПослеИзм" form="Attribute"/>
+										</typeDef>
+									</property>
+									<property name="ЦенаСНДС" lowerBound="0">
+										<typeDef xsi:type="ObjectType">
+											<property name="ДоИзм" form="Attribute"/>
+											<property name="ПослеИзм" form="Attribute"/>
+										</typeDef>
+									</property>
+									<property name="СтранаПроисх" lowerBound="0"/>
+									<property name="ОтрСпец" lowerBound="0">
+										<typeDef xsi:type="ObjectType">
+											<property name="СтройДетал"/>
+										</typeDef>
+									</property>
+									<property name="НомСтр" form="Attribute"/>
+									<property name="ПозСмет" form="Attribute"/>
+								</typeDef>
+							</property>
+							<property name="ЛПСвед" lowerBound="0" upperBound="-1">
+								<typeDef xsi:type="ObjectType">
+									<property name="ПозицПоМНН">
+										<typeDef xsi:type="ObjectType">
+											<property name="МНН" form="Attribute"/>
+											<property name="ТН" form="Attribute"/>
+											<property name="ЛекФорм" form="Attribute"/>
+											<property name="Доз" form="Attribute"/>
+										</typeDef>
+									</property>
+									<property name="ДозСвед" lowerBound="0">
+										<typeDef xsi:type="ObjectType">
+											<property name="Наим" form="Attribute"/>
+											<property name="Знач" form="Attribute"/>
+										</typeDef>
+									</property>
+									<property name="ПотребЕдИзмСвед" lowerBound="0">
+										<typeDef xsi:type="ObjectType">
+											<property name="ОКЕИ" lowerBound="0"/>
+											<property name="Наим" form="Attribute"/>
+											<property name="Колич" form="Attribute"/>
+										</typeDef>
+									</property>
+									<property name="УпакСвед">
+										<typeDef xsi:type="ObjectType">
+											<property name="ЦенаЗаУпакСНДС" lowerBound="0"/>
+											<property name="ВидПервУпак" form="Attribute"/>
+											<property name="КоличЛекФормВПервУпак" form="Attribute"/>
+											<property name="КоличПервУпакВПотребУпак" form="Attribute"/>
+											<property name="КоличЛекФормВПотребУпак" form="Attribute"/>
+											<property name="КоличПотребЕдВПотребУпак" form="Attribute"/>
+										</typeDef>
+									</property>
+									<property name="СтранаПроизв" lowerBound="0"/>
+									<property name="ЖНВЛП" lowerBound="0">
+										<typeDef xsi:type="ObjectType">
+											<property name="ФактОтпЦена" lowerBound="0"/>
+											<property name="СуммРазмФактОптНадбРуб" lowerBound="0"/>
+											<property name="СуммРазмФактОптНадбПроц" lowerBound="0">
+												<typeDef xsi:type="ObjectType">
+													<property name="ДоИзм" form="Attribute"/>
+													<property name="ПослеИзм" form="Attribute"/>
+												</typeDef>
+											</property>
+											<property name="ЗарегПредОтпЦена" form="Attribute"/>
+										</typeDef>
+									</property>
+									<property name="НомСтр" form="Attribute"/>
+									<property name="ИдЛП" form="Attribute"/>
+									<property name="СерияЛекПреп" form="Attribute"/>
+									<property name="СрокГодн" form="Attribute"/>
+								</typeDef>
+							</property>
+							<property name="НомСтр" form="Attribute"/>
+							<property name="ИдТРУ" form="Attribute"/>
+							<property name="ТехИдТРУ" type="xs:long" form="Attribute"/>
+							<property name="ВнешТехИдТРУ" form="Attribute"/>
+							<property name="ИдРодТРУ" form="Attribute"/>
+							<property name="ТехИдРодТРУ" type="xs:long" form="Attribute"/>
+							<property name="ВнешТехИдРодТРУ" form="Attribute"/>
+							<property name="НаимТовИсх" form="Attribute"/>
+							<property name="КодТов" form="Attribute"/>
+						</typeDef>
+					</property>
+					<property name="ВсегоУмОплСтТовУчНалВсего" form="Attribute"/>
+					<property name="ВсегоУвелОплСтТовУчНалВсего" form="Attribute"/>
+					<property name="ВсегоУмОплСумНал" form="Attribute"/>
+					<property name="ВсегоУвелОплСумНал" form="Attribute"/>
+					<property name="НоминалКурсВал" form="Attribute"/>
+				</typeDef>
+			</property>
+			<property name="Вложен" lowerBound="0" upperBound="-1"/>
+			<property name="ИдПрилож" form="Attribute"/>
+			<property name="ИдФайл" form="Attribute"/>
+			<property name="ВерсФорм" form="Attribute">
+				<typeDef xmlns:d5p1="DP_PAKET_EIS_01_00" xsi:type="ValueType" base="d5p1:Строка5Тип">
+					<enumeration>1.00</enumeration>
+					<enumeration>1.01</enumeration>
+					<enumeration>1.02</enumeration>
+					<enumeration>1.03</enumeration>
+					<enumeration>1.04</enumeration>
+					<enumeration>1.05</enumeration>
+					<enumeration>1.06</enumeration>
+				</typeDef>
+			</property>
+			<property name="РукОрг" form="Attribute"/>
+			<property name="ПредлИзмСтоим" form="Attribute"/>
+			<property name="УведИзмСтоим" form="Attribute"/>
+			<property name="ИдФайлИсх" form="Attribute"/>
+			<property name="ХэшФайл" form="Attribute"/>
+		</typeDef>
+	</property>
+	<property name="ФайлУПДПрод">
+		<typeDef xsi:type="ObjectType">
+			<property name="СведКонт">
+				<typeDef xsi:type="ObjectType">
+					<property name="РеестрНомКонт" form="Attribute"/>
+					<property name="ИдВерсКонт" type="xs:long" form="Attribute"/>
+					<property name="ИдЭтапКонт" form="Attribute"/>
+					<property name="ТехИдЭтапКонт" type="xs:long" form="Attribute"/>
+					<property name="ВнешТехИдЭтапКонт" form="Attribute"/>
+					<property name="ИКЗ" form="Attribute"/>
+				</typeDef>
+			</property>
+			<property name="СведПоставщик" lowerBound="0">
+				<typeDef xsi:type="ObjectType">
+					<property name="ЮЛ">
+						<typeDef xsi:type="ObjectType">
+							<property name="ФирмНаимОрг" form="Attribute"/>
+							<property name="ПрКрКПП" type="xs:boolean" form="Attribute"/>
+						</typeDef>
+					</property>
+				</typeDef>
+			</property>
+			<property name="СведТов" lowerBound="0">
+				<typeDef xsi:type="ObjectType">
+					<property name="СведТРУ" upperBound="-1">
+						<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+							<property name="НедеталТРУ" lowerBound="0">
+								<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+									<property name="НеЛПСвед" lowerBound="0">
+										<typeDef xsi:type="ObjectType">
+											<property name="СтранаПроисх" lowerBound="0"/>
+											<property name="СтранаПроизв" lowerBound="0"/>
+											<property name="ОтрСпец" lowerBound="0">
+												<typeDef xsi:type="ObjectType">
+													<property name="СтройДетал"/>
+												</typeDef>
+											</property>
+											<property name="НомСтр" form="Attribute"/>
+											<property name="ОбРабУсл" form="Attribute"/>
+											<property name="ЦенаИзКонтСНДС" form="Attribute"/>
+											<property name="ПозСмет" form="Attribute"/>
+											<property name="ПрУлучшХаракт" form="Attribute">
+												<typeDef xsi:type="ValueType" base="xs:string">
+													<enumeration>1</enumeration>
+													<enumeration>2</enumeration>
+													<enumeration>3</enumeration>
+												</typeDef>
+											</property>
+										</typeDef>
+									</property>
+									<property name="ЛПСвед" lowerBound="0" upperBound="-1">
+										<typeDef xsi:type="ObjectType">
+											<property name="ПозицПоМНН">
+												<typeDef xsi:type="ObjectType">
+													<property name="МНН" form="Attribute"/>
+													<property name="ТН" form="Attribute"/>
+													<property name="ЛекФорм" form="Attribute"/>
+													<property name="Доз" form="Attribute"/>
+												</typeDef>
+											</property>
+											<property name="ДозСвед" lowerBound="0">
+												<typeDef xsi:type="ObjectType">
+													<property name="Наим" form="Attribute"/>
+													<property name="Знач" form="Attribute"/>
+												</typeDef>
+											</property>
+											<property name="ПотребЕдИзмСвед" lowerBound="0">
+												<typeDef xsi:type="ObjectType">
+													<property name="ОКЕИ" lowerBound="0"/>
+													<property name="Наим" form="Attribute"/>
+													<property name="Колич" form="Attribute"/>
+												</typeDef>
+											</property>
+											<property name="УпакСвед">
+												<typeDef xsi:type="ObjectType">
+													<property name="ВидПервУпак" form="Attribute"/>
+													<property name="КоличЛекФормВПервУпак" form="Attribute"/>
+													<property name="КоличПервУпакВПотребУпак" form="Attribute"/>
+													<property name="КоличЛекФормВПотребУпак" form="Attribute"/>
+													<property name="КоличПотребЕдВПотребУпак" form="Attribute"/>
+												</typeDef>
+											</property>
+											<property name="СтранаПроисх" lowerBound="0"/>
+											<property name="СтранаПроизв" lowerBound="0"/>
+											<property name="ЖНВЛП" lowerBound="0">
+												<typeDef xsi:type="ObjectType">
+													<property name="ФактОтпЦена" form="Attribute"/>
+													<property name="ЗарегПредОтпЦена" form="Attribute"/>
+													<property name="СуммРазмФактОптНадбРуб" form="Attribute"/>
+													<property name="СуммРазмФактОптНадбПроц" form="Attribute"/>
+												</typeDef>
+											</property>
+											<property name="НомСтр" form="Attribute"/>
+											<property name="ИдЛП" form="Attribute"/>
+											<property name="ЦенаЗаУпакСНДС" form="Attribute"/>
+											<property name="СерияЛекПреп" form="Attribute"/>
+											<property name="СрокГодн" form="Attribute"/>
+										</typeDef>
+									</property>
+									<property name="НомСтр" form="Attribute"/>
+									<property name="ИдТРУ" form="Attribute"/>
+									<property name="ТехИдТРУ" type="xs:long" form="Attribute"/>
+									<property name="ВнешТехИдТРУ" form="Attribute"/>
+									<property name="НаимТовИсх" form="Attribute"/>
+								</typeDef>
+							</property>
+							<property name="ДеталТРУ" lowerBound="0">
+								<typeDef xsi:type="ObjectType">
+									<property name="СведРод">
+										<typeDef xsi:type="ObjectType">
+											<property name="СумНал" lowerBound="0"/>
+											<property name="Акциз"/>
+											<property name="СтранаПроисх" lowerBound="0"/>
+											<property name="СтранаПроизв" lowerBound="0"/>
+											<property name="ИдТРУ" form="Attribute"/>
+											<property name="ТехИдТРУ" type="xs:long" form="Attribute"/>
+											<property name="ВнешТехИдТРУ" form="Attribute"/>
+											<property name="КодТов" form="Attribute"/>
+											<property name="НаимТов" form="Attribute"/>
+											<property name="ПрТовРаб" form="Attribute">
+												<typeDef xsi:type="ValueType" base="xs:string" length="1">
+													<enumeration>1</enumeration>
+													<enumeration>2</enumeration>
+													<enumeration>3</enumeration>
+												</typeDef>
+											</property>
+											<property name="КодЕдИзм" form="Attribute"/>
+											<property name="НаимЕдИзм" form="Attribute"/>
+											<property name="ЦенаЕдИзм" form="Attribute"/>
+											<property name="КолТов" form="Attribute"/>
+											<property name="ОбРабУсл" form="Attribute"/>
+											<property name="СтТовБезНДС" form="Attribute"/>
+											<property name="НалСт" form="Attribute">
+												<typeDef xsi:type="ValueType" base="xs:string">
+													<enumeration>0%</enumeration>
+													<enumeration>10%</enumeration>
+													<enumeration>18%</enumeration>
+													<enumeration>20%</enumeration>
+													<enumeration>10/110</enumeration>
+													<enumeration>18/118</enumeration>
+													<enumeration>20/120</enumeration>
+													<enumeration>без НДС</enumeration>
+												</typeDef>
+											</property>
+											<property name="СтТовУчНал" form="Attribute"/>
+											<property name="ПозСмет" form="Attribute"/>
+										</typeDef>
+									</property>
+									<property name="СведДетал" upperBound="-1">
+										<typeDef xsi:type="ObjectType">
+											<property name="СтранаПроисх" lowerBound="0"/>
+											<property name="СтранаПроизв" lowerBound="0"/>
+											<property name="НомСтр" form="Attribute"/>
+											<property name="ИдТРУ" form="Attribute"/>
+											<property name="ОбРабУсл" form="Attribute"/>
+											<property name="ЦенаСНДС" form="Attribute"/>
+											<property name="ПозСмет" form="Attribute"/>
+											<property name="ПрУлучшХаракт" form="Attribute">
+												<typeDef xsi:type="ValueType" base="xs:string">
+													<enumeration>1</enumeration>
+													<enumeration>2</enumeration>
+													<enumeration>3</enumeration>
+												</typeDef>
+											</property>
+										</typeDef>
+									</property>
+								</typeDef>
+							</property>
+						</typeDef>
+					</property>
+					<property name="ОтрСпец" form="Attribute">
+						<typeDef xsi:type="ValueType" base="xs:string">
+							<enumeration>1</enumeration>
+							<enumeration>2</enumeration>
+						</typeDef>
+					</property>
+					<property name="НаимОбСтр" form="Attribute"/>
+					<property name="ВсегоОплСтТовУчНалВсего" form="Attribute"/>
+					<property name="ВсегоОплСумНал" form="Attribute"/>
+					<property name="НоминалКурсВал" form="Attribute"/>
+				</typeDef>
+			</property>
+			<property name="СведМестаПоставки" lowerBound="0">
+				<typeDef xsi:type="ObjectType">
+					<property name="СведМестоПоставки" upperBound="-1"/>
+				</typeDef>
+			</property>
+			<property name="Вложен" lowerBound="0" upperBound="-1"/>
+			<property name="ИдПрилож" form="Attribute"/>
+			<property name="ИдФайл" form="Attribute"/>
+			<property name="ВерсФорм" form="Attribute">
+				<typeDef xmlns:d5p1="DP_PAKET_EIS_01_00" xsi:type="ValueType" base="d5p1:Строка5Тип">
+					<enumeration>1.00</enumeration>
+					<enumeration>1.01</enumeration>
+					<enumeration>1.02</enumeration>
+					<enumeration>1.03</enumeration>
+					<enumeration>1.04</enumeration>
+					<enumeration>1.05</enumeration>
+					<enumeration>1.06</enumeration>
+				</typeDef>
+			</property>
+			<property name="РукОрг" form="Attribute"/>
+			<property name="ИдФайлИсх" form="Attribute"/>
+			<property name="ХэшФайл" form="Attribute"/>
+		</typeDef>
+	</property>
+	<property name="ФайлУПДПокуп">
+		<typeDef xsi:type="ObjectType">
+			<property name="СвПрин" lowerBound="0" upperBound="-1">
+				<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+					<property name="НедеталТРУ" lowerBound="0">
+						<typeDef xsi:type="ObjectType">
+							<property name="ОтрСпец" lowerBound="0">
+								<typeDef xsi:type="ObjectType">
+									<property name="СтройДетал"/>
+								</typeDef>
+							</property>
+							<property name="ИдТРУпринЗак" form="Attribute"/>
+							<property name="ТехИдТРУпринЗак" type="xs:long" form="Attribute"/>
+							<property name="ВнешТехИдТРУпринЗак" form="Attribute"/>
+							<property name="ИдЛПпринЗак" form="Attribute"/>
+							<property name="ПризПринТРУ" type="xs:boolean" form="Attribute"/>
+							<property name="КолТовПринЗак" form="Attribute"/>
+							<property name="КолТовПринЗакПотребЕд" form="Attribute"/>
+							<property name="ОбРабУслПринЗак" form="Attribute"/>
+							<property name="СтТовУчНалПринЗак" form="Attribute"/>
+							<property name="ПричОтказПрием" form="Attribute"/>
+						</typeDef>
+					</property>
+					<property name="ДеталТРУ" lowerBound="0">
+						<typeDef xsi:type="ObjectType">
+							<property name="СведРод">
+								<typeDef xsi:type="ObjectType">
+									<property name="ИдТРУ" form="Attribute"/>
+									<property name="ТехИдТРУ" type="xs:long" form="Attribute"/>
+									<property name="ВнешТехИдТРУ" form="Attribute"/>
+									<property name="КолТовПринЗак" form="Attribute"/>
+									<property name="ОбРабУслПринЗак" form="Attribute"/>
+									<property name="СтТовУчНалПринЗак" form="Attribute"/>
+								</typeDef>
+							</property>
+							<property name="СведДетал" upperBound="-1">
+								<typeDef xsi:type="ObjectType">
+									<property name="ИдТРУпринЗак" form="Attribute"/>
+									<property name="ПризПринТРУ" type="xs:boolean" form="Attribute"/>
+									<property name="КолТовПринЗак" form="Attribute"/>
+									<property name="ОбРабУслПринЗак" form="Attribute"/>
+									<property name="СтТовУчНалПринЗак" form="Attribute"/>
+									<property name="ПричОтказПрием" form="Attribute"/>
+								</typeDef>
+							</property>
+						</typeDef>
+					</property>
+				</typeDef>
+			</property>
+			<property name="СвПриемКом" lowerBound="0">
+				<typeDef xsi:type="ObjectType">
+					<property name="ЧленПриемКом" lowerBound="0" upperBound="-1">
+						<typeDef xsi:type="ObjectType">
+							<property name="СвРеш" lowerBound="0">
+								<typeDef xsi:type="ObjectType">
+									<property name="КодРеш" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:string" minLength="1" maxLength="2">
+											<enumeration>1</enumeration>
+											<enumeration>2</enumeration>
+										</typeDef>
+									</property>
+									<property name="Реш" form="Attribute"/>
+								</typeDef>
+							</property>
+							<property name="НомерПодпис" form="Attribute"/>
+							<property name="Роль" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:string" minLength="1" maxLength="2">
+									<enumeration>1</enumeration>
+									<enumeration>2</enumeration>
+								</typeDef>
+							</property>
+							<property name="ОснПолн" form="Attribute"/>
+						</typeDef>
+					</property>
+					<property name="Осн" form="Attribute"/>
+					<property name="КодРеш" form="Attribute">
+						<typeDef xsi:type="ValueType" base="xs:string" minLength="1" maxLength="2">
+							<enumeration>1</enumeration>
+							<enumeration>2</enumeration>
+							<enumeration>3</enumeration>
+						</typeDef>
+					</property>
+					<property name="Реш" form="Attribute"/>
+				</typeDef>
+			</property>
+			<property name="ПрочиеНачислен" lowerBound="0">
+				<typeDef xsi:type="ObjectType">
+					<property name="ИнфНачислНеуст" lowerBound="0">
+						<typeDef xsi:type="ObjectType">
+							<property name="ТребЗакНеуст" upperBound="-1"/>
+						</typeDef>
+					</property>
+					<property name="ИнфНалогиВзносыУплЗак" lowerBound="0">
+						<typeDef xsi:type="ObjectType">
+							<property name="ИнфНалВзносУплЗак" upperBound="-1"/>
+						</typeDef>
+					</property>
+					<property name="СумНеуст" form="Attribute"/>
+					<property name="СумНал" form="Attribute"/>
+					<property name="СумОпл" form="Attribute"/>
+				</typeDef>
+			</property>
+			<property name="Вложен" lowerBound="0" upperBound="-1"/>
+			<property name="ИдПрилож" form="Attribute"/>
+			<property name="ИдФайл" form="Attribute"/>
+			<property name="ВерсФорм" form="Attribute">
+				<typeDef xmlns:d5p1="DP_PAKET_EIS_01_00" xsi:type="ValueType" base="d5p1:Строка5Тип">
+					<enumeration>1.00</enumeration>
+					<enumeration>1.01</enumeration>
+					<enumeration>1.02</enumeration>
+					<enumeration>1.03</enumeration>
+					<enumeration>1.04</enumeration>
+					<enumeration>1.05</enumeration>
+					<enumeration>1.06</enumeration>
+				</typeDef>
+			</property>
+			<property name="СтТовУчНалВсегоПринЗак" form="Attribute"/>
+			<property name="ИнфРасхОтказПрием" form="Attribute"/>
+			<property name="ДатаНачПрин" form="Attribute"/>
+			<property name="ХэшФайл" form="Attribute"/>
+		</typeDef>
+	</property>
+	<valueType name="ВнешИдТип" base="xs:string" minLength="1" maxLength="40"/>
+	<valueType name="ВремяТип" base="xs:string" length="8">
+		<pattern>([0-1]{1}[0-9]{1}|2[0-3]{1})\.([0-5]{1}[0-9]{1})\.([0-5]{1}[0-9]{1})</pattern>
+	</valueType>
+	<valueType name="ГУИД32Тип" base="xs:string" length="32"/>
+	<valueType name="ГУИД36Тип" base="xs:string" length="36"/>
+	<valueType name="ДатаТип" base="xs:string" length="10">
+		<pattern>((((0[1-9]{1}|1[0-9]{1}|2[0-8]{1})\.(0[1-9]{1}|1[0-2]{1}))|((29|30)\.(01|0[3-9]{1}|1[0-2]{1}))|(31\.(01|03|05|07|08|10|12)))\.((19|20)[0-9]{2}))|(29\.02\.((19|20)(((0|2|4|6|8)(0|4|8))|((1|3|5|7|9)(2|6)))))</pattern>
+	</valueType>
+	<valueType name="ИКЗТип" base="xs:string">
+		<pattern>\d{36}</pattern>
+	</valueType>
+	<valueType name="ИННФЛТип" base="xs:string" length="12">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{10}</pattern>
+	</valueType>
+	<valueType name="ИННЮЛТип" base="xs:string" length="10">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{8}</pattern>
+	</valueType>
+	<valueType name="ИдУчТип" base="xs:string" minLength="4" maxLength="46"/>
+	<valueType name="ИдФайлТип" base="xs:string" minLength="1" maxLength="255"/>
+	<valueType name="КППТип" base="xs:string" length="9">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})([0-9]{2})([0-9A-Z]{2})([0-9]{3})</pattern>
+	</valueType>
+	<valueType name="КодКЛАДРТип" base="xs:string" minLength="1" maxLength="20"/>
+	<valueType name="КодОКЕИТип" base="xs:string" minLength="1" maxLength="5"/>
+	<valueType name="КодОКПД2Тип" base="xs:string" minLength="1" maxLength="12"/>
+	<valueType name="КодОКТМОТип" base="xs:string" minLength="1" maxLength="11"/>
+	<valueType name="КодСтраныТип" base="xs:string" minLength="1" maxLength="3"/>
+	<valueType name="КонтентТип" base="xs:base64Binary" minLength="1"/>
+	<valueType name="РазмерФайлТип" base="xs:nonNegativeInteger" totalDigits="20"/>
+	<valueType name="РеестрНомКонтТип" base="xs:string" length="19"/>
+	<valueType name="СсылкаТип" base="xs:string" minLength="1" maxLength="2048"/>
+	<valueType name="Строка1000Тип" base="xs:string" minLength="1" maxLength="1000"/>
+	<valueType name="Строка100Тип" base="xs:string" minLength="1" maxLength="100"/>
+	<valueType name="Строка1024Тип" base="xs:string" minLength="1" maxLength="1024"/>
+	<valueType name="Строка10Тип" base="xs:string" minLength="1" maxLength="10"/>
+	<valueType name="Строка128Тип" base="xs:string" minLength="1" maxLength="128"/>
+	<valueType name="Строка2000Тип" base="xs:string" minLength="1" maxLength="2000"/>
+	<valueType name="Строка200Тип" base="xs:string" minLength="1" maxLength="200"/>
+	<valueType name="Строка255Тип" base="xs:string" minLength="1" maxLength="255"/>
+	<valueType name="Строка4000Тип" base="xs:string" minLength="1" maxLength="4000"/>
+	<valueType name="Строка500Тип" base="xs:string" minLength="1" maxLength="500"/>
+	<valueType name="Строка50Тип" base="xs:string" minLength="1" maxLength="50"/>
+	<valueType name="Строка5Тип" base="xs:string" minLength="1" maxLength="5"/>
+	<valueType name="УровОшТип" base="xs:string">
+		<enumeration>Ошибка</enumeration>
+		<enumeration>Предупреждение</enumeration>
+	</valueType>
+	<valueType name="ФамилияТип" base="xs:string" minLength="1" maxLength="60"/>
+	<valueType name="ХэшФайлТип" base="xs:string" length="64"/>
+	<valueType name="Число11Тип" base="xs:int" totalDigits="11"/>
+	<valueType name="Число2Тип" base="xs:int" totalDigits="2"/>
+	<valueType name="Число36Тип" base="xs:int" totalDigits="36"/>
+	<valueType name="Число6Тип" base="xs:int" totalDigits="6"/>
+	<valueType name="ЧислоМакс10ДоТочкТип" base="xs:string" minLength="1" maxLength="21">
+		<pattern>\d{1,10}(\.\d{1,10})?</pattern>
+	</valueType>
+	<valueType name="ЧислоМакс11ДоТочкТип" base="xs:string" minLength="1" maxLength="22">
+		<pattern>\d{1,11}(\.\d{1,10})?</pattern>
+	</valueType>
+	<valueType name="ЧислоМакс15ДоТочкТип" base="xs:string" minLength="1" maxLength="27">
+		<pattern>\d{1,15}(\.\d{1,11})?</pattern>
+	</valueType>
+	<valueType name="ЧислоМакс17ДоТочкТип" base="xs:string" minLength="1" maxLength="20">
+		<pattern>\d{1,17}(\.\d{1,2})?</pattern>
+	</valueType>
+	<valueType name="ЧислоМакс18ДоТочкТип" base="xs:string" minLength="1" maxLength="21">
+		<pattern>\d{1,18}(\.\d{1,2})?</pattern>
+	</valueType>
+	<valueType name="ЧислоМакс20ДоТочкТип" base="xs:string" minLength="1" maxLength="23">
+		<pattern>\d{1,20}(\.\d{1,2})?</pattern>
+	</valueType>
+	<valueType name="ЧислоМакс21ДоТочкТип" base="xs:string" minLength="1" maxLength="33">
+		<pattern>\d{1,21}(\.\d{1,11})?</pattern>
+	</valueType>
+	<valueType name="ЧислоМакс22ДоТочкТип" base="xs:string" minLength="1" maxLength="33">
+		<pattern>\d{1,22}(\.\d{1,10})?</pattern>
+	</valueType>
+	<valueType name="ЧислоМакс3ДоТочкТип" base="xs:string" minLength="1" maxLength="6">
+		<pattern>\d{1,3}(\.\d{1,2})?</pattern>
+	</valueType>
+	<objectType name="АдресКЛАДРТип" ordered="false" sequenced="true">
+		<property name="КЛАДР" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="НеКЛАДР" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property name="РайонГород" form="Attribute"/>
+						<property name="НаселенПункт" form="Attribute"/>
+					</typeDef>
+				</property>
+				<property name="Адрес" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="Страна" lowerBound="0"/>
+	</objectType>
+	<objectType name="АдресОКТМОТип"/>
+	<objectType name="ВерсФорм">
+		<property name="ТекущВерсФорм" fixed="true" default="1.06" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" minLength="1" maxLength="5">
+				<enumeration>1.0</enumeration>
+				<enumeration>1.01</enumeration>
+				<enumeration>1.02</enumeration>
+				<enumeration>1.03</enumeration>
+				<enumeration>1.04</enumeration>
+				<enumeration>1.05</enumeration>
+				<enumeration>1.06</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ВидДокСправТип">
+		<property name="Код" form="Attribute"/>
+		<property name="Наим" form="Attribute"/>
+	</objectType>
+	<objectType name="ВидРабУКДПродТип">
+		<property name="КодТов" lowerBound="0"/>
+		<property name="ЕдИзм">
+			<typeDef xsi:type="ObjectType">
+				<property name="ЕдИзмДо" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property name="ОКЕИ" lowerBound="0"/>
+						<property name="ОЕИ" lowerBound="0"/>
+					</typeDef>
+				</property>
+				<property name="ЕдИзмПосле">
+					<typeDef xsi:type="ObjectType">
+						<property name="ОКЕИ" lowerBound="0"/>
+						<property name="ОЕИ" lowerBound="0"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="КолВидРаб">
+			<typeDef xsi:type="ObjectType">
+				<property name="КолВидРабДо" form="Attribute"/>
+				<property name="КолВидРабПосле" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="ЦенаБезНДС">
+			<typeDef xsi:type="ObjectType">
+				<property name="ЦенаБезНДСДо" form="Attribute"/>
+				<property name="ЦенаБезНДСПосле" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="ЦенаСНДС">
+			<typeDef xsi:type="ObjectType">
+				<property name="ЦенаСНДСДо" form="Attribute"/>
+				<property name="ЦенаСНДСПосле" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="СумНал">
+			<typeDef xsi:type="ObjectType">
+				<property name="СумНалДо"/>
+				<property name="СумНалПосле"/>
+			</typeDef>
+		</property>
+		<property name="СтоимБезНДС">
+			<typeDef xsi:type="ObjectType">
+				<property name="СтоимБезНДСДо" form="Attribute"/>
+				<property name="СтоимБезНДСПосле" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="СтоимСНДС">
+			<typeDef xsi:type="ObjectType">
+				<property name="СтоимСНДСДо" form="Attribute"/>
+				<property name="СтоимСНДСПосле" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="ИдВидРаб" form="Attribute"/>
+		<property name="НомВидРаб" form="Attribute"/>
+		<property name="НаимВидРаб" form="Attribute"/>
+		<property name="ПозСмет" form="Attribute"/>
+		<property name="ПрТовРаб" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ВидРабУПДПокупТип">
+		<property name="ИдВидРаб" form="Attribute"/>
+		<property name="ПризПринВидРаб" type="xs:boolean" form="Attribute"/>
+		<property name="КолВидРабПринЗак" form="Attribute"/>
+		<property name="СтоимУчНалПринЗак" form="Attribute"/>
+		<property name="ПричОтказПрием" form="Attribute"/>
+	</objectType>
+	<objectType name="ВидРабУПДПродТип">
+		<property name="КодТов" lowerBound="0"/>
+		<property name="ЕдИзм">
+			<typeDef xsi:type="ObjectType">
+				<property name="ОКЕИ" lowerBound="0"/>
+				<property name="ОЕИ" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="СтрПроисх" lowerBound="0"/>
+		<property name="СтрРегПроизв" lowerBound="0"/>
+		<property name="СумНал"/>
+		<property name="СвТД" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="КодПроисх" form="Attribute"/>
+				<property name="Наим" form="Attribute"/>
+				<property name="ДефКодПроисх" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" length="1">
+						<enumeration>-</enumeration>
+					</typeDef>
+				</property>
+				<property name="НомерТД" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" minLength="1" maxLength="29"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ИдВидРаб" form="Attribute"/>
+		<property name="НомВидРаб" form="Attribute"/>
+		<property name="НаимВидРаб" form="Attribute"/>
+		<property name="ПозСмет" form="Attribute"/>
+		<property name="ПрТовРаб" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property name="КолВидРаб" form="Attribute"/>
+		<property name="ЦенаБезНДС" form="Attribute"/>
+		<property name="ЦенаСНДС" form="Attribute"/>
+		<property name="СтоимБезНДС" form="Attribute"/>
+		<property name="СтоимСНДС" form="Attribute"/>
+	</objectType>
+	<objectType name="ВложенТип">
+		<property name="ВидДок"/>
+		<property name="КонтентИд" form="Attribute"/>
+		<property name="ВнешКонтентИд" form="Attribute"/>
+		<property name="ИмяФайл" form="Attribute"/>
+		<property name="ХэшФайл" form="Attribute"/>
+		<property name="РасширенФайл" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string">
+				<enumeration>pdf</enumeration>
+				<enumeration>docx</enumeration>
+				<enumeration>doc</enumeration>
+				<enumeration>rtf</enumeration>
+				<enumeration>xls</enumeration>
+				<enumeration>xlsx</enumeration>
+				<enumeration>jpeg</enumeration>
+				<enumeration>jpg</enumeration>
+				<enumeration>bmp</enumeration>
+				<enumeration>tif</enumeration>
+				<enumeration>tiff</enumeration>
+				<enumeration>txt</enumeration>
+				<enumeration>gif</enumeration>
+				<enumeration>csv</enumeration>
+				<enumeration>odp</enumeration>
+				<enumeration>odf</enumeration>
+				<enumeration>ods</enumeration>
+				<enumeration>odt</enumeration>
+				<enumeration>sxc</enumeration>
+				<enumeration>sxw</enumeration>
+				<enumeration>xml</enumeration>
+				<enumeration>html</enumeration>
+				<enumeration>htm</enumeration>
+				<enumeration>sig</enumeration>
+				<enumeration>svg</enumeration>
+				<enumeration>sgn</enumeration>
+				<enumeration>zip</enumeration>
+				<enumeration>rar</enumeration>
+				<enumeration>svg</enumeration>
+			</typeDef>
+		</property>
+		<property name="ОписаниеФайл" form="Attribute"/>
+		<property name="ДатаПрикреплен" type="xs:dateTime" form="Attribute"/>
+		<property name="Ссылк" form="Attribute"/>
+	</objectType>
+	<objectType name="ДоИПослеИзмТип">
+		<property name="ДоИзм" form="Attribute"/>
+		<property name="ПослеИзм" form="Attribute"/>
+	</objectType>
+	<objectType name="ИнфНалВзносУплЗакТип">
+		<property name="НалВзнос">
+			<typeDef xsi:type="ObjectType">
+				<property name="Код" form="Attribute"/>
+				<property name="Наим" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="Сум" form="Attribute"/>
+		<property name="ИнфДрНалВзнос" form="Attribute"/>
+	</objectType>
+	<objectType name="КладрТип">
+		<property name="Код" form="Attribute"/>
+		<property name="Наим" form="Attribute"/>
+	</objectType>
+	<objectType name="МестоПоставкиТип" ordered="false" sequenced="true">
+		<property name="ПоКЛАДР" lowerBound="0"/>
+		<property name="ПоОКТМО" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="Адрес" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="Место" form="Attribute"/>
+	</objectType>
+	<objectType name="ОЕИТип">
+		<property name="Код" form="Attribute"/>
+		<property name="Наим" form="Attribute"/>
+	</objectType>
+	<objectType name="ОКЕИТип">
+		<property name="Код" form="Attribute"/>
+		<property name="НацУслОбоз" form="Attribute"/>
+		<property name="Наим" form="Attribute"/>
+	</objectType>
+	<objectType name="ОКПД2Тип">
+		<property name="Код" form="Attribute"/>
+		<property name="Наим" form="Attribute"/>
+	</objectType>
+	<objectType name="ОКТМОТип">
+		<property name="Код" form="Attribute"/>
+		<property name="Наим" form="Attribute"/>
+	</objectType>
+	<objectType name="ОшибкаТип">
+		<property name="Код"/>
+		<property name="Уров"/>
+		<property name="Наим"/>
+		<property name="Опис" lowerBound="0"/>
+		<property name="Контент" lowerBound="0"/>
+	</objectType>
+	<objectType name="ПодписьТип" ordered="false" sequenced="true">
+		<property name="Подпись"/>
+		<property name="ФЛ" lowerBound="0"/>
+		<property name="ИП" lowerBound="0"/>
+		<property name="ЮЛ" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="ФИО"/>
+				<property name="ИННЮЛ" form="Attribute"/>
+				<property name="НаимОрг" form="Attribute"/>
+				<property name="Должн" form="Attribute"/>
+				<property name="ИныеСвед" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="ОблПолн" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string">
+				<enumeration>0</enumeration>
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+				<enumeration>3</enumeration>
+				<enumeration>4</enumeration>
+				<enumeration>5</enumeration>
+				<enumeration>6</enumeration>
+			</typeDef>
+		</property>
+		<property name="Статус" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+				<enumeration>3</enumeration>
+				<enumeration>4</enumeration>
+				<enumeration>5</enumeration>
+				<enumeration>6</enumeration>
+			</typeDef>
+		</property>
+		<property name="ОснПолн" form="Attribute"/>
+		<property name="ОснПолнОрг" form="Attribute"/>
+		<property name="ДатаПодписан" form="Attribute"/>
+		<property name="ВремПодписан" form="Attribute"/>
+	</objectType>
+	<objectType name="СвИПТип">
+		<property name="ФИО"/>
+		<property name="ИННФЛ" form="Attribute"/>
+		<property name="СвГосРегИП" form="Attribute"/>
+		<property name="ИныеСвед" form="Attribute"/>
+	</objectType>
+	<objectType name="СвФЛТип">
+		<property name="ФИО"/>
+		<property name="ИННФЛ" form="Attribute"/>
+		<property name="ИныеСвед" form="Attribute"/>
+	</objectType>
+	<objectType name="СтранаТип">
+		<property name="Код" form="Attribute"/>
+		<property name="Наим" form="Attribute"/>
+	</objectType>
+	<objectType name="СтройДеталУКДПродТип">
+		<property name="Раздел" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="ВидРаб" upperBound="-1"/>
+				<property name="СумНалРаздел">
+					<typeDef xsi:type="ObjectType">
+						<property name="СумНалРазделДо"/>
+						<property name="СумНалРазделПосле"/>
+					</typeDef>
+				</property>
+				<property name="СтоимБезНДС">
+					<typeDef xsi:type="ObjectType">
+						<property name="СтоимБезНДСДо" form="Attribute"/>
+						<property name="СтоимБезНДСПосле" form="Attribute"/>
+					</typeDef>
+				</property>
+				<property name="СтоимСНДС">
+					<typeDef xsi:type="ObjectType">
+						<property name="СтоимСНДСДо" form="Attribute"/>
+						<property name="СтоимСНДСПосле" form="Attribute"/>
+					</typeDef>
+				</property>
+				<property name="ИдРаздел" form="Attribute"/>
+				<property name="НомРаздел" form="Attribute"/>
+				<property name="НаимРаздел" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="ВидРаб" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СтройДеталУПДПокупТип">
+		<property name="Раздел" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="ВидРаб" upperBound="-1"/>
+				<property name="ИдРаздел" form="Attribute"/>
+				<property name="СтоимУчНалПринЗакРаздел" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="ВидРаб" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СтройДеталУПДПродТип">
+		<property name="Раздел" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="ВидРаб" upperBound="-1"/>
+				<property name="СумНалРаздел"/>
+				<property name="ИдРаздел" form="Attribute"/>
+				<property name="НомРаздел" form="Attribute"/>
+				<property name="НаимРаздел" form="Attribute"/>
+				<property name="СтоимБезНДСРаздел" form="Attribute"/>
+				<property name="СтоимСНДСРаздел" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="ВидРаб" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СумАкцизТип" ordered="false" sequenced="true">
+		<property name="СумАкциз" lowerBound="0"/>
+		<property name="БезАкциз" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" length="10">
+				<enumeration>без акциза</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="СумНДСТип" ordered="false" sequenced="true">
+		<property name="СумНал" lowerBound="0"/>
+		<property name="БезНДС" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string">
+				<enumeration>без НДС</enumeration>
+			</typeDef>
+		</property>
+		<property name="ДефНДС" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" length="1">
+				<enumeration>-</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ТребЗакНеустТип">
+		<property name="ПричНачислНеуст" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="Код" form="Attribute"/>
+				<property name="Наим" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="НаимТреб" form="Attribute"/>
+		<property name="НомерТреб" form="Attribute"/>
+		<property name="ДатаТреб" form="Attribute"/>
+		<property name="ТипНеуст" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string">
+				<enumeration>Штраф</enumeration>
+				<enumeration>Пеня</enumeration>
+			</typeDef>
+		</property>
+		<property name="РазмерНеуст" form="Attribute"/>
+	</objectType>
+	<objectType name="ФИОТип">
+		<property name="Фамилия"/>
+		<property name="Имя"/>
+		<property name="Отчество" lowerBound="0"/>
+	</objectType>
+</package>

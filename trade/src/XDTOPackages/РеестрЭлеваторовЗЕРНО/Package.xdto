@@ -1,0 +1,114 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" elementFormQualified="false" attributeFormQualified="false">
+	<property xmlns:d2p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="elevators" type="d2p1:elevatorList"/>
+	<objectType name="dangerousObjects">
+		<property name="elevatorDangerousObject" type="xs:anyType" upperBound="-1"/>
+	</objectType>
+	<objectType name="elevatorDangerousObject">
+		<property name="date" type="xs:date" lowerBound="0"/>
+		<property name="docNumber" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="elevatorInfo" ordered="false" sequenced="true">
+		<property name="capacityTons" type="xs:decimal" lowerBound="0" nillable="true"/>
+		<property name="capacityMothballedTons" type="xs:decimal" lowerBound="0" nillable="true"/>
+		<property name="isTestingLaboratory" type="xs:boolean" lowerBound="0"/>
+		<property name="loadingCapacityAuto" type="xs:integer" lowerBound="0"/>
+		<property name="loadingCapacityAutoTons" type="xs:decimal" lowerBound="0"/>
+		<property name="loadingCapacityWagons" type="xs:integer" lowerBound="0"/>
+		<property name="loadingCapacityTrainTons" type="xs:decimal" lowerBound="0"/>
+		<property name="railwayLength" type="xs:integer" lowerBound="0"/>
+		<property name="railwayLengthRent" type="xs:integer" lowerBound="0"/>
+		<property name="railwayCapacityWagons" type="xs:integer" lowerBound="0"/>
+		<property name="railwayCapacityWagonsRent" type="xs:integer" lowerBound="0"/>
+		<property name="isLocomotive" type="xs:boolean" lowerBound="0"/>
+		<property name="isLocomotiveRent" type="xs:boolean" lowerBound="0"/>
+		<property name="loadingCapacityWater" type="xs:decimal" lowerBound="0"/>
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="station" type="d3p1:railwayStations" lowerBound="0"/>
+		<property name="startDate" type="xs:date" lowerBound="0"/>
+		<property name="endDate" type="xs:date" lowerBound="0"/>
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="processingMethods" type="d3p1:processingMethods" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="dangerousObjects" type="d3p1:dangerousObjects" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="insurancePolicies" type="d3p1:insurancePolicies" lowerBound="0"/>
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="products" type="d3p1:products" lowerBound="0" nillable="true"/>
+		<property name="autoIn" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="autoOut" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="railwayIn" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="railwayOut" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="services" type="d3p1:services" lowerBound="0"/>
+		<property name="waterIn" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="waterOut" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="yearsOfConservation" type="xs:short" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="elevatorList">
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="elevator" type="d3p1:elevatorResult" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="elevatorProcessingMethod">
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="method" type="d3p1:processingMethod" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="elevatorProduct">
+		<property name="okpd2" type="xs:string" lowerBound="0"/>
+		<property name="okpd2Name" type="xs:string" lowerBound="0"/>
+		<property name="productName" type="xs:string" lowerBound="0"/>
+		<property name="tnved" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="elevatorResult">
+		<property name="registrationNumber" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="subject" type="d3p1:subject" lowerBound="0"/>
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="elevatorInfo" type="d3p1:elevatorInfo" lowerBound="0"/>
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="elevatorSiteList" type="d3p1:elevatorSite" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="elevatorSite">
+		<property name="cadastralNumber" type="xs:string" lowerBound="0"/>
+		<property name="capacityTons" type="xs:decimal" lowerBound="0"/>
+		<property name="yearConstruction" type="xs:short" lowerBound="0"/>
+		<property name="yearLastReconstruction" type="xs:short" lowerBound="0"/>
+		<property name="actCommissioning" type="xs:anyType" lowerBound="0"/>
+		<property name="address" type="xs:string" lowerBound="0"/>
+		<property name="granaryType" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="externalDocument">
+		<property name="docNumber" type="xs:string" lowerBound="0"/>
+		<property name="date" type="xs:date" lowerBound="0"/>
+	</objectType>
+	<objectType name="insurancePolicies">
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="insurancePolicy" type="d3p1:insurancePolicy"/>
+	</objectType>
+	<objectType name="insurancePolicy">
+		<property name="validityDate" type="xs:date" lowerBound="0"/>
+		<property name="docDate" type="xs:date" lowerBound="0"/>
+		<property name="docNumber" type="xs:string" lowerBound="0"/>
+		<property name="documentType" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="processingMethod">
+		<property name="code" type="xs:string" lowerBound="0"/>
+		<property name="endDate" type="xs:date" lowerBound="0"/>
+		<property name="id" type="xs:long" lowerBound="0"/>
+		<property name="name" type="xs:string" lowerBound="0"/>
+		<property name="startDate" type="xs:date" lowerBound="0"/>
+	</objectType>
+	<objectType name="processingMethods">
+		<property name="processingMethod" type="xs:string" upperBound="-1"/>
+	</objectType>
+	<objectType name="products">
+		<property name="elevatorProduct" type="xs:anyType" upperBound="-1"/>
+	</objectType>
+	<objectType name="railwayStation" ordered="false" sequenced="true">
+		<property name="code" type="xs:string" lowerBound="0"/>
+		<property name="name" type="xs:string" lowerBound="0"/>
+		<property name="id" type="xs:long" lowerBound="0"/>
+	</objectType>
+	<objectType name="railwayStations">
+		<property xmlns:d3p1="http://opendata.mcx.ru/opendata/7708075454-zerno/elevator-structure-20220701.xsd" name="RailwayStation" type="d3p1:railwayStation" upperBound="-1"/>
+	</objectType>
+	<objectType name="services">
+		<property name="service" type="xs:string" upperBound="-1"/>
+	</objectType>
+	<objectType name="subject">
+		<property name="name" type="xs:string" lowerBound="0"/>
+		<property name="ogrn" type="xs:string" lowerBound="0"/>
+		<property name="inn" type="xs:string" lowerBound="0"/>
+		<property name="kpp" type="xs:string" lowerBound="0"/>
+		<property name="shortName" type="xs:string" lowerBound="0"/>
+		<property name="address" type="xs:string" lowerBound="0"/>
+		<property name="opfName" type="xs:string" lowerBound="0"/>
+	</objectType>
+</package>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="180c2477-4cc4-49a0-b72c-5e92cad8eb9a">
+  <producedTypes>
+    <selectionType typeId="fe2e4599-fd1b-4c69-820f-9ad106a8b9e3" valueTypeId="d85760a7-2883-45d4-98f1-b1d783e1f1b8"/>
+    <listType typeId="668ee7ee-e4b5-4500-bdd1-8a6a2eb4d504" valueTypeId="d4337066-9666-419b-937c-51c4f8a53841"/>
+    <managerType typeId="c9a63ef0-49ac-49aa-bf6c-10eb4807b43a" valueTypeId="bd2f8125-3cca-458a-a72e-4ac9d163f314"/>
+    <recordSetType typeId="7abd26f2-8d58-412d-b3a3-70f82dfcca53" valueTypeId="16932a65-302b-4ad6-81c9-e90aeead900d"/>
+    <recordKeyType typeId="5b6f09ea-c2bc-467c-a555-9d6ad08d5d20" valueTypeId="c3d5f684-2d2b-456c-9c16-4bfede49f1d4"/>
+    <recordType typeId="b7567737-a3b2-431e-89b8-6375f4825d84" valueTypeId="c5579441-f0a5-4431-8c49-18fd69b512d4"/>
+    <recordManagerType typeId="790f78d8-48f7-4018-8078-031538eee595" valueTypeId="287335d2-d423-412f-b326-50380c0b1b01"/>
+  </producedTypes>
+  <name>СтоимостьДоставкиПоРасстоянию</name>
+  <synonym>
+    <key>ru</key>
+    <value>Стоимость доставки по расстоянию</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="5640a171-1a14-433c-a33f-0b2280138b41">
+    <name>Стоимость</name>
+    <synonym>
+      <key>ru</key>
+      <value>Стоимость за км.</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <scale>2</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="86a600dc-8602-4ed1-9444-d476d623c402">
+    <name>Подразделение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Подразделение</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СтруктураПредприятия</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="111791b8-a094-49a7-9d4b-6ab1d3963a89">
+    <name>Тариф</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тариф</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ТарифыПеревозчиков</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

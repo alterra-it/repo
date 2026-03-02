@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипОперации</dataPath>
+			<field>ТипОперации</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип операции</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>2</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПриемникКоличество</dataPath>
+			<field>ПриемникКоличество</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПриемникСумма</dataPath>
+			<field>ПриемникСумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоимость с учетом скидок</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПриемникСуммаСкидки</dataPath>
+			<field>ПриемникСуммаСкидки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма скидки</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникКоличество</dataPath>
+			<field>ИсточникКоличество</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникСумма</dataPath>
+			<field>ИсточникСумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоимость с учетом скидок</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникСуммаСкидки</dataPath>
+			<field>ИсточникСуммаСкидки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма скидки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтавкаНДС</dataPath>
+			<field>СтавкаНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ставка НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВЫРАЗИТЬ(СопоставленныеДанные.ТипОперации КАК ЧИСЛО(2, 0)) КАК ТипОперации,
+	ВЫРАЗИТЬ(СопоставленныеДанные.НомерЗаказа КАК СТРОКА(50)) КАК НомерЗаказа,
+	ВЫРАЗИТЬ(СопоставленныеДанные.ДатаОформленияЗаказа КАК ДАТА) КАК ДатаОформленияЗаказа,
+	ВЫРАЗИТЬ(СопоставленныеДанные.ДатаПередачиВДоставку КАК ДАТА) КАК ДатаПередачиВДоставку,
+	ВЫРАЗИТЬ(СопоставленныеДанные.ДатаДоставки КАК ДАТА) КАК ДатаДоставки,
+	ВЫРАЗИТЬ(СопоставленныеДанные.ДатаНевыкупаВозврата КАК ДАТА) КАК ДатаНевыкупаВозврата,
+	ВЫРАЗИТЬ(СопоставленныеДанные.КоличествоПередано КАК ЧИСЛО(15, 3)) КАК КоличествоПередано,
+	ВЫРАЗИТЬ(СопоставленныеДанные.КоличествоДоставлено КАК ЧИСЛО(15, 3)) КАК КоличествоДоставлено,
+	ВЫРАЗИТЬ(СопоставленныеДанные.КоличествоВозврат КАК ЧИСЛО(15, 3)) КАК КоличествоВозврат,
+	ВЫРАЗИТЬ(СопоставленныеДанные.СтавкаНДС КАК СТРОКА(25)) КАК СтавкаНДС,
+	ВЫРАЗИТЬ(СопоставленныеДанные.Сумма КАК ЧИСЛО(20, 2)) КАК Сумма,
+	ВЫРАЗИТЬ(СопоставленныеДанные.СуммаСкидки КАК ЧИСЛО(20, 2)) КАК СуммаСкидки
+ПОМЕСТИТЬ ВТ_СопоставленныеДанные
+ИЗ
+	&amp;СопоставленныеДанные КАК СопоставленныеДанные
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МИНИМУМ(НАЧАЛОПЕРИОДА(ВТ_СопоставленныеДанные.ДатаПередачиВДоставку, ДЕНЬ)) КАК НачалоПериода,
+	МАКСИМУМ(КОНЕЦПЕРИОДА(ВТ_СопоставленныеДанные.ДатаПередачиВДоставку, ДЕНЬ)) КАК ОкончаниеПериода
+ПОМЕСТИТЬ ВТ_ПериодПередачиВДоставку
+ИЗ
+	ВТ_СопоставленныеДанные КАК ВТ_СопоставленныеДанные
+ГДЕ
+	ВТ_СопоставленныеДанные.ТипОперации = 1
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МИНИМУМ(НАЧАЛОПЕРИОДА(ВТ_СопоставленныеДанные.ДатаДоставки, ДЕНЬ)) КАК НачалоПериода,
+	МАКСИМУМ(КОНЕЦПЕРИОДА(ВТ_СопоставленныеДанные.ДатаДоставки, ДЕНЬ)) КАК ОкончаниеПериода
+ПОМЕСТИТЬ ВТ_ПериодДоставки
+ИЗ
+	ВТ_СопоставленныеДанные КАК ВТ_СопоставленныеДанные
+ГДЕ
+	ВТ_СопоставленныеДанные.ТипОперации = 2
+	И ВТ_СопоставленныеДанные.ДатаДоставки &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_СопоставленныеДанные.ТипОперации КАК ТипОперации,
+	ВТ_СопоставленныеДанные.ДатаНевыкупаВозврата КАК ДатаНевыкупаВозврата,
+	ВТ_СопоставленныеДанные.НомерЗаказа КАК НомерЗаказа,
+	ВТ_СопоставленныеДанные.ДатаОформленияЗаказа КАК ДатаОформленияЗаказа,
+	СУММА(ВТ_СопоставленныеДанные.СуммаСкидки) КАК СуммаСкидки
+ПОМЕСТИТЬ ВТ_СопоставленныеДанныеИтоги
+ИЗ
+	ВТ_СопоставленныеДанные КАК ВТ_СопоставленныеДанные
+
+СГРУППИРОВАТЬ ПО
+	ВТ_СопоставленныеДанные.ТипОперации,
+	ВТ_СопоставленныеДанные.ДатаНевыкупаВозврата,
+	ВТ_СопоставленныеДанные.НомерЗаказа,
+	ВТ_СопоставленныеДанные.ДатаОформленияЗаказа
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	1 КАК ТипОперации,
+	ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.БезНДС) КАК СтавкаНДС,
+	0 КАК ИсточникКоличество,
+	0 КАК ИсточникСумма,
+	0 КАК ИсточникСуммаСкидки,
+	0 КАК ПриемникКоличество,
+	0 КАК ПриемникСумма,
+	0 КАК ПриемникСуммаСкидки
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	2,
+	ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.БезНДС),
+	0,
+	0,
+	0,
+	0,
+	0,
+	0
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	3,
+	ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.БезНДС),
+	0,
+	0,
+	0,
+	0,
+	0,
+	0
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	4,
+	ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.БезНДС),
+	0,
+	0,
+	0,
+	0,
+	0,
+	0
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_СопоставленныеДанные.ТипОперации,
+	ВЫБОР
+		КОГДА ВТ_СопоставленныеДанные.СтавкаНДС = &amp;СтавкаНДСБезНДС
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.БезНДС)
+		КОГДА ВТ_СопоставленныеДанные.СтавкаНДС ПОДОБНО &amp;СтавкаНДС10
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.НДС10)
+		КОГДА ВТ_СопоставленныеДанные.СтавкаНДС ПОДОБНО &amp;СтавкаНДС18
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.НДС18)
+		КОГДА ВТ_СопоставленныеДанные.СтавкаНДС ПОДОБНО &amp;СтавкаНДС20
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.НДС20)
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.ПустаяСсылка)
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ВТ_СопоставленныеДанные.ТипОперации = 1
+			ТОГДА ВТ_СопоставленныеДанные.КоличествоПередано
+		КОГДА ВТ_СопоставленныеДанные.ТипОперации = 2
+			ТОГДА ВТ_СопоставленныеДанные.КоличествоДоставлено
+		КОГДА ВТ_СопоставленныеДанные.ТипОперации = 3
+				ИЛИ ВТ_СопоставленныеДанные.ТипОперации = 4
+			ТОГДА ВТ_СопоставленныеДанные.КоличествоВозврат
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ВТ_СопоставленныеДанные.ТипОперации = 1
+				ИЛИ ВТ_СопоставленныеДанные.ТипОперации = 2
+			ТОГДА 1
+		ИНАЧЕ -1
+	КОНЕЦ * ВТ_СопоставленныеДанные.Сумма,
+	ВЫБОР
+		КОГДА ВТ_СопоставленныеДанные.ТипОперации = 1
+				ИЛИ ВТ_СопоставленныеДанные.ТипОперации = 2
+			ТОГДА 1
+		ИНАЧЕ -1
+	КОНЕЦ * ВТ_СопоставленныеДанные.СуммаСкидки,
+	0,
+	0,
+	0
+ИЗ
+	ВТ_СопоставленныеДанные КАК ВТ_СопоставленныеДанные
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	1,
+	ЕСТЬNULL(ДокументРеализацияТоваровУслугТовары.СтавкаНДС.ПеречислениеСтавкаНДС, ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.БезНДС)),
+	0,
+	0,
+	0,
+	ДокументРеализацияТоваровУслугТовары.КоличествоУпаковок,
+	ДокументРеализацияТоваровУслугТовары.СуммаСНДС,
+	ВЫРАЗИТЬ(ВЫБОР
+			КОГДА НЕ ДокументРеализацияТоваровУслуг.ЦенаВключаетНДС
+				ТОГДА ВЫБОР
+						КОГДА ДокументРеализацияТоваровУслугТовары.Сумма = 0
+							ТОГДА 0
+						ИНАЧЕ ДокументРеализацияТоваровУслугТовары.СуммаРучнойСкидки * ДокументРеализацияТоваровУслугТовары.СуммаСНДС / ДокументРеализацияТоваровУслугТовары.Сумма
+					КОНЕЦ
+			ИНАЧЕ ДокументРеализацияТоваровУслугТовары.СуммаРучнойСкидки
+		КОНЕЦ КАК ЧИСЛО(20, 2))
+ИЗ
+	Документ.РеализацияТоваровУслуг.Товары КАК ДокументРеализацияТоваровУслугТовары
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.РеализацияТоваровУслуг КАК ДокументРеализацияТоваровУслуг
+		ПО (ДокументРеализацияТоваровУслуг.Ссылка = ДокументРеализацияТоваровУслугТовары.Ссылка)
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_ПериодПередачиВДоставку КАК ВТ_ПериодПередачиВДоставку
+		ПО (ДокументРеализацияТоваровУслуг.Дата &gt;= ВТ_ПериодПередачиВДоставку.НачалоПериода)
+			И (ДокументРеализацияТоваровУслуг.Дата &lt;= ВТ_ПериодПередачиВДоставку.ОкончаниеПериода)
+ГДЕ
+	ДокументРеализацияТоваровУслуг.Ссылка В(&amp;ЗагруженныеОбъекты)
+	И ДокументРеализацияТоваровУслуг.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.РеализацияБезПереходаПраваСобственности)
+	И ДокументРеализацияТоваровУслуг.Организация = &amp;Организация
+	И ДокументРеализацияТоваровУслуг.Склад = &amp;Склад
+	И НЕ ДокументРеализацияТоваровУслуг.ПометкаУдаления
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	2,
+	ЕСТЬNULL(ДокументРеализацияТоваровУслугТовары.СтавкаНДС.ПеречислениеСтавкаНДС, ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.БезНДС)),
+	0,
+	0,
+	0,
+	ДокументРеализацияТоваровУслугТовары.КоличествоУпаковок,
+	ДокументРеализацияТоваровУслугТовары.СуммаСНДС,
+	ВЫРАЗИТЬ(ВЫБОР
+			КОГДА НЕ ДокументРеализацияТоваровУслуг.ЦенаВключаетНДС
+				ТОГДА ВЫБОР
+						КОГДА ДокументРеализацияТоваровУслугТовары.Сумма = 0
+							ТОГДА 0
+						ИНАЧЕ ДокументРеализацияТоваровУслугТовары.СуммаРучнойСкидки * ДокументРеализацияТоваровУслугТовары.СуммаСНДС / ДокументРеализацияТоваровУслугТовары.Сумма
+					КОНЕЦ
+			ИНАЧЕ ДокументРеализацияТоваровУслугТовары.СуммаРучнойСкидки
+		КОНЕЦ КАК ЧИСЛО(20, 2))
+ИЗ
+	Документ.РеализацияТоваровУслуг.Товары КАК ДокументРеализацияТоваровУслугТовары
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.РеализацияТоваровУслуг КАК ДокументРеализацияТоваровУслуг
+		ПО (ДокументРеализацияТоваровУслуг.Ссылка = ДокументРеализацияТоваровУслугТовары.Ссылка)
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_ПериодДоставки КАК ВТ_ПериодДоставки
+		ПО (ДокументРеализацияТоваровУслуг.ДатаПереходаПраваСобственности &gt;= ВТ_ПериодДоставки.НачалоПериода)
+			И (ДокументРеализацияТоваровУслуг.ДатаПереходаПраваСобственности &lt;= ВТ_ПериодДоставки.ОкончаниеПериода)
+ГДЕ
+	ДокументРеализацияТоваровУслуг.Ссылка В(&amp;ЗагруженныеОбъекты)
+	И ДокументРеализацияТоваровУслуг.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыРеализацийТоваровУслуг.Отгружено)
+	И ДокументРеализацияТоваровУслуг.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.РеализацияБезПереходаПраваСобственности)
+	И ДокументРеализацияТоваровУслуг.Организация = &amp;Организация
+	И ДокументРеализацияТоваровУслуг.Склад = &amp;Склад
+	И НЕ ДокументРеализацияТоваровУслуг.ПометкаУдаления
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	2,
+	ЕСТЬNULL(ДокументКорректировкаРеализацииРасхождения.СтавкаНДС.ПеречислениеСтавкаНДС, ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.БезНДС)),
+	0,
+	0,
+	0,
+	ДокументКорректировкаРеализацииРасхождения.КоличествоУпаковок,
+	ДокументКорректировкаРеализацииРасхождения.СуммаСНДС,
+	ЕСТЬNULL(ВТ_СопоставленныеДанныеИтоги.СуммаСкидки, 0)
+ИЗ
+	Документ.КорректировкаРеализации.Расхождения КАК ДокументКорректировкаРеализацииРасхождения
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.КорректировкаРеализации КАК ДокументКорректировкаРеализации
+		ПО (ДокументКорректировкаРеализации.Ссылка = ДокументКорректировкаРеализацииРасхождения.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_СопоставленныеДанныеИтоги КАК ВТ_СопоставленныеДанныеИтоги
+		ПО (НАЧАЛОПЕРИОДА(ДокументКорректировкаРеализации.Дата, ДЕНЬ) = НАЧАЛОПЕРИОДА(ВТ_СопоставленныеДанныеИтоги.ДатаНевыкупаВозврата, ДЕНЬ))
+			И (ДокументКорректировкаРеализации.ОснованиеНомер = ВТ_СопоставленныеДанныеИтоги.НомерЗаказа)
+			И (НАЧАЛОПЕРИОДА(ДокументКорректировкаРеализации.ОснованиеДата, ДЕНЬ) = ВТ_СопоставленныеДанныеИтоги.ДатаОформленияЗаказа)
+			И (ВТ_СопоставленныеДанныеИтоги.ТипОперации = 3
+				ИЛИ ВТ_СопоставленныеДанныеИтоги.ТипОперации = 4)
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.РеализацияТоваровУслуг КАК ДокументРеализацияТоваровУслуг
+		ПО (ДокументРеализацияТоваровУслуг.Ссылка = ДокументКорректировкаРеализации.ДокументОснование)
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_ПериодДоставки КАК ВТ_ПериодДоставки
+		ПО (ДокументРеализацияТоваровУслуг.ДатаПереходаПраваСобственности &gt;= ВТ_ПериодДоставки.НачалоПериода)
+			И (ДокументРеализацияТоваровУслуг.ДатаПереходаПраваСобственности &lt;= ВТ_ПериодДоставки.ОкончаниеПериода)
+ГДЕ
+	ДокументКорректировкаРеализации.Ссылка В(&amp;ЗагруженныеОбъекты)
+	И ДокументКорректировкаРеализации.Организация = &amp;Организация
+	И ДокументКорректировкаРеализации.Склад = &amp;Склад
+	И НЕ ДокументКорректировкаРеализации.ПометкаУдаления
+	И ДокументКорректировкаРеализации.Комментарий ПОДОБНО &amp;КомментарийНевыкупТоваров
+	И ДокументРеализацияТоваровУслуг.Ссылка В(&amp;ЗагруженныеОбъекты)
+	И ДокументРеализацияТоваровУслуг.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыРеализацийТоваровУслуг.Отгружено)
+	И ДокументРеализацияТоваровУслуг.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.РеализацияБезПереходаПраваСобственности)
+	И ДокументРеализацияТоваровУслуг.Организация = &amp;Организация
+	И ДокументРеализацияТоваровУслуг.Склад = &amp;Склад
+	И НЕ ДокументРеализацияТоваровУслуг.ПометкаУдаления
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВЫБОР
+		КОГДА ДокументКорректировкаРеализации.Комментарий ПОДОБНО &amp;КомментарийНевыкупТоваров
+			ТОГДА 3
+		ИНАЧЕ 4
+	КОНЕЦ,
+	ЕСТЬNULL(ДокументКорректировкаРеализацииРасхождения.СтавкаНДС.ПеречислениеСтавкаНДС, ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.БезНДС)),
+	0,
+	0,
+	0,
+	-ДокументКорректировкаРеализацииРасхождения.КоличествоУпаковок,
+	-ДокументКорректировкаРеализацииРасхождения.СуммаСНДС,
+	-ЕСТЬNULL(ВТ_СопоставленныеДанныеИтоги.СуммаСкидки, 0)
+ИЗ
+	Документ.КорректировкаРеализации.Расхождения КАК ДокументКорректировкаРеализацииРасхождения
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.КорректировкаРеализации КАК ДокументКорректировкаРеализации
+		ПО (ДокументКорректировкаРеализации.Ссылка = ДокументКорректировкаРеализацииРасхождения.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_СопоставленныеДанныеИтоги КАК ВТ_СопоставленныеДанныеИтоги
+		ПО (НАЧАЛОПЕРИОДА(ДокументКорректировкаРеализации.Дата, ДЕНЬ) = НАЧАЛОПЕРИОДА(ВТ_СопоставленныеДанныеИтоги.ДатаНевыкупаВозврата, ДЕНЬ))
+			И (ДокументКорректировкаРеализации.ОснованиеНомер = ВТ_СопоставленныеДанныеИтоги.НомерЗаказа)
+			И (НАЧАЛОПЕРИОДА(ДокументКорректировкаРеализации.ОснованиеДата, ДЕНЬ) = ВТ_СопоставленныеДанныеИтоги.ДатаОформленияЗаказа)
+			И (ВТ_СопоставленныеДанныеИтоги.ТипОперации = 3
+				ИЛИ ВТ_СопоставленныеДанныеИтоги.ТипОперации = 4)
+ГДЕ
+	ДокументКорректировкаРеализации.Ссылка В(&amp;ЗагруженныеОбъекты)
+	И ДокументКорректировкаРеализации.Организация = &amp;Организация
+	И ДокументКорректировкаРеализации.Склад = &amp;Склад
+	И НЕ ДокументКорректировкаРеализации.ПометкаУдаления</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ИсточникСуммаБезСкидок</dataPath>
+		<expression>ИсточникСумма + ИсточникСуммаСкидки</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоимость без учета скидок</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПриемникСуммаБезСкидок</dataPath>
+		<expression>ПриемникСумма + ПриемникСуммаСкидки</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоимость без учета скидок</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+	</calculatedField>
+	<totalField>
+		<dataPath>ИсточникКоличество</dataPath>
+		<expression>Сумма(ИсточникКоличество)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИсточникСумма</dataPath>
+		<expression>Сумма(ИсточникСумма)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИсточникСуммаБезСкидок</dataPath>
+		<expression>Сумма(ИсточникСуммаБезСкидок)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИсточникСуммаСкидки</dataPath>
+		<expression>Сумма(ИсточникСуммаСкидки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПриемникКоличество</dataPath>
+		<expression>Сумма(ПриемникКоличество)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПриемникСумма</dataPath>
+		<expression>Сумма(ПриемникСумма)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПриемникСуммаБезСкидок</dataPath>
+		<expression>Сумма(ПриемникСуммаБезСкидок)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПриемникСуммаСкидки</dataPath>
+		<expression>Сумма(ПриемникСуммаСкидки)</expression>
+	</totalField>
+	<parameter>
+		<name>СопоставленныеДанные</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сопоставленные данные</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:ValueTable</v8:Type>
+		</valueType>
+		<value xsi:type="v8:ValueTable"/>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Склад</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Склад</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Склады</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ЗагруженныеОбъекты</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Загруженные объекты</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.РеализацияТоваровУслуг</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КомментарийНевыкупТоваров</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Комментарий невыкуп товаров</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>512</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">(Яндекс Маркет)%Невыкуп товаров%</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>СтавкаНДСБезНДС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Без НДС</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">Без НДС</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>СтавкаНДС10</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>НДС 10%</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">%10%</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>СтавкаНДС18</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>НДС 18%</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">%18%</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>СтавкаНДС20</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>НДС 20%</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">%20%</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипОперации</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Источник (из файла)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ИсточникКоличество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ИсточникСуммаБезСкидок</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ИсточникСуммаСкидки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ИсточникСумма</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приемник (из учетной системы)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПриемникКоличество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПриемникСуммаБезСкидок</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПриемникСуммаСкидки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПриемникСумма</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СопоставленныеДанные</dcscor:parameter>
+					<dcscor:value xsi:type="v8:ValueTable"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ЗагруженныеОбъекты</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ТипОперации</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ТипОперации</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ТипОперации</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Текст</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>1. Товары, переданные в доставку</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ТипОперации</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ТипОперации</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">2</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Текст</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>2. Товары, доставленные покупателям</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ТипОперации</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ТипОперации</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">3</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Текст</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>3. Невыкупленные товары (покупатели отказались от покупки)</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ТипОперации</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ТипОперации</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">4</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Текст</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>4. Возвращенные товары (покупатели вернули их после покупки)</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ИсточникКоличество</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ИсточникСуммаБезСкидок</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ИсточникСуммаСкидки</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ИсточникСумма</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПриемникКоличество</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПриемникСуммаБезСкидок</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПриемникСуммаСкидки</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПриемникСумма</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ИсточникКоличество</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПриемникКоличество</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ИсточникКоличество</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">ПриемникКоличество</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+					<dcsset:useInResourceFieldsHeader>DontUse</dcsset:useInResourceFieldsHeader>
+					<dcsset:useInOverallHeader>DontUse</dcsset:useInOverallHeader>
+					<dcsset:useInOverallResourceFieldsHeader>DontUse</dcsset:useInOverallResourceFieldsHeader>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ИсточникСуммаБезСкидок</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПриемникСуммаБезСкидок</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ИсточникСуммаБезСкидок</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">ПриемникСуммаБезСкидок</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+					<dcsset:useInResourceFieldsHeader>DontUse</dcsset:useInResourceFieldsHeader>
+					<dcsset:useInOverallHeader>DontUse</dcsset:useInOverallHeader>
+					<dcsset:useInOverallResourceFieldsHeader>DontUse</dcsset:useInOverallResourceFieldsHeader>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ИсточникСуммаСкидки</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПриемникСуммаСкидки</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ИсточникСуммаСкидки</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">ПриемникСуммаСкидки</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+					<dcsset:useInResourceFieldsHeader>DontUse</dcsset:useInResourceFieldsHeader>
+					<dcsset:useInOverallHeader>DontUse</dcsset:useInOverallHeader>
+					<dcsset:useInOverallResourceFieldsHeader>DontUse</dcsset:useInOverallResourceFieldsHeader>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ИсточникСумма</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПриемникСумма</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ИсточникСумма</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">ПриемникСумма</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+					<dcsset:useInResourceFieldsHeader>DontUse</dcsset:useInResourceFieldsHeader>
+					<dcsset:useInOverallHeader>DontUse</dcsset:useInOverallHeader>
+					<dcsset:useInOverallResourceFieldsHeader>DontUse</dcsset:useInOverallResourceFieldsHeader>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сводный отчет о загруженных данных</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТипОперации</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>ИсточникКоличество</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>ИсточникСуммаБезСкидок</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>ИсточникСуммаСкидки</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>ИсточникСумма</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>ПриемникКоличество</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>ПриемникСуммаБезСкидок</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>ПриемникСуммаСкидки</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>ПриемникСумма</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Шрифт</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Font" ref="style:TextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:use>false</dcscor:use>
+								<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:use>false</dcscor:use>
+								<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+						<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+						<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+						<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+						<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+						<dcsset:useInResourceFieldsHeader>DontUse</dcsset:useInResourceFieldsHeader>
+						<dcsset:useInOverallHeader>DontUse</dcsset:useInOverallHeader>
+						<dcsset:useInOverallResourceFieldsHeader>DontUse</dcsset:useInOverallResourceFieldsHeader>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СтавкаНДС</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

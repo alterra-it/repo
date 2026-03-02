@@ -1,0 +1,1660 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="http://www.1c.ru/SSL/Exchange/Message"/>
+	<valueType name="ВариантыОплаты" base="xs:string" variety="Atomic">
+		<enumeration>Аванс</enumeration>
+		<enumeration>Предоплата</enumeration>
+		<enumeration>Кредит</enumeration>
+		<enumeration>ОтсрочкаПлатежа</enumeration>
+	</valueType>
+	<valueType name="ВидыБанковскихСчетов" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Расчетный</enumeration>
+		<enumeration xsi:type="xs:string">Депозитный</enumeration>
+		<enumeration xsi:type="xs:string">Ссудный</enumeration>
+		<enumeration xsi:type="xs:string">ЧековыеКнижки</enumeration>
+		<enumeration xsi:type="xs:string">Аккредитивы</enumeration>
+		<enumeration xsi:type="xs:string">Иной</enumeration>
+	</valueType>
+	<valueType name="ВидыДоговоров" base="xs:string" variety="Atomic">
+		<enumeration>СПокупателем</enumeration>
+		<enumeration>СПоставщиком</enumeration>
+		<enumeration>СКомиссионером</enumeration>
+		<enumeration>СКомитентом</enumeration>
+		<enumeration>СКомитентомНаЗакупку</enumeration>
+		<enumeration>СКомиссионеромНаЗакупку</enumeration>
+		<enumeration>Прочее</enumeration>
+	</valueType>
+	<valueType name="ВидыКИ" base="xs:string" variety="Atomic">
+		<enumeration>ПочтовыйАдрес</enumeration>
+		<enumeration>ЮридическийАдрес</enumeration>
+		<enumeration>ФактическийАдрес</enumeration>
+		<enumeration>Телефон</enumeration>
+		<enumeration>ТелефонДомашний</enumeration>
+		<enumeration>ТелефонРабочий</enumeration>
+		<enumeration>Факс</enumeration>
+		<enumeration>ВебСтраница</enumeration>
+		<enumeration>АдресЭлектроннойПочты</enumeration>
+		<enumeration>Skype</enumeration>
+		<enumeration>ПользовательскаяКИДругое</enumeration>
+		<enumeration>ПользовательскаяКИТелефон</enumeration>
+		<enumeration>ПользовательскаяКИАдрес</enumeration>
+		<enumeration>ПользовательскаяКИАдресЭлектроннойПочты</enumeration>
+		<enumeration>ПользовательскаяКИВебСтраница</enumeration>
+		<enumeration>ПользовательскаяКИФакс</enumeration>
+		<enumeration>ПользовательскаяКИSkype</enumeration>
+	</valueType>
+	<valueType name="ВидыЛицензийАлкогольнойПродукции" base="xs:string" variety="Atomic">
+		<enumeration>Пиво</enumeration>
+		<enumeration>АлкогольнаяПродукция</enumeration>
+		<enumeration>СпиртосодержащаяПищеваяПродукция</enumeration>
+		<enumeration>СпиртосодержащаяНеПищеваяПродукция</enumeration>
+		<enumeration>Спирт</enumeration>
+	</valueType>
+	<valueType name="ВидыПродукцииИС" base="xs:string" variety="Atomic">
+		<enumeration>Алкогольная</enumeration>
+		<enumeration>Табак</enumeration>
+		<enumeration>Обувь</enumeration>
+		<enumeration>ЛегкаяПромышленность</enumeration>
+		<enumeration>МолочнаяПродукция</enumeration>
+		<enumeration>Шины</enumeration>
+		<enumeration>Фотоаппараты</enumeration>
+		<enumeration>Духи</enumeration>
+		<enumeration>Велосипеды</enumeration>
+		<enumeration>КреслаКоляски</enumeration>
+	</valueType>
+	<valueType name="ВидыСкидок" base="xs:string" variety="Atomic">
+		<enumeration>НаТовар</enumeration>
+		<enumeration>ПодарочнаяКарта</enumeration>
+		<enumeration>Дисконтная</enumeration>
+	</valueType>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="ДокументСсылка.ВнесениеДСВКассуККМ" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="ДокументСсылка.ВыемкаДСИзКассыККМ" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="ДокументСсылка.ЗаказКлиента" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="ДокументСсылка.ЗакрытиеКассовойСмены" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="ДокументСсылка.ОткрытиеКассовойСмены" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="ДокументСсылка.ОтчетОРозничныхПродажах" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="ДокументСсылка.ЧекККМ" base="d2p1:Ref"/>
+	<valueType name="НалогообложениеНДС" base="xs:string" variety="Atomic">
+		<enumeration>ПродажаНаЭкспорт</enumeration>
+		<enumeration>ПродажаНеОблагаетсяНДС</enumeration>
+		<enumeration>ПродажаОблагаетсяЕНВД</enumeration>
+		<enumeration>ПродажаОблагаетсяНДС</enumeration>
+		<enumeration>ОблагаетсяНДСУПокупателя</enumeration>
+	</valueType>
+	<valueType name="Пол" base="xs:string" variety="Atomic">
+		<enumeration>Мужской</enumeration>
+		<enumeration>Женский</enumeration>
+	</valueType>
+	<valueType name="ПризнакиАгента" base="xs:string" variety="Atomic">
+		<enumeration>БанковскийПлатежныйАгент</enumeration>
+		<enumeration>БанковскийПлатежныйСубАгент</enumeration>
+		<enumeration>ПлатежныйАгент</enumeration>
+		<enumeration>ПлатежныйСубАгент</enumeration>
+		<enumeration>Поверенный</enumeration>
+		<enumeration>Комиссионер</enumeration>
+		<enumeration>Агент</enumeration>
+	</valueType>
+	<valueType name="ПризнакиПредметаРасчета" base="xs:string" variety="Atomic">
+		<enumeration>Товар</enumeration>
+		<enumeration>ПодакцизныйТовар</enumeration>
+		<enumeration>Работа</enumeration>
+		<enumeration>Услуга</enumeration>
+		<enumeration>СтавкаАзартнойИгры</enumeration>
+		<enumeration>ВыигрышАзартнойИгры</enumeration>
+		<enumeration>ЛотерейныйБилет</enumeration>
+		<enumeration>ВыигрышЛотереи</enumeration>
+		<enumeration>ПредоставлениеРезультатаИнтеллектуальнойДеятельности</enumeration>
+		<enumeration>ПлатежВыплата</enumeration>
+		<enumeration>АгентскоеВознаграждение</enumeration>
+		<enumeration>СоставнойПредметРасчета</enumeration>
+		<enumeration>ИнойПредметРасчета</enumeration>
+		<enumeration>ИмущественноеПраво</enumeration>
+		<enumeration>ВнереализационныйДоход</enumeration>
+		<enumeration>СтраховыеВзносы</enumeration>
+		<enumeration>ТорговыйСбор</enumeration>
+		<enumeration>КурортныйСбор</enumeration>
+	</valueType>
+	<valueType name="ПризнакиСпособаРасчета" base="xs:string" variety="Atomic">
+		<enumeration>Аванс</enumeration>
+		<enumeration>ОплатаКредита</enumeration>
+		<enumeration>ПередачаБезОплаты</enumeration>
+		<enumeration>ПередачаСПолнойОплатой</enumeration>
+		<enumeration>ПередачаСЧастичнойОплатой</enumeration>
+		<enumeration>ПредоплатаПолная</enumeration>
+		<enumeration>ПредоплатаЧастичная</enumeration>
+	</valueType>
+	<valueType name="СистемыНалогообложения" base="xs:string" variety="Atomic">
+		<enumeration>Общая</enumeration>
+		<enumeration>УпрощеннаяДоход</enumeration>
+		<enumeration>УпрощеннаяДоходМинусРасход</enumeration>
+		<enumeration>ЕНВД</enumeration>
+		<enumeration>ЕдиныйСельскохозяйственныйНалог</enumeration>
+		<enumeration>ПатентнаяСистема</enumeration>
+	</valueType>
+	<valueType name="СостоянияОплаты" base="xs:string" variety="Atomic">
+		<enumeration>НеОплачен</enumeration>
+		<enumeration>ОплаченЧастично</enumeration>
+		<enumeration>Оплачен</enumeration>
+		<enumeration>Отменен</enumeration>
+	</valueType>
+	<valueType name="СостоянияОтгрузки" base="xs:string" variety="Atomic">
+		<enumeration>НеОтгружен</enumeration>
+		<enumeration>ОтгруженЧастично</enumeration>
+		<enumeration>Отгружен</enumeration>
+		<enumeration>Отменен</enumeration>
+	</valueType>
+	<valueType name="СпособыДоставки" base="xs:string" variety="Atomic">
+		<enumeration>Самовывоз</enumeration>
+		<enumeration>ДоКлиента</enumeration>
+		<enumeration>СиламиПеревозчика</enumeration>
+		<enumeration>СиламиПеревозчикаПоАдресу</enumeration>
+		<enumeration>СиламиПоставщикаДоНашегоСклада</enumeration>
+		<enumeration>СиламиПеревозчикаДоНашегоСклада</enumeration>
+		<enumeration>СиламиПеревозчикаДоПунктаПередачи</enumeration>
+		<enumeration>НашимиСиламиСАдресаОтправителя</enumeration>
+		<enumeration>КПолучателюОпределяетСлужбаДоставки</enumeration>
+		<enumeration>ОтОтправителяОпределяетСлужбаДоставки</enumeration>
+		<enumeration>ПоручениеЭкспедиторуСоСклада</enumeration>
+		<enumeration>ПоручениеЭкспедиторуНаСклад</enumeration>
+		<enumeration>ПоручениеЭкспедиторуВПункте</enumeration>
+	</valueType>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.SKUКонтрагента" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.Банки" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.БанковскиеСчета" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.Валюты" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ВидыНоменклатуры" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ВидыПодарочныхСертификатов" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ДисконтныеКарты" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.Договоры" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ДополнительныеРеквизиты" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ЕдиницыИзмерения" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ЗначенияДополнительныхРеквизитов" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.КассыККМ" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.Контрагенты" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.КонтрагентыГруппа" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.МаркировкаУпаковки" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.Номенклатура" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.НоменклатураГруппа" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.Организации" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.Подразделения" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ПозицияПрайсЛиста" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.Пользователи" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ПрайсЛист" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ПрограммыЛояльности" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.СерииНоменклатуры" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.Склады" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.СкладыГруппа" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.СостояниеОплатыЗаказа" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.СостояниеОтгрузкиЗаказа" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.СпецификацииНоменклатуры" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.СпецификацииНоменклатурыГруппа" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.СтатьиДДС" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.СтатьиДДСГруппа" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.СтатьиДоходов" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.СтатьиРасходов" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.СтраныМира" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ТипыЦен" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.Упаковки" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ФизическиеЛица" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ФизическиеЛицаГруппа" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ХарактеристикиНоменклатуры" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ЦеновыеГруппы" base="d2p1:Ref"/>
+	<valueType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="СправочникСсылка.ЭквайринговыеТерминалы" base="d2p1:Ref"/>
+	<valueType name="СтавкиНДС" base="xs:string" variety="Atomic">
+		<enumeration>НДС4</enumeration>
+		<enumeration>НДС4_104</enumeration>
+		<enumeration>НДС18</enumeration>
+		<enumeration>НДС18_118</enumeration>
+		<enumeration>НДС2</enumeration>
+		<enumeration>НДС2_102</enumeration>
+		<enumeration>НДС10</enumeration>
+		<enumeration>НДС10_110</enumeration>
+		<enumeration>НДС0</enumeration>
+		<enumeration>НДС20</enumeration>
+		<enumeration>НДС20_120</enumeration>
+		<enumeration>БезНДС</enumeration>
+		<enumeration>НДСИсчисляетсяНалоговымАгентом</enumeration>
+	</valueType>
+	<valueType name="ТипИдентификаторСтроки" base="xs:string" variety="Atomic" maxLength="36"/>
+	<valueType name="ТипКоличество" base="xs:decimal" variety="Atomic" totalDigits="15" fractionDigits="3"/>
+	<valueType name="ТипКратность" base="xs:int" variety="Atomic" totalDigits="10"/>
+	<valueType name="ТипКурс" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="4"/>
+	<valueType name="ТипНомерДекларации" base="xs:string" variety="Atomic" maxLength="30"/>
+	<valueType name="ТипНомерДокумента" base="xs:string" variety="Atomic" maxLength="256"/>
+	<valueType name="ТипНомерСтроки" base="xs:int" variety="Atomic" totalDigits="10"/>
+	<valueType name="ТипСумма" base="xs:decimal" variety="Atomic" totalDigits="15" fractionDigits="2"/>
+	<valueType name="ТипыЗапасов" base="xs:string" variety="Atomic">
+		<enumeration>СырьеИМатериалы</enumeration>
+		<enumeration>ПокупныеПолуфабрикатыИКомплектующие</enumeration>
+		<enumeration>ВозвратнаяТара</enumeration>
+		<enumeration>Топливо</enumeration>
+		<enumeration>ЗапасныеЧасти</enumeration>
+		<enumeration>ПрочиеМатериалы</enumeration>
+		<enumeration>СтроительныеМатериалы</enumeration>
+		<enumeration>ИнвентарьИХозяйственныеПринадлежности</enumeration>
+		<enumeration>СпецоснасткаИСпецодеждаНаСкладе</enumeration>
+		<enumeration>СобственныеТовары</enumeration>
+		<enumeration>ПокупныеИзделия</enumeration>
+		<enumeration>ГотоваяПродукция</enumeration>
+		<enumeration>КомиссионныеТовары</enumeration>
+		<enumeration>ДавальческиеСырьеИМатериалы</enumeration>
+	</valueType>
+	<valueType name="ТипыНоменклатуры" base="xs:string" variety="Atomic">
+		<enumeration>Товар</enumeration>
+		<enumeration>Услуга</enumeration>
+		<enumeration>Работа</enumeration>
+		<enumeration>МногооборотнаяТара</enumeration>
+	</valueType>
+	<valueType name="ТипыСкладов" base="xs:string" variety="Atomic">
+		<enumeration>Оптовый</enumeration>
+		<enumeration>Розничный</enumeration>
+		<enumeration>НеавтоматизированнаяТорговаяТочка</enumeration>
+	</valueType>
+	<valueType name="ТипыСостоянийОбменаЭД" base="xs:string" variety="Atomic">
+		<enumeration>ВсеВыполнено</enumeration>
+		<enumeration>ДействийНеТребуется</enumeration>
+		<enumeration>ТребуютсяДействия</enumeration>
+		<enumeration>Отклонен</enumeration>
+	</valueType>
+	<valueType name="ТипыТипыОплатЧековККМ" base="xs:string" variety="Atomic">
+		<enumeration>Наличные</enumeration>
+		<enumeration>Электронно</enumeration>
+		<enumeration>Предоплата</enumeration>
+		<enumeration>Постоплата</enumeration>
+		<enumeration>ВстречноеПредставление</enumeration>
+	</valueType>
+	<valueType name="ТипыУпаковокНоменклатуры" base="xs:string" variety="Atomic">
+		<enumeration>МаркированныйТовар</enumeration>
+		<enumeration>МонотоварнаяУпаковка</enumeration>
+		<enumeration>МультитоварнаяУпаковка</enumeration>
+	</valueType>
+	<valueType name="ТипыУслуг" base="xs:string" variety="Atomic">
+		<enumeration>Собственные</enumeration>
+		<enumeration>Агентские</enumeration>
+	</valueType>
+	<valueType name="ТипыШтрихкодов" base="xs:string" variety="Atomic">
+		<enumeration>PDF417</enumeration>
+		<enumeration>ITF14</enumeration>
+		<enumeration>EAN8</enumeration>
+		<enumeration>EAN13</enumeration>
+		<enumeration>Code39</enumeration>
+		<enumeration>Code128</enumeration>
+		<enumeration>SSCC</enumeration>
+		<enumeration>GS1_DataBarExpandedStacked</enumeration>
+		<enumeration>GS1_128</enumeration>
+		<enumeration>QR</enumeration>
+	</valueType>
+	<valueType name="ФормыОплаты" base="xs:string" variety="Atomic">
+		<enumeration>Наличная</enumeration>
+		<enumeration>Безналичная</enumeration>
+		<enumeration>ПлатежнаяКарта</enumeration>
+	</valueType>
+	<valueType name="ЮридическоеФизическоеЛицо" base="xs:string" variety="Atomic">
+		<enumeration>ЮридическоеЛицо</enumeration>
+		<enumeration>ФизическоеЛицо</enumeration>
+	</valueType>
+	<valueType name="ВариантыУчетаЧастичногоВыбытия" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">ТекущаяНоменклатура</enumeration>
+		<enumeration xsi:type="xs:string">НастроеннаяНоменклатура</enumeration>
+	</valueType>
+	<valueType name="ТипКоличествоЧастичноеВыбытие" base="xs:decimal" variety="Atomic" totalDigits="18" fractionDigits="8"/>
+	<valueType name="ВариантыИспользованияЕдиницыХранения" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">ЧастьПотребительскойУпаковки</enumeration>
+		<enumeration xsi:type="xs:string">ПотребительскаяУпаковка</enumeration>
+	</valueType>
+	<objectType name="Info">
+		<property name="Date" type="xs:date"/>
+		<property name="PostDocuments" type="xs:boolean"/>
+	</objectType>
+	<objectType name="АкцизныеМарки">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:АкцизныеМарки.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="АкцизныеМарки.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры" lowerBound="0"/>
+		<property name="НомерАкцизнойМарки" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипАкцизнойМарки" type="d3p1:ВидыПродукцииИС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЧастичноеВыбытиеДанныеНоменклатуры" type="d3p1:КлючевыеСвойстваНоменклатура" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЧастичноеВыбытиеКоличество" type="d3p1:ТипКоличествоЧастичноеВыбытие" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЧастичноеВыбытиеВариантУчета" type="d3p1:ВариантыУчетаЧастичногоВыбытия" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ВнесениеДСВКассуККМ" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваВнесениеДСВКассуККМ"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеОперацииККМ" type="d3p1:ОбщиеСвойстваОперацияККМ"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ВыемкаДСИзКассыККМ" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваВыемкаДСИзКассыККМ"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеОперацииККМ" type="d3p1:ОбщиеСвойстваОперацияККМ"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ЗаказКлиента" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваЗаказКлиента"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ответственный" type="d3p1:КлючевыеСвойстваПользователь" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КонтактноеЛицоКонтрагента" type="d3p1:КлючевыеСвойстваФизическоеЛицо" lowerBound="0"/>
+		<property name="ОжидаемаяДатаПоступления" type="xs:date" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СпособДоставки" type="d3p1:СпособыДоставки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Валюта" type="d3p1:КлючевыеСвойстваВалюта"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Подразделение" type="d3p1:КлючевыеСвойстваПодразделение" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Склад" type="d3p1:КлючевыеСвойстваСклад" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Контрагент" type="d3p1:КлючевыеСвойстваКонтрагент"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеВзаиморасчетов" type="d3p1:ОбщиеСвойстваДанныеВзаиморасчетов" lowerBound="0"/>
+		<property name="АдресДоставки" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипЦен" type="d3p1:КлючевыеСвойстваТипЦен" lowerBound="0"/>
+		<property name="СуммаВключаетНДС" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="БанковскийСчетОрганизации" type="d3p1:КлючевыеСвойстваБанковскийСчет" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Товары" type="d3p1:Документ.ЗаказКлиента.Товары" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Услуги" type="d3p1:Документ.ЗаказКлиента.Услуги" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Оплаты" type="d3p1:ОплатыККМ" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property name="Комментарий" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЭтапыОплаты" type="d3p1:Документ.ЗаказКлиента.ЭтапыОплаты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КонтактноеЛицоОрганизации" type="d3p1:КлючевыеСвойстваФизическоеЛицо" lowerBound="0"/>
+		<property name="ЗаказВТерминахКонтрагента" type="xs:boolean" lowerBound="0"/>
+		<property name="ПлатежнаяСсылка" type="xs:string" lowerBound="0"/>
+		<property name="ОжидаемаяДатаПоставки" type="xs:date" lowerBound="0"/>
+		<property name="ОтгружатьЗаказЦеликом" type="xs:boolean" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ЗаказКлиента.Товары">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Документ.ЗаказКлиента.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документ.ЗаказКлиента.Товары.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="SKUКонтрагента" type="d3p1:КлючевыеСвойстваSKUКонтрагента" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЕдиницаИзмерения" type="d3p1:КлючевыеСвойстваЕдиницаИзмерения" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Количество" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Цена" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЦенаЗаУпаковку" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КоличествоУпаковок" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтавкаНДС" type="d3p1:СтавкиНДС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаНДС" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипЗапасов" type="d3p1:ТипыЗапасов" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+		<property name="ОжидаемаяДатаПоставки" type="xs:date" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ЗаказКлиента.Услуги">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Документ.ЗаказКлиента.Услуги.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документ.ЗаказКлиента.Услуги.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Количество" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Цена" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтавкаНДС" type="d3p1:СтавкиНДС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаНДС" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property name="Содержание" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+		<property name="ОжидаемаяДатаПоставки" type="xs:date" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="SKUКонтрагента" type="d3p1:КлючевыеСвойстваSKUКонтрагента" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ЗаказКлиента.ЭтапыОплаты">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Документ.ЗаказКлиента.ЭтапыОплаты.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документ.ЗаказКлиента.ЭтапыОплаты.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВариантОплаты" type="d3p1:ВариантыОплаты"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ФормаОплаты" type="d3p1:ФормыОплаты"/>
+		<property name="ДатаПлатежа" type="xs:date"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПроцентПлатежа" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаПлатежа" type="d3p1:ТипСумма"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КоличествоДнейОтсрочки" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ЗакрытиеКассовойСмены" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваЗакрытиеКассовойСмены"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеОперацииККМ" type="d3p1:ОбщиеСвойстваОперацияККМ"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ОткрытиеКассовойСмены" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваОткрытиеКассовойСмены"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Кассир" type="d3p1:КлючевыеСвойстваПользователь" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваОтчетОРозничныхПродажах"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ответственный" type="d3p1:КлючевыеСвойстваПользователь" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Валюта" type="d3p1:КлючевыеСвойстваВалюта"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property name="СуммаВключаетНДС" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Подразделение" type="d3p1:КлючевыеСвойстваПодразделение" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Склад" type="d3p1:КлючевыеСвойстваСклад" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Налогообложение" type="d3p1:НалогообложениеНДС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипЦен" type="d3p1:КлючевыеСвойстваТипЦен" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатьяДДС" type="d3p1:КлючевыеСвойстваСтатьяДДС" lowerBound="0"/>
+		<property name="УчетВыручкиВОперационнойКассе" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КассаККМ" type="d3p1:КлючевыеСвойстваКассыККМ" lowerBound="0"/>
+		<property name="Комментарий" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТоварыПродажа" type="d3p1:Документ.ОтчетОРозничныхПродажах.Товары" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТоварыВозвратПродажи" type="d3p1:Документ.ОтчетОРозничныхПродажах.ВозвратТоваров" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТоварыЗакупка" type="d3p1:Документ.ОтчетОРозничныхПродажах.Товары" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТоварыВозвратЗакупки" type="d3p1:Документ.ОтчетОРозничныхПродажах.ВозвратТоваров" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Услуги" type="d3p1:Документ.ОтчетОРозничныхПродажах.Услуги" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОплатаБанковскимиКредитами" type="d3p1:Документ.ОтчетОРозничныхПродажах.ОплатаБанковскимиКредитами" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОплатаПлатежнымиКартами" type="d3p1:ОплатаПлатежнымиКартами" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОплатаСертификатами" type="d3p1:ПодарочныеСертификаты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПодарочныеСертификаты" type="d3p1:ПодарочныеСертификаты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОплатаПлатежнымиКартамиПодарочныхСертификатов" type="d3p1:ОплатаПлатежнымиКартами" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НачислениеБонусныхБаллов" type="d3p1:Документ.ОтчетОРозничныхПродажах.НачислениеБонусныхБаллов" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОплатаБонуснымиБаллами" type="d3p1:Документ.ОтчетОРозничныхПродажах.ОплатаБонуснымиБаллами" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="АкцизныеМарки" type="d3p1:АкцизныеМарки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="МаркировкиУпаковок" type="d3p1:МаркировкиУпаковок" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах.ВозвратТоваров">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Документ.ОтчетОРозничныхПродажах.ВозвратТоваров.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах.ВозвратТоваров.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЕдиницаИзмерения" type="d3p1:КлючевыеСвойстваЕдиницаИзмерения"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Количество" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КоличествоУпаковок" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Цена" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЦенаЗаУпаковку" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтавкаНДС" type="d3p1:СтавкиНДС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаНДС" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаВозврата" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property name="НомерЧекаККМПродажи" type="xs:string" lowerBound="0"/>
+		<property name="ДатаПродажи" type="xs:dateTime" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДокументПродажи" type="d3p1:КлючевыеСвойстваОтчетОРозничныхПродажах" lowerBound="0"/>
+		<property name="СчетУчета" type="xs:string" lowerBound="0"/>
+		<property name="СчетУчетаНДСПоРеализации" type="xs:string" lowerBound="0"/>
+		<property name="СчетДоходов" type="xs:string" lowerBound="0"/>
+		<property name="СчетРасходов" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах.НачислениеБонусныхБаллов">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Документ.ОтчетОРозничныхПродажах.НачислениеБонусныхБаллов.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах.НачислениеБонусныхБаллов.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Контрагент" type="d3p1:КлючевыеСвойстваКонтрагент"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДисконтнаяКарта" type="d3p1:КлючевыеСвойстваДисконтныеКарты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПрограммаЛояльности" type="d3p1:КлючевыеСвойстваПрограммыЛояльности" lowerBound="0"/>
+		<property name="ДатаНачисления" type="xs:dateTime" lowerBound="0"/>
+		<property name="ДатаСписания" type="xs:dateTime" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаБонусныхБаллов" type="d3p1:ТипСумма"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах.ОплатаБанковскимиКредитами">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Документ.ОтчетОРозничныхПродажах.ОплатаБанковскимиКредитами.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах.ОплатаБанковскимиКредитами.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Банк" type="d3p1:КлючевыеСвойстваБанк"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаОплаты" type="d3p1:ТипСумма"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах.ОплатаБонуснымиБаллами">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Документ.ОтчетОРозничныхПродажах.ОплатаБонуснымиБаллами.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах.ОплатаБонуснымиБаллами.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Контрагент" type="d3p1:КлючевыеСвойстваКонтрагент"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДисконтнаяКарта" type="d3p1:КлючевыеСвойстваДисконтныеКарты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПрограммаЛояльности" type="d3p1:КлючевыеСвойстваПрограммыЛояльности" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаБонусныхБаллов" type="d3p1:ТипСумма"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах.Товары">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Документ.ОтчетОРозничныхПродажах.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах.Товары.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЕдиницаИзмерения" type="d3p1:КлючевыеСвойстваЕдиницаИзмерения"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Количество" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КоличествоУпаковок" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Цена" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЦенаЗаУпаковку" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтавкаНДС" type="d3p1:СтавкиНДС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаНДС" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидСкидки" type="d3p1:ВидыСкидок" lowerBound="0"/>
+		<property name="ПроцентСкидки" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="2"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаСкидки" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаСУчетомСкидки" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Себестоимость" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипЗапасов" type="d3p1:ТипыЗапасов" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Поставщик" type="d3p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеГТД" type="d3p1:ОбщиеСвойстваДанныеНомераГТД" lowerBound="0"/>
+		<property name="СчетУчета" type="xs:string" lowerBound="0"/>
+		<property name="СчетУчетаНДСПоРеализации" type="xs:string" lowerBound="0"/>
+		<property name="СчетДоходов" type="xs:string" lowerBound="0"/>
+		<property name="СчетРасходов" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах.Услуги">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Документ.ОтчетОРозничныхПродажах.Услуги.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документ.ОтчетОРозничныхПродажах.Услуги.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Номенклатура" type="d3p1:КлючевыеСвойстваНоменклатура" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Количество" type="d3p1:ТипКоличество"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Цена" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтавкаНДС" type="d3p1:СтавкиНДС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаНДС" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property name="Содержание" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипУслуги" type="d3p1:ТипыУслуг" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Принципал" type="d3p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДоговорСПринципалом" type="d3p1:КлючевыеСвойстваДоговор" lowerBound="0"/>
+		<property name="СчетРасчетов" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ЧекККМ" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваЧекККМ"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеОперацииККМ" type="d3p1:ОбщиеСвойстваОперацияККМ"/>
+		<property name="Отменен" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТоварыПродажа" type="d3p1:ОперацияККМТовары" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТоварыВозвратПродажи" type="d3p1:ОперацияККМВозвратТоваров" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТоварыЗакупка" type="d3p1:ОперацияККМТовары" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТоварыВозвратЗакупки" type="d3p1:ОперацияККМВозвратТоваров" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Услуги" type="d3p1:Документ.ЧекККМ.Услуги" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СкидкиНаценки" type="d3p1:СкидкиНаценки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОплатаПлатежнымиКартами" type="d3p1:ОплатаПлатежнымиКартами" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОплатаСертификатами" type="d3p1:ПодарочныеСертификаты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПодарочныеСертификаты" type="d3p1:ПодарочныеСертификаты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОплатаПлатежнымиКартамиПодарочныхСертификатов" type="d3p1:ОплатаПлатежнымиКартами" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОплатыККМ" type="d3p1:ОплатыККМ" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПризнакСпособаРасчета" type="d3p1:ПризнакиСпособаРасчета" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Контрагент" type="d3p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Агент" type="d3p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+		<property name="Корректировочный" type="xs:boolean" lowerBound="0"/>
+		<property name="РасчетыЧерезАгента" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПризнакАгента" type="d3p1:ПризнакиАгента" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Налогообложение" type="d3p1:НалогообложениеНДС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="АкцизныеМарки" type="d3p1:АкцизныеМарки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="МаркировкиУпаковок" type="d3p1:МаркировкиУпаковок" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документ.ЧекККМ.Услуги">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Документ.ЧекККМ.Услуги.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документ.ЧекККМ.Услуги.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Количество" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Цена" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтавкаНДС" type="d3p1:СтавкиНДС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаНДС" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property name="Содержание" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="ДополнительныеРеквизиты">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:ДополнительныеРеквизиты.Строка" upperBound="-1"/>
+	</objectType>
+	<objectType name="ДополнительныеРеквизиты.Строка" open="true" sequenced="true">
+		<property name="ЗначениеСвойства" lowerBound="0">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЗначениеДополнительногоРеквизитаСсылка" type="d5p1:КлючевыеСвойстваЗначенияДополнительныхРеквизитов" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НоменклатураСсылка" type="d5p1:КлючевыеСвойстваНоменклатура" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НоменклатураГруппаСсылка" type="d5p1:КлючевыеСвойстваНоменклатураГруппа" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КонтрагентСсылка" type="d5p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КонтрагентГруппаСсылка" type="d5p1:КлючевыеСвойстваКонтрагентГруппа" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="БанкСсылка" type="d5p1:КлючевыеСвойстваБанк" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВалютаСсылка" type="d5p1:КлючевыеСвойстваВалюта" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДоговорСсылка" type="d5p1:КлючевыеСвойстваДоговор" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЕдиницаИзмеренияСсылка" type="d5p1:КлючевыеСвойстваЕдиницаИзмерения" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОрганизацияСсылка" type="d5p1:КлючевыеСвойстваОрганизация" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПодразделениеСсылка" type="d5p1:КлючевыеСвойстваПодразделение" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПользовательСсылка" type="d5p1:КлючевыеСвойстваПользователь" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СкладСсылка" type="d5p1:КлючевыеСвойстваСклад" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СкладГруппаСсылка" type="d5p1:КлючевыеСвойстваСкладГруппа" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатьяДДССсылка" type="d5p1:КлючевыеСвойстваСтатьяДДС" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатьяДоходовСсылка" type="d5p1:КлючевыеСвойстваСтатьяДоходов" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатьяРасходовСсылка" type="d5p1:КлючевыеСвойстваСтатьяРасходов" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтранаМираСсылка" type="d5p1:КлючевыеСвойстваСтранаМира" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипЦенСсылка" type="d5p1:КлючевыеСвойстваТипЦен" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="УпаковкаСсылка" type="d5p1:КлючевыеСвойстваУпаковка" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ФизическоеЛицоСсылка" type="d5p1:КлючевыеСвойстваФизическоеЛицо" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ФизическоеЛицоГруппаСсылка" type="d5p1:КлючевыеСвойстваФизическоеЛицоГруппа" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ХарактеристикаНоменклатурыСсылка" type="d5p1:КлючевыеСвойстваХарактеристикаНоменклатуры" lowerBound="0"/>
+				<property name="Число" type="xs:decimal" lowerBound="0"/>
+				<property name="Строка" type="xs:string" lowerBound="0"/>
+				<property name="Дата" type="xs:date" lowerBound="0"/>
+				<property name="Булево" type="xs:boolean" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Свойство" type="d3p1:КлючевыеСвойстваДополнительныеРеквизиты"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваSKUКонтрагента" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.SKUКонтрагента" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="Артикул" type="xs:string" lowerBound="0"/>
+		<property name="Идентификатор" type="xs:string" lowerBound="0"/>
+		<property name="ШтрихКод" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Владелец" type="d3p1:КлючевыеСвойстваКонтрагент"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="УпаковкаНоменклатуры" type="d3p1:КлючевыеСвойстваУпаковка" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваБанк" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.Банки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеКлассификатораБанков" type="d3p1:ОбщиеСвойстваДанныеКлассификатораБанков"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваБанковскийСчет" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.БанковскиеСчета" lowerBound="0"/>
+		<property name="НомерСчета">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="34"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Банк" type="d3p1:КлючевыеСвойстваБанк" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="БанкДляРасчетов" type="d3p1:КлючевыеСвойстваБанк" lowerBound="0"/>
+		<property name="Владелец">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КонтрагентыСсылка" type="d5p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОрганизацииСсылка" type="d5p1:КлючевыеСвойстваОрганизация" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ФизическиеЛицаСсылка" type="d5p1:КлючевыеСвойстваФизическоеЛицо" lowerBound="0"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="КлючевыеСвойстваВалюта" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.Валюты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеКлассификатора" type="d3p1:ОбщиеСвойстваДанныеКлассификатора"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваВидыАлкогольнойПродукции" open="true" sequenced="true">
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидЛицензии" type="d3p1:ВидыЛицензийАлкогольнойПродукции" lowerBound="0" nillable="true"/>
+		<property name="Маркируемый" type="xs:boolean" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваВидыНоменклатуры" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ВидыНоменклатуры" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипНоменклатуры" type="d3p1:ТипыНоменклатуры"/>
+		<property name="ИспользоватьСерии" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ИспользоватьСрокГодностиСерии" type="xs:boolean" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваВидыПодарочныхСертификатов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ВидыПодарочныхСертификатов" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Номинал" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Валюта" type="d3p1:КлючевыеСвойстваВалюта"/>
+		<property name="РазрешитьЧастичнуюОплату" type="xs:boolean" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваВнесениеДСВКассуККМ" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:ДокументСсылка.ВнесениеДСВКассуККМ" lowerBound="0"/>
+		<property name="Дата" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерКассовойСмены" type="d3p1:ТипНомерДокумента"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КассаККМ" type="d3p1:КлючевыеСвойстваКассыККМ"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерВПрограмме" type="d3p1:ТипНомерДокумента" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерЧекаФР" type="d3p1:ТипНомерДокумента" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваВыемкаДСИзКассыККМ" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:ДокументСсылка.ВыемкаДСИзКассыККМ" lowerBound="0"/>
+		<property name="Дата" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерКассовойСмены" type="d3p1:ТипНомерДокумента"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КассаККМ" type="d3p1:КлючевыеСвойстваКассыККМ"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерВПрограмме" type="d3p1:ТипНомерДокумента" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерЧекаФР" type="d3p1:ТипНомерДокумента" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваДисконтныеКарты" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ДисконтныеКарты" lowerBound="0"/>
+		<property name="НомерКарты" type="xs:string"/>
+		<property name="ВладелецКарты">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Контрагент" type="d5p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ФизическоеЛицо" type="d5p1:КлючевыеСвойстваФизическоеЛицо" lowerBound="0"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="КлючевыеСвойстваДоговор" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.Договоры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидДоговора" type="d3p1:ВидыДоговоров"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Организация" type="d3p1:КлючевыеСвойстваОрганизация"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Контрагент" type="d3p1:КлючевыеСвойстваКонтрагент"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВалютаВзаиморасчетов" type="d3p1:КлючевыеСвойстваВалюта" lowerBound="0"/>
+		<property name="РасчетыВУсловныхЕдиницах" type="xs:boolean" lowerBound="0"/>
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+		<property name="Дата" type="xs:date" lowerBound="0"/>
+		<property name="Номер" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваДополнительныеРеквизиты" open="true" sequenced="true">
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ДополнительныеРеквизиты" lowerBound="0"/>
+		<property name="ЭтоДополнительноеСведение" type="xs:boolean" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваЕдиницаИзмерения" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ЕдиницыИзмерения" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеКлассификатора" type="d3p1:ОбщиеСвойстваДанныеКлассификатора"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваЗаказКлиента" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:ДокументСсылка.ЗаказКлиента" lowerBound="0"/>
+		<property name="Дата" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Номер" type="d3p1:ТипНомерДокумента"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Организация" type="d3p1:КлючевыеСвойстваОрганизация"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеВходящегоДокумента" type="d3p1:ОбщиеСвойстваДанныеВходящегоДокумента" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваЗакрытиеКассовойСмены" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:ДокументСсылка.ЗакрытиеКассовойСмены" lowerBound="0"/>
+		<property name="Дата" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерКассовойСмены" type="d3p1:ТипНомерДокумента"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КассаККМ" type="d3p1:КлючевыеСвойстваКассыККМ"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерВПрограмме" type="d3p1:ТипНомерДокумента" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерЧекаФР" type="d3p1:ТипНомерДокумента" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваЗначенияДополнительныхРеквизитов" open="true" sequenced="true">
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ЗначенияДополнительныхРеквизитов" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Владелец" type="d3p1:КлючевыеСвойстваДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваКассыККМ" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.КассыККМ" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Организация" type="d3p1:КлючевыеСвойстваОрганизация"/>
+		<property name="РегистрационныйНомер" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Склад" type="d3p1:КлючевыеСвойстваСклад" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваКонтрагент" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.Контрагенты" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="НаименованиеПолное" type="xs:string" lowerBound="0"/>
+		<property name="ИНН" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="12"/>
+		</property>
+		<property name="КПП" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="9"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЮридическоеФизическоеЛицо" type="d3p1:ЮридическоеФизическоеЛицо"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтранаРегистрации" type="d3p1:КлючевыеСвойстваСтранаМира" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Группа" type="d3p1:КлючевыеСвойстваКонтрагентГруппа" lowerBound="0"/>
+		<property name="НалоговыйНомерНерезидента" type="xs:string" lowerBound="0"/>
+		<property name="РегистрационныйНомерНерезидента" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваКонтрагентГруппа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.КонтрагентыГруппа" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Группа" type="d3p1:КлючевыеСвойстваКонтрагентГруппа" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваМаркировкаУпаковки" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.МаркировкаУпаковки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипУпаковки" type="d3p1:ТипыУпаковокНоменклатуры"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипШтрихкода" type="d3p1:ТипыШтрихкодов" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваНоменклатура" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.Номенклатура" lowerBound="0"/>
+		<property name="НаименованиеПолное" type="xs:string" lowerBound="0"/>
+		<property name="КодВПрограмме" type="xs:string" lowerBound="0"/>
+		<property name="Артикул" type="xs:string" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Группа" type="d3p1:КлючевыеСвойстваНоменклатураГруппа" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваНоменклатураГруппа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.НоменклатураГруппа" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="КодВПрограмме" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Группа" type="d3p1:КлючевыеСвойстваНоменклатураГруппа" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваОрганизация" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.Организации" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="НаименованиеСокращенное" type="xs:string" lowerBound="0"/>
+		<property name="НаименованиеПолное" type="xs:string" lowerBound="0"/>
+		<property name="ИНН" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="12"/>
+		</property>
+		<property name="КПП" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="9"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ГоловнаяОрганизация" type="d3p1:КлючевыеСвойстваОрганизация" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЮридическоеФизическоеЛицо" type="d3p1:ЮридическоеФизическоеЛицо"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтранаРегистрации" type="d3p1:КлючевыеСвойстваСтранаМира" lowerBound="0"/>
+		<property name="НалоговыйНомерНерезидента" type="xs:string" lowerBound="0"/>
+		<property name="РегистрационныйНомерНерезидента" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваОткрытиеКассовойСмены" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:ДокументСсылка.ОткрытиеКассовойСмены" lowerBound="0"/>
+		<property name="Дата" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерКассовойСмены" type="d3p1:ТипНомерДокумента"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КассаККМ" type="d3p1:КлючевыеСвойстваКассыККМ"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерВПрограмме" type="d3p1:ТипНомерДокумента" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерЧекаФР" type="d3p1:ТипНомерДокумента" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваОтчетОРозничныхПродажах" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:ДокументСсылка.ОтчетОРозничныхПродажах" lowerBound="0"/>
+		<property name="Дата" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Номер" type="d3p1:ТипНомерДокумента"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Организация" type="d3p1:КлючевыеСвойстваОрганизация"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КассоваяСмена" type="d3p1:КлючевыеСвойстваОткрытиеКассовойСмены" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваПодразделение" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.Подразделения" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВышестоящееПодразделение" type="d3p1:КлючевыеСвойстваПодразделение" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваПозицияПрайсЛиста">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ПозицияПрайсЛиста" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПрайсЛист" type="d3p1:КлючевыеСвойстваПрайсЛист"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваПользователь" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.Пользователи" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ФизическоеЛицо" type="d3p1:КлючевыеСвойстваФизическоеЛицо" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваПрайсЛист" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипЦены" type="d3p1:КлючевыеСвойстваТипЦен"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ПрайсЛист" lowerBound="0"/>
+		<property name="Дата" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Организация" type="d3p1:КлючевыеСвойстваОрганизация" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваПрограммыЛояльности" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ПрограммыЛояльности" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВалютаКонвертацииБонусов" type="d3p1:КлючевыеСвойстваВалюта"/>
+		<property name="МаксимальныйПроцентОплатыБонусами" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="2"/>
+		</property>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСерииНоменклатуры" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.СерииНоменклатуры" lowerBound="0"/>
+		<property name="Наименование" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="150"/>
+		</property>
+		<property name="СерийныйНомер">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="200"/>
+		</property>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСклад" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.Склады" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипСклада" type="d3p1:ТипыСкладов" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СкладГруппа" type="d3p1:КлючевыеСвойстваСкладГруппа" lowerBound="0"/>
+		<property name="КодАдресаФИАС" type="xs:string" lowerBound="0"/>
+		<property name="Помещение" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСкладГруппа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.СкладыГруппа" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Группа" type="d3p1:КлючевыеСвойстваСкладГруппа" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСостояниеОплатыЗаказа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Заказ" type="d3p1:КлючевыеСвойстваЗаказКлиента"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.СостояниеОплатыЗаказа" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСостояниеОтгрузкиЗаказа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Заказ" type="d3p1:КлючевыеСвойстваЗаказКлиента"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.СостояниеОтгрузкиЗаказа" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСпецификацииНоменклатуры" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.СпецификацииНоменклатуры" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры"/>
+		<property name="КодВПрограмме" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Группа" type="d3p1:КлючевыеСвойстваСпецификацииНоменклатурыГруппа" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСпецификацииНоменклатурыГруппа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.СпецификацииНоменклатурыГруппа" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="КодВПрограмме" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Группа" type="d3p1:КлючевыеСвойстваСпецификацииНоменклатурыГруппа" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСтатусыОбъектов">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Объект" type="d3p1:СоставнойЛюбойОбъект"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСтатьяДДС" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.СтатьиДДС" lowerBound="0"/>
+		<property name="КодВПрограмме" type="xs:string" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСтатьяДДСГруппа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.СтатьиДДСГруппа" lowerBound="0"/>
+		<property name="КодВПрограмме" type="xs:string" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Группа" type="d3p1:КлючевыеСвойстваСтатьяДДСГруппа" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСтатьяДоходов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.СтатьиДоходов" lowerBound="0"/>
+		<property name="КодВПрограмме" type="xs:string" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСтатьяРасходов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.СтатьиРасходов" lowerBound="0"/>
+		<property name="КодВПрограмме" type="xs:string" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваСтранаМира" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.СтраныМира" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеКлассификатора" type="d3p1:ОбщиеСвойстваДанныеКлассификатора"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваТипЦен" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ТипыЦен" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВалютаЦены" type="d3p1:КлючевыеСвойстваВалюта"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваУпаковка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.Упаковки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Номенклатура" type="d3p1:КлючевыеСвойстваНоменклатура"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЕдиницаИзмерения" type="d3p1:КлючевыеСвойстваЕдиницаИзмерения"/>
+		<property name="Коэффициент" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="3"/>
+		</property>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваФизическоеЛицо" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ФизическиеЛица" lowerBound="0"/>
+		<property name="ФИО" type="xs:string"/>
+		<property name="Фамилия" type="xs:string" lowerBound="0"/>
+		<property name="Имя" type="xs:string" lowerBound="0"/>
+		<property name="Отчество" type="xs:string" lowerBound="0"/>
+		<property name="ДатаРождения" type="xs:date" lowerBound="0"/>
+		<property name="КодВПрограмме" type="xs:string" lowerBound="0"/>
+		<property name="ИНН" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="12"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Группа" type="d3p1:КлючевыеСвойстваФизическоеЛицоГруппа" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваФизическоеЛицоГруппа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ФизическиеЛицаГруппа" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="КодВПрограмме" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Группа" type="d3p1:КлючевыеСвойстваФизическоеЛицоГруппа" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваХарактеристикаНоменклатуры" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ХарактеристикиНоменклатуры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВладелецХарактеристики" type="d3p1:ОбщиеСвойстваВладелецХарактеристики"/>
+		<property name="НаименованиеПолное" type="xs:string"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваЦеновыеГруппы" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ЦеновыеГруппы" lowerBound="0"/>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваЧекККМ" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:ДокументСсылка.ЧекККМ" lowerBound="0"/>
+		<property name="Дата" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерКассовойСмены" type="d3p1:ТипНомерДокумента"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КассаККМ" type="d3p1:КлючевыеСвойстваКассыККМ"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерВПрограмме" type="d3p1:ТипНомерДокумента" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерЧекаФР" type="d3p1:ТипНомерДокумента" lowerBound="0"/>
+	</objectType>
+	<objectType name="КлючевыеСвойстваЭквайринговыеТерминалы" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ссылка" type="d3p1:СправочникСсылка.ЭквайринговыеТерминалы" lowerBound="0"/>
+		<property name="Номер" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="КодыПоКлассификаторуЕГАИС">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:КодыПоКлассификаторуЕГАИС.Строка" upperBound="-1"/>
+	</objectType>
+	<objectType name="КодыПоКлассификаторуЕГАИС.Строка" open="true" sequenced="true">
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+		<property name="НаименованиеПолное" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидАлкогольнойПродукции" type="d3p1:КлючевыеСвойстваВидыАлкогольнойПродукции" lowerBound="0"/>
+		<property name="ИдентификаторУпаковки" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="КонтактнаяИнформация">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:КонтактнаяИнформация.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="КонтактнаяИнформация.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидКонтактнойИнформации" type="d3p1:ВидыКИ"/>
+		<property name="ЗначенияПолей" type="xs:string"/>
+		<property name="НаименованиеКонтактнойИнформации" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ЛюбаяСсылка">
+		<property name="СсылкаНаОбъект">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="БанкиСсылка" type="d5p1:СправочникСсылка.Банки" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="БанковскиеСчетаСсылка" type="d5p1:СправочникСсылка.БанковскиеСчета" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВалютыСсылка" type="d5p1:СправочникСсылка.Валюты" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидыНоменклатурыСсылка" type="d5p1:СправочникСсылка.ВидыНоменклатуры" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидыПодарочныхСертификатовСсылка" type="d5p1:СправочникСсылка.ВидыПодарочныхСертификатов" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВнесениеДСВКассуККМСсылка" type="d5p1:ДокументСсылка.ВнесениеДСВКассуККМ" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВыемкаДСИзКассыККМСсылка" type="d5p1:ДокументСсылка.ВыемкаДСИзКассыККМ" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДисконтныеКартыСсылка" type="d5p1:СправочникСсылка.ДисконтныеКарты" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДоговорыСсылка" type="d5p1:СправочникСсылка.Договоры" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизитыСсылка" type="d5p1:СправочникСсылка.ДополнительныеРеквизиты" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЕдиницыИзмеренияСсылка" type="d5p1:СправочникСсылка.ЕдиницыИзмерения" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЗакрытиеКассовойСменыСсылка" type="d5p1:ДокументСсылка.ЗакрытиеКассовойСмены" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЗначенияДополнительныхРеквизитовСсылка" type="d5p1:СправочникСсылка.ЗначенияДополнительныхРеквизитов" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КонтрагентыГруппаСсылка" type="d5p1:СправочникСсылка.КонтрагентыГруппа" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КонтрагентыСсылка" type="d5p1:СправочникСсылка.Контрагенты" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НоменклатураГруппаСсылка" type="d5p1:СправочникСсылка.НоменклатураГруппа" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НоменклатураСсылка" type="d5p1:СправочникСсылка.Номенклатура" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОрганизацииСсылка" type="d5p1:СправочникСсылка.Организации" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПодразделенияСсылка" type="d5p1:СправочникСсылка.Подразделения" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПользователиСсылка" type="d5p1:СправочникСсылка.Пользователи" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПрограммыЛояльностиСсылка" type="d5p1:СправочникСсылка.ПрограммыЛояльности" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СкладыГруппаСсылка" type="d5p1:СправочникСсылка.СкладыГруппа" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СкладыСсылка" type="d5p1:СправочникСсылка.Склады" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СпецификацииНоменклатурыСсылка" type="d5p1:СправочникСсылка.СпецификацииНоменклатуры" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатьиДДССсылка" type="d5p1:СправочникСсылка.СтатьиДДС" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатьиДоходовСсылка" type="d5p1:СправочникСсылка.СтатьиДоходов" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатьиРасходовСсылка" type="d5p1:СправочникСсылка.СтатьиРасходов" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтраныМираСсылка" type="d5p1:СправочникСсылка.СтраныМира" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипыЦенСсылка" type="d5p1:СправочникСсылка.ТипыЦен" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="УпаковкиСсылка" type="d5p1:СправочникСсылка.Упаковки" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ФизическиеЛицаГруппаСсылка" type="d5p1:СправочникСсылка.ФизическиеЛицаГруппа" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ФизическиеЛицаСсылка" type="d5p1:СправочникСсылка.ФизическиеЛица" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ХарактеристикиНоменклатурыСсылка" type="d5p1:СправочникСсылка.ХарактеристикиНоменклатуры" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЦеновыеГруппыСсылка" type="d5p1:СправочникСсылка.ЦеновыеГруппы" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЗаказКлиентаСсылка" type="d5p1:ДокументСсылка.ЗаказКлиента" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КассыККМСсылка" type="d5p1:СправочникСсылка.КассыККМ" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОткрытиеКассовойСменыСсылка" type="d5p1:ДокументСсылка.ОткрытиеКассовойСмены" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОтчетОРозничныхПродажахСсылка" type="d5p1:ДокументСсылка.ОтчетОРозничныхПродажах" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СерииНоменклатурыСсылка" type="d5p1:СправочникСсылка.СерииНоменклатуры" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СпецификацииНоменклатурыГруппаСсылка" type="d5p1:СправочникСсылка.СпецификацииНоменклатурыГруппа" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатьиДДСГруппаСсылка" type="d5p1:СправочникСсылка.СтатьиДДСГруппа" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЧекККМСсылка" type="d5p1:ДокументСсылка.ЧекККМ" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЭквайринговыеТерминалыСсылка" type="d5p1:СправочникСсылка.ЭквайринговыеТерминалы" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="SKUКонтрагента" type="d5p1:СправочникСсылка.SKUКонтрагента" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="МаркировкаУпаковки" type="d5p1:СправочникСсылка.МаркировкаУпаковки" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СостояниеОплатыЗаказа" type="d5p1:СправочникСсылка.СостояниеОплатыЗаказа" lowerBound="0"/>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СостояниеОтгрузкиЗаказа" type="d5p1:СправочникСсылка.СостояниеОтгрузкиЗаказа" lowerBound="0"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="МаркировкиУпаковок">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:МаркировкиУпаковок.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="МаркировкиУпаковок.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="МаркировкаУпаковки" type="d3p1:КлючевыеСвойстваМаркировкаУпаковки"/>
+	</objectType>
+	<objectType name="ОбщиеСвойстваВладелецХарактеристики" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Номенклатура" type="d3p1:КлючевыеСвойстваНоменклатура" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидНоменклатуры" type="d3p1:КлючевыеСвойстваВидыНоменклатуры" lowerBound="0"/>
+	</objectType>
+	<objectType name="ОбщиеСвойстваДанныеАлкогольнойПродукции" open="true" sequenced="true">
+		<property name="АлкогольнаяПродукция" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидАлкогольнойПродукции" type="d3p1:КлючевыеСвойстваВидыАлкогольнойПродукции" lowerBound="0" nillable="true"/>
+		<property name="ИмпортнаяАлкогольнаяПродукция" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ОбъемДАЛ" lowerBound="0" nillable="true">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="18" fractionDigits="6"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПроизводительИмпортер" type="d3p1:КлючевыеСвойстваКонтрагент" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КодыПоКлассификаторуЕГАИС" type="d3p1:КодыПоКлассификаторуЕГАИС" lowerBound="0"/>
+		<property name="КодАлкогольнойПродукции" type="xs:string" lowerBound="0"/>
+		<property name="Крепость" lowerBound="0" nillable="true">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="5" fractionDigits="2"/>
+		</property>
+	</objectType>
+	<objectType name="ОбщиеСвойстваДанныеВзаиморасчетов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Договор" type="d3p1:КлючевыеСвойстваДоговор" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВалютаВзаиморасчетов" type="d3p1:КлючевыеСвойстваВалюта" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КурсВзаиморасчетов" type="d3p1:ТипКурс" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КратностьВзаиморасчетов" type="d3p1:ТипКратность" lowerBound="0"/>
+		<property name="РасчетыВУсловныхЕдиницах" type="xs:boolean" lowerBound="0"/>
+		<property name="СчетУчетаРасчетовСКонтрагентом" type="xs:string" lowerBound="0"/>
+		<property name="СчетУчетаРасчетовПоАвансам" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ОбщиеСвойстваДанныеВходящегоДокумента" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерВходящегоДокумента" type="d3p1:ТипНомерДокумента" lowerBound="0"/>
+		<property name="ДатаВходящегоДокумента" type="xs:date" lowerBound="0"/>
+		<property name="НаименованиеВходящегоДокумента" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ОбщиеСвойстваДанныеКлассификатора" open="true" sequenced="true">
+		<property name="Код" type="xs:string" lowerBound="0"/>
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ОбщиеСвойстваДанныеКлассификатораБанков" open="true" sequenced="true">
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+		<property name="БИК" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="9"/>
+		</property>
+		<property name="КоррСчет" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="20"/>
+		</property>
+		<property name="СВИФТБИК" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="11"/>
+		</property>
+	</objectType>
+	<objectType name="ОбщиеСвойстваДанныеНоменклатуры" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Номенклатура" type="d3p1:КлючевыеСвойстваНоменклатура"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Характеристика" type="d3p1:КлючевыеСвойстваХарактеристикаНоменклатуры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Серия" type="d3p1:КлючевыеСвойстваСерииНоменклатуры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Упаковка" type="d3p1:КлючевыеСвойстваУпаковка" lowerBound="0"/>
+		<property name="Штрихкод" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="200"/>
+		</property>
+		<property name="SKU" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="9"/>
+		</property>
+	</objectType>
+	<objectType name="ОбщиеСвойстваДанныеНомераГТД" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерГТД" type="d3p1:ТипНомерДекларации" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтранаПроисхождения" type="d3p1:КлючевыеСвойстваСтранаМира" nillable="true"/>
+	</objectType>
+	<objectType name="ОбщиеСвойстваДанныеПодарочногоСертификата" open="true" sequenced="true">
+		<property name="СерийныйНомер" type="xs:string"/>
+		<property name="Штрихкод" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="МагнитныйКод" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидПодарочногоСертификата" type="d3p1:КлючевыеСвойстваВидыПодарочныхСертификатов" lowerBound="0"/>
+		<property name="ДействителенДо" type="xs:date" lowerBound="0"/>
+	</objectType>
+	<objectType name="ОбщиеСвойстваОперацияККМ" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Валюта" type="d3p1:КлючевыеСвойстваВалюта"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Кассир" type="d3p1:КлючевыеСвойстваПользователь" lowerBound="0"/>
+	</objectType>
+	<objectType name="ОбщиеСвойстваОписываемаяНоменклатура" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Номенклатура" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="SKUКонтрагента" type="d3p1:КлючевыеСвойстваSKUКонтрагента" lowerBound="0"/>
+	</objectType>
+	<objectType name="ОперацияККМВозвратТоваров">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:ОперацияККМВозвратТоваров.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ОперацияККМВозвратТоваров.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЕдиницаИзмерения" type="d3p1:КлючевыеСвойстваЕдиницаИзмерения" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Количество" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Цена" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЦенаЗаУпаковку" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КоличествоУпаковок" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтавкаНДС" type="d3p1:СтавкиНДС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаНДС" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property name="НомерЧекаККМПродажи" type="xs:string" lowerBound="0"/>
+		<property name="ДатаПродажи" type="xs:dateTime" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДокументПродажи" type="d3p1:КлючевыеСвойстваЧекККМ" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Акциз" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Поставщик" type="d3p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="ОперацияККМТовары">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:ОперацияККМТовары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ОперацияККМТовары.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЕдиницаИзмерения" type="d3p1:КлючевыеСвойстваЕдиницаИзмерения" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Количество" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Цена" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЦенаЗаУпаковку" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КоличествоУпаковок" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтавкаНДС" type="d3p1:СтавкиНДС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаНДС" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Акциз" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Поставщик" type="d3p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="ОплатаПлатежнымиКартами">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:ОплатаПлатежнымиКартами.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ОплатаПлатежнымиКартами.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаОплаты" type="d3p1:ТипСумма"/>
+		<property name="ВидКарты" type="xs:string" lowerBound="0"/>
+		<property name="НомерКарты" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Эквайрер" type="d3p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="БанковскийСчетОрганизации" type="d3p1:КлючевыеСвойстваБанковскийСчет" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЭквайринговыйТерминал" type="d3p1:КлючевыеСвойстваЭквайринговыеТерминалы" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="ОплатыККМ">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:ОплатыККМ.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ОплатыККМ.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипОплаты" type="d3p1:ТипыТипыОплатЧековККМ" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="ПодарочныеСертификаты">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:ПодарочныеСертификаты.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ПодарочныеСертификаты.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеСертификата" type="d3p1:ОбщиеСвойстваДанныеПодарочногоСертификата" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Сумма" type="d3p1:ТипСумма"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="СкидкиНаценки">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:СкидкиНаценки.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СкидкиНаценки.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтрокиДокумента" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидСкидки" type="d3p1:ВидыСкидок" lowerBound="0"/>
+		<property name="ПроцентСкидки">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="2"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаСкидки" type="d3p1:ТипСумма"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаСУчетомСкидки" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="СоставнойДокументРасчетов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЗаказКлиентаСсылка" type="d3p1:КлючевыеСвойстваЗаказКлиента" lowerBound="0"/>
+	</objectType>
+	<objectType name="СоставнойЛюбойОбъект" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Банк" type="d3p1:КлючевыеСвойстваБанк" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="БанковскийСчет" type="d3p1:КлючевыеСвойстваБанковскийСчет" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Валюта" type="d3p1:КлючевыеСвойстваВалюта" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидАлкогольнойПродукции" type="d3p1:КлючевыеСвойстваВидыАлкогольнойПродукции" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидыНоменклатуры" type="d3p1:КлючевыеСвойстваВидыНоменклатуры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДисконтныеКарты" type="d3p1:КлючевыеСвойстваДисконтныеКарты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Договор" type="d3p1:КлючевыеСвойстваДоговор" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныйРеквизит" type="d3p1:КлючевыеСвойстваДополнительныеРеквизиты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЕдиницаИзмерения" type="d3p1:КлючевыеСвойстваЕдиницаИзмерения" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЗаказКлиента" type="d3p1:КлючевыеСвойстваЗаказКлиента" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЗначениеДополнительногоРеквизита" type="d3p1:КлючевыеСвойстваЗначенияДополнительныхРеквизитов" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Контрагент" type="d3p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КонтрагентГруппа" type="d3p1:КлючевыеСвойстваКонтрагентГруппа" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Номенклатура" type="d3p1:КлючевыеСвойстваНоменклатура" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НоменклатураГруппа" type="d3p1:КлючевыеСвойстваНоменклатураГруппа" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Организация" type="d3p1:КлючевыеСвойстваОрганизация" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОтчетОРозничныхПродажах" type="d3p1:КлючевыеСвойстваОтчетОРозничныхПродажах" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Подразделение" type="d3p1:КлючевыеСвойстваПодразделение" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Пользователь" type="d3p1:КлючевыеСвойстваПользователь" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПрограммыЛояльности" type="d3p1:КлючевыеСвойстваПрограммыЛояльности" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СерииНоменклатуры" type="d3p1:КлючевыеСвойстваСерииНоменклатуры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Склад" type="d3p1:КлючевыеСвойстваСклад" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СкладГруппа" type="d3p1:КлючевыеСвойстваСкладГруппа" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СпецификацияНоменклатуры" type="d3p1:КлючевыеСвойстваСпецификацииНоменклатуры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СпецификацияНоменклатурыГруппа" type="d3p1:КлючевыеСвойстваСпецификацииНоменклатурыГруппа" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатусыОбъектов" type="d3p1:КлючевыеСвойстваСтатусыОбъектов" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатьяДДС" type="d3p1:КлючевыеСвойстваСтатьяДДС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатьяДДСГруппа" type="d3p1:КлючевыеСвойстваСтатьяДДСГруппа" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатьяДоходов" type="d3p1:КлючевыеСвойстваСтатьяДоходов" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтатьяРасходов" type="d3p1:КлючевыеСвойстваСтатьяРасходов" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтранаМира" type="d3p1:КлючевыеСвойстваСтранаМира" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипЦен" type="d3p1:КлючевыеСвойстваТипЦен" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Упаковка" type="d3p1:КлючевыеСвойстваУпаковка" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ФизическоеЛицо" type="d3p1:КлючевыеСвойстваФизическоеЛицо" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ФизическоеЛицоГруппа" type="d3p1:КлючевыеСвойстваФизическоеЛицоГруппа" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ХарактеристикаНоменклатуры" type="d3p1:КлючевыеСвойстваХарактеристикаНоменклатуры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЦеновыеГруппы" type="d3p1:КлючевыеСвойстваЦеновыеГруппы" lowerBound="0"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="Справочник.Банки" base="d2p1:Object" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваБанк"/>
+		<property name="Город" type="xs:string" lowerBound="0"/>
+		<property name="Адрес" type="xs:string" lowerBound="0"/>
+		<property name="Телефоны" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Страна" type="d3p1:КлючевыеСвойстваСтранаМира" lowerBound="0"/>
+		<property name="ИностранныйБанк" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="Справочник.БанковскиеСчета" base="d2p1:Object" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваБанковскийСчет"/>
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВалютаДенежныхСредств" type="d3p1:КлючевыеСвойстваВалюта"/>
+		<property name="ТекстКорреспондента" type="xs:string" lowerBound="0"/>
+		<property name="ТекстНазначения" type="xs:string" lowerBound="0"/>
+		<property name="ВыводитьМесяцПрописью" type="xs:boolean" lowerBound="0"/>
+		<property name="ВыводитьСуммуБезКопеек" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидСчета" type="d3p1:ВидыБанковскихСчетов" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property name="ДатаОткрытия" type="xs:date" lowerBound="0"/>
+		<property name="ДатаЗакрытия" type="xs:date" lowerBound="0"/>
+		<property name="НомерИДатаРазрешения" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.Валюты" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваВалюта"/>
+		<property name="НаименованиеПолное" type="xs:string" lowerBound="0"/>
+		<property name="ЗагружаетсяИзИнтернета" type="xs:boolean" lowerBound="0"/>
+		<property name="ПараметрыПрописи" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОсновнаяВалюта" type="d3p1:КлючевыеСвойстваВалюта" lowerBound="0"/>
+		<property name="Наценка" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="2"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ВидыНоменклатуры" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваВидыНоменклатуры"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ВидыПодарочныхСертификатов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваВидыПодарочныхСертификатов"/>
+		<property name="ТипПериодаДействия">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration>День</enumeration>
+				<enumeration>Месяц</enumeration>
+			</typeDef>
+		</property>
+		<property name="КоличествоПериодовДействия" type="xs:integer" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ШаблоныКодов" type="d3p1:Справочник.ВидыПодарочныхСертификатов.ШаблоныКодов" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ВидыПодарочныхСертификатов.ШаблоныКодов">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Справочник.ВидыПодарочныхСертификатов.ШаблоныКодов.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Справочник.ВидыПодарочныхСертификатов.ШаблоныКодов.Строка" open="true" sequenced="true">
+		<property name="ДлинаШтрихкода" type="xs:integer" lowerBound="0"/>
+		<property name="НачалоДиапазонаШтрихкода" type="xs:integer" lowerBound="0"/>
+		<property name="КонецДиапазонаШтрихкода" type="xs:integer" lowerBound="0"/>
+		<property name="ДлинаМагнитногоКода" type="xs:integer" lowerBound="0"/>
+		<property name="НачалоДиапазонаМагнитногоКода" type="xs:integer" lowerBound="0"/>
+		<property name="КонецДиапазонаМагнитногоКода" type="xs:integer" lowerBound="0"/>
+		<property name="ШаблонМагнитнойКарты" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ДисконтныеКарты" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваДисконтныеКарты"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПрограммаЛояльности" type="d3p1:КлючевыеСвойстваПрограммыЛояльности" lowerBound="0"/>
+		<property name="ДатаОткрытия" type="xs:dateTime" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.Договоры" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваДоговор"/>
+		<property name="СрокДействия" type="xs:date" lowerBound="0"/>
+		<property name="УчетАгентскогоНДС" type="xs:boolean" lowerBound="0"/>
+		<property name="Комментарий" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="БанковскийСчет" type="d3p1:КлючевыеСвойстваБанковскийСчет" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="БанковскийСчетОрганизации" type="d3p1:КлючевыеСвойстваБанковскийСчет" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипЦен" type="d3p1:КлючевыеСвойстваТипЦен" lowerBound="0"/>
+		<property name="СрокКонтроляОплатыВДнях" type="xs:int" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ДополнительныеРеквизиты" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваДополнительныеРеквизиты"/>
+		<property name="МногострочноеПолеВвода" type="xs:decimal" lowerBound="0"/>
+		<property name="Заголовок" type="xs:string" lowerBound="0"/>
+		<property name="ЗаполнятьОбязательно" type="xs:boolean" lowerBound="0"/>
+		<property name="ДополнительныеЗначенияИспользуются" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВладелецДополнительныхЗначений" type="d3p1:КлючевыеСвойстваДополнительныеРеквизиты" lowerBound="0"/>
+		<property name="ДополнительныеЗначенияСВесом" type="xs:boolean" lowerBound="0"/>
+		<property name="ЗаголовокФормыЗначения" type="xs:string" lowerBound="0"/>
+		<property name="ЗаголовокФормыВыбораЗначения" type="xs:string" lowerBound="0"/>
+		<property name="ФорматСвойства" type="xs:string" lowerBound="0"/>
+		<property name="Комментарий" type="xs:string" lowerBound="0"/>
+		<property name="Подсказка" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ЕдиницыИзмерения" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваЕдиницаИзмерения"/>
+		<property name="НаименованиеПолное" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ЗначенияДополнительныхРеквизитов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваЗначенияДополнительныхРеквизитов"/>
+		<property name="Вес" type="xs:decimal" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.КассыККМ" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваКассыККМ"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СистемаНалогообложения" type="d3p1:СистемыНалогообложения" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.Контрагенты" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваКонтрагент"/>
+		<property name="ОКПО" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="10"/>
+		</property>
+		<property name="ДополнительнаяИнформация" type="xs:string" lowerBound="0"/>
+		<property name="ДокументУдЛичность" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КонтактнаяИнформация" type="d3p1:КонтактнаяИнформация" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ГоловнойКонтрагент" type="d3p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+		<property name="ОбособленноеПодразделение" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОсновнойБанковскийСчет" type="d3p1:КлючевыеСвойстваБанковскийСчет" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОсновнойДоговор" type="d3p1:КлючевыеСвойстваДоговор" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.КонтрагентыГруппа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваКонтрагентГруппа" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.МаркировкаУпаковки" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваМаркировкаУпаковки"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Количество" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property name="ДатаУпаковки" type="xs:date" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Ответственный" type="d3p1:КлючевыеСвойстваПользователь" lowerBound="0"/>
+		<property name="Описание" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВложенныеТовары" type="d3p1:Справочник.МаркировкаУпаковки.ВложенныеТовары"/>
+	</objectType>
+	<objectType name="Справочник.МаркировкаУпаковки.ВложенныеТовары">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Справочник.МаркировкаУпаковки.ВложенныеТовары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Справочник.МаркировкаУпаковки.ВложенныеТовары.Строка">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваДанныеНоменклатуры"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Количество" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КоличествоУпаковок" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.Номенклатура" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваНоменклатура"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипНоменклатуры" type="d3p1:ТипыНоменклатуры"/>
+		<property name="Описание" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЕдиницаИзмерения" type="d3p1:КлючевыеСвойстваЕдиницаИзмерения"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтавкаНДС" type="d3p1:СтавкиНДС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеАлкогольнойПродукции" type="d3p1:ОбщиеСвойстваДанныеАлкогольнойПродукции" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеЧастичногоВыбытия" type="d3p1:ОбщиеСвойстваДанныеЧастичногоВыбытия" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КодТНВЭД" type="d3p1:ОбщиеСвойстваДанныеКлассификатора" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КодОКВЭД" type="d3p1:ОбщиеСвойстваДанныеКлассификатора" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КодОКП" type="d3p1:ОбщиеСвойстваДанныеКлассификатора" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СтранаПроисхождения" type="d3p1:КлючевыеСвойстваСтранаМира" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОсновнаяСпецификацияНоменклатуры" type="d3p1:КлючевыеСвойстваСпецификацииНоменклатуры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЦеноваяГруппа" type="d3p1:КлючевыеСвойстваЦеновыеГруппы" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидНоменклатуры" type="d3p1:КлючевыеСвойстваВидыНоменклатуры" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ПризнакПредметаРасчета" type="d3p1:ПризнакиПредметаРасчета" lowerBound="0"/>
+		<property name="Весовой" type="xs:boolean" lowerBound="0"/>
+		<property name="Маркируемый" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ИспользоватьСерии" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ПодакцизныйТовар" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СрокГодности" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property name="ЕдиницаИзмеренияСрокаГодности" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" totalDigits="1" fractionDigits="0"/>
+		</property>
+		<property name="КодВидаНоменклатурнойКлассификации" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="13"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Производитель" type="d3p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВидПродукцииИС" type="d3p1:ВидыПродукцииИС" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СистемаНалогообложения" type="d3p1:СистемыНалогообложения" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.НоменклатураГруппа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваНоменклатураГруппа"/>
+	</objectType>
+	<objectType name="Справочник.Организации" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваОрганизация"/>
+		<property name="НаименованиеПлательщикаПриПеречисленииНалогов" type="xs:string" lowerBound="0"/>
+		<property name="Префикс" type="xs:string" lowerBound="0"/>
+		<property name="СвидетельствоСерияНомер" type="xs:string" lowerBound="0"/>
+		<property name="СвидетельствоДатаВыдачи" type="xs:date" lowerBound="0"/>
+		<property name="ОКПО" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="10"/>
+		</property>
+		<property name="ОКАТО" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="11"/>
+		</property>
+		<property name="ОГРН" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="15"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КонтактнаяИнформация" type="d3p1:КонтактнаяИнформация" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ОсновнойБанковскийСчет" type="d3p1:КлючевыеСвойстваБанковскийСчет" lowerBound="0"/>
+		<property name="ЯвляетсяНерезидентом" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ФизическоеЛицо" type="d3p1:КлючевыеСвойстваФизическоеЛицо" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.Подразделения" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваПодразделение"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ПозицияПрайсЛиста">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваПозицияПрайсЛиста"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Цена" type="d3p1:ТипСумма"/>
+	</objectType>
+	<objectType name="Справочник.Пользователи" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваПользователь"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ПрайсЛист" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваПрайсЛист"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ПрограммыЛояльности" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваПрограммыЛояльности"/>
+		<property name="КурсКонвертацииБонусовВВалюту">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="2"/>
+		</property>
+		<property name="НеНачислятьБаллыПриОплатеБонусами" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЦеновыеГруппы" type="d3p1:Справочник.ПрограммыЛояльности.ЦеновыеГруппы" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ПрограммыЛояльности.ЦеновыеГруппы">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Справочник.ПрограммыЛояльности.ЦеновыеГруппы.Строка" upperBound="-1"/>
+	</objectType>
+	<objectType name="Справочник.ПрограммыЛояльности.ЦеновыеГруппы.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="НомерСтроки" type="d3p1:ТипНомерСтроки" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЦеноваяГруппа" type="d3p1:КлючевыеСвойстваЦеновыеГруппы"/>
+		<property name="МаксимальныйПроцентОплатыБонусами">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="2"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.СерииНоменклатуры" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваСерииНоменклатуры"/>
+		<property name="ГоденДо" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СрокГодностиВЧасах" type="d3p1:ТипКоличество" lowerBound="0"/>
+		<property name="ДатаПроизводства" type="xs:date" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.Склады" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваСклад"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="МОЛ" type="d3p1:КлючевыеСвойстваФизическоеЛицо" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Подразделение" type="d3p1:КлючевыеСвойстваПодразделение" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ТипЦенРозничнойТорговли" type="d3p1:КлючевыеСвойстваТипЦен" lowerBound="0"/>
+		<property name="АдресСтрокой" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КонтактнаяИнформация" type="d3p1:КонтактнаяИнформация" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.СкладыГруппа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваСкладГруппа"/>
+	</objectType>
+	<objectType name="Справочник.СостояниеОплатыЗаказа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваСостояниеОплатыЗаказа"/>
+		<property name="ДатаСостояния" type="xs:date" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаПлатежа" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СуммаВсехПлатежей" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СостояниеОплаты" type="d3p1:СостоянияОплаты"/>
+	</objectType>
+	<objectType name="Справочник.СостояниеОтгрузкиЗаказа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваСостояниеОтгрузкиЗаказа"/>
+		<property name="ДатаСостояния" type="xs:date" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СостояниеОтгрузки" type="d3p1:СостоянияОтгрузки"/>
+	</objectType>
+	<objectType name="Справочник.СтатьиДДС" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваСтатьяДДС"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Группа" type="d3p1:КлючевыеСвойстваСтатьяДДСГруппа" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.СтатьиДДСГруппа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваСтатьяДДСГруппа"/>
+	</objectType>
+	<objectType name="Справочник.СтатьиДоходов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваСтатьяДоходов"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.СтатьиРасходов" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваСтатьяРасходов"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property name="ВидДеятельностиДляНалоговогоУчетаЗатрат" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration>ОсновнаяСистемаНалогообложения</enumeration>
+				<enumeration>ОсобыйПорядокНалогообложения</enumeration>
+				<enumeration>РаспределяемыеЗатраты</enumeration>
+			</typeDef>
+		</property>
+		<property name="ВидРасходовПоОсновнойДеятельности" type="xs:string" lowerBound="0"/>
+		<property name="ВидРасходовПоНеосновнойДеятельности" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.СтраныМира" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваСтранаМира"/>
+		<property name="НаименованиеПолное" type="xs:string" lowerBound="0"/>
+		<property name="КодАльфа2" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="2"/>
+		</property>
+		<property name="КодАльфа3" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ТипыЦен" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваТипЦен"/>
+		<property name="ЦенаВключаетНДС" type="xs:boolean" lowerBound="0"/>
+		<property name="ОкруглятьВБольшуюСторону" type="xs:boolean" lowerBound="0"/>
+		<property name="ТочностьОкругления" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="5" fractionDigits="2"/>
+		</property>
+		<property name="Идентификатор" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.Упаковки" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваУпаковка"/>
+		<property name="Высота" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="15" fractionDigits="3"/>
+		</property>
+		<property name="Глубина" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="15" fractionDigits="3"/>
+		</property>
+		<property name="Ширина" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="15" fractionDigits="3"/>
+		</property>
+		<property name="Объем" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="18" fractionDigits="6"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ФизическиеЛица" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваФизическоеЛицо"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Пол" type="d3p1:Пол" lowerBound="0"/>
+		<property name="УточнениеНаименования" type="xs:string" lowerBound="0"/>
+		<property name="СтраховойНомерПФР" type="xs:string" lowerBound="0"/>
+		<property name="МестоРождения" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КонтактнаяИнформация" type="d3p1:КонтактнаяИнформация" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеФИО" type="d3p1:Справочник.ФизическиеЛица.ДанныеФИО" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Гражданство" type="d3p1:Справочник.ФизическиеЛица.Гражданство" lowerBound="0"/>
+		<property name="ДатаРегистрации" type="xs:date" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ФизическиеЛица.Гражданство">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Справочник.ФизическиеЛица.Гражданство.Строка" upperBound="-1"/>
+	</objectType>
+	<objectType name="Справочник.ФизическиеЛица.Гражданство.Строка" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Страна" type="d3p1:КлючевыеСвойстваСтранаМира"/>
+		<property name="НачалоПериода" type="xs:date"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ФизическиеЛица.ДанныеФИО">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Справочник.ФизическиеЛица.ДанныеФИО.Строка" upperBound="-1"/>
+	</objectType>
+	<objectType name="Справочник.ФизическиеЛица.ДанныеФИО.Строка" open="true" sequenced="true">
+		<property name="Фамилия" type="xs:string" lowerBound="0"/>
+		<property name="Имя" type="xs:string" lowerBound="0"/>
+		<property name="Отчество" type="xs:string" lowerBound="0"/>
+		<property name="НачалоПериода" type="xs:date"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ИдентификаторСтроки" type="d3p1:ТипИдентификаторСтроки" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ФизическиеЛицаГруппа" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваФизическоеЛицоГруппа"/>
+	</objectType>
+	<objectType name="Справочник.ХарактеристикиНоменклатуры" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваХарактеристикаНоменклатуры"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ЦеновыеГруппы" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваЦеновыеГруппы"/>
+	</objectType>
+	<objectType name="Справочник.ШтрихкодыНоменклатуры" open="true" sequenced="true">
+		<property name="Штрихкод" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Записи" type="d3p1:Справочник.ШтрихкодыНоменклатурыЗаписи" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ШтрихкодыНоменклатурыЗаписи">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Строка" type="d3p1:Справочник.ШтрихкодыНоменклатурыЗапись" upperBound="-1"/>
+	</objectType>
+	<objectType name="Справочник.ШтрихкодыНоменклатурыЗапись" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ДанныеНоменклатуры" type="d3p1:ОбщиеСвойстваОписываемаяНоменклатура"/>
+	</objectType>
+	<objectType name="Справочник.ЭквайринговыеТерминалы" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваЭквайринговыеТерминалы"/>
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="БанковскийСчетОрганизации" type="d3p1:КлючевыеСвойстваБанковскийСчет" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="Эквайер" type="d3p1:КлючевыеСвойстваКонтрагент" lowerBound="0"/>
+	</objectType>
+	<objectType name="УдалениеОбъекта">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="СсылкаНаОбъект" type="d3p1:ЛюбаяСсылка"/>
+	</objectType>
+	<objectType name="Обработан">
+		<property name="Дата" type="xs:dateTime"/>
+	</objectType>
+	<objectType name="ОбщиеСвойстваДанныеЧастичногоВыбытия" open="true" sequenced="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ЕмкостьПотребительскойУпаковки" type="d3p1:ТипКоличествоЧастичноеВыбытие" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="КоличествоВПотребительскойУпаковке" type="d3p1:ТипКоличествоЧастичноеВыбытие" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВариантЧастичногоВыбытия" type="d3p1:ВариантыУчетаЧастичногоВыбытия" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.8.Cashbox" name="ВариантИспользованияЕдиницыХранения" type="d3p1:ВариантыИспользованияЕдиницыХранения" lowerBound="0"/>
+	</objectType>
+</package>

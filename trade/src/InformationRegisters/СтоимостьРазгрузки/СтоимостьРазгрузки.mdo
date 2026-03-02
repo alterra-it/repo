@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="d54f98f9-51ce-4356-9b5a-3c7b8f62b529">
+  <producedTypes>
+    <selectionType typeId="61084ef2-2f48-4a8e-9a99-08939d532d19" valueTypeId="5ad2cc37-1b78-4213-8f6d-451296933eae"/>
+    <listType typeId="3c83dd62-3126-4359-8808-c336469b2103" valueTypeId="84fb0f42-318e-4ac2-b76f-41752cb24c77"/>
+    <managerType typeId="36dd20c2-b534-4cc3-833b-3f949ddd9404" valueTypeId="0620edfb-9419-4034-a153-abacb87d69b3"/>
+    <recordSetType typeId="c8fdb208-6ae9-4283-8dbc-638103fe5dca" valueTypeId="a4e7cf10-5926-4608-afa0-1ffc785cb7d9"/>
+    <recordKeyType typeId="caec9572-50d5-4f17-9564-1489db312fb3" valueTypeId="c93d493d-e9f5-4537-b458-41eedbf6ae0c"/>
+    <recordType typeId="52b971c5-bb51-4563-b4a2-357364a356a2" valueTypeId="9703ad72-0d86-4aa4-832f-df15d6eec8c4"/>
+    <recordManagerType typeId="3474c120-49fb-40e9-b9fa-c32edea56dcb" valueTypeId="1ff883b2-6cc8-4f7e-a027-47da3eeaa34f"/>
+  </producedTypes>
+  <name>СтоимостьРазгрузки</name>
+  <synonym>
+    <key>ru</key>
+    <value>Стоимость разгрузки</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <informationRegisterPeriodicity>Second</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="9e2d4638-9560-4085-b799-fe012b588958">
+    <name>ЦенаДляВодителя</name>
+    <synonym>
+      <key>ru</key>
+      <value>Цена для водителя</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="e6fc1242-c954-40f4-b5e8-a1ffd899e453">
+    <name>ЦенаДляКлиента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Цена для клиента</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="6b081896-1908-4005-8b4b-4c28e017e88c">
+    <name>ВремяРазгрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Время разгрузки</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="ea4e457c-a051-4001-816d-f9753d70775e">
+    <name>Вес</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вес</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="e82dfc88-2a4b-4972-9b11-c483a036475c">
+    <name>Этаж</name>
+    <synonym>
+      <key>ru</key>
+      <value>Этаж</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>2</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="c0cb660d-1ef2-4e88-8439-152ff3e32cd6">
+    <name>Зона</name>
+    <synonym>
+      <key>ru</key>
+      <value>Зона</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ЗоныДоставкиКлиента</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="f94ac501-14b4-4d3c-9caa-8516f2fe5421">
+    <name>Негабарит</name>
+    <synonym>
+      <key>ru</key>
+      <value>Негабарит</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

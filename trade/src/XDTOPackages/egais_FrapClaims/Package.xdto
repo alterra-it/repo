@@ -1,0 +1,570 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://fsrar.ru/WEGAIS/FrapClaims" elementFormQualified="true" attributeFormQualified="false">
+	<objectType name="CapacityType" ordered="false" sequenced="true">
+		<property name="Capacity" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" fractionDigits="3"/>
+		</property>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/FrapClaims" name="DescriptionPackaging" type="d3p1:DescriptionPackagingType" lowerBound="0" nillable="false"/>
+		<property name="ShelfLife">
+			<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minInclusive="0"/>
+		</property>
+	</objectType>
+	<objectType name="DescriptionPackagingType">
+		<property name="PackageType" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+				<pattern>\S+(.*\S+)*</pattern>
+			</typeDef>
+		</property>
+		<property name="ContComposition" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+				<pattern>\S+(.*\S+)*</pattern>
+			</typeDef>
+		</property>
+		<property name="LabelFotoAP" nillable="false">
+			<typeDef xsi:type="ObjectType">
+				<property name="LabelFoto" type="xs:base64Binary" lowerBound="0" nillable="false"/>
+				<property name="CapacityDescrVal" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255">
+						<enumeration>для алкогольной продукции, производимой на территории Российской Федерации и разливаемой в потребительскую тару</enumeration>
+						<enumeration>для алкогольной продукции, производимой на территории Российской Федерации и разливаемой в транспортную тару</enumeration>
+						<enumeration>для импортной продукции в потребительской таре</enumeration>
+						<enumeration>для импортной продукции в транспортной таре</enumeration>
+						<enumeration>не подлежит маркировке (производство и потребление пива осуществляется в месте оказания услуг общественного питания)</enumeration>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="FrapClaimsType">
+		<property name="NameDoc" type="xs:anyType"/>
+		<property name="Header">
+			<typeDef xsi:type="ObjectType">
+				<property name="DocNumber" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20">
+						<pattern>\S+(.*\S+)*</pattern>
+					</typeDef>
+				</property>
+				<property name="DocDate" type="xs:date" nillable="false"/>
+				<property name="Notifier" nillable="false">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="ClientRegId">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="FullName">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="ShortName">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="64">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="UL">
+							<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+								<property name="INN">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="10">
+										<pattern>[0-9]{10}</pattern>
+									</typeDef>
+								</property>
+								<property name="KPP">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="9">
+										<pattern>[0-9]{9}</pattern>
+									</typeDef>
+								</property>
+								<property name="address">
+									<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+										<property name="Country">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+												<pattern>[0-9][0-9][0-9]</pattern>
+											</typeDef>
+										</property>
+										<property name="RegionCode">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+												<pattern>[0-9][0-9]</pattern>
+											</typeDef>
+										</property>
+										<property name="Description">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="5000"/>
+										</property>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+						<property name="FL">
+							<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+								<property name="FullName">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255">
+										<pattern>\S+(.*\S+)*</pattern>
+									</typeDef>
+								</property>
+								<property name="INN">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="12">
+										<pattern>[0-9]{12}</pattern>
+									</typeDef>
+								</property>
+								<property name="address">
+									<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+										<property name="Country">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+												<pattern>[0-9][0-9][0-9]</pattern>
+											</typeDef>
+										</property>
+										<property name="RegionCode">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+												<pattern>[0-9][0-9]</pattern>
+											</typeDef>
+										</property>
+										<property name="Description">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="5000"/>
+										</property>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+				<property name="TypeOrg" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="500">
+						<enumeration>организация, осуществляющая производство алкогольной продукции, подлежащей маркировке федеральными специальными марками.</enumeration>
+						<enumeration>организация, осуществляющая производство пива и пивных напитков, сидра, пуаре, медовухи и имеющая основное технологическое оборудование для производства указанной продукции с производственной мощностью не более 300 тысяч декалитров в год.</enumeration>
+						<enumeration>организация, осуществляющая производство пива и пивных напитков, сидра, пуаре, медовухи и имеющая основное технологическое оборудование для производства указанной продукции с производственной мощностью более 300 тысяч декалитров в год.</enumeration>
+						<enumeration>организация, осуществляющая ввоз алкогольной продукции в Российскую Федерацию.</enumeration>
+					</typeDef>
+				</property>
+				<property name="Producer" upperBound="-1" nillable="false">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="ClientRegId">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="FullName">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="ShortName">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="64">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="UL">
+							<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+								<property name="INN">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="10">
+										<pattern>[0-9]{10}</pattern>
+									</typeDef>
+								</property>
+								<property name="KPP">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="9">
+										<pattern>[0-9]{9}</pattern>
+									</typeDef>
+								</property>
+								<property name="address">
+									<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+										<property name="Country">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+												<pattern>[0-9][0-9][0-9]</pattern>
+											</typeDef>
+										</property>
+										<property name="RegionCode">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+												<pattern>[0-9][0-9]</pattern>
+											</typeDef>
+										</property>
+										<property name="Description">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="5000"/>
+										</property>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+						<property name="FL">
+							<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+								<property name="FullName">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255">
+										<pattern>\S+(.*\S+)*</pattern>
+									</typeDef>
+								</property>
+								<property name="INN">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="12">
+										<pattern>[0-9]{12}</pattern>
+									</typeDef>
+								</property>
+								<property name="address">
+									<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+										<property name="Country">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+												<pattern>[0-9][0-9][0-9]</pattern>
+											</typeDef>
+										</property>
+										<property name="RegionCode">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+												<pattern>[0-9][0-9]</pattern>
+											</typeDef>
+										</property>
+										<property name="Description">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="5000"/>
+										</property>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+						<property name="FO">
+							<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+								<property name="address">
+									<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+										<property name="Country">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+												<pattern>[0-9][0-9][0-9]</pattern>
+											</typeDef>
+										</property>
+										<property name="Description">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="5000"/>
+										</property>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+				<property name="VidAP" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="500"/>
+				</property>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/FrapClaims" name="NameAP" type="d5p1:NameAPType" nillable="false"/>
+				<property name="FullNameManufacturerLanguage" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="500"/>
+				</property>
+				<property name="Brend" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="500"/>
+				</property>
+				<property name="CountryOrigin" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3"/>
+				</property>
+				<property name="AlcVolume" nillable="false">
+					<typeDef xsi:type="ObjectType">
+						<property name="AlcVolumeMin" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minExclusive="0" maxExclusive="100" fractionDigits="1"/>
+						</property>
+						<property name="AlcVolumeMax" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minExclusive="0" maxExclusive="100" fractionDigits="1"/>
+						</property>
+					</typeDef>
+				</property>
+				<property name="CapacityList" nillable="false">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="http://fsrar.ru/WEGAIS/FrapClaims" name="CapacityDescr" type="d7p1:CapacityType" upperBound="-1" nillable="false"/>
+					</typeDef>
+				</property>
+				<property name="MarketSupply" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="500">
+						<enumeration>для поставки на территории Российской Федерации</enumeration>
+						<enumeration>для поставки продукции за пределы территории Российской Федерации – на экспорт</enumeration>
+						<enumeration>для поставки на территории Российской Федерации и за пределы территории Российской Федерации – на экспорт</enumeration>
+					</typeDef>
+				</property>
+				<property name="CompositionProducts">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="http://fsrar.ru/WEGAIS/FrapClaims" name="Position" type="d7p1:PositionCompositionProductsType" upperBound="-1" nillable="false"/>
+					</typeDef>
+				</property>
+				<property name="TechReglStandard" upperBound="-1">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="TechRegl" nillable="false">
+							<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+								<property name="TechReglNumber" nillable="false">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+										<pattern>\S+(.*\S+)*</pattern>
+									</typeDef>
+								</property>
+								<property name="TechReglName" nillable="false">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+								</property>
+							</typeDef>
+						</property>
+						<property name="TechStandard" nillable="false">
+							<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+								<property name="StandardNumber" nillable="false">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+										<pattern>\S+(.*\S+)*</pattern>
+									</typeDef>
+								</property>
+								<property name="StandardName" nillable="false">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+								</property>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+				<property name="AdditionalDocuments">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="http://fsrar.ru/WEGAIS/FrapClaims" name="Position" type="d7p1:PositionAdditionalDocumentsType" lowerBound="0" upperBound="-1" nillable="false"/>
+					</typeDef>
+				</property>
+				<property name="DistinctiveCharacteristics" lowerBound="0" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+				</property>
+				<property name="SugarContWine" lowerBound="0" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="50">
+						<enumeration>сухое</enumeration>
+						<enumeration>полусухое</enumeration>
+						<enumeration>полусладкое</enumeration>
+						<enumeration>сладкое</enumeration>
+					</typeDef>
+				</property>
+				<property name="SugarContSparkWine" lowerBound="0" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="50">
+						<enumeration>экстра брют</enumeration>
+						<enumeration>брют</enumeration>
+						<enumeration>сухое</enumeration>
+						<enumeration>полусухое</enumeration>
+						<enumeration>полусладкое</enumeration>
+						<enumeration>сладкое</enumeration>
+					</typeDef>
+				</property>
+				<property name="MinAge" lowerBound="0" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" maxInclusive="100"/>
+				</property>
+				<property name="StorageTemperature">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="StorageTemperatureMin" type="xs:decimal" nillable="false"/>
+						<property name="StorageTemperatureMax" type="xs:decimal" nillable="false"/>
+					</typeDef>
+				</property>
+				<property name="StorageHumidity">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="StorageHumidityMin" type="xs:decimal" nillable="false"/>
+						<property name="StorageHumidityMax" type="xs:decimal" nillable="false"/>
+					</typeDef>
+				</property>
+				<property name="OtherStorageCharacteristics" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+				</property>
+				<property name="CodOKPD2" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+						<pattern>\S+(.*\S+)*</pattern>
+					</typeDef>
+				</property>
+				<property name="CodTNVED" nillable="false">
+					<typeDef xsi:type="ObjectType">
+						<property name="CodTNVEDTS" upperBound="-1" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+				<property name="DeclarationCertificate">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="http://fsrar.ru/WEGAIS/FrapClaims" name="Position" type="d7p1:PositionDeclarationType" lowerBound="0" upperBound="-1" nillable="false"/>
+					</typeDef>
+				</property>
+				<property name="DateFirstDelivery" type="xs:date" nillable="false"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/FrapClaims" name="TrademarkDetails" type="d5p1:TrademarkDetailsType" upperBound="-1" nillable="false"/>
+				<property name="TermsTransportation" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+				</property>
+				<property name="TermsSale" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+				</property>
+				<property name="TermsDisposal" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+				</property>
+				<property name="Note" lowerBound="0" nillable="false">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="NameAPType">
+		<property name="FullName" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="500"/>
+		</property>
+		<property name="TypeBeer" lowerBound="0" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="50">
+				<enumeration>светлое</enumeration>
+				<enumeration>темное</enumeration>
+			</typeDef>
+		</property>
+		<property name="BeerProcessingMethod" lowerBound="0" upperBound="-1" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="50">
+				<enumeration>непастеризованное</enumeration>
+				<enumeration>пастеризованное</enumeration>
+				<enumeration>фильтрованное</enumeration>
+				<enumeration>нефильтрованное осветленное</enumeration>
+				<enumeration>нефильтрованное неосветленное</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="PositionAdditionalDocumentsType" ordered="false" sequenced="true">
+		<property name="Identity" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+				<pattern>\S+(.*\S+)*</pattern>
+			</typeDef>
+		</property>
+		<property name="AdditionalDoc" nillable="false">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property name="TechnologicalInstruction" lowerBound="0">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="TINumber" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="TIDate" type="xs:date" nillable="false"/>
+						<property name="TIName" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+						</property>
+						<property name="TIElectronicView" type="xs:base64Binary" nillable="false"/>
+					</typeDef>
+				</property>
+				<property name="OrganizationStandard" lowerBound="0">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="OSNumber" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="OSDate" type="xs:date" nillable="false"/>
+						<property name="OSName" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+						</property>
+					</typeDef>
+				</property>
+				<property name="InternationalStandardCountryOrigin" lowerBound="0">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="ISCONumber" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="ISCOName" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+						</property>
+					</typeDef>
+				</property>
+				<property name="NationalStandardCountryOrigin" lowerBound="0">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="NSCONumber" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="NSCOName" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+						</property>
+					</typeDef>
+				</property>
+				<property name="NationalRegulations" lowerBound="0">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="NRNumber" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="NRName" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+						</property>
+					</typeDef>
+				</property>
+				<property name="TechnicalDocumentation" lowerBound="0">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="TDNumber" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="TDDate" type="xs:date" nillable="false"/>
+						<property name="TDName" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+						</property>
+						<property name="TDElectronicView" type="xs:base64Binary" nillable="false"/>
+					</typeDef>
+				</property>
+				<property name="RC" lowerBound="0">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="RCNumber" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="100">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="RCDate" type="xs:date" nillable="false"/>
+						<property name="RCName" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="PositionCompositionProductsType" ordered="false" sequenced="true">
+		<property name="Identity" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+				<pattern>\S+(.*\S+)*</pattern>
+			</typeDef>
+		</property>
+		<property name="CompulsoryRawMaterials" lowerBound="0" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+		</property>
+		<property name="CompulsoryRawMaterialsDescr" lowerBound="0" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="OtherAP" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+		</property>
+		<property name="OtherRawMaterials" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="PositionDeclarationType" ordered="false" sequenced="true">
+		<property name="Identity" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+				<pattern>\S+(.*\S+)*</pattern>
+			</typeDef>
+		</property>
+		<property name="DeclarCertif" nillable="false">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property name="Declaration" lowerBound="0">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="DeclarationNumber" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="DateValidity" type="xs:date" nillable="false"/>
+						<property name="DateExpiration" type="xs:date" nillable="false"/>
+					</typeDef>
+				</property>
+				<property name="Certificate" lowerBound="0">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="CertificateNumber" nillable="false">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+								<pattern>\S+(.*\S+)*</pattern>
+							</typeDef>
+						</property>
+						<property name="DateValidity" type="xs:date" lowerBound="0" nillable="false"/>
+						<property name="DateExpiration" type="xs:date" lowerBound="0" nillable="false"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="TrademarkDetailsType" ordered="false" sequenced="true">
+		<property name="TrademarkName" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50">
+				<pattern>\S+(.*\S+)*</pattern>
+			</typeDef>
+		</property>
+		<property name="StateRegistrationNumber" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="6" maxLength="7"/>
+		</property>
+		<property name="DateStateRegistration" type="xs:date" nillable="false"/>
+		<property name="NameCopyrightHolder" nillable="false">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="100">
+				<pattern>\S+(.*\S+)*</pattern>
+			</typeDef>
+		</property>
+	</objectType>
+</package>

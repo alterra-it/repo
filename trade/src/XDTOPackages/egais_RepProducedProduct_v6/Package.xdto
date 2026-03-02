@@ -1,0 +1,70 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://fsrar.ru/WEGAIS/RepProducedProduct_v6" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="http://fsrar.ru/WEGAIS/Common"/>
+	<import namespace="http://fsrar.ru/WEGAIS/CommonEnum"/>
+	<import namespace="http://fsrar.ru/WEGAIS/CommonV3"/>
+	<import namespace="http://fsrar.ru/WEGAIS/ClientRef_v2"/>
+	<import namespace="http://fsrar.ru/WEGAIS/ProductRef_v2"/>
+	<valueType name="OperType" base="xs:string" variety="Atomic">
+		<enumeration>OperProduction</enumeration>
+		<enumeration>OperConversion</enumeration>
+		<enumeration>OperMaterials</enumeration>
+	</valueType>
+	<objectType name="GRAPERESOURCEType" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="IDENTITYGRAPERES" type="d3p1:IdentityType"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="GRAPESORT" type="d3p1:NoEmptyString250"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="WEIGHT" type="d3p1:PositiveDecimalType"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="DATEOFRECEIPT" type="d3p1:DateNoTime"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="VINEYARDNUMBER" type="d3p1:NoEmptyString50"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/ClientRef_v2" name="GRAPESUPPLIER" type="d3p1:OrgInfoRus_v2_ClaimFrap"/>
+	</objectType>
+	<objectType name="PositionType" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="ProductCode" type="d3p1:NoEmptyString50"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="Quantity" type="d3p1:PositiveDecimalType"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="alcPercent" type="d3p1:AlcPercentType" nillable="false"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="Party" type="d3p1:NoEmptyString50"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="Identity" type="d3p1:IdentityType" nillable="false"/>
+		<property name="Comment1" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="200"/>
+		</property>
+		<property name="Comment2" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="200"/>
+		</property>
+		<property name="Comment3" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="200"/>
+		</property>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/CommonV3" name="MarkInfo" type="d3p1:AMCforDocType" lowerBound="0" nillable="false"/>
+		<property name="ContentResource" lowerBound="0">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/RepProducedProduct_v6" name="Resource" type="d5p1:UsedResourceType" upperBound="-1"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/RepProducedProduct_v6" name="GRAPERESOURCE" type="d5p1:GRAPERESOURCEType" upperBound="-1"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="RepProducedType_v6">
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="Identity" type="d3p1:IdentityType" lowerBound="0" nillable="false"/>
+		<property name="Header">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/RepProducedProduct_v6" name="Type" type="d5p1:OperType" fixed="false" default="OperProduction"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/Common" name="NUMBER" type="d5p1:NoEmptyString50"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/Common" name="Date" type="d5p1:DateNoTime"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/Common" name="ProducedDate" type="d5p1:DateNoTime" nillable="false"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/ClientRef_v2" name="Producer" type="d5p1:OrgInfoRus_v2"/>
+				<property name="Note" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="200"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Content">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/RepProducedProduct_v6" name="Position" type="d5p1:PositionType" upperBound="-1"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="UsedResourceType" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="IDENTITYPRODUCT" type="d3p1:IdentityType"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/ProductRef_v2" name="Product" type="d3p1:ProductInfo_v2"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="RegForm2" type="d3p1:NoEmptyString50"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="Quantity" type="d3p1:PositiveDecimalType"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/CommonV3" name="MarkInfo" type="d3p1:AMCforDocType" lowerBound="0" nillable="false"/>
+	</objectType>
+</package>

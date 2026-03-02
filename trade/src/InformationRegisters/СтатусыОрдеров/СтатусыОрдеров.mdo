@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="0129c0d6-654c-4dc1-898d-2a3e14e3a593">
+  <producedTypes>
+    <selectionType typeId="36255b10-d824-4d0f-9f01-39874763279e" valueTypeId="892ded82-5eb8-4063-855c-20ec64b355c9"/>
+    <listType typeId="961fc93f-26b2-4f70-9611-04afbbe3b558" valueTypeId="c500721b-6027-4c7c-a675-7997b1336647"/>
+    <managerType typeId="c41955f2-948d-48e4-bc89-82d8e411cdd9" valueTypeId="6c15662c-95dd-452d-acec-cbe46c75faa6"/>
+    <recordSetType typeId="e1559ebe-7fce-4933-89a9-ee4aa2c6a0dd" valueTypeId="941c3b32-7aea-4be7-8cf5-b129f7a03b49"/>
+    <recordKeyType typeId="24fa08f0-dfd9-445b-bdab-108fc240cd9d" valueTypeId="33b20c0f-db3f-453d-a01a-32a146cc43ac"/>
+    <recordType typeId="97c93f05-7e01-41a2-841a-87ea7d14762c" valueTypeId="94f3e5f9-4fb8-4eb9-816f-c4dac4a48d39"/>
+    <recordManagerType typeId="16017862-3ea9-499a-a091-a8b133405063" valueTypeId="5d191abd-e0f2-48e1-b70b-4a4906e7ba3d"/>
+  </producedTypes>
+  <name>СтатусыОрдеров</name>
+  <synonym>
+    <key>ru</key>
+    <value>Статусы ордеров</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <informationRegisterPeriodicity>Second</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="d4beff2a-144a-4498-988f-5bbbeab8659e">
+    <name>Статус</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статус</value>
+    </synonym>
+    <type>
+      <types>EnumRef.СтатусыПриходныхОрдеров</types>
+      <types>EnumRef.СтатусыРасходныхОрдеров</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="de5997e7-f493-4c73-a379-054dca0c690b">
+    <name>Пользователь</name>
+    <synonym>
+      <key>ru</key>
+      <value>Пользователь</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="095cde9d-f3f4-468b-95c4-0fb136cb9efa">
+    <name>Сотрудник</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сотрудник</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Сотрудники</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="6aad4699-ac61-45c7-99b9-f322f0f20ff7">
+    <name>Документ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.РасходныйОрдерНаТовары</types>
+      <types>DocumentRef.ПриходныйОрдерНаТовары</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

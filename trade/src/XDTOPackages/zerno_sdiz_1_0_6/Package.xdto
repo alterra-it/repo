@@ -1,0 +1,201 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.6"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.6"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="CanceledExtinction" type="d2p1:CanceledExtinctionType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="CanceledExtinctionRefusal" type="d2p1:CanceledExtinctionRefusalType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="CanceledSDIZ" type="d2p1:CanceledSDIZType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="CreateExtinction" type="d2p1:CreateExtinctionType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="CreateExtinctionRefusal" type="d2p1:CreateExtinctionRefusalType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="CreateSDIZ" type="d2p1:CreateSDIZType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="CreateSDIZElevator" type="d2p1:CreateSDIZElevatorType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="ListExtinction" type="d2p1:ListExtinctionType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="ListExtinctionRefusal" type="d2p1:ListExtinctionRefusalType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="ListSDIZ" type="d2p1:ListSDIZType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="ListSDIZElevator" type="d2p1:ListSDIZElevatorType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="RecordExtinction" type="d2p1:RecordExtinctionType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="RecordExtinctionRefusal" type="d2p1:RecordExtinctionRefusalType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="RecordSDIZ" type="d2p1:RecordSDIZType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="RecordSDIZElevator" type="d2p1:RecordSDIZElevatorType"/>
+	<valueType name="SDIZStatusType" base="xs:string" variety="Atomic">
+		<enumeration>SUBSCRIBED</enumeration>
+		<enumeration>CANCELED</enumeration>
+		<enumeration>EXTINGUISHED</enumeration>
+		<enumeration>SUBSCRIBED_CONFIRMED</enumeration>
+	</valueType>
+	<objectType name="AcceptanceElevatorType">
+		<property name="dateDogovor" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="numberDogovor" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="storageArea" type="xs:float" lowerBound="0" form="Attribute"/>
+		<property name="storagePeriod" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="storageConditions" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="Operation" type="d3p1:OperationSDIZType" fixed="true" default="ACCEPTANCE"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.6" name="StorageType" type="d3p1:StorageType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="StoragePlace" type="d3p1:AddressRFType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.6" name="ElevatorService" type="d3p1:ElevatorServiceType" upperBound="-1"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Moving" type="d3p1:MovingElevatorType" lowerBound="0"/>
+	</objectType>
+	<objectType name="AcceptanceType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="Consignee" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="ConsigneeAddress" type="d3p1:AddressRFType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="ConsigneeElevatorNumber" type="d3p1:ElevatorNumberType" lowerBound="0"/>
+	</objectType>
+	<objectType name="AdditionalInformationImportExportType">
+		<property name="customDeclaration" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="AccreditedLaboratory" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="TestProtocol" type="d3p1:DocNumberDateType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="ContractVED" type="d3p1:DocNumberDateType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="AdditionalAgreement" type="d3p1:DocNumberDateType" lowerBound="0"/>
+	</objectType>
+	<objectType name="CanceledExtinctionRefusalType">
+		<property name="extinctionRefusalId" type="xs:integer" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType name="CanceledExtinctionType">
+		<property name="extinctionId" type="xs:integer" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType name="CanceledSDIZType">
+		<property name="SDIZNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType name="CarrierBlockType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="Carrier" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="CarrierAddress" type="d3p1:AddressRFType" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="TransportInfo" type="d3p1:TransportInfoType" upperBound="-1"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="ConfirmingDocumentType" base="d2p1:DocNumberDateType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.6" name="KindDoc" type="d3p1:PropertyRightTransferDocCodeType"/>
+	</objectType>
+	<objectType name="CreateExtinctionRefusalType">
+		<property name="SDIZNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="amount" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.6" name="LotReturnReasonCode" type="d3p1:LotReturnReasonCodeType" lowerBound="0"/>
+		<property name="CauseComment" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="CreateExtinctionType">
+		<property name="SDIZNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="amount" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property name="fullExtinction" type="xs:boolean" lowerBound="1" form="Attribute"/>
+		<property name="productsNotAccounting" type="xs:boolean" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="TransportInfo" type="d3p1:TransportInfoType" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.6" name="WeightDiscrepancyCause" type="d3p1:WeightDiscrepancyCauseCodeType" lowerBound="0"/>
+		<property name="CauseComment" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="CreateSDIZElevatorType" ordered="false" sequenced="true">
+		<property name="lotNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="OperationSDIZElevator" type="d3p1:OperationSDIZElevatorType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="DeclarationOfConformit" type="d3p1:DeclarationOfConformitType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="PhytosanitaryCertificate" type="d3p1:PhytosanitaryCertificateType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="VeterinaryCertificate" type="d3p1:VeterinaryCertificateType" lowerBound="0"/>
+	</objectType>
+	<objectType name="CreateSDIZType" ordered="false" sequenced="true">
+		<property name="lotNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="OperationInRF" type="d3p1:OperationInRFType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="OperationExportRF" type="d3p1:OperationExportRFType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="OperationImportRF" type="d3p1:OperationImportRFType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="DeclarationOfConformit" type="d3p1:DeclarationOfConformitType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="PhytosanitaryCertificate" type="d3p1:PhytosanitaryCertificateType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="VeterinaryCertificate" type="d3p1:VeterinaryCertificateType" lowerBound="0"/>
+	</objectType>
+	<objectType name="GovernmentPurchaseType">
+		<property name="numberGovernmentPurchase" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="GovernmentContract" type="d3p1:DocNumberDateType"/>
+	</objectType>
+	<objectType name="ListExtinctionRefusalType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Record" type="d3p1:RecordExtinctionRefusalType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ListExtinctionType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Record" type="d3p1:RecordExtinctionType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ListSDIZElevatorType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Record" type="d3p1:RecordSDIZElevatorType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ListSDIZType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Record" type="d3p1:RecordSDIZType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="MovingElevatorType">
+		<property name="movingDate" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="movingStorageConditions" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="MovingStoragePlace" type="d3p1:AddressRFType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.6" name="StorageType" type="d3p1:StorageType"/>
+	</objectType>
+	<objectType name="OperationExportRFType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="OperationSDIZ" type="d3p1:OperationSDIZType" upperBound="2"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Shipping" type="d3p1:ShippingType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Shipment" type="d3p1:ShipmentType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="AdditionalInformationImportExport" type="d3p1:AdditionalInformationImportExportType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="OtherTransportDocument" type="d3p1:DocOtherNumberDateType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="OperationImportRFType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="OperationSDIZ" type="d3p1:OperationSDIZType" upperBound="2"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Shipping" type="d3p1:ShippingType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Acceptance" type="d3p1:AcceptanceType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="AdditionalInformationImportExport" type="d3p1:AdditionalInformationImportExportType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="OtherTransportDocument" type="d3p1:DocOtherNumberDateType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="OperationInRFType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="OperationSDIZ" type="d3p1:OperationSDIZType" upperBound="4"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Realization" type="d3p1:RealizationType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Shipping" type="d3p1:ShippingType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Acceptance" type="d3p1:AcceptanceType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="Shipment" type="d3p1:ShipmentType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="OtherTransportDocument" type="d3p1:DocOtherNumberDateType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="OperationSDIZElevatorType" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="AcceptanceElevator" type="d3p1:AcceptanceElevatorType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="ShipmentElevator" type="d3p1:ShipmentElevatorType" lowerBound="0"/>
+	</objectType>
+	<objectType name="RealizationType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="Seller" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="Buyer" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="Contract" type="d3p1:DocNumberDateType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="ConfirmingDocument" type="d3p1:ConfirmingDocumentType" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="GovernmentPurchase" type="d3p1:GovernmentPurchaseType" lowerBound="0"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="RecordExtinctionRefusalType" base="d2p1:CreateExtinctionRefusalType">
+		<property name="id" type="xs:integer" lowerBound="1" form="Attribute"/>
+		<property name="createLotNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="status" type="d3p1:StatusRecordType" lowerBound="1" form="Attribute"/>
+		<property name="dateRegistration" type="xs:date" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="RecordExtinctionType" base="d2p1:CreateExtinctionType">
+		<property name="id" type="xs:integer" lowerBound="1" form="Attribute"/>
+		<property name="createLotNumber" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="status" type="d3p1:StatusRecordType" lowerBound="1" form="Attribute"/>
+		<property name="dateRegistration" type="xs:date" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="RecordSDIZElevatorType" base="d2p1:CreateSDIZElevatorType">
+		<property name="id" type="xs:integer" lowerBound="1" form="Attribute"/>
+		<property name="number" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="status" type="d2p1:SDIZStatusType" lowerBound="1" form="Attribute"/>
+		<property name="amountOriginal" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property name="dateRegistration" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="lastModified" type="xs:dateTime" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="Owner" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.6" name="Lot" type="d3p1:RecordLotType"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="RecordSDIZType" base="d2p1:CreateSDIZType">
+		<property name="id" type="xs:integer" lowerBound="1" form="Attribute"/>
+		<property name="number" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="status" type="d2p1:SDIZStatusType" lowerBound="1" form="Attribute"/>
+		<property name="amountOriginal" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property name="dateRegistration" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="lastModified" type="xs:dateTime" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="Owner" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.6" name="Lot" type="d3p1:RecordLotType"/>
+	</objectType>
+	<objectType name="ShipmentElevatorType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="Operation" type="d3p1:OperationSDIZType" fixed="true" default="SHIPMENT"/>
+	</objectType>
+	<objectType name="ShipmentType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="Shipper" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="ShipperAddress" type="d3p1:AddressRFType"/>
+	</objectType>
+	<objectType name="ShippingType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="Shipper" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="ShipperAddress" type="d3p1:AddressRFType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="Consignee" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.6" name="ConsigneeAddress" type="d3p1:AddressRFType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.6" name="ConsigneeElevatorNumber" type="d3p1:ElevatorNumberType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/sdiz/1.0.6" name="CarrierBlock" type="d3p1:CarrierBlockType" upperBound="-1"/>
+	</objectType>
+</package>

@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetUnion">
+		<name>НаборДанных3</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Секция</dataPath>
+			<field>Секция</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Секция</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Вес</dataPath>
+			<field>Вес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Упаковка</dataPath>
+			<field>Упаковка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Упаковка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объем</dataPath>
+			<field>Объем</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Партнер</dataPath>
+			<field>Партнер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Характеристика</dataPath>
+			<field>Характеристика</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Реализовано</dataPath>
+			<field>Реализовано</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В реализации</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Шрифт</dcscor:parameter>
+					<dcscor:value xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="8" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КОтбору</dataPath>
+			<field>КОтбору</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>К отбору</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Собирается</dataPath>
+			<field>Собирается</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Собирается</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Собрано</dataPath>
+			<field>Собрано</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Собрано</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НеСогласовано</dataPath>
+			<field>НеСогласовано</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не согласовано</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Основание</dataPath>
+			<field>Основание</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основание</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<item xsi:type="DataSetQuery">
+			<name>АнализДокументовПродажи</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Секция</dataPath>
+				<field>Секция</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Секция</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Вес</dataPath>
+				<field>Вес</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Вес</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Упаковка</dataPath>
+				<field>Упаковка</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Упаковка</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Объем</dataPath>
+				<field>Объем</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Объем</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Партнер</dataPath>
+				<field>Партнер</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Характеристика</dataPath>
+				<field>Характеристика</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Склад</dataPath>
+				<field>Склад</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Реализовано</dataPath>
+				<field>Реализовано</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Реализовано</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Основание</dataPath>
+				<field>Основание</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Основание</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	ЗаданиеНаПеревозкуРейсРасчетДоставки.ДокументПродажи КАК ДокументПродажи
+ПОМЕСТИТЬ РасчетДоставки
+ИЗ
+	Документ.ЗаданиеНаПеревозкуРейс.РасчетДоставки КАК ЗаданиеНаПеревозкуРейсРасчетДоставки
+ГДЕ
+	ЗаданиеНаПеревозкуРейсРасчетДоставки.Ссылка = &amp;Рейс1
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЕСТЬNULL(РеализацияТоваровУслуг.Ссылка, 0) КАК Реализация,
+	Заказ.Ссылка КАК Заказ,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(РеализацияТоваровУслуг.Ссылка, 0) = 0
+			ТОГДА Заказ.Ссылка
+		ИНАЧЕ РеализацияТоваровУслуг.Ссылка
+	КОНЕЦ КАК ОснованиеДляЗаказа
+ПОМЕСТИТЬ ВТ_ОснованиеДляЗаказа
+ИЗ
+	Документ.ЗаказКлиента КАК Заказ
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.РеализацияТоваровУслуг КАК РеализацияТоваровУслуг
+		ПО (РеализацияТоваровУслуг.ЗаказКлиента = Заказ.Ссылка)
+ГДЕ
+	Заказ.Ссылка В
+			(ВЫБРАТЬ
+				РасчетДоставки.ДокументПродажи КАК ДокументПродажи
+			ИЗ
+				РасчетДоставки КАК РасчетДоставки)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗаказКлиентаТовары.Номенклатура КАК Номенклатура,
+	ЗаказКлиентаТовары.КоличествоУпаковок КАК КоличествоУпаковок,
+	ВЫБОР
+		КОГДА ЗаказКлиентаТовары.Упаковка = ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка)
+			ТОГДА ЗаказКлиентаТовары.Номенклатура.ЕдиницаИзмерения
+		ИНАЧЕ ЗаказКлиентаТовары.Упаковка.ЕдиницаИзмерения
+	КОНЕЦ КАК Упаковка,
+	ЗаказКлиентаТовары.Ссылка.Партнер КАК Партнер,
+	ВЫБОР
+		КОГДА ЗаказКлиентаТовары.Упаковка = ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка)
+			ТОГДА ВЫБОР
+					КОГДА ЗаказКлиентаТовары.Номенклатура.ВесЗнаменатель &lt;&gt; 0
+						ТОГДА ЗаказКлиентаТовары.КоличествоУпаковок * ЗаказКлиентаТовары.Номенклатура.ВесЧислитель / ЗаказКлиентаТовары.Номенклатура.ВесЗнаменатель
+					ИНАЧЕ 0
+				КОНЕЦ
+		ИНАЧЕ ЗаказКлиентаТовары.КоличествоУпаковок * ЗаказКлиентаТовары.Упаковка.Вес
+	КОНЕЦ КАК Вес,
+	ВЫБОР
+		КОГДА ЗаказКлиентаТовары.Упаковка = ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка)
+			ТОГДА ВЫБОР
+					КОГДА ЗаказКлиентаТовары.Номенклатура.ОбъемЗнаменатель &lt;&gt; 0
+						ТОГДА ЗаказКлиентаТовары.КоличествоУпаковок * ЗаказКлиентаТовары.Номенклатура.ОбъемЧислитель / ЗаказКлиентаТовары.Номенклатура.ОбъемЗнаменатель
+					ИНАЧЕ 0
+				КОНЕЦ
+		ИНАЧЕ ЗаказКлиентаТовары.КоличествоУпаковок * ЗаказКлиентаТовары.Упаковка.Объем
+	КОНЕЦ КАК Объем,
+	ЗаказКлиентаТовары.Характеристика КАК Характеристика,
+	ЗаказКлиентаТовары.Склад КАК Склад,
+	ЗаказКлиентаТовары.Ссылка КАК Ссылка
+ПОМЕСТИТЬ ВТ_ТоварыЗаказов
+ИЗ
+	Документ.ЗаказКлиента.Товары КАК ЗаказКлиентаТовары
+ГДЕ
+	ЗаказКлиентаТовары.Номенклатура.ТипНоменклатуры = ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Товар)
+	И ЗаказКлиентаТовары.Отменено = ЛОЖЬ
+	И ЗаказКлиентаТовары.ВариантОбеспечения = &amp;ВариантОбеспечения
+	И ЗаказКлиентаТовары.Ссылка В
+			(ВЫБРАТЬ РАЗЛИЧНЫЕ
+				ВТ_ОснованиеДляЗаказа.ОснованиеДляЗаказа КАК ОснованиеДляЗаказа
+			ИЗ
+				ВТ_ОснованиеДляЗаказа КАК ВТ_ОснованиеДляЗаказа)
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ
+	РеализацияТоваровУслугТовары.Номенклатура,
+	РеализацияТоваровУслугТовары.КоличествоУпаковок,
+	ВЫБОР
+		КОГДА РеализацияТоваровУслугТовары.Упаковка = ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка)
+			ТОГДА РеализацияТоваровУслугТовары.Номенклатура.ЕдиницаИзмерения
+		ИНАЧЕ РеализацияТоваровУслугТовары.Упаковка.ЕдиницаИзмерения
+	КОНЕЦ,
+	РеализацияТоваровУслугТовары.Ссылка.Партнер,
+	ВЫБОР
+		КОГДА РеализацияТоваровУслугТовары.Упаковка = ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка)
+			ТОГДА ВЫБОР
+					КОГДА РеализацияТоваровУслугТовары.Номенклатура.ВесЗнаменатель &lt;&gt; 0
+						ТОГДА РеализацияТоваровУслугТовары.КоличествоУпаковок * РеализацияТоваровУслугТовары.Номенклатура.ВесЧислитель / РеализацияТоваровУслугТовары.Номенклатура.ВесЗнаменатель
+					ИНАЧЕ 0
+				КОНЕЦ
+		ИНАЧЕ РеализацияТоваровУслугТовары.КоличествоУпаковок * РеализацияТоваровУслугТовары.Упаковка.Вес
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА РеализацияТоваровУслугТовары.Упаковка = ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка)
+			ТОГДА ВЫБОР
+					КОГДА РеализацияТоваровУслугТовары.Номенклатура.ОбъемЗнаменатель &lt;&gt; 0
+						ТОГДА РеализацияТоваровУслугТовары.КоличествоУпаковок * РеализацияТоваровУслугТовары.Номенклатура.ОбъемЧислитель / РеализацияТоваровУслугТовары.Номенклатура.ОбъемЗнаменатель
+					ИНАЧЕ 0
+				КОНЕЦ
+		ИНАЧЕ РеализацияТоваровУслугТовары.КоличествоУпаковок * РеализацияТоваровУслугТовары.Упаковка.Объем
+	КОНЕЦ,
+	РеализацияТоваровУслугТовары.Характеристика,
+	РеализацияТоваровУслугТовары.Склад,
+	РеализацияТоваровУслугТовары.Ссылка
+ИЗ
+	Документ.РеализацияТоваровУслуг.Товары КАК РеализацияТоваровУслугТовары
+ГДЕ
+	РеализацияТоваровУслугТовары.Номенклатура.ТипНоменклатуры = ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Товар)
+	И РеализацияТоваровУслугТовары.Ссылка В
+			(ВЫБРАТЬ РАЗЛИЧНЫЕ
+				ВТ_ОснованиеДляЗаказа.ОснованиеДляЗаказа КАК ОснованиеДляЗаказа
+			ИЗ
+				ВТ_ОснованиеДляЗаказа КАК ВТ_ОснованиеДляЗаказа)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РеализацияТоваровУслугТовары.Номенклатура КАК Номенклатура,
+	РеализацияТоваровУслугТовары.КоличествоУпаковок КАК КоличествоУпаковок,
+	ВЫБОР
+		КОГДА РеализацияТоваровУслугТовары.Упаковка = ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка)
+			ТОГДА РеализацияТоваровУслугТовары.Номенклатура.ЕдиницаИзмерения
+		ИНАЧЕ РеализацияТоваровУслугТовары.Упаковка.ЕдиницаИзмерения
+	КОНЕЦ КАК Упаковка,
+	РеализацияТоваровУслугТовары.Ссылка.Партнер КАК Партнер,
+	ВЫБОР
+		КОГДА РеализацияТоваровУслугТовары.Упаковка = ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка)
+			ТОГДА ВЫБОР
+					КОГДА РеализацияТоваровУслугТовары.Номенклатура.ВесЗнаменатель &lt;&gt; 0
+						ТОГДА РеализацияТоваровУслугТовары.КоличествоУпаковок * РеализацияТоваровУслугТовары.Номенклатура.ВесЧислитель / РеализацияТоваровУслугТовары.Номенклатура.ВесЗнаменатель
+					ИНАЧЕ 0
+				КОНЕЦ
+		ИНАЧЕ РеализацияТоваровУслугТовары.КоличествоУпаковок * РеализацияТоваровУслугТовары.Упаковка.Вес
+	КОНЕЦ КАК Вес,
+	ВЫБОР
+		КОГДА РеализацияТоваровУслугТовары.Упаковка = ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка)
+			ТОГДА ВЫБОР
+					КОГДА РеализацияТоваровУслугТовары.Номенклатура.ОбъемЗнаменатель &lt;&gt; 0
+						ТОГДА РеализацияТоваровУслугТовары.КоличествоУпаковок * РеализацияТоваровУслугТовары.Номенклатура.ОбъемЧислитель / РеализацияТоваровУслугТовары.Номенклатура.ОбъемЗнаменатель
+					ИНАЧЕ 0
+				КОНЕЦ
+		ИНАЧЕ РеализацияТоваровУслугТовары.КоличествоУпаковок * РеализацияТоваровУслугТовары.Упаковка.Объем
+	КОНЕЦ КАК Объем,
+	РеализацияТоваровУслугТовары.Характеристика КАК Характеристика,
+	РеализацияТоваровУслугТовары.Ссылка.Склад КАК Склад,
+	РеализацияТоваровУслугТовары.Ссылка КАК Основание
+ПОМЕСТИТЬ ВТ_Товары
+ИЗ
+	РасчетДоставки КАК РасчетДоставки
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.РеализацияТоваровУслуг.Товары КАК РеализацияТоваровУслугТовары
+		ПО РасчетДоставки.ДокументПродажи = РеализацияТоваровУслугТовары.Ссылка
+ГДЕ
+	РеализацияТоваровУслугТовары.Номенклатура.ТипНоменклатуры = ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Товар)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ЧекККМТовары.Номенклатура,
+	ЧекККМТовары.КоличествоУпаковок,
+	ВЫБОР
+		КОГДА ЧекККМТовары.Упаковка = ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка)
+			ТОГДА ЧекККМТовары.Номенклатура.ЕдиницаИзмерения
+		ИНАЧЕ ЧекККМТовары.Упаковка.ЕдиницаИзмерения
+	КОНЕЦ,
+	ЧекККМТовары.Ссылка.Партнер,
+	ВЫБОР
+		КОГДА ЧекККМТовары.Упаковка = ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка)
+			ТОГДА ЧекККМТовары.Номенклатура.ВесЧислитель * ЧекККМТовары.КоличествоУпаковок
+		ИНАЧЕ ЧекККМТовары.КоличествоУпаковок * ЧекККМТовары.Упаковка.Вес
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ЧекККМТовары.Упаковка = ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка)
+			ТОГДА ЧекККМТовары.Номенклатура.ОбъемЧислитель * ЧекККМТовары.КоличествоУпаковок
+		ИНАЧЕ ЧекККМТовары.КоличествоУпаковок * ЧекККМТовары.Упаковка.Объем
+	КОНЕЦ,
+	ЧекККМТовары.Характеристика,
+	ЧекККМТовары.Ссылка.Склад,
+	ЧекККМТовары.Ссылка
+ИЗ
+	РасчетДоставки КАК РасчетДоставки
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЧекККМ.Товары КАК ЧекККМТовары
+		ПО РасчетДоставки.ДокументПродажи = ЧекККМТовары.Ссылка
+ГДЕ
+	ЧекККМТовары.Номенклатура.ТипНоменклатуры = ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Товар)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_ТоварыЗаказов.Номенклатура,
+	ВТ_ТоварыЗаказов.КоличествоУпаковок,
+	ВТ_ТоварыЗаказов.Упаковка,
+	ВТ_ТоварыЗаказов.Партнер,
+	ВТ_ТоварыЗаказов.Вес,
+	ВТ_ТоварыЗаказов.Объем,
+	ВТ_ТоварыЗаказов.Характеристика,
+	ВТ_ТоварыЗаказов.Склад,
+	ВТ_ТоварыЗаказов.Ссылка
+ИЗ
+	ВТ_ТоварыЗаказов КАК ВТ_ТоварыЗаказов
+ГДЕ
+	ВТ_ТоварыЗаказов.Номенклатура.ТипНоменклатуры = ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Товар)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Товары.Номенклатура КАК Номенклатура,
+	СУММА(ВТ_Товары.КоличествоУпаковок) КАК Количество,
+	ВТ_Товары.Упаковка КАК Упаковка,
+	ВТ_Товары.Партнер КАК Партнер,
+	СУММА(ВТ_Товары.Вес) КАК Вес,
+	СУММА(ВТ_Товары.Объем) КАК Объем,
+	ВТ_Товары.Характеристика КАК Характеристика,
+	ВТ_Товары.Склад КАК Склад,
+	РазмещениеНоменклатурыПоСкладскимЯчейкам.Ячейка.РабочийУчасток КАК Секция,
+	ВТ_Товары.Основание КАК Основание
+ПОМЕСТИТЬ ВТ
+ИЗ
+	ВТ_Товары КАК ВТ_Товары
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.РазмещениеНоменклатурыПоСкладскимЯчейкам КАК РазмещениеНоменклатурыПоСкладскимЯчейкам
+		ПО ВТ_Товары.Номенклатура = РазмещениеНоменклатурыПоСкладскимЯчейкам.Номенклатура
+			И ВТ_Товары.Склад = РазмещениеНоменклатурыПоСкладскимЯчейкам.Склад
+			И (ИСТИНА = РазмещениеНоменклатурыПоСкладскимЯчейкам.ОсновнаяЯчейка)
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Товары.Номенклатура,
+	ВТ_Товары.Характеристика,
+	ВТ_Товары.Партнер,
+	ВТ_Товары.Упаковка,
+	ВТ_Товары.Склад,
+	РазмещениеНоменклатурыПоСкладскимЯчейкам.Ячейка.РабочийУчасток,
+	ВТ_Товары.Основание
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ.Партнер КАК Партнер,
+	ВТ.Склад КАК Склад,
+	ВТ.Секция КАК Секция,
+	ВТ.Номенклатура КАК Номенклатура,
+	ВТ.Количество КАК Реализовано,
+	ВТ.Упаковка КАК Упаковка,
+	ВТ.Вес КАК Вес,
+	ВТ.Объем КАК Объем,
+	ВТ.Характеристика КАК Характеристика,
+	ВТ.Основание КАК Основание
+ИЗ
+	ВТ КАК ВТ</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ОтгрузкаСоСклада</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Секция</dataPath>
+				<field>Секция</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Партнер</dataPath>
+				<field>Партнер</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Статус</dataPath>
+				<field>Статус</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Характеристика</dataPath>
+				<field>Характеристика</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Склад</dataPath>
+				<field>Склад</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КОтбору</dataPath>
+				<field>КОтбору</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>К отбору</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Собирается</dataPath>
+				<field>Собирается</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Собирается</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Собрано</dataPath>
+				<field>Собрано</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Собрано</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НеСогласовано</dataPath>
+				<field>НеСогласовано</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Не согласовано</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Основание</dataPath>
+				<field>Основание</field>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	ЗНАЧЕНИЕ(Справочник.Номенклатура.ПустаяСсылка) КАК Номенклатура,
+	ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка) КАК Характеристика,
+	0 КАК НеСогласовано,
+	ЗНАЧЕНИЕ(Справочник.Партнеры.ПустаяСсылка) КАК Партнер,
+	ЗНАЧЕНИЕ(Справочник.Склады.ПустаяСсылка) КАК Склад,
+	ЗНАЧЕНИЕ(Справочник.РабочиеУчастки.ПустаяСсылка) КАК Секция,
+	ЗНАЧЕНИЕ(Перечисление.СтатусыОтгрузокСоСклада.ПустаяСсылка) КАК Статус,
+	0 КАК КОтбору,
+	0 КАК Собирается,
+	0 КАК Собрано,
+	НЕОПРЕДЕЛЕНО КАК Основание</query>
+		</item>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ОсталосьСобрать</dataPath>
+		<expression>Реализовано-Собрано</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Осталось собрать</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ЦветТекста</dcscor:parameter>
+				<dcscor:value xmlns:d5p1="http://v8.1c.ru/8.1/data/ui/style" xsi:type="v8ui:Color">d5p1:ВидДняПроизводственногоКалендаряНеУказанЦвет</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Шрифт</dcscor:parameter>
+				<dcscor:value xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="8" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<totalField>
+		<dataPath>Вес</dataPath>
+		<expression>Сумма(Вес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КОтбору</dataPath>
+		<expression>Сумма(КОтбору)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НеСогласовано</dataPath>
+		<expression>Сумма(НеСогласовано)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Объем</dataPath>
+		<expression>Сумма(Объем)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОсталосьСобрать</dataPath>
+		<expression>Сумма(Реализовано)-Сумма(Собрано)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Реализовано</dataPath>
+		<expression>Сумма(Реализовано)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Собирается</dataPath>
+		<expression>Сумма(Собирается)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Собрано</dataPath>
+		<expression>Сумма(Собрано)</expression>
+	</totalField>
+	<parameter>
+		<name>Рейс1</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Рейс1</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ЗаданиеНаПеревозкуРейс</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Документ.ЗаданиеНаПеревозкуРейс.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Рейс</expression>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>Рейс</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Рейс</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ЗаданиеНаПеревозкуРейс</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Документ.ЗаданиеНаПеревозкуРейс.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>ВариантОбеспечения</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вариант обеспечения</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВариантыОбеспечения</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВариантыОбеспечения.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>СостояниеОтгрузкиРейса</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Состояние отгрузки рейса</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>В документах продажи</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Реализовано</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Процесс сборки</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НеСогласовано</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КОтбору</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Собирается</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Собрано</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОсталосьСобрать</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Рейс</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">00000000-0000-0000-0000-000000000000</dcscor:value>
+					<dcsset:userSettingID>41b9c694-b87c-4e83-9c51-6a3844d7c48a</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Партнер</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Склад</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Секция</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Номенклатура</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

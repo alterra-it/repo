@@ -1,0 +1,56 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="cloud-api.yandex.net/v1/disk">
+	<objectType name="uploadGetRequest" ordered="false">
+		<property name="path" type="xs:string" default="app:/" form="Attribute"/>
+		<property name="overwrite" type="xs:boolean" lowerBound="0" default="true" form="Attribute"/>
+		<property name="fields" type="xs:string" lowerBound="0" nillable="true" form="Attribute"/>
+	</objectType>
+	<objectType name="uploadGetResponse" ordered="false">
+		<property name="operation_id" type="xs:string"/>
+		<property name="href" type="xs:string"/>
+		<property name="method" type="xs:string"/>
+		<property name="templated" type="xs:string"/>
+	</objectType>
+	<objectType name="uploadPutResponse" ordered="false">
+		<property name="href" type="xs:string"/>
+		<property name="method" type="xs:string"/>
+		<property name="templated" type="xs:string"/>
+	</objectType>
+	<objectType name="publishRequest" ordered="false">
+		<property name="path" type="xs:string" form="Attribute"/>
+		<property name="fields" type="xs:string" lowerBound="0" nillable="true" form="Attribute"/>
+	</objectType>
+	<objectType name="publishResponse" ordered="false">
+		<property name="href" type="xs:string"/>
+		<property name="method" type="xs:string"/>
+		<property name="templated" type="xs:string"/>
+	</objectType>
+	<objectType name="metainfoRequest" ordered="false">
+		<property name="path" type="xs:string" form="Attribute"/>
+		<property name="fields" type="xs:string" lowerBound="0" nillable="true" form="Attribute"/>
+	</objectType>
+	<objectType name="metainfoResponse" open="true" ordered="false">
+		<property name="name" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="public_url" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="deleteRequest" ordered="false">
+		<property name="path" type="xs:string" form="Attribute"/>
+		<property name="permanently" type="xs:boolean" default="true" form="Attribute"/>
+		<property name="fields" type="xs:string" lowerBound="0" nillable="true" form="Attribute"/>
+	</objectType>
+	<objectType name="error" ordered="false">
+		<property name="message" type="xs:string"/>
+		<property name="description" type="xs:string"/>
+		<property name="error" type="xs:string"/>
+	</objectType>
+	<objectType name="errorUpload" ordered="false">
+		<property name="reason" type="xs:string"/>
+		<property name="description" type="xs:string"/>
+		<property name="limit" type="xs:string"/>
+		<property name="message" type="xs:string"/>
+		<property name="error" type="xs:string"/>
+	</objectType>
+	<objectType name="downloadGetPublic" ordered="false">
+		<property name="public_key" type="xs:string" form="Attribute"/>
+		<property name="path" type="xs:string" nillable="true" form="Attribute"/>
+	</objectType>
+</package>

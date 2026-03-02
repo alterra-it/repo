@@ -1,0 +1,56 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://fsrar.ru/WEGAIS/ApplicationLicenses" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="http://fsrar.ru/WEGAIS/Common"/>
+	<import namespace="http://fsrar.ru/WEGAIS/CommonEnum"/>
+	<import namespace="http://fsrar.ru/WEGAIS/ClientRef_v2"/>
+	<objectType name="ApplicationsType" ordered="false" sequenced="true">
+		<property name="Application">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/CommonEnum" name="ApplicationType" type="d5p1:LicenseApplicationType"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/CommonEnum" name="ActivityType" type="d5p1:LicenseActivityType"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/Common" name="NameOrg" type="d5p1:NoEmptyString255"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/ClientRef_v2" name="INN" type="d5p1:INNType"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/Common" name="OGRN" type="d5p1:OGRNType"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/ClientRef_v2" name="KPP" type="d5p1:KPPType" lowerBound="0"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/Common" name="LicenseNumber" type="d5p1:NoEmptyString20" lowerBound="0"/>
+				<property name="LicenseDate" type="xs:date" lowerBound="0"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/Common" name="LicenseValidityTime" type="d5p1:StringOfNumbers1Type" lowerBound="0"/>
+				<property xmlns:d5p1="http://fsrar.ru/WEGAIS/Common" name="RegisteredAddress" type="d5p1:NoEmptyString500"/>
+				<property name="GovernmentFeeList">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="http://fsrar.ru/WEGAIS/ApplicationLicenses" name="GovernmentFee" type="d7p1:GovernmentFeeType" upperBound="-1"/>
+					</typeDef>
+				</property>
+				<property name="DivisionList">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="http://fsrar.ru/WEGAIS/ApplicationLicenses" name="Division" type="d7p1:DivisionType" upperBound="-1"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="DivisionType" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/ClientRef_v2" name="ObjectKPP" type="d3p1:KPPType" lowerBound="0"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="NameBank" type="d3p1:NoEmptyString500"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="Account" type="d3p1:StringOfNumbers20Type"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="PhoneNumber" type="d3p1:StringOfNumbers11Type"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="EmailAddress" type="d3p1:NoEmptyString500"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="ContractNumber" type="d3p1:NoEmptyString20"/>
+		<property name="ContractDate" type="xs:date"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="ObjectName" type="d3p1:NoEmptyString500" lowerBound="0"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="ObjectTime" type="d3p1:NoEmptyString20" lowerBound="0"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="ObjectType" type="d3p1:NoEmptyString500" lowerBound="0"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="BusinessAddress" type="d3p1:NoEmptyString500"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="ObjectAddress" type="d3p1:NoEmptyString500"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="ObjectNumber" type="d3p1:NoEmptyString20"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="ObjectCompanyType" type="d3p1:NoEmptyString500" lowerBound="0"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="ObjectCompanySize" type="d3p1:NoEmptyString20" lowerBound="0"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="ObjectSize" type="d3p1:NoEmptyString20" lowerBound="0"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="ObjectCoordinate" type="d3p1:NoEmptyString20"/>
+	</objectType>
+	<objectType name="GovernmentFeeType" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="KBK" type="d3p1:StringOfNumbers20Type"/>
+		<property name="Date" type="xs:date"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="Number" type="d3p1:StringOfNumbers10Type"/>
+		<property xmlns:d3p1="http://fsrar.ru/WEGAIS/Common" name="Total" type="d3p1:NoNegativeDecimalType"/>
+	</objectType>
+</package>

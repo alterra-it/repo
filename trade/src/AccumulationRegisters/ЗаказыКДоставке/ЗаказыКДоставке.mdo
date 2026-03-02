@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="81e2ad59-db2f-44b0-bd59-b41113531600">
+  <producedTypes>
+    <selectionType typeId="7737a3e5-772d-47a2-a2e1-c5c87dd8dc8a" valueTypeId="724ff937-d21e-4470-afa4-7f087d136b67"/>
+    <listType typeId="c48f5655-d7f1-4bcb-a15d-521141b7403a" valueTypeId="f5240cae-8586-43a6-8048-58aa9bb43f9b"/>
+    <managerType typeId="0e26f6a0-8029-4b60-a04a-40a4d7dab5ce" valueTypeId="cf14cd47-5fa6-42d2-85e5-c008402e9567"/>
+    <recordSetType typeId="08896b95-d2eb-44e7-90f0-dd628f98a7ec" valueTypeId="626ce666-21df-415f-81ee-6386d781f9d6"/>
+    <recordKeyType typeId="4071fe35-2c0e-431f-858b-16b8cfba6b61" valueTypeId="a00009ab-c9c6-46a0-8ce4-ac06812dec3f"/>
+    <recordType typeId="eae8aa17-2ab5-4e6a-9ca6-686a836d606c" valueTypeId="b8d58d4d-f669-42f5-9c89-66cea02b4633"/>
+  </producedTypes>
+  <name>ЗаказыКДоставке</name>
+  <synonym>
+    <key>ru</key>
+    <value>Заказы к доставке</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="b3b4dcbf-350b-46ea-a45e-8818c5c59d21">
+    <name>Количество</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <attributes uuid="07059008-fa97-415d-a41f-dc26d7572867">
+    <name>Рейс</name>
+    <synonym>
+      <key>ru</key>
+      <value>Рейс</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ЗаданиеНаПеревозкуРейс</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <dimensions uuid="6e8dc3ce-4050-42cf-b74c-de0160eabf02">
+    <name>ЗаказНаДоставку</name>
+    <synonym>
+      <key>ru</key>
+      <value>Заказ на доставку</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ЗаказНаДоставкуКлиенту</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="1b3cd544-3144-477d-80f7-3e6b656db96c">
+    <name>ДокументПродажи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ продажи</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ОбращениеКлиента</types>
+      <types>DocumentRef.ПеремещениеТоваров</types>
+      <types>DocumentRef.РеализацияТоваровУслуг</types>
+      <types>DocumentRef.ЧекККМ</types>
+      <types>DocumentRef.ЗаказКлиента</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

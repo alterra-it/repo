@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="01ebca2b-ec78-4ea4-9e82-48d214661961">
+  <producedTypes>
+    <selectionType typeId="9739daea-6343-49fb-a02b-a722a49b7f55" valueTypeId="1d9d294f-73cb-493a-83e5-4f70c1aa8073"/>
+    <listType typeId="de4ef549-3433-4049-83a0-b36b64d8d8a7" valueTypeId="c119e053-7fd4-40a1-b704-1c5d0b461ede"/>
+    <managerType typeId="8dd6924d-bd34-46e3-ac7f-b8d6cb3a1b50" valueTypeId="38e98ea6-d1b9-476a-90de-5873ecfb1cca"/>
+    <recordSetType typeId="a1420afe-64f1-4879-a89a-12c1d2ee23d6" valueTypeId="001cf85f-f3c9-443f-bffa-4c0cd9b3d6fe"/>
+    <recordKeyType typeId="69309d6c-bbdc-4795-94d3-dd84264112e9" valueTypeId="f1e8ac44-6aa6-4e6b-a4fe-7286f8a0cf6b"/>
+    <recordType typeId="6f8009fb-2be8-445b-8e32-01240e071e33" valueTypeId="37b1129b-eba2-4d70-9a25-86ef07b991f6"/>
+    <recordManagerType typeId="884c8ef3-492c-4153-8390-ec38a3c6536b" valueTypeId="8f0bc140-8932-45a1-8132-1160c5406a9b"/>
+  </producedTypes>
+  <name>СрокиПоставкиТовараОтПоставщика</name>
+  <synonym>
+    <key>ru</key>
+    <value>Сроки поставки товара от поставщика</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <informationRegisterPeriodicity>Day</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="563fc7a2-225f-4731-b431-0173837e79ad">
+    <name>МинимальныйСрокПоставки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Минимальный срок поставки</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>5</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="4436ceb3-5e82-47ca-845a-fa217895ec02">
+    <name>МаксимальныйСрокПоставки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Максимальный срок поставки</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>5</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="e6c9c4eb-62f5-47e8-aaa9-a606c264af37">
+    <name>Ответственный</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ответственный</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="5b3791b7-16d5-4a4c-b975-3b6d4c2834cd">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="e2b8bef6-3abc-4f45-8fa0-2e3316ca15af">
+    <name>Подразделение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Подразделение</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СтруктураПредприятия</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

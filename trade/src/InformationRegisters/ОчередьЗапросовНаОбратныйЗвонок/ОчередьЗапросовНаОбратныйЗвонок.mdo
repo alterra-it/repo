@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="0a13d25e-4788-4db0-9f58-b91dec21678d">
+  <producedTypes>
+    <selectionType typeId="a317ace3-1e7a-4b5b-ac99-6ffa76256d13" valueTypeId="f409a8c3-8c17-4cd5-97fc-7c2451fedbb3"/>
+    <listType typeId="9d090de9-f3ee-4780-b2cd-0f320099a7c6" valueTypeId="d4ec3ee8-491c-4395-8564-4cee88664a0e"/>
+    <managerType typeId="8a4c2a2c-1f1e-427e-997c-9f7bd4193073" valueTypeId="1a843168-266d-4354-aabc-2b2196e45778"/>
+    <recordSetType typeId="65d37e1c-8568-42a7-ae3a-ebcdaa936d90" valueTypeId="bbad25f3-f97c-4085-a3c0-dc3383c91fd5"/>
+    <recordKeyType typeId="522288a6-7557-4270-82ba-bb6fd3906055" valueTypeId="7a5b7258-fdd4-46d2-a850-de15924d2cca"/>
+    <recordType typeId="f465f40f-8ed4-4356-8a8b-24bf0419df82" valueTypeId="87c1df4a-4a75-43d1-be3b-5c3445187acc"/>
+    <recordManagerType typeId="527d3e3a-ba9c-440b-89b8-9a28dd9f74a3" valueTypeId="b84071c0-4a87-4408-b17a-ce00ad02bbdd"/>
+  </producedTypes>
+  <name>ОчередьЗапросовНаОбратныйЗвонок</name>
+  <synonym>
+    <key>ru</key>
+    <value>Очередь запросов на обратный звонок</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="e119afe3-fcb2-4f44-b405-c1d7869cbb18">
+    <name>Выполнен</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выполнен</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="0cbfd9ec-e6a1-4a6c-b84c-525f0c0f5a91">
+    <name>ДатаВыполнения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата выполнения</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="8bd15deb-724e-4f74-9eff-6fda5bef4a00">
+    <name>Оператор</name>
+    <synonym>
+      <key>ru</key>
+      <value>Оператор</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="26ee6c93-541d-498a-9b46-6fa22b17b09e">
+    <name>ДатаЗвонка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата звонка</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="a28a4cb6-3b1c-4426-b000-ee796ad65c91">
+    <name>Подразделение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Подразделение</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СтруктураПредприятия</types>
+      <types>CatalogRef.Отделы</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="c51abc45-ab28-4986-a67d-7ee359ad0686">
+    <name>Партнер</name>
+    <synonym>
+      <key>ru</key>
+      <value>Партнер</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Партнеры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="59958915-11b9-48ba-bb63-782dc656530d">
+    <name>НомерТелефона</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номер телефона</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>10</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

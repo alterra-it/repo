@@ -1,0 +1,110 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.9"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.9"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.9"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="CreatePrimaryStoragePlace" type="d2p1:CreatePrimaryStoragePlaceType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="RecordPrimaryStoragePlace" type="d2p1:RecordPrimaryStoragePlaceType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="ListPrimaryStoragePlace" type="d2p1:ListPrimaryStoragePlaceType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="DeletePrimaryStoragePlace" type="d2p1:DeletePrimaryStoragePlaceType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="CanceledPrimaryStoragePlace" type="d2p1:CanceledPrimaryStoragePlaceType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="CompletionfOFormationPrimaryStoragePlace" type="d2p1:CompletionfOFormationPrimaryStoragePlaceType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="CreateHarvestedCrop" type="d2p1:CreateHarvestedCropType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="RecordHarvestedCrop" type="d2p1:RecordHarvestedCropType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="ListHarvestedCrop" type="d2p1:ListHarvestedCropType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="CanceledHarvestedCrop" type="d2p1:CanceledHarvestedCropType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="RecordSamplesPicking" type="d2p1:RecordSamplesPickingType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="ListSamplesPicking" type="d2p1:ListSamplesPickingType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="RecordResearch" type="d2p1:RecordResearchType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="ListResearch" type="d2p1:ListResearchType"/>
+	<valueType name="PrimaryStoragePlaceStatusType" base="xs:string" variety="Atomic">
+		<enumeration>FORMATION</enumeration>
+		<enumeration>FORMATION_COMPLETE</enumeration>
+		<enumeration>CANCELED</enumeration>
+		<enumeration>SAMPLES_PICKING_SUBSCRIBED</enumeration>
+		<enumeration>LABORATORY_MONITOR_SUBSCRIBED</enumeration>
+		<enumeration>USED_IN_LOT</enumeration>
+	</valueType>
+	<objectType name="CreatePrimaryStoragePlaceType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.9" name="Crop" type="d3p1:OKPD2CodeType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.9" name="PlaceOfFormation" type="d3p1:AddressRFType"/>
+		<property name="name" type="xs:string" form="Attribute"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="RecordPrimaryStoragePlaceType" base="d2p1:CreatePrimaryStoragePlaceType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.9" name="Owner" type="d3p1:SubjectType"/>
+		<property name="id" type="xs:integer" form="Attribute"/>
+		<property name="dateRegistration" type="xs:date" form="Attribute"/>
+		<property name="amount" type="xs:decimal" form="Attribute"/>
+		<property name="status" type="d2p1:PrimaryStoragePlaceStatusType" form="Attribute"/>
+		<property name="lastModified" type="xs:dateTime" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="ListPrimaryStoragePlaceType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="Record" type="d3p1:RecordPrimaryStoragePlaceType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="DeletePrimaryStoragePlaceType">
+		<property name="primaryStoragePlaceId" type="xs:integer" form="Attribute"/>
+	</objectType>
+	<objectType name="CanceledPrimaryStoragePlaceType">
+		<property name="primaryStoragePlaceId" type="xs:integer" form="Attribute"/>
+	</objectType>
+	<objectType name="CompletionfOFormationPrimaryStoragePlaceType">
+		<property name="primaryStoragePlaceId" type="xs:integer" form="Attribute"/>
+	</objectType>
+	<objectType name="CreateHarvestedCropType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.9" name="CultivationPlace" type="d3p1:AddressRFType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.9" name="StoragePlace" type="d3p1:AddressRFType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.9" name="Crop" type="d3p1:OKPD2CodeType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.9" name="PropertyRight" type="d3p1:PropertyRightCodeType"/>
+		<property name="EfisNumber" type="xs:string" lowerBound="0"/>
+		<property name="primaryStoragePlaceID" type="xs:integer" form="Attribute"/>
+		<property name="amount" type="xs:decimal" form="Attribute"/>
+		<property name="area" type="xs:decimal" form="Attribute"/>
+		<property name="dateRegistration" type="xs:date" form="Attribute"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="RecordHarvestedCropType" base="d2p1:CreateHarvestedCropType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.9" name="Owner" type="d3p1:SubjectType"/>
+		<property name="id" type="xs:integer" form="Attribute"/>
+		<property name="number" type="xs:string" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.9" name="status" type="d3p1:StatusRecordType" form="Attribute"/>
+		<property name="lastModified" type="xs:dateTime" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="ListHarvestedCropType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="Record" type="d3p1:RecordHarvestedCropType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="CanceledHarvestedCropType">
+		<property name="harvestedCropId" type="xs:integer" form="Attribute"/>
+	</objectType>
+	<objectType name="RecordSamplesPickingType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.9" name="Check" type="d3p1:DocNumberDateType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.9" name="Owner" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.9" name="Crop" type="d3p1:OKPD2CodeType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.9" name="Laboratory" type="d3p1:SubjectType"/>
+		<property name="id" type="xs:integer" form="Attribute"/>
+		<property name="primaryStoragePlaceID" type="xs:integer" form="Attribute"/>
+		<property name="sampleCode" type="xs:string" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.9" name="status" type="d3p1:StatusRecordType" form="Attribute"/>
+		<property name="lastModified" type="xs:dateTime" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="ListSamplesPickingType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="Record" type="d3p1:RecordSamplesPickingType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="RecordResearchType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.9" name="Target" type="d3p1:LotsTargetCodeType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.9" name="Protocol" type="d3p1:DocNumberDateType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.9" name="PlaceOfChecking" type="d3p1:AddressRFType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.9" name="Owner" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.9" name="Crop" type="d3p1:OKPD2CodeType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.9" name="Laboratory" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.9" name="ListValueQualityIndicator" type="d3p1:ListValueQualityIndicatorType"/>
+		<property name="primaryStoragePlaceID" type="xs:integer" form="Attribute"/>
+		<property name="samplesPickingID" type="xs:integer" form="Attribute"/>
+		<property name="id" type="xs:integer" form="Attribute"/>
+		<property name="reserchNumber" type="xs:string" form="Attribute"/>
+		<property name="amountOriginal" type="xs:decimal" form="Attribute"/>
+		<property name="amountAvailable" type="xs:decimal" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.9" name="status" type="d3p1:StatusRecordType" form="Attribute"/>
+		<property name="lastModified" type="xs:dateTime" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="ListResearchType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/grain-monitor/1.0.9" name="Record" type="d3p1:RecordResearchType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+</package>

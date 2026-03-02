@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="b5eba5c4-60b4-4614-992c-baa5f2b75b34">
+  <producedTypes>
+    <selectionType typeId="6fc911d2-25b8-4d7f-9bb6-bd6810243980" valueTypeId="0f0c119a-29af-4752-98ff-f92e570673a5"/>
+    <listType typeId="7302fe4b-c84f-494a-a229-f55ef6614b86" valueTypeId="5c1b8186-8761-4ddb-b1cb-4253e99000d2"/>
+    <managerType typeId="f5e39d21-fdad-4713-90a8-848ab122f318" valueTypeId="03a4e1f9-1428-4177-b0f1-8edd3b477ac8"/>
+    <recordSetType typeId="47ff638a-ab20-4bdd-bebe-dc7f7c0ffbe0" valueTypeId="aef9ac6b-6302-4d4f-be4f-40cf8fa22516"/>
+    <recordKeyType typeId="3fa7eac9-de9f-4a46-a5f8-a56dd5facf61" valueTypeId="0c2b5cca-f34f-4f98-85d6-7a1d820c4d2a"/>
+    <recordType typeId="159e75f7-4eeb-4d78-b4a8-9d3851531a47" valueTypeId="784ed49e-25a0-4d66-afb0-5884c446007a"/>
+    <recordManagerType typeId="b6bd258a-9cd9-4bec-b1d1-a51a4865c5d2" valueTypeId="db6c378e-76d4-4d23-b2fd-3c998154fc52"/>
+  </producedTypes>
+  <name>СостоянияДокументовОбменМП</name>
+  <synonym>
+    <key>ru</key>
+    <value>Состояния документов обмен МП</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="9934ab51-24ce-48cf-b4c8-3678cf034272">
+    <name>Состояние</name>
+    <synonym>
+      <key>ru</key>
+      <value>Состояние</value>
+    </synonym>
+    <type>
+      <types>EnumRef.СостоянияДокументовТСД</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="9ec24cac-2548-4306-a69a-52f8360a1f31">
+    <name>Обработано</name>
+    <synonym>
+      <key>ru</key>
+      <value>Обработано</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="738794b3-cd30-451c-9c78-f7cd2308b289">
+    <name>ЯПХ</name>
+    <synonym>
+      <key>ru</key>
+      <value>ЯПХ</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СкладскиеЯчейки</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="6a782358-ff0d-4318-9d2b-09c3b8924234">
+    <name>Сотрудник</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сотрудник</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Сотрудники</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="f4360ca4-c3c8-49cf-b560-db70528b3c2c">
+    <name>ИДклиента</name>
+    <synonym>
+      <key>ru</key>
+      <value>И дклиента</value>
+    </synonym>
+    <type>
+      <types>UUID</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="eaf8eecf-c469-4db3-bf59-bd1d54cd607c">
+    <name>Склад</name>
+    <synonym>
+      <key>ru</key>
+      <value>Склад</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Склады</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="de7f8369-aea3-4a7a-9e0b-b898aa36e9b7">
+    <name>РабочийУчасток</name>
+    <synonym>
+      <key>ru</key>
+      <value>Рабочий участок</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.РабочиеУчастки</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="02b9327c-9307-4591-a3e2-2e1eb69883a6">
+    <name>ДокументНакладная</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ накладная</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ВнутреннееПотребление</types>
+      <types>DocumentRef.ВозвратТоваровОтКлиента</types>
+      <types>DocumentRef.ПриобретениеТоваровУслуг</types>
+      <types>DocumentRef.ЧекККМВозврат</types>
+      <types>DocumentRef.ЗаказПоставщику</types>
+      <types>DocumentRef.ОтгрузкаТоваровСХранения</types>
+      <types>DocumentRef.АктОРасхожденияхПослеПриемки</types>
+      <types>DocumentRef.ПеремещениеТоваров</types>
+      <types>DocumentRef.КорректировкаРеализации</types>
+      <types>DocumentRef.РеализацияТоваровУслуг</types>
+      <types>DocumentRef.ПересчетТоваров</types>
+      <types>DocumentRef.ЧекККМ</types>
+      <types>DocumentRef.СборкаТоваров</types>
+      <types>DocumentRef.ПриемкаТоваровНаХранение</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="50be584a-7f0e-43f8-9892-8c3fa7753dba">
+    <name>ДокументОрдер</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ ордер</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.РасходныйОрдерНаТовары</types>
+      <types>DocumentRef.ПересчетТоваров</types>
+      <types>DocumentRef.ПриходныйОрдерНаТовары</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

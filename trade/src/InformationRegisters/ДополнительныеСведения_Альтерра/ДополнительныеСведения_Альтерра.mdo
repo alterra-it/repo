@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="1f3040d0-7a4d-48c2-8546-9a36a0444114">
+  <producedTypes>
+    <selectionType typeId="3bac9fad-ca30-432d-9f56-6e30c8c666da" valueTypeId="11cedc76-e0f9-4071-a3e3-9127290d4101"/>
+    <listType typeId="9baf1d2d-d265-4689-987d-e014b6c534d6" valueTypeId="82dfd7bc-75ba-4290-b83f-866cabdc5c02"/>
+    <managerType typeId="49084c82-a7ec-425e-95d6-adf05643ce74" valueTypeId="2c38b723-eab7-4640-870a-c270bccefeb8"/>
+    <recordSetType typeId="03ef6d05-d0f3-4873-a541-d17c43667aaf" valueTypeId="2901e291-1abc-40db-8c58-d424ab1367e2"/>
+    <recordKeyType typeId="d0193561-4cae-45dd-80cd-bf21dc49e630" valueTypeId="9f029056-b4f8-4cca-9403-185aa29efc4e"/>
+    <recordType typeId="ad1d914b-67d5-4316-a7eb-4d35f426ee55" valueTypeId="b492bc27-d604-4bcd-b9b6-7430962dc94e"/>
+    <recordManagerType typeId="017faac5-35ec-46a4-bb6d-07e27d06104d" valueTypeId="c149b4b2-36be-4a11-a972-407bf069bd5c"/>
+  </producedTypes>
+  <name>ДополнительныеСведения_Альтерра</name>
+  <synonym>
+    <key>ru</key>
+    <value>Дополнительные сведения Альтерра</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="bfd214e9-e2d8-4400-8eec-ae683451bc2f">
+    <name>Значение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Значение</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+      <types>CatalogRef.ЗначенияДополнительныхСведений_Альтерра</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameterLinks>
+      <name>Отбор.Владелец</name>
+      <field>InformationRegister.ДополнительныеСведения_Альтерра.Dimension.ВидСведения</field>
+    </choiceParameterLinks>
+    <linkByType>
+      <field>InformationRegister.ДополнительныеСведения_Альтерра.Dimension.ВидСведения</field>
+    </linkByType>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="107ef928-0c73-4158-906b-2dd9d20a1d24">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="f5f254ef-9154-44c9-a63f-97513a1ba0f8">
+    <name>ПодразделениеСклад</name>
+    <synonym>
+      <key>ru</key>
+      <value>Подразделение/склад</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СтруктураПредприятия</types>
+      <types>CatalogRef.Склады</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="43dd5f0f-274f-4357-8793-80cd7c87b22d">
+    <name>ВидСведения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид сведения</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ВидыСведений_Альтерра</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="eeb3ee50-780c-41e5-afde-63fd22acbf91">
+    <name>УникальныйИдентификатор</name>
+    <synonym>
+      <key>ru</key>
+      <value>Уникальный идентификатор</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>128</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

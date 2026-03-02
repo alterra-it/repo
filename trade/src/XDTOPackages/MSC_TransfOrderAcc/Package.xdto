@@ -1,0 +1,215 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" elementFormQualified="false" attributeFormQualified="false">
+	<property xmlns:d2p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="MSC_TransfOrderAcc" type="d2p1:tMSC_TransfOrderAcc"/>
+	<valueType name="tFormularTypes" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">formular</enumeration>
+		<enumeration xsi:type="xs:string">dictionary</enumeration>
+		<enumeration xsi:type="xs:string">service</enumeration>
+	</valueType>
+	<valueType name="tGuid" base="xs:string" variety="Atomic">
+		<pattern>[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}</pattern>
+	</valueType>
+	<valueType name="tMax15Text" base="xs:string" variety="Atomic" minLength="1" maxLength="15"/>
+	<valueType name="tDate" base="xs:date" variety="Atomic"/>
+	<valueType name="tMax25Text" base="xs:string" variety="Atomic" minLength="1" maxLength="25"/>
+	<valueType name="tSUM" base="xs:decimal" variety="Atomic" totalDigits="20" fractionDigits="2"/>
+	<valueType name="tText3" base="xs:string" variety="Atomic" length="3"/>
+	<valueType name="tMax1_12Text" base="xs:string" variety="Atomic" minLength="1" maxLength="12"/>
+	<valueType name="t_KPP" base="xs:string" variety="Atomic"/>
+	<valueType name="tMax2000Text" base="xs:string" variety="Atomic" minLength="1" maxLength="2000"/>
+	<valueType name="tText11" base="xs:string" variety="Atomic" length="11"/>
+	<valueType name="tText9" base="xs:string" variety="Atomic" length="9"/>
+	<valueType name="tText20" base="xs:string" variety="Atomic" length="20"/>
+	<valueType name="tMax160Text" base="xs:string" variety="Atomic" minLength="1" maxLength="160"/>
+	<valueType name="tMax210Text" base="xs:string" variety="Atomic" minLength="1" maxLength="210"/>
+	<valueType name="tDepInfo" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">0</enumeration>
+		<enumeration xsi:type="xs:string">1</enumeration>
+		<enumeration xsi:type="xs:string">3</enumeration>
+	</valueType>
+	<valueType name="tMax2Text" base="xs:string" variety="Atomic" minLength="1" maxLength="2"/>
+	<valueType name="tMax20Text" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+	<valueType name="tMax8Text" base="xs:string" variety="Atomic" minLength="1" maxLength="8"/>
+	<valueType name="tMax10Text" base="xs:string" variety="Atomic" minLength="1" maxLength="10"/>
+	<valueType name="tText_18" base="xs:string" variety="Atomic" length="18"/>
+	<valueType name="tYearMonth" base="xs:string" variety="Atomic"/>
+	<valueType name="tText10" base="xs:string" variety="Atomic" length="10"/>
+	<valueType name="tText_13" base="xs:string" variety="Atomic" length="13"/>
+	<valueType name="tMax50Text" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+	<valueType name="tText4" base="xs:string" variety="Atomic" length="4"/>
+	<valueType name="tLogicElement" base="xs:boolean" variety="Atomic"/>
+	<valueType name="tText2" base="xs:string" variety="Atomic" length="2"/>
+	<valueType name="t_INN_2" base="xs:string" variety="Atomic"/>
+	<valueType name="tText8" base="xs:string" variety="Atomic" length="8"/>
+	<valueType name="tMax4Text" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="tMax24Text" base="xs:string" variety="Atomic" minLength="1" maxLength="24"/>
+	<valueType name="tMax5Text" base="xs:string" variety="Atomic" minLength="1" maxLength="5"/>
+	<valueType name="tMax6Text" base="xs:string" variety="Atomic" minLength="1" maxLength="6"/>
+	<valueType name="tMax32Text" base="xs:string" variety="Atomic" minLength="1" maxLength="32"/>
+	<valueType name="tMax70Text" base="xs:string" variety="Atomic" minLength="1" maxLength="70"/>
+	<valueType name="tMax140Text" base="xs:string" variety="Atomic" minLength="1" maxLength="140"/>
+	<valueType name="tMax11Text" base="xs:string" variety="Atomic" minLength="1" maxLength="11"/>
+	<valueType name="tMax16Text" base="xs:string" variety="Atomic" minLength="1" maxLength="16"/>
+	<objectType name="tFAHTeh">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="FAHTeh_ITEM" type="d3p1:tFAHTeh_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tFAHTeh_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Amount_line" type="d3p1:tSUM"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Payer_AnalyticCode" type="d3p1:tMax25Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Payer_KBKtype" type="d3p1:tText2" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Payer_KBK" type="d3p1:tText20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Recip_AnalyticCode" type="d3p1:tMax25Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Recip_KBKtype" type="d3p1:tText2" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Recip_KBK" type="d3p1:tText20" lowerBound="0"/>
+	</objectType>
+	<objectType name="tFAM_RETURNKOO">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="FAM_RETURNKOO_ITEM" type="d3p1:tFAM_RETURNKOO_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tFAM_RETURNKOO_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="NumKOO" type="d3p1:tMax50Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="TOFKCodeStateClient" type="d3p1:tText4" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="P_INN" type="d3p1:t_INN_2"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="P_KPP" type="d3p1:t_KPP" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="P_PersonalAcc" type="d3p1:tText11"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="P_Name" type="d3p1:tMax160Text"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="P_CheckAcc" type="d3p1:tText20"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="P_BIK" type="d3p1:tText9"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="P_BankName" type="d3p1:tMax160Text"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="P_CorrAcc" type="d3p1:tText20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="R_INN" type="d3p1:t_INN_2"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="R_KPP" type="d3p1:t_KPP" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="R_Name" type="d3p1:tMax160Text"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="R_CheckAcc" type="d3p1:tText20"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="R_BIK" type="d3p1:tText9"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="R_BankName" type="d3p1:tMax160Text"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="R_CorrAcc" type="d3p1:tText20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="SumKBK" type="d3p1:tSUM" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="AnalyticCodePay" type="d3p1:tText8" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="AnalyticCodeRec" type="d3p1:tText8" lowerBound="0"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="tMSC_TransfOrderAcc" base="d2p1:tFormular">
+		<property name="AccDoc_Guid" type="d2p1:tGuid"/>
+		<property name="AccDoc_DocNum" type="d2p1:tMax15Text"/>
+		<property name="AccDoc_DocDate" type="d2p1:tDate"/>
+		<property name="ExecDate" type="d2p1:tDate" lowerBound="0"/>
+		<property name="AdditionalInfo_ExecDateD33" type="d2p1:tDate" lowerBound="0"/>
+		<property name="AddInfo_PaymentID" type="d2p1:tMax25Text" lowerBound="0"/>
+		<property name="NumED" type="d2p1:tMax15Text" lowerBound="0"/>
+		<property name="BasicRequisites_PaySum" type="d2p1:tSUM"/>
+		<property name="CurrCode_OKV" type="d2p1:tText3"/>
+		<property name="PayAmountRub" type="d2p1:tSUM" lowerBound="0"/>
+		<property name="Payer_INN" type="d2p1:tMax1_12Text"/>
+		<property name="Payer_KPP" type="d2p1:t_KPP"/>
+		<property name="Payer_Name" type="d2p1:tMax2000Text"/>
+		<property name="Payer_AccNum" type="d2p1:tText11" lowerBound="0"/>
+		<property name="Payer_BIK" type="d2p1:tText9"/>
+		<property name="Payer_CorrAcc" type="d2p1:tText20"/>
+		<property name="Payer_BankName" type="d2p1:tMax160Text"/>
+		<property name="Payer_CheckAcc" type="d2p1:tText20"/>
+		<property name="Recip_INN" type="d2p1:tMax1_12Text"/>
+		<property name="Recip_KPP" type="d2p1:t_KPP"/>
+		<property name="Recip_Name" type="d2p1:tMax160Text"/>
+		<property name="Recip_AccNum" type="d2p1:tText11" lowerBound="0"/>
+		<property name="Recip_BIK" type="d2p1:tText9"/>
+		<property name="Recip_CorrAcc" type="d2p1:tText20"/>
+		<property name="Recip_BankName" type="d2p1:tMax160Text"/>
+		<property name="Recip_CheckAcc" type="d2p1:tText20"/>
+		<property name="DepInfo_PayPurpose" type="d2p1:tMax210Text"/>
+		<property name="DepInfo_PaySource" type="d2p1:tDepInfo" lowerBound="0"/>
+		<property name="OrdersAcc" type="d2p1:tOrdersAcc"/>
+		<property name="DepInfo_TAX_DrawStat" type="d2p1:tMax2Text" lowerBound="0"/>
+		<property name="DepInfo_TAX_KBK" type="d2p1:tMax20Text" lowerBound="0"/>
+		<property name="DepInfo_TAX_OKTMO" type="d2p1:tMax8Text" lowerBound="0"/>
+		<property name="DepInfo_TAX_PayReason" type="d2p1:tMax2Text" lowerBound="0"/>
+		<property name="DepInfo_TAX_Period" type="d2p1:tMax10Text" lowerBound="0"/>
+		<property name="DepInfo_TAX_DocNo" type="d2p1:tMax15Text" lowerBound="0"/>
+		<property name="DepInfo_TAX_DocDate" type="d2p1:tMax10Text" lowerBound="0"/>
+		<property name="Payer_Ident" type="d2p1:tMax15Text" lowerBound="0"/>
+		<property name="InfoPayZHKU_IPD" type="d2p1:tText_18" lowerBound="0"/>
+		<property name="InfoPayZHKU_PRD" type="d2p1:tYearMonth" lowerBound="0"/>
+		<property name="InfoPayZHKU_ELS" type="d2p1:tText10" lowerBound="0"/>
+		<property name="InfoPayZHKU_ZHKU" type="d2p1:tText_13" lowerBound="0"/>
+		<property name="NumKOO" type="d2p1:tMax50Text" lowerBound="0"/>
+		<property name="TOFKCodeStateClient" type="d2p1:tText4" lowerBound="0"/>
+		<property name="ReturnKOO_ReturnFlag" type="d2p1:tLogicElement" lowerBound="0"/>
+		<property name="FAM_RETURNKOO" type="d2p1:tFAM_RETURNKOO" lowerBound="0"/>
+		<property name="ADI_ReturnRequest" type="d2p1:tLogicElement" lowerBound="0"/>
+		<property name="Payer_TOFKCode" type="d2p1:tText4"/>
+		<property name="Recip_TOFKCode" type="d2p1:tText4"/>
+		<property name="FAHTeh" type="d2p1:tFAHTeh" lowerBound="0"/>
+	</objectType>
+	<objectType name="tOrdersAcc">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="OrdersAcc_ITEM" type="d3p1:tOrdersAcc_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tOrdersAcc_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="LineNum" type="d3p1:tMax4Text"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Order_IGK" type="d3p1:tMax25Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Order_Faip" type="d3p1:tMax24Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Order_KOO" type="d3p1:tMax50Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Order_CodeObjectPay" type="d3p1:tMax25Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Order_CodeObjectRec" type="d3p1:tMax25Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Order_AnalyticCodePay" type="d3p1:tText8" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Order_AnalyticCodeRec" type="d3p1:tText8" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Order_Sum" type="d3p1:tSUM"/>
+	</objectType>
+	<objectType name="tRegisterOfAcceptedOrders">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="RegisterOfAcceptedOrders_ITEM" type="d3p1:tRegisterOfAcceptedOrders_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tRegisterOfAcceptedOrders_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="TransactionID" type="d3p1:tMax5Text"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="DocumentNumber" type="d3p1:tMax6Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="DocumentDate" type="d3p1:tDate" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="OperationID" type="d3p1:tMax32Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="TransactionDate" type="d3p1:tDate"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="TransactionSum" type="d3p1:tSUM"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="PaymentID" type="d3p1:tMax25Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Payer_PersonalID" type="d3p1:tMax25Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Payer_CheckAccount" type="d3p1:tText20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Payer_INN" type="d3p1:t_INN_2" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Payer_Name" type="d3p1:tMax70Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Payer_Address" type="d3p1:tMax70Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Payer_Trade" type="d3p1:tMax140Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Recipient_PersonalID" type="d3p1:tMax25Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Recipient_CheckAccount" type="d3p1:tText20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Recipient_INN" type="d3p1:t_INN_2" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Recipient_Name" type="d3p1:tMax70Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Recipient_Address" type="d3p1:tMax70Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Recipient_TradeName" type="d3p1:tMax140Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="TransactionPurpose" type="d3p1:tMax210Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="RemittanceInfo" type="d3p1:tMax140Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="DepartmentalInfoFromOrderOfPayer_F101R" type="d3p1:tMax2Text" lowerBound="0"/>
+		<property name="DepartmentalInfoFromOrderOfPayer_F106R" lowerBound="0">
+			<typeDef xmlns:d4p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" xsi:type="ValueType" base="d4p1:tMax2Text" variety="Atomic">
+				<enumeration>ТП</enumeration>
+				<enumeration>ЗД</enumeration>
+				<enumeration>БФ</enumeration>
+				<enumeration>ТР</enumeration>
+				<enumeration>РС</enumeration>
+				<enumeration>ОТ</enumeration>
+				<enumeration>РТ</enumeration>
+				<enumeration>ПБ</enumeration>
+				<enumeration>ПР</enumeration>
+				<enumeration>АП</enumeration>
+				<enumeration>АР</enumeration>
+				<enumeration>ИН</enumeration>
+				<enumeration>ТЛ</enumeration>
+				<enumeration>ЗТ</enumeration>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="DepartmentalInfoFromOrderOfPayer_F107R" type="d3p1:tMax10Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="DepartmentalInfoFromOrderOfPayer_F108R" type="d3p1:tMax15Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="DepartmentalInfoFromOrderOfPayer_F109R" type="d3p1:tMax10Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="DepartmentalInfoFromOrderOfPayer_F110R" type="d3p1:tMax2Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="DepartmentalInfoFromOrderOfPayer_F111R" type="d3p1:tMax11Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="DepartmentalInfoFromOrderOfPayer_F112R" type="d3p1:tMax16Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Beneficiary_PersonalID" type="d3p1:tMax25Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Beneficiary_INN" type="d3p1:t_INN_2" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Beneficiary_Name" type="d3p1:tMax70Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Beneficiary_Address" type="d3p1:tMax70Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="Beneficiary_TradeName" type="d3p1:tMax140Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="tFormular" abstract="true">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/MSC_TransfOrderAcc/formular" name="metaType" type="d3p1:tFormularTypes" lowerBound="0" form="Attribute"/>
+		<property name="Version" lowerBound="1" fixed="true" default="1.0" form="Attribute"/>
+	</objectType>
+	<objectType name="extraData" open="true" sequenced="true"/>
+</package>

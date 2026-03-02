@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="7348e1c5-fbfc-4442-9567-6688fe86d6b4">
+  <producedTypes>
+    <selectionType typeId="b2f0af93-ccf0-4a6f-9f40-e3fc01ff7f65" valueTypeId="e70d7274-0c78-4de4-9795-582793670164"/>
+    <listType typeId="6a0a5187-708e-4494-839d-d8eb550baa3a" valueTypeId="4e6d6734-7791-4a0d-adfc-a308b8bf8cdc"/>
+    <managerType typeId="0d06b825-abb4-461d-bad6-3a19b0cc29f3" valueTypeId="6017b4b1-c2a4-41eb-84e7-b6599c506433"/>
+    <recordSetType typeId="90f3d0af-fa6b-474c-b37a-7320af4a9049" valueTypeId="b76bb6f0-6eab-4c67-812d-e40598312c0e"/>
+    <recordKeyType typeId="56865b44-49d8-431b-831b-6848bdcc6937" valueTypeId="893c7b5f-63bf-4503-b7d7-8dfe339eeecb"/>
+    <recordType typeId="eeb0e3a5-56b1-43b5-8aaa-a7f27b37544c" valueTypeId="d856ffec-e093-44b6-ae8a-cdb4eded22ea"/>
+    <recordManagerType typeId="6bffd59a-c3a3-4eaf-899a-bd4a6a9da19f" valueTypeId="c2abc2d9-f1cc-4ba5-b367-5bd11dc0720f"/>
+  </producedTypes>
+  <name>УчетВремениВодителей</name>
+  <synonym>
+    <key>ru</key>
+    <value>Учет времени водителей</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <informationRegisterPeriodicity>Day</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="efba3c4e-bfc2-41ae-a91a-cdab600655c7">
+    <name>ВидЗанятости</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид занятости</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ВидЗанятостиВодителей</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="8b5b6d24-2959-498a-a73e-3d33af9e2ae8">
+    <name>ТранспортноеСредство</name>
+    <synonym>
+      <key>ru</key>
+      <value>Транспортное средство</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ТранспортныеСредства</types>
+      <types>CatalogRef.ТранспортныеСредстваСобственные</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="5240e95f-0b59-4f46-8c81-ed189270872c">
+    <name>ОснованиеВремени</name>
+    <synonym>
+      <key>ru</key>
+      <value>Основание времени</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ЗаданиеНаПеревозкуРейс</types>
+      <types>String</types>
+      <types>DocumentRef.РейсОтПоставщика</types>
+      <stringQualifiers>
+        <length>100</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </attributes>
+  <attributes uuid="b265c95d-96f3-4d57-b2a1-c1790bf7014f">
+    <name>Комментарий</name>
+    <synonym>
+      <key>ru</key>
+      <value>Комментарий</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <multiLine>true</multiLine>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </attributes>
+  <attributes uuid="9278f26b-7efe-462f-85cf-ea782d387ec0">
+    <name>НужнаКорректировка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Нужна корректировка</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="9112465b-0cbe-4edf-bf2d-0b8669512abb">
+    <name>Водитель</name>
+    <synonym>
+      <key>ru</key>
+      <value>Водитель</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Сотрудники</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="f18aed0c-6f6c-4642-b660-cc645c0249dc">
+    <name>НачалоОтсчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начало отсчета</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Time</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="ec53027c-71c3-41a0-a6be-2e7e77f35ab3">
+    <name>КонецОтсчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Конец отсчета</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Time</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

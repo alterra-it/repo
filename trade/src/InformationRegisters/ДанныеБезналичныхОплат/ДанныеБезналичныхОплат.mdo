@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="c3db7f2b-6046-4767-a8e0-5431ea1f8e26">
+  <producedTypes>
+    <selectionType typeId="4ecfa6f2-7489-4975-be43-26cba767b560" valueTypeId="6ad691a2-2e59-4b5a-b6f6-b86529824942"/>
+    <listType typeId="4a762c91-68a8-41ef-b898-95f6ba2ad0cc" valueTypeId="c4e12e61-f7b5-4a29-8eff-6944a4b6838a"/>
+    <managerType typeId="12ac46ac-01f9-44cc-a218-bfe309b9e71e" valueTypeId="0f9cf8a3-039a-419f-8139-79f6fa58cb91"/>
+    <recordSetType typeId="c5593d62-3c52-4d7f-9efa-331bf718af2a" valueTypeId="d56217a0-5264-4614-8622-bda438aa9cf6"/>
+    <recordKeyType typeId="3af8591f-a4a0-4bbf-87bd-ebd6f92202f5" valueTypeId="c219fdc8-8e16-4d32-becc-9b72291e2f26"/>
+    <recordType typeId="53fc5381-c69b-483f-87b5-68f3dd6de954" valueTypeId="1557d1b0-aa22-49a5-8c1f-b0583093c4b0"/>
+    <recordManagerType typeId="da045edb-a22a-42b4-9938-0c5c32a6a211" valueTypeId="b17a5d31-4604-4b19-ac98-70c1439cef67"/>
+  </producedTypes>
+  <name>ДанныеБезналичныхОплат</name>
+  <synonym>
+    <key>ru</key>
+    <value>Данные безналичных оплат</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <dimensions uuid="298e0de6-3a02-4703-8f53-df3a8f85d7c6">
+    <name>ДокументОплаты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ оплаты</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ОперацияПоПлатежнойКарте</types>
+      <types>DocumentRef.ЧекККМ</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="76496f61-091c-428f-a918-1ecd5056e823">
+    <name>IDТранзакции</name>
+    <synonym>
+      <key>ru</key>
+      <value>ID транзакции</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>100</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="d07670eb-922b-445d-afdc-27fbd65f46fc">
+    <name>СБП</name>
+    <synonym>
+      <key>ru</key>
+      <value>СБП</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

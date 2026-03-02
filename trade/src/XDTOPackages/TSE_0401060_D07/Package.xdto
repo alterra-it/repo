@@ -1,0 +1,723 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="http://www.w3.org/2000/09/xmldsig#"/>
+	<property xmlns:d2p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="TSE_0401060_D07" type="d2p1:TSE_0401060_D07"/>
+	<valueType xmlns:d2p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="tAdditionalInfo_PayOrder" base="d2p1:tLen_1" variety="Atomic">
+		<enumeration xsi:type="xs:string">1</enumeration>
+		<enumeration xsi:type="xs:string">2</enumeration>
+		<enumeration xsi:type="xs:string">3</enumeration>
+		<enumeration xsi:type="xs:string">4</enumeration>
+		<enumeration xsi:type="xs:string">5</enumeration>
+	</valueType>
+	<valueType name="tFormularTypes" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">formular</enumeration>
+		<enumeration xsi:type="xs:string">dictionary</enumeration>
+		<enumeration xsi:type="xs:string">service</enumeration>
+	</valueType>
+	<valueType name="tGuid" base="xs:string" variety="Atomic">
+		<pattern>[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}</pattern>
+	</valueType>
+	<valueType name="tDate" base="xs:date" variety="Atomic"/>
+	<valueType name="tDate_Time" base="xs:dateTime" variety="Atomic"/>
+	<valueType name="tInteger_4" base="xs:int" variety="Atomic" totalDigits="4"/>
+	<valueType name="tLen_1" base="xs:string" variety="Atomic" length="1"/>
+	<valueType name="tLen_11" base="xs:string" variety="Atomic" length="11"/>
+	<valueType name="tLen_36" base="xs:string" variety="Atomic" length="36"/>
+	<valueType name="tLen_8" base="xs:string" variety="Atomic" length="8"/>
+	<valueType name="tLink_Of_Attach" base="xs:string" variety="Atomic" minLength="1" maxLength="255">
+		<pattern>[A-Za-zА-Яа-яЁё0-9\s\.]+</pattern>
+	</valueType>
+	<valueType name="tLogicElement" base="xs:boolean" variety="Atomic"/>
+	<valueType name="tMax24Text" base="xs:string" variety="Atomic" minLength="14" maxLength="24"/>
+	<valueType name="tMax2Text" base="xs:string" variety="Atomic" minLength="1" maxLength="2"/>
+	<valueType name="tMax4Number" base="xs:string" variety="Atomic" minLength="1" maxLength="4">
+		<pattern>[0-9]+</pattern>
+	</valueType>
+	<valueType name="tMax32Text" base="xs:string" variety="Atomic" minLength="1" maxLength="32"/>
+	<valueType name="tMax500Text" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+	<valueType name="tMax50Text" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+	<valueType name="tOperationType1" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Поступление</enumeration>
+		<enumeration xsi:type="xs:string">Возврат поступлений</enumeration>
+		<enumeration xsi:type="xs:string">Кассовый расход</enumeration>
+		<enumeration xsi:type="xs:string">Восстановление кассового расхода</enumeration>
+	</valueType>
+	<valueType name="tPROCENT" base="xs:decimal" variety="Atomic" totalDigits="7" fractionDigits="4"/>
+	<valueType name="tSUMM" base="xs:decimal" variety="Atomic" totalDigits="20" fractionDigits="2"/>
+	<valueType name="tText0_20" base="xs:string" variety="Atomic" minLength="0" maxLength="20"/>
+	<valueType name="tText20" base="xs:string" variety="Atomic" length="20"/>
+	<valueType name="tText8" base="xs:string" variety="Atomic" length="8"/>
+	<valueType name="tText9" base="xs:string" variety="Atomic" length="9"/>
+	<valueType name="tText_1" base="xs:string" variety="Atomic" minLength="1" maxLength="1"/>
+	<valueType name="tText_10" base="xs:string" variety="Atomic" minLength="1" maxLength="10"/>
+	<valueType name="tText_100" base="xs:string" variety="Atomic" minLength="1" maxLength="100"/>
+	<valueType name="tText_10000" base="xs:string" variety="Atomic" minLength="1" maxLength="10000"/>
+	<valueType name="tText_11" base="xs:string" variety="Atomic" length="11"/>
+	<valueType name="tText_12" base="xs:string" variety="Atomic" minLength="1" maxLength="12"/>
+	<valueType name="tText_127" base="xs:string" variety="Atomic" minLength="1" maxLength="127"/>
+	<valueType name="tText_13" base="xs:string" variety="Atomic" length="13"/>
+	<valueType name="tText_14" base="xs:string" variety="Atomic" minLength="1" maxLength="14"/>
+	<valueType name="tText_140" base="xs:string" variety="Atomic" minLength="1" maxLength="140"/>
+	<valueType name="tText_15" base="xs:string" variety="Atomic" minLength="1" maxLength="15"/>
+	<valueType name="tText_150" base="xs:string" variety="Atomic" minLength="1" maxLength="150"/>
+	<valueType name="tText_160" base="xs:string" variety="Atomic" minLength="1" maxLength="160"/>
+	<valueType name="tText_18" base="xs:string" variety="Atomic" length="18"/>
+	<valueType name="tText_19" base="xs:string" variety="Atomic" minLength="1" maxLength="19"/>
+	<valueType name="tText_1M" base="xs:string" variety="Atomic" maxLength="1048576"/>
+	<valueType name="tText_2" base="xs:string" variety="Atomic" length="2"/>
+	<valueType name="tText_20" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+	<valueType name="tText_200" base="xs:string" variety="Atomic" minLength="1" maxLength="200"/>
+	<valueType name="tText_2000" base="xs:string" variety="Atomic" minLength="1" maxLength="2000"/>
+	<valueType name="tText_21" base="xs:string" variety="Atomic" minLength="1" maxLength="21"/>
+	<valueType name="tText_210" base="xs:string" variety="Atomic" minLength="1" maxLength="210"/>
+	<valueType name="tText_24" base="xs:string" variety="Atomic" minLength="1" maxLength="24"/>
+	<valueType name="tText_240" base="xs:string" variety="Atomic" minLength="1" maxLength="240"/>
+	<valueType name="tText_25" base="xs:string" variety="Atomic" minLength="1" maxLength="25"/>
+	<valueType name="tText_250" base="xs:string" variety="Atomic" minLength="1" maxLength="250"/>
+	<valueType name="tText_254" base="xs:string" variety="Atomic" minLength="1" maxLength="254"/>
+	<valueType name="tText_255" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+	<valueType name="tText_26" base="xs:string" variety="Atomic" minLength="1" maxLength="26"/>
+	<valueType name="tText_3" base="xs:string" variety="Atomic" minLength="1" maxLength="3"/>
+	<valueType name="tText_30" base="xs:string" variety="Atomic" minLength="1" maxLength="30"/>
+	<valueType name="tText_300" base="xs:string" variety="Atomic" minLength="1" maxLength="300"/>
+	<valueType name="tText_35" base="xs:string" variety="Atomic" minLength="1" maxLength="35"/>
+	<valueType name="tText_36" base="xs:string" variety="Atomic" minLength="1" maxLength="36"/>
+	<valueType name="tText_4" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="tText_4000" base="xs:string" variety="Atomic" minLength="1" maxLength="4000"/>
+	<valueType name="tText_5" base="xs:string" variety="Atomic" minLength="1" maxLength="5"/>
+	<valueType name="tText_50" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+	<valueType name="tText_512" base="xs:string" variety="Atomic" minLength="1" maxLength="512"/>
+	<valueType name="tText_6" base="xs:string" variety="Atomic" minLength="1" maxLength="6"/>
+	<valueType name="tText_7" base="xs:string" variety="Atomic" minLength="1" maxLength="7"/>
+	<valueType name="tText_8" base="xs:string" variety="Atomic" minLength="1" maxLength="8"/>
+	<valueType name="tText_9" base="xs:string" variety="Atomic" minLength="1" maxLength="9"/>
+	<valueType name="tUUID36" base="xs:string" variety="Atomic" minLength="36" maxLength="36"/>
+	<valueType name="tYearMonth" base="xs:string" variety="Atomic">
+		<pattern>(((0[1-9]{1}|1[0-2]{1}))|((30)\.(01|0[3-9]{1}|1[0-2]{1}))|((31)\.(01|03|05|07|08|10|12)))\.(18[0-9]{2}|19[0-9]{2}|20[0-9]{2})</pattern>
+	</valueType>
+	<valueType name="t_DateND" base="xs:string" variety="Atomic" minLength="1" maxLength="10"/>
+	<valueType name="t_IGK" base="xs:string" variety="Atomic">
+		<pattern>\w{20}|\w{25}</pattern>
+	</valueType>
+	<valueType name="t_INN" base="xs:string" variety="Atomic">
+		<pattern>\d{10}|\d{12}</pattern>
+	</valueType>
+	<valueType name="t_OKTMO" base="xs:string" variety="Atomic" minLength="1" maxLength="10"/>
+	<valueType name="t_Text_10" base="xs:string" variety="Atomic" length="10"/>
+	<valueType name="tmaxText_10" base="xs:string" variety="Atomic" maxLength="10"/>
+	<valueType name="tAdditionalInfo" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">0</enumeration>
+		<enumeration xsi:type="xs:string">1</enumeration>
+	</valueType>
+	<valueType name="tAgreementState" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">sentForAgreement</enumeration>
+		<enumeration xsi:type="xs:string">agreed</enumeration>
+		<enumeration xsi:type="xs:string">disagreed</enumeration>
+	</valueType>
+	<valueType name="tAppSolDocTyp" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Lit1</enumeration>
+		<enumeration>Lit2</enumeration>
+		<enumeration>Lit3</enumeration>
+		<enumeration>Lit4</enumeration>
+		<enumeration>Lit5</enumeration>
+	</valueType>
+	<valueType name="tApproveCostumer" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l2</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+		<enumeration>l5</enumeration>
+	</valueType>
+	<valueType name="tApprovementState" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">sentForAgreement</enumeration>
+		<enumeration xsi:type="xs:string">agreed</enumeration>
+		<enumeration xsi:type="xs:string">disagreed</enumeration>
+	</valueType>
+	<valueType name="tBank" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l2</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+		<enumeration>l5</enumeration>
+	</valueType>
+	<valueType name="tBank_D08" base="xs:string" variety="Atomic">
+		<enumeration>l2</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+	</valueType>
+	<valueType name="tBasicRequisites" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">0</enumeration>
+		<enumeration xsi:type="xs:string">4</enumeration>
+	</valueType>
+	<valueType name="tChecksFTAS" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l2</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+		<enumeration>l5</enumeration>
+	</valueType>
+	<valueType name="tChecksPUIO" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l2</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+		<enumeration>l5</enumeration>
+	</valueType>
+	<valueType name="tChecksRDO" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l3</enumeration>
+	</valueType>
+	<valueType name="tClntState" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">CREATED</enumeration>
+		<enumeration xsi:type="xs:string">NEWDOC</enumeration>
+		<enumeration xsi:type="xs:string">CHECKED</enumeration>
+		<enumeration xsi:type="xs:string">EXECUTING</enumeration>
+		<enumeration xsi:type="xs:string">APPROVED</enumeration>
+		<enumeration xsi:type="xs:string">APPROVING</enumeration>
+		<enumeration xsi:type="xs:string">AGREED</enumeration>
+		<enumeration xsi:type="xs:string">AGREEING</enumeration>
+		<enumeration xsi:type="xs:string">TO_CANCEL</enumeration>
+		<enumeration xsi:type="xs:string">CANCELED</enumeration>
+		<enumeration xsi:type="xs:string">EXECUTED</enumeration>
+		<enumeration xsi:type="xs:string">REVOKED</enumeration>
+		<enumeration xsi:type="xs:string">CLIENT_APPROVE</enumeration>
+		<enumeration xsi:type="xs:string">CLIENT_CANCELED</enumeration>
+		<enumeration xsi:type="xs:string">EDITING</enumeration>
+	</valueType>
+	<valueType name="tDcmntTp" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Task</enumeration>
+		<enumeration xsi:type="xs:string">Report</enumeration>
+		<enumeration xsi:type="xs:string">Distr</enumeration>
+		<enumeration xsi:type="xs:string">Agreement</enumeration>
+	</valueType>
+	<valueType name="tDecision_TypeDoc" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">lit1</enumeration>
+		<enumeration>lit2</enumeration>
+		<enumeration>lit3</enumeration>
+		<enumeration>lit4</enumeration>
+		<enumeration>lit5</enumeration>
+		<enumeration xsi:type="xs:string">UK</enumeration>
+		<enumeration xsi:type="xs:string">PP</enumeration>
+	</valueType>
+	<valueType name="tDisplay" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Y</enumeration>
+		<enumeration xsi:type="xs:string">N</enumeration>
+	</valueType>
+	<valueType name="tDocSrc" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">PUR</enumeration>
+		<enumeration xsi:type="xs:string">PUZ</enumeration>
+		<enumeration xsi:type="xs:string">BP</enumeration>
+		<enumeration xsi:type="xs:string">ASFK</enumeration>
+		<enumeration xsi:type="xs:string">GASU</enumeration>
+		<enumeration xsi:type="xs:string">ES</enumeration>
+		<enumeration xsi:type="xs:string">MGR</enumeration>
+		<enumeration xsi:type="xs:string">SUFD</enumeration>
+		<enumeration xsi:type="xs:string">PFHD</enumeration>
+		<enumeration xsi:type="xs:string">PURKS</enumeration>
+	</valueType>
+	<valueType name="tDocsBase" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">0</enumeration>
+		<enumeration>1</enumeration>
+		<enumeration>2</enumeration>
+		<enumeration>3</enumeration>
+		<enumeration>4</enumeration>
+		<enumeration>5</enumeration>
+		<enumeration>6</enumeration>
+		<enumeration>7</enumeration>
+		<enumeration>8</enumeration>
+	</valueType>
+	<valueType name="tExecutMark" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Execution</enumeration>
+		<enumeration xsi:type="xs:string">Executed</enumeration>
+		<enumeration xsi:type="xs:string">Dissolve</enumeration>
+	</valueType>
+	<valueType name="tExecuteState" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">sentForAgreement</enumeration>
+		<enumeration xsi:type="xs:string">agreed</enumeration>
+		<enumeration xsi:type="xs:string">disagreed</enumeration>
+	</valueType>
+	<valueType name="tFAH_Period" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">period1</enumeration>
+		<enumeration>period2</enumeration>
+		<enumeration>period3</enumeration>
+		<enumeration>period4</enumeration>
+		<enumeration>period5</enumeration>
+	</valueType>
+	<valueType name="tFTAS" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l2</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+	</valueType>
+	<valueType name="tFTAS_D07" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l2</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+		<enumeration>l5</enumeration>
+	</valueType>
+	<valueType name="tFlgYorN" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Yes</enumeration>
+		<enumeration xsi:type="xs:string">No</enumeration>
+	</valueType>
+	<valueType name="tLCPayer" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l2</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+		<enumeration>l5</enumeration>
+	</valueType>
+	<valueType name="tLCRecipient" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l2</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+		<enumeration>l5</enumeration>
+	</valueType>
+	<valueType name="tLCRecipient__D07" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+		<enumeration>l5</enumeration>
+	</valueType>
+	<valueType name="tLEDGER_CODE" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">FTOperLedger</enumeration>
+		<enumeration xsi:type="xs:string">FTExecLedger</enumeration>
+		<enumeration xsi:type="xs:string">FTOrgLedger</enumeration>
+	</valueType>
+	<valueType name="tOnApprovment_D05" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l2</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l5</enumeration>
+	</valueType>
+	<valueType name="tOperationType_D12" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l2</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+	</valueType>
+	<valueType name="tPrivacy" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">s0</enumeration>
+		<enumeration>s1</enumeration>
+		<enumeration>s2</enumeration>
+		<enumeration>s3</enumeration>
+	</valueType>
+	<valueType name="tREQUEST_TYPE" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Posted</enumeration>
+		<enumeration xsi:type="xs:string">PostedWithCheck</enumeration>
+		<enumeration xsi:type="xs:string">Unposted</enumeration>
+	</valueType>
+	<valueType name="tReceiptDocType" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">TSE_0401060_D07</enumeration>
+		<enumeration xsi:type="xs:string">TSE_0401060_D08</enumeration>
+		<enumeration xsi:type="xs:string">TSE_0531807_D10</enumeration>
+	</valueType>
+	<valueType name="tReceiptOperType" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">FAM_D_007_001</enumeration>
+		<enumeration xsi:type="xs:string">FAM_D_007_002</enumeration>
+		<enumeration xsi:type="xs:string">FAM_D_007_003</enumeration>
+		<enumeration xsi:type="xs:string">FAM_D_007_004</enumeration>
+		<enumeration xsi:type="xs:string">FAM_D_007_005</enumeration>
+		<enumeration xsi:type="xs:string">FAM_D_007_006</enumeration>
+		<enumeration xsi:type="xs:string">FAM_D_010_001</enumeration>
+		<enumeration xsi:type="xs:string">FAM_D_010_002</enumeration>
+		<enumeration xsi:type="xs:string">FAM_D_080_001</enumeration>
+		<enumeration xsi:type="xs:string">FAM_D_080_002</enumeration>
+		<enumeration xsi:type="xs:string">FAM_D_080_003</enumeration>
+		<enumeration xsi:type="xs:string">FAM_D_080_004</enumeration>
+		<enumeration xsi:type="xs:string">FAM_D_080_005</enumeration>
+	</valueType>
+	<valueType name="tReflectLC" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+		<enumeration>l2</enumeration>
+	</valueType>
+	<valueType name="tSecrLevel" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">L0</enumeration>
+		<enumeration>L1</enumeration>
+		<enumeration>L2</enumeration>
+		<enumeration>L3</enumeration>
+	</valueType>
+	<valueType name="tStateListFK" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">lit1</enumeration>
+		<enumeration>lit2</enumeration>
+		<enumeration>lit3</enumeration>
+		<enumeration>lit4</enumeration>
+	</valueType>
+	<valueType name="tTAX_PayReason" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">ТП</enumeration>
+		<enumeration xsi:type="xs:string">ЗД</enumeration>
+		<enumeration xsi:type="xs:string">БФ</enumeration>
+		<enumeration xsi:type="xs:string">ТР</enumeration>
+		<enumeration xsi:type="xs:string">РС</enumeration>
+		<enumeration xsi:type="xs:string">ОТ</enumeration>
+		<enumeration xsi:type="xs:string">РТ</enumeration>
+		<enumeration xsi:type="xs:string">ПБ</enumeration>
+		<enumeration xsi:type="xs:string">ПР</enumeration>
+		<enumeration xsi:type="xs:string">АП</enumeration>
+		<enumeration xsi:type="xs:string">АР</enumeration>
+		<enumeration xsi:type="xs:string">ИН</enumeration>
+		<enumeration xsi:type="xs:string">ТЛ</enumeration>
+		<enumeration xsi:type="xs:string">ЗТ</enumeration>
+		<enumeration xsi:type="xs:string">0</enumeration>
+		<enumeration xsi:type="xs:string">00</enumeration>
+	</valueType>
+	<valueType xmlns:d2p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="tText1" base="d2p1:tText_1" variety="Atomic">
+		<pattern>\d{1}</pattern>
+		<enumeration xsi:type="xs:string">0</enumeration>
+		<enumeration>1</enumeration>
+		<enumeration>2</enumeration>
+		<enumeration>3</enumeration>
+		<enumeration>4</enumeration>
+		<enumeration>5</enumeration>
+	</valueType>
+	<valueType xmlns:d2p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="tText2" base="d2p1:tText_2" variety="Atomic">
+		<enumeration xsi:type="xs:string">01</enumeration>
+	</valueType>
+	<valueType name="tTrnsfrSt" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Send</enumeration>
+		<enumeration xsi:type="xs:string">Sent</enumeration>
+		<enumeration xsi:type="xs:string">ErrorSend</enumeration>
+		<enumeration xsi:type="xs:string">Delivered</enumeration>
+		<enumeration xsi:type="xs:string">Undelivered</enumeration>
+		<enumeration xsi:type="xs:string">ReceivedFromBP</enumeration>
+		<enumeration xsi:type="xs:string">ReceivedFromASFK</enumeration>
+		<enumeration xsi:type="xs:string">SendNotRequired</enumeration>
+		<enumeration xsi:type="xs:string">SendRequired</enumeration>
+		<enumeration xsi:type="xs:string">Processed</enumeration>
+		<enumeration xsi:type="xs:string">SendToNSI</enumeration>
+		<enumeration xsi:type="xs:string">SentToNSI</enumeration>
+		<enumeration xsi:type="xs:string">ErrorSendToNSI</enumeration>
+		<enumeration xsi:type="xs:string">DeliveredToNSI</enumeration>
+		<enumeration xsi:type="xs:string">UndeliveredToNSI</enumeration>
+		<enumeration xsi:type="xs:string">ProcessedToNSI</enumeration>
+		<enumeration xsi:type="xs:string">NotProcessedToNSI</enumeration>
+		<enumeration xsi:type="xs:string">ReceivedFromES</enumeration>
+		<enumeration xsi:type="xs:string">SendToES</enumeration>
+		<enumeration xsi:type="xs:string">SentToES</enumeration>
+		<enumeration xsi:type="xs:string">ErrorSendToES</enumeration>
+		<enumeration xsi:type="xs:string">DeliveredToES</enumeration>
+		<enumeration xsi:type="xs:string">UndeliveredToES</enumeration>
+		<enumeration xsi:type="xs:string">ProcessedInES</enumeration>
+		<enumeration xsi:type="xs:string">SendToBP</enumeration>
+		<enumeration xsi:type="xs:string">SentToBP</enumeration>
+		<enumeration xsi:type="xs:string">ErrorSentToBP</enumeration>
+		<enumeration xsi:type="xs:string">ProcessedToBP</enumeration>
+		<enumeration xsi:type="xs:string">ErrorProcessedToBP</enumeration>
+		<enumeration xsi:type="xs:string">SentToBPNotRequired</enumeration>
+		<enumeration xsi:type="xs:string">DeliveredToBP</enumeration>
+		<enumeration xsi:type="xs:string">UndeliveredToBP</enumeration>
+		<enumeration xsi:type="xs:string">SendToEIS</enumeration>
+		<enumeration xsi:type="xs:string">SentToEIS</enumeration>
+		<enumeration xsi:type="xs:string">PendSubmis</enumeration>
+		<enumeration xsi:type="xs:string">ErrorSentToEIS</enumeration>
+		<enumeration xsi:type="xs:string">ErrorProcessedToEIS</enumeration>
+		<enumeration xsi:type="xs:string">ProcessedToEIS</enumeration>
+		<enumeration xsi:type="xs:string">ReceivedFromPFHD</enumeration>
+		<enumeration xsi:type="xs:string">ReceivedFromSUFD</enumeration>
+	</valueType>
+	<valueType name="tTypeAdmission" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">KDN</enumeration>
+		<enumeration xsi:type="xs:string">NKP</enumeration>
+		<enumeration xsi:type="xs:string">VKR</enumeration>
+	</valueType>
+	<valueType name="tTypeCanceledDoc" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">PP</enumeration>
+		<enumeration xsi:type="xs:string">ZS</enumeration>
+		<enumeration xsi:type="xs:string">ZN</enumeration>
+	</valueType>
+	<valueType name="tTypeCode" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">1</enumeration>
+		<enumeration>3</enumeration>
+		<enumeration>4</enumeration>
+	</valueType>
+	<valueType name="tTypeFillings" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Form</enumeration>
+		<enumeration xsi:type="xs:string">FromTableDoc</enumeration>
+		<enumeration xsi:type="xs:string">Template</enumeration>
+		<enumeration xsi:type="xs:string">Value</enumeration>
+		<enumeration xsi:type="xs:string">NotFill</enumeration>
+	</valueType>
+	<valueType name="tTypePP" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">PP_JS</enumeration>
+		<enumeration xsi:type="xs:string">PP_P</enumeration>
+		<enumeration xsi:type="xs:string">PP_R</enumeration>
+		<enumeration xsi:type="xs:string">PP_Tax</enumeration>
+		<enumeration xsi:type="xs:string">PP_SC</enumeration>
+		<enumeration xsi:type="xs:string">PP_S</enumeration>
+		<enumeration xsi:type="xs:string">PP_OP</enumeration>
+	</valueType>
+	<valueType name="tView" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">0</enumeration>
+		<enumeration>1</enumeration>
+		<enumeration>2</enumeration>
+		<enumeration>3</enumeration>
+		<enumeration>4</enumeration>
+		<enumeration>5</enumeration>
+		<enumeration>6</enumeration>
+		<enumeration>7</enumeration>
+		<enumeration>8</enumeration>
+		<enumeration>9</enumeration>
+		<enumeration>10</enumeration>
+		<enumeration>11</enumeration>
+		<enumeration>12</enumeration>
+		<enumeration>13</enumeration>
+	</valueType>
+	<valueType name="tmatching_state" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">notFormed</enumeration>
+		<enumeration xsi:type="xs:string">requiresAgreement</enumeration>
+		<enumeration xsi:type="xs:string">sentForAgreement</enumeration>
+		<enumeration xsi:type="xs:string">notRequiresAgreement</enumeration>
+		<enumeration xsi:type="xs:string">agreed</enumeration>
+		<enumeration xsi:type="xs:string">disagreed</enumeration>
+	</valueType>
+	<valueType name="tparamFilter" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">equally</enumeration>
+		<enumeration xsi:type="xs:string">NotEqually</enumeration>
+	</valueType>
+	<valueType name="tOperationType2" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">l1</enumeration>
+		<enumeration>l2</enumeration>
+		<enumeration>l3</enumeration>
+		<enumeration>l4</enumeration>
+	</valueType>
+	<valueType name="ttext1_2" base="xs:string" variety="Atomic" minLength="1" maxLength="2"/>
+	<valueType name="tText7length" base="xs:string" variety="Atomic" length="7"/>
+	<objectType name="tAttach_ReqC_D07">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="Attach_ReqC_D07_ITEM" type="d3p1:tAttach_ReqC_D07_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tAttach_ReqC_D07_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="Link" type="d3p1:tLink" lowerBound="0"/>
+	</objectType>
+	<objectType name="tSpecifDetail_D08">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="SpecifDetail_D08_ITEM" type="d3p1:tSpecifDetail_D08_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tSpecifDetail_D08_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="AnalyticCodePay" type="d3p1:tText8" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="FAIP" type="d3p1:tText_24" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="CodeCS" type="d3p1:tText_20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="DetailCodeObjRecip" type="d3p1:tText_20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="TypeCodeObjPayer" type="d3p1:tTypeCodeObjPayer" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="SUMMA" type="d3p1:tSUMM"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="NumKOO" type="d3p1:tMax50Text" lowerBound="0"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="TSE_0401060_D07" base="d2p1:tFormular">
+		<property name="BasicRequisites_DocGuid" type="d2p1:tLen_36" lowerBound="0"/>
+		<property name="BasicRequisites_DocNum" type="d2p1:tText_6"/>
+		<property name="BasicRequisites_DocDate" type="d2p1:tDate"/>
+		<property name="BasicRequisites_PaySum" type="d2p1:tSUMM"/>
+		<property name="OperationID" type="d2p1:tMax32Text" lowerBound="0"/>
+		<property name="BasicRequisites_PayView" lowerBound="0">
+			<typeDef xsi:type="ObjectType" base="d2p1:tBasicRequisites_PayView"/>
+		</property>
+		<property name="AdditionalInfo_OperType" type="d2p1:tText2" lowerBound="0"/>
+		<property name="AdditionalInfo_PayDate" type="d2p1:tDate" lowerBound="0"/>
+		<property name="AdditionalInfo_PayOrder" type="d2p1:tAdditionalInfo_PayOrder"/>
+		<property name="PayerAndRecipient_Payer_INN" type="d2p1:tText_12"/>
+		<property name="PayerAndRecipient_Payer_INN_AnPers" type="d2p1:tText_12" lowerBound="0"/>
+		<property name="PayerAndRecipient_Payer_KPP" type="d2p1:tText_9" lowerBound="0"/>
+		<property name="PayerAndRecipient_Payer_KPP_AnPers" type="d2p1:tText_9" lowerBound="0"/>
+		<property name="PayerAndRecipient_Payer_Code" type="d2p1:tText_8" lowerBound="0"/>
+		<property name="PayerAndRecipient_Payer_PersonalAcc" type="d2p1:tLen_11" lowerBound="0"/>
+		<property name="PayerAndRecipient_Payer_Name" type="d2p1:tText_160"/>
+		<property name="PayerAndRecipient_Payer_CheckAcc" type="d2p1:tText20"/>
+		<property name="PayerAndRecipient_Payer_BIK" type="d2p1:tText9"/>
+		<property name="PayerAndRecipient_Payer_BankName" type="d2p1:tText_160" lowerBound="0"/>
+		<property name="PayerAndRecipient_Payer_CorrAcc" type="d2p1:tText20" lowerBound="0"/>
+		<property name="PayerAndRecipient_Recip_INN" type="d2p1:tText_12"/>
+		<property name="PayerAndRecipient_Recip_KPP" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="d2p1:tText_9" variety="Atomic">
+				<pattern>\w{1}|\w{9}</pattern>
+			</typeDef>
+		</property>
+		<property name="PayerAndRecipient_Recip_Code" type="d2p1:tText_8" lowerBound="0"/>
+		<property name="PayerAndRecipient_Recip_PersonalAcc" type="d2p1:tText_11" lowerBound="0"/>
+		<property name="PayerAndRecipient_Recip_Name" type="d2p1:tText_160"/>
+		<property name="PayerAndRecipient_Recip_CheckAcc" type="d2p1:tText20" lowerBound="0"/>
+		<property name="PayerAndRecipient_Recip_BIK" type="d2p1:tText9"/>
+		<property name="PayerAndRecipient_Recip_BankName" type="d2p1:tText_160" lowerBound="0"/>
+		<property name="PayerAndRecipient_Recip_CorrAcc" type="d2p1:tText20" lowerBound="0"/>
+		<property name="TAX_UIN" type="d2p1:tText_25" lowerBound="0"/>
+		<property name="TAX_DrawStat" type="d2p1:ttext1_2" lowerBound="0"/>
+		<property name="TAX_KBK" type="d2p1:tText0_20" lowerBound="0"/>
+		<property name="TAX_OKTMO" type="d2p1:t_OKTMO" lowerBound="0"/>
+		<property name="TAX_PayReason" type="d2p1:ttext1_2" lowerBound="0"/>
+		<property name="TAX_Period" type="d2p1:t_Text_10" lowerBound="0"/>
+		<property name="TAX_DocNo" type="d2p1:tText_15" lowerBound="0"/>
+		<property name="TAX_DocDate" type="d2p1:tmaxText_10" lowerBound="0"/>
+		<property name="TAX_TypeNP" type="d2p1:tTAX_PayReason" lowerBound="0"/>
+		<property name="TranscriptPP_TransuseSign" type="d2p1:tLogicElement" lowerBound="0"/>
+		<property name="TranscriptPP_ReturnSign" type="d2p1:tLogicElement" lowerBound="0"/>
+		<property name="TranscriptPP_DocNum" type="d2p1:tText_6" lowerBound="0"/>
+		<property name="TranscriptPP_DocDate" type="d2p1:tDate" lowerBound="0"/>
+		<property name="TSE_Tab0401060" type="d2p1:tTSE_Tab0401060" lowerBound="0"/>
+		<property name="BPR" type="d2p1:tLogicElement" lowerBound="0"/>
+		<property name="RegistryDocsBaseAttechmentSix_RDOuseSign" type="d2p1:tLogicElement" lowerBound="0"/>
+		<property name="DocsBase_Type" type="d2p1:tDocsBase_Type" lowerBound="0"/>
+		<property name="DocsBase_DocNum" type="d2p1:tText_100" lowerBound="0"/>
+		<property name="DocsBase_Obosob" type="d2p1:tLogicElement" lowerBound="0"/>
+		<property name="DocsBase_DocDate" type="d2p1:tDate" lowerBound="0"/>
+		<property name="Attach_ReqC_D07" type="d2p1:tAttach_ReqC_D07" lowerBound="0"/>
+		<property name="TSE_ScanCopy_D07" type="d2p1:tTSE_ScanCopy_D07" lowerBound="0"/>
+		<property name="RegistryDocsBaseAttechmentSix_RDONum" type="d2p1:tText_25" lowerBound="0"/>
+		<property name="RegistryDocsBaseAttechmentSix_RDODate" type="d2p1:tDate" lowerBound="0"/>
+		<property name="Tab_ReqODB_D07" type="d2p1:tTab_ReqODB_D07" lowerBound="0"/>
+		<property name="TranscriptPP_PayPurpose" type="d2p1:tText_210"/>
+		<property name="TPP_PAYPERIOD" type="d2p1:tText7length" lowerBound="0"/>
+		<property name="DepartmentalInfo_Reserve" type="d2p1:tText_35" lowerBound="0"/>
+		<property name="DepartmentalInfo_PurposePayment" type="d2p1:tText_35" lowerBound="0"/>
+		<property name="SumKBKTotal" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="SumNDSTotal" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="RegistryDocsBaseAttechmentSix_SumTotalRet" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="RegistryDocsBaseAttechmentSix_SumNDSTotal" type="d2p1:tSUMM" lowerBound="0"/>
+		<property name="AdditionalInfo_DocNum_D98" type="d2p1:tText_50" lowerBound="0"/>
+		<property name="AdditionalInfo_DocDate_D98" type="d2p1:tDate" lowerBound="0"/>
+		<property name="AdditionalInfo_DocGuid_D98" type="d2p1:tLen_36" lowerBound="0"/>
+		<property name="MarksTOFK_DateOper" type="d2p1:tDate" lowerBound="0"/>
+		<property name="Sign_ExecutorCS_Position" type="d2p1:tText_100" lowerBound="0"/>
+		<property name="Sign_ExecutorCS_FIO" type="d2p1:tText_50" lowerBound="0"/>
+		<property name="BasicRequisites_AccountNumberClient" type="d2p1:tText_11" lowerBound="0"/>
+		<property name="SpecifDetail_D08" type="d2p1:tSpecifDetail_D08" lowerBound="0"/>
+		<property name="InfoPayZHKU_IPD" type="d2p1:tText_18" lowerBound="0"/>
+		<property name="InfoPayZHKU_PRD" type="d2p1:tYearMonth" lowerBound="0"/>
+		<property name="InfoPayZHKU_ELS" type="d2p1:t_Text_10" lowerBound="0"/>
+		<property name="InfoPayZHKU_ZHKU" type="d2p1:tText_13" lowerBound="0"/>
+		<property name="Sign_Head_Position" type="d2p1:tText_100" lowerBound="0"/>
+		<property name="Sign_Head_FIO" type="d2p1:tText_50" lowerBound="0"/>
+		<property name="Sign_ChiefAccountant_Position" type="d2p1:tText_100" lowerBound="0"/>
+		<property name="Sign_ChiefAccountant_FIO" type="d2p1:tText_50" lowerBound="0"/>
+		<property name="Sign_ChiefAccountant_DateSign" type="d2p1:tDate" lowerBound="0"/>
+		<property name="Sign_ExecutorClient_Position" type="d2p1:tText_100" lowerBound="0"/>
+		<property name="Sign_ExecutorClient_FIO" type="d2p1:tText_50" lowerBound="0"/>
+		<property name="Sign_ExecutorClient_ExecutorPhone" type="d2p1:tText_50" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" name="Signature" type="d3p1:SignatureType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="tTSE_ScanCopy_D07">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="TSE_ScanCopy_D07_ITEM" type="d3p1:tTSE_ScanCopy_D07_ITEM" upperBound="2"/>
+	</objectType>
+	<objectType name="tTSE_ScanCopy_D07_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="NumPP" type="d3p1:tText_4"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="DocType" type="d3p1:tViewC"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="DocNum" type="d3p1:tText_100"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="DocDate" type="d3p1:tDate"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="GuidPP" type="d3p1:tLen_36" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="Link" type="d3p1:tLink" lowerBound="0"/>
+	</objectType>
+	<objectType name="tTSE_Tab0401060">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="TSE_Tab0401060_ITEM" type="d3p1:tTSE_Tab0401060_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tTSE_Tab0401060_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="ContractID" type="d3p1:tText_25"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="NumPP" type="d3p1:tText_4"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="Obosob" type="d3p1:tLogicElement" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="ViewC" type="d3p1:tDocsBase_Type" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="DocDate" type="d3p1:tDate" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="DocNum" type="d3p1:tText_100" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="CodeFAIP" type="d3p1:tText_24" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="AKBK" type="d3p1:tText_20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="NumKOO" type="d3p1:tMax50Text" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="CodeObjectPayer" type="d3p1:tText_20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="DetCodeObjectPayer" type="d3p1:tText_20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="CodeObjectRecipient" type="d3p1:tText_20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="DetCodeObjectRecipient" type="d3p1:tText_20" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="Sum" type="d3p1:tSUMM"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="SumNDS" type="d3p1:tSUMM"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="Note" type="d3p1:tText_2000" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="AnalyticCodePay" type="d3p1:tText8"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="AnalyticCodeRec" type="d3p1:tText8" lowerBound="0"/>
+	</objectType>
+	<objectType name="tTab_ReqODB_D07">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="Tab_ReqODB_D07_ITEM" type="d3p1:tTab_ReqODB_D07_ITEM" upperBound="-1"/>
+	</objectType>
+	<objectType name="tTab_ReqODB_D07_ITEM">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="ContractID" type="d3p1:tText_25"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="NumPP" type="d3p1:tText_4"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="DocDateDB" type="d3p1:tDate"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="DocNumDB" type="d3p1:tText_100"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="ViewC" type="d3p1:tViewC"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="DocNum" type="d3p1:tText_100"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="DocDate" type="d3p1:tDate"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="Sum" type="d3p1:tSUMM"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="SumRet" type="d3p1:tSUMM"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="SumNDS" type="d3p1:tSUMM"/>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="ScanCopy" type="d3p1:tLink" lowerBound="0"/>
+	</objectType>
+	<objectType name="extraData" open="true" sequenced="true"/>
+	<objectType name="tFormular" abstract="true">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="metaType" type="d3p1:tFormularTypes" lowerBound="0" form="Attribute"/>
+		<property name="Version" lowerBound="1" fixed="true" default="9.0" form="Attribute"/>
+	</objectType>
+	<objectType name="tOperationTypeComplex" mixed="true" sequenced="true">
+		<property name="code" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration xsi:type="xs:string">1</enumeration>
+				<enumeration xsi:type="xs:string">2</enumeration>
+				<enumeration xsi:type="xs:string">3</enumeration>
+				<enumeration xsi:type="xs:string">4</enumeration>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="value" type="d3p1:tOperationType1" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="tBasicRequisites_PayView" mixed="true" sequenced="true">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="code" type="d3p1:tBasicRequisites" lowerBound="1" form="Attribute"/>
+		<property name="value" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration xsi:type="xs:string">Пусто</enumeration>
+				<enumeration xsi:type="xs:string">Срочно</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="tDocsBase_Type" mixed="true" sequenced="true">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="code" type="d3p1:tDocsBase" lowerBound="1" form="Attribute"/>
+		<property name="value" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration xsi:type="xs:string">Договор</enumeration>
+				<enumeration xsi:type="xs:string">Контракт учреждения</enumeration>
+				<enumeration xsi:type="xs:string">Соглашение</enumeration>
+				<enumeration xsi:type="xs:string">Нормативно-правовой акт о представлении субсидии</enumeration>
+				<enumeration xsi:type="xs:string">Договор о капитальных вложениях</enumeration>
+				<enumeration xsi:type="xs:string">Государственный контракт</enumeration>
+				<enumeration xsi:type="xs:string">Муниципальный контракт</enumeration>
+				<enumeration xsi:type="xs:string">Договор о проведении капитального ремонта</enumeration>
+				<enumeration xsi:type="xs:string">Обращение финансового органа</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="tLink">
+		<property name="attachFileName" lowerBound="1" form="Attribute">
+			<typeDef xmlns:d4p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" xsi:type="ValueType" base="d4p1:tLink_Of_Attach" variety="Atomic"/>
+		</property>
+	</objectType>
+	<objectType name="tViewC" mixed="true" sequenced="true">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="code" type="d3p1:tView" lowerBound="1" form="Attribute"/>
+		<property name="value" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration xsi:type="xs:string">Акт</enumeration>
+				<enumeration xsi:type="xs:string">Счет</enumeration>
+				<enumeration xsi:type="xs:string">Выписка</enumeration>
+				<enumeration xsi:type="xs:string">Договор</enumeration>
+				<enumeration xsi:type="xs:string">Доп. соглашение</enumeration>
+				<enumeration xsi:type="xs:string">Накладная</enumeration>
+				<enumeration xsi:type="xs:string">Нормативно-правовой акт</enumeration>
+				<enumeration xsi:type="xs:string">Платёжное поручение</enumeration>
+				<enumeration xsi:type="xs:string">Соглашение</enumeration>
+				<enumeration xsi:type="xs:string">Контракт</enumeration>
+				<enumeration xsi:type="xs:string">Счет-фактура</enumeration>
+				<enumeration xsi:type="xs:string">УПД</enumeration>
+				<enumeration xsi:type="xs:string">Иное основание</enumeration>
+				<enumeration xsi:type="xs:string">Поручение о перечислении на счет</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="tTypeCodeObjPayer" mixed="true" sequenced="true">
+		<property xmlns:d3p1="http://www.roskazna.ru/eb/domain/TSE_0401060_D07/formular" name="code" type="d3p1:tTypeCode" lowerBound="1" form="Attribute"/>
+		<property name="value" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration xsi:type="xs:string">Поступление</enumeration>
+				<enumeration xsi:type="xs:string">Кассовый расход</enumeration>
+				<enumeration xsi:type="xs:string">Восстановление кассового расхода</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+</package>

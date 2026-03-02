@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="23b8ffec-50db-40fd-8b0f-3f7aad5f4eb5">
+  <producedTypes>
+    <selectionType typeId="5dd3b51e-7812-44e5-9a4f-dd57615792ea" valueTypeId="c9245fc4-30ae-4919-9c8d-ff98741d4750"/>
+    <listType typeId="0393cefc-06ff-4703-a61c-4d977d13a498" valueTypeId="a5de8cdb-db3c-4159-96cb-c6a3308f7fbb"/>
+    <managerType typeId="002a703b-e25f-4a9d-9d0b-a03bf51f08fd" valueTypeId="9f6496bc-0fb4-4012-a47d-1cbf957003ed"/>
+    <recordSetType typeId="7c4f1013-3dfd-44a6-a39e-4defa5906066" valueTypeId="0b906e90-7d6f-418c-b6d3-16ab1dcf58a1"/>
+    <recordKeyType typeId="b78ef7dd-736d-478d-a15d-8a86866bd801" valueTypeId="f3444d95-c245-42bf-87c7-bed93bdfc458"/>
+    <recordType typeId="d4afd0e2-f27e-452e-b129-50b03cff0098" valueTypeId="fce63bfd-e8b0-46ff-9f45-5cd46d9f9e65"/>
+  </producedTypes>
+  <name>ДетализацияБонусныхБаллов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Детализация бонусных баллов</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <registerType>Turnovers</registerType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="6123ec63-4c57-4e5c-bb92-0fc82e084214">
+    <name>Баллы</name>
+    <synonym>
+      <key>ru</key>
+      <value>Баллы</value>
+    </synonym>
+    <type>
+      <types>DefinedType.ДенежнаяСуммаЛюбогоЗнака</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <dimensions uuid="1393a786-0225-495b-a47a-846298f261c2">
+    <name>БонуснаяПрограммаЛояльности</name>
+    <synonym>
+      <key>ru</key>
+      <value>Бонусная программа лояльности</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.БонусныеПрограммыЛояльности</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="52f22efe-4a4b-4c33-b179-11de700e8a16">
+    <name>Партнер</name>
+    <synonym>
+      <key>ru</key>
+      <value>Клиент</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Партнеры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="13d5294a-59f1-46af-a221-b5f299aa0571">
+    <name>ПричинаНачисленияБонусныхБаллов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Причина начисления бонусных баллов</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.МаркетинговыеМероприятия</types>
+      <types>EnumRef.ПричиныНачисленияБонусныхБаллов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="73073e83-36eb-48f7-bb54-afdaa2f25b42">
+  <producedTypes>
+    <selectionType typeId="e48db8ff-004d-4084-b172-15c9b3c7cce7" valueTypeId="0da3bbab-66e4-41ff-b7ea-ea077a732555"/>
+    <listType typeId="cf30e9cc-49fe-4302-b6af-02809a28d355" valueTypeId="454407e3-ed82-4854-be29-0426f27998fc"/>
+    <managerType typeId="7c1d2976-96af-4e39-ac05-3c6a48864732" valueTypeId="77e8c3ee-cf7f-4456-812c-e445fa74e103"/>
+    <recordSetType typeId="ef190620-3a22-4370-bef0-374305c316c6" valueTypeId="0628f7e6-03d8-47e4-a098-4b77ab16dd78"/>
+    <recordKeyType typeId="68b13e63-4a59-41cb-8b6f-bfeafd54a760" valueTypeId="428508ae-ecb8-4f69-8015-9d203e99c3a9"/>
+    <recordType typeId="e66828b3-f226-4ab7-98ab-4cb5e3a3c135" valueTypeId="b913eba5-0660-491c-9850-6ca0211cd522"/>
+    <recordManagerType typeId="94a21eb2-51cf-49d0-a227-8c952d1cd11c" valueTypeId="53d7fe62-103c-4e17-a082-adfbbdf763ce"/>
+  </producedTypes>
+  <name>РасписаниеСкладскихПотоков</name>
+  <synonym>
+    <key>ru</key>
+    <value>Расписание складских потоков</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <informationRegisterPeriodicity>Second</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="5747f0e4-2312-4422-a98f-c4af0f694f68">
+    <name>НачалоИнтервала</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начало интервала</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Time</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="0e8eb166-22a0-46b3-9e74-83b058d7ee10">
+    <name>ПродолжительностьИнтервала</name>
+    <synonym>
+      <key>ru</key>
+      <value>Продолжительность интервала</value>
+    </synonym>
+    <comment>мин</comment>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="67fe8c65-43c4-4c8f-89ca-0a07a1288ed9">
+    <name>АвторИзменений</name>
+    <synonym>
+      <key>ru</key>
+      <value>Автор изменений</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="d8d80fb8-d205-47c8-a05c-0e5c67256361">
+    <name>Поток</name>
+    <synonym>
+      <key>ru</key>
+      <value>Поток</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ПотокиТранспортныхСредствПоставкиНаСклад</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="ac74948d-76ab-4a20-8b5b-effe27d381ba">
+    <name>ДатаДоставки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата доставки</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="bca00498-5f63-418e-9d0d-89b7008ad9f6">
+    <name>НомерИнтервала</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номер интервала</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

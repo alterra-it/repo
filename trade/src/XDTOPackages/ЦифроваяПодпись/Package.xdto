@@ -1,0 +1,138 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.w3.org/2000/09/xmldsig#" elementFormQualified="true" attributeFormQualified="false">
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="CanonicalizationMethod" type="d2p1:CanonicalizationMethodType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="DSAKeyValue" type="d2p1:DSAKeyValueType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="DigestMethod" type="d2p1:DigestMethodType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="DigestValue" type="d2p1:DigestValueType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="KeyInfo" type="d2p1:KeyInfoType"/>
+	<property name="KeyName" type="xs:string"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="KeyValue" type="d2p1:KeyValueType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="Manifest" type="d2p1:ManifestType"/>
+	<property name="MgmtData" type="xs:string"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="Object" type="d2p1:ObjectType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="PGPData" type="d2p1:PGPDataType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="RSAKeyValue" type="d2p1:RSAKeyValueType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="Reference" type="d2p1:ReferenceType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="RetrievalMethod" type="d2p1:RetrievalMethodType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="SPKIData" type="d2p1:SPKIDataType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="Signature" type="d2p1:SignatureType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="SignatureMethod" type="d2p1:SignatureMethodType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="SignatureProperties" type="d2p1:SignaturePropertiesType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="SignatureProperty" type="d2p1:SignaturePropertyType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="SignatureValue" type="d2p1:SignatureValueType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="SignedInfo" type="d2p1:SignedInfoType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="Transform" type="d2p1:TransformType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="Transforms" type="d2p1:TransformsType"/>
+	<property xmlns:d2p1="http://www.w3.org/2000/09/xmldsig#" name="X509Data" type="d2p1:X509DataType"/>
+	<valueType name="CryptoBinary" base="xs:base64Binary" variety="Atomic"/>
+	<valueType name="DigestValueType" base="xs:base64Binary" variety="Atomic"/>
+	<valueType name="HMACOutputLengthType" base="xs:integer" variety="Atomic"/>
+	<objectType name="CanonicalizationMethodType" open="true" mixed="true" sequenced="true">
+		<property name="Algorithm" type="xs:anyURI" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType name="DSAKeyValueType">
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" name="P" type="d3p1:CryptoBinary" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" name="Q" type="d3p1:CryptoBinary" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" name="G" type="d3p1:CryptoBinary" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" name="Y" type="d3p1:CryptoBinary"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" name="J" type="d3p1:CryptoBinary" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" name="Seed" type="d3p1:CryptoBinary" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" name="PgenCounter" type="d3p1:CryptoBinary" lowerBound="0"/>
+	</objectType>
+	<objectType name="DigestMethodType" open="true" mixed="true" sequenced="true">
+		<property name="Algorithm" type="xs:anyURI" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType name="KeyInfoType" open="true" mixed="true" ordered="false" sequenced="true">
+		<property name="Id" type="xs:ID" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:KeyName" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:KeyValue" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:RetrievalMethod" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:X509Data" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:PGPData" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:SPKIData" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:MgmtData" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="KeyValueType" open="true" mixed="true" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:DSAKeyValue" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:RSAKeyValue" lowerBound="0"/>
+	</objectType>
+	<objectType name="ManifestType">
+		<property name="Id" type="xs:ID" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:Reference" upperBound="-1"/>
+	</objectType>
+	<objectType name="ObjectType" open="true" mixed="true" ordered="false" sequenced="true">
+		<property name="Id" type="xs:ID" lowerBound="0" form="Attribute"/>
+		<property name="MimeType" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property name="Encoding" type="xs:anyURI" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="PGPDataType" open="true" ordered="false" sequenced="true">
+		<property name="PGPKeyID" type="xs:base64Binary" lowerBound="0"/>
+		<property name="PGPKeyPacket" type="xs:base64Binary" lowerBound="0"/>
+	</objectType>
+	<objectType name="RSAKeyValueType">
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" name="Modulus" type="d3p1:CryptoBinary"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" name="Exponent" type="d3p1:CryptoBinary"/>
+	</objectType>
+	<objectType name="ReferenceType">
+		<property name="Id" type="xs:ID" lowerBound="0" form="Attribute"/>
+		<property name="URI" type="xs:anyURI" lowerBound="0" form="Attribute"/>
+		<property name="Type" type="xs:anyURI" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:Transforms" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:DigestMethod"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:DigestValue"/>
+	</objectType>
+	<objectType name="RetrievalMethodType">
+		<property name="URI" type="xs:anyURI" lowerBound="0" form="Attribute"/>
+		<property name="Type" type="xs:anyURI" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:Transforms" lowerBound="0"/>
+	</objectType>
+	<objectType name="SPKIDataType" open="true" ordered="false" sequenced="true">
+		<property name="SPKISexp" type="xs:base64Binary" upperBound="-1"/>
+	</objectType>
+	<objectType name="SignatureMethodType" open="true" mixed="true" sequenced="true">
+		<property name="Algorithm" type="xs:anyURI" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" name="HMACOutputLength" type="d3p1:HMACOutputLengthType" lowerBound="0"/>
+	</objectType>
+	<objectType name="SignaturePropertiesType">
+		<property name="Id" type="xs:ID" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:SignatureProperty" upperBound="-1"/>
+	</objectType>
+	<objectType name="SignaturePropertyType" open="true" mixed="true" ordered="false" sequenced="true">
+		<property name="Target" type="xs:anyURI" lowerBound="1" form="Attribute"/>
+		<property name="Id" type="xs:ID" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="SignatureType">
+		<property name="Id" type="xs:ID" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:SignedInfo"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:SignatureValue"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:KeyInfo" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:Object" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="SignatureValueType">
+		<property name="Id" type="xs:ID" lowerBound="0" form="Attribute"/>
+		<property name="__content" type="xs:base64Binary" form="Text"/>
+	</objectType>
+	<objectType name="SignedInfoType">
+		<property name="Id" type="xs:ID" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:CanonicalizationMethod"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:SignatureMethod"/>
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:Reference" upperBound="-1"/>
+	</objectType>
+	<objectType name="TransformType" open="true" mixed="true" ordered="false" sequenced="true">
+		<property name="Algorithm" type="xs:anyURI" lowerBound="1" form="Attribute"/>
+		<property name="XPath" type="xs:string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="TransformsType">
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" ref="d3p1:Transform" upperBound="-1"/>
+	</objectType>
+	<objectType name="X509DataType" open="true" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://www.w3.org/2000/09/xmldsig#" name="X509IssuerSerial" type="d3p1:X509IssuerSerialType" lowerBound="0" upperBound="-1"/>
+		<property name="X509SKI" type="xs:base64Binary" lowerBound="0" upperBound="-1"/>
+		<property name="X509SubjectName" type="xs:string" lowerBound="0" upperBound="-1"/>
+		<property name="X509Certificate" type="xs:base64Binary" lowerBound="0" upperBound="-1"/>
+		<property name="X509CRL" type="xs:base64Binary" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="X509IssuerSerialType">
+		<property name="X509IssuerName" type="xs:string"/>
+		<property name="X509SerialNumber" type="xs:integer"/>
+	</objectType>
+</package>

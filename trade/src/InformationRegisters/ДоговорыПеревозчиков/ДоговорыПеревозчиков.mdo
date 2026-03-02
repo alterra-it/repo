@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="89461d73-83ba-4374-929d-b153099f8a7e">
+  <producedTypes>
+    <selectionType typeId="2f1f4444-a079-49d6-9cc6-9d0a2cd6d215" valueTypeId="8ed5b985-f479-4fd7-8676-3b7b57eed444"/>
+    <listType typeId="8ca3a49b-7716-48fd-8721-9d6a0c5782b2" valueTypeId="04985d0f-d842-4972-9337-d9d1e69b2896"/>
+    <managerType typeId="f0abbaef-f6d8-4ddb-bca1-11baa1753e98" valueTypeId="5c68b6d4-f70a-4c16-928a-f155bdf614c9"/>
+    <recordSetType typeId="415986c4-fa0d-4526-ab11-0af15c1b9678" valueTypeId="0358a7f9-37c7-4e20-8df2-8b6b0b15a49d"/>
+    <recordKeyType typeId="66f91536-956c-45ef-9981-8866478cc693" valueTypeId="7e28f5e3-3504-46c7-b705-43f97ec2121d"/>
+    <recordType typeId="9f2c54e9-0d39-478c-9904-3b30f5f0b2a5" valueTypeId="b8f410ae-e621-4ae7-9f66-7e3227b1c427"/>
+    <recordManagerType typeId="dbf15497-3d9c-4fda-b048-bfc2db1bef7a" valueTypeId="47c7207a-fb66-4a6c-b14f-4e003cf4c31c"/>
+  </producedTypes>
+  <name>ДоговорыПеревозчиков</name>
+  <synonym>
+    <key>ru</key>
+    <value>Договоры перевозчиков</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <informationRegisterPeriodicity>Day</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="28d667d5-e10b-4712-8a3f-38ea9ae127a4">
+    <name>Договор</name>
+    <synonym>
+      <key>ru</key>
+      <value>Договор</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ДоговорыКонтрагентов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="ce960afe-9bab-44eb-9d76-e862ce764b60">
+    <name>Ответственный</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ответственный</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="bd10f69b-1232-4edb-85f5-d68d9016c961">
+    <name>Перевозчик</name>
+    <synonym>
+      <key>ru</key>
+      <value>Перевозчик</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Партнеры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="e29972a0-9e3b-41fa-9f49-ab09fa0904f3">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контрагент</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <choiceParameterLinks>
+      <name>Отбор.Партнер</name>
+      <field>InformationRegister.ДоговорыПеревозчиков.Dimension.Перевозчик</field>
+    </choiceParameterLinks>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

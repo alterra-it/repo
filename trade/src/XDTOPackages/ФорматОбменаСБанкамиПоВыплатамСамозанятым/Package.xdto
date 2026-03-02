@@ -1,0 +1,88 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="https://v8.1c.ru/edi/edi_stnd/121/" elementFormQualified="true" attributeFormQualified="false">
+	<property xmlns:d2p1="https://v8.1c.ru/edi/edi_stnd/121/" name="ВыплатыСамозанятым" type="d2p1:ВыплатыСамозанятым"/>
+	<valueType name="БикБанка" base="xs:string" variety="Atomic" length="9"/>
+	<valueType name="ИНН" base="xs:string" variety="Atomic" minLength="10" maxLength="12"/>
+	<valueType name="НазначениеПлатежа" base="xs:string" variety="Atomic" minLength="0" maxLength="1000"/>
+	<valueType name="НомерБанковскогоСчета" base="xs:string" variety="Atomic" length="20"/>
+	<valueType name="Результат" base="xs:string" variety="Atomic" maxLength="100">
+		<enumeration>Зачислено</enumeration>
+		<enumeration>ЗачисленоСсылкаНеСформирована</enumeration>
+		<enumeration>НеЗачисленоНеКорректныеРеквизитыСчета</enumeration>
+		<enumeration>НеЗачисленоПолучательНеЯвляетсяСамозанятым</enumeration>
+		<enumeration>НеЗачисленоПрочиеПричины</enumeration>
+	</valueType>
+	<valueType name="СсылкаНаЧек" base="xs:string" variety="Atomic" minLength="0" maxLength="1000"/>
+	<valueType name="Сумма" base="xs:decimal" variety="Atomic" totalDigits="15" fractionDigits="2"/>
+	<objectType name="ВыплатыСамозанятым" open="true" ordered="false" sequenced="true">
+		<property xmlns:d3p1="https://v8.1c.ru/edi/edi_stnd/121/" name="РеестрВыплатСамозанятым" type="d3p1:РеестрВыплатСамозанятым" lowerBound="0"/>
+		<property xmlns:d3p1="https://v8.1c.ru/edi/edi_stnd/121/" name="РеестрЧековСамозанятых" type="d3p1:РеестрЧековСамозанятых" lowerBound="0"/>
+		<property xmlns:d3p1="https://v8.1c.ru/edi/edi_stnd/121/" name="КонтрольныеСуммы" type="d3p1:КонтрольныеСуммы"/>
+		<property name="НомерВерсии" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" minLength="20"/>
+		</property>
+		<property name="ДатаФормирования" type="xs:date" lowerBound="0" form="Attribute"/>
+		<property name="НаименованиеОрганизации" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" minLength="1" maxLength="160"/>
+		</property>
+		<property xmlns:d3p1="https://v8.1c.ru/edi/edi_stnd/121/" name="ИНН" type="d3p1:ИНН" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="https://v8.1c.ru/edi/edi_stnd/121/" name="РасчетныйСчетОрганизации" type="d3p1:НомерБанковскогоСчета" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="https://v8.1c.ru/edi/edi_stnd/121/" name="БИК" type="d3p1:БикБанка" lowerBound="0" form="Attribute"/>
+		<property name="ИдПервичногоДокумента" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" maxLength="80"/>
+		</property>
+		<property name="НомерРеестра" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" maxLength="11"/>
+		</property>
+		<property name="ДатаРеестра" type="xs:date" lowerBound="0" form="Attribute"/>
+		<property name="НомерПлатежногоПоручения" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" maxLength="11"/>
+		</property>
+		<property name="ДатаПлатежногоПоручения" type="xs:date" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="КонтрольныеСуммы" open="true" ordered="false" sequenced="true">
+		<property name="КоличествоЗаписей" lowerBound="1" upperBound="1">
+			<typeDef xsi:type="ValueType" base="xs:decimal" totalDigits="7"/>
+		</property>
+		<property xmlns:d3p1="https://v8.1c.ru/edi/edi_stnd/121/" name="СуммаИтого" type="d3p1:Сумма" lowerBound="1" upperBound="1"/>
+	</objectType>
+	<objectType name="РеестрВыплатСамозанятым" open="true" ordered="false" sequenced="true">
+		<property name="ФизЛицо" lowerBound="0" upperBound="-1">
+			<typeDef xmlns:d4p1="https://v8.1c.ru/edi/edi_stnd/121/" xsi:type="ObjectType" base="d4p1:ФизЛицо" open="true" ordered="false" sequenced="true">
+				<property name="Нпп" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:integer" totalDigits="7"/>
+				</property>
+				<property name="Сумма" type="d4p1:Сумма" lowerBound="0"/>
+				<property name="НазначениеПлатежа" type="d4p1:НазначениеПлатежа" lowerBound="0"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="РеестрЧековСамозанятых" open="true" ordered="false" sequenced="true">
+		<property name="ФизЛицо" lowerBound="0" upperBound="-1">
+			<typeDef xmlns:d4p1="https://v8.1c.ru/edi/edi_stnd/121/" xsi:type="ObjectType" base="d4p1:ФизЛицо" open="true" ordered="false" sequenced="true">
+				<property name="Нпп" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:integer" totalDigits="7"/>
+				</property>
+				<property name="Сумма" type="d4p1:Сумма" lowerBound="0"/>
+				<property name="СсылкаНаЧек" type="d4p1:СсылкаНаЧек" lowerBound="0"/>
+				<property name="Результат" type="d4p1:Результат"/>
+				<property name="РасшифровкаРезультата" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" minLength="0" maxLength="3000"/>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ФизЛицо" open="true" ordered="false" sequenced="true">
+		<property name="Фамилия">
+			<typeDef xsi:type="ValueType" base="xs:string" maxLength="30"/>
+		</property>
+		<property name="Имя">
+			<typeDef xsi:type="ValueType" base="xs:string" maxLength="30"/>
+		</property>
+		<property name="Отчество" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" minLength="0" maxLength="30"/>
+		</property>
+		<property xmlns:d3p1="https://v8.1c.ru/edi/edi_stnd/121/" name="ИНН" type="d3p1:ИНН"/>
+		<property xmlns:d3p1="https://v8.1c.ru/edi/edi_stnd/121/" name="БИК" type="d3p1:БикБанка"/>
+		<property xmlns:d3p1="https://v8.1c.ru/edi/edi_stnd/121/" name="НомерСчета" type="d3p1:НомерБанковскогоСчета"/>
+	</objectType>
+</package>

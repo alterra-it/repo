@@ -1,0 +1,105 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.7"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7"/>
+	<import namespace="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="CanceledLot" type="d2p1:CanceledLotType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="CanceledLotDebit" type="d2p1:CanceledLotDebitType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="CreateLot" type="d2p1:CreateLotType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="CreateLotDebit" type="d2p1:CreateLotDebitType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="CreateLotOnElevator" type="d2p1:CreateLotOnElevatorType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="ListLot" type="d2p1:ListLotType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="ListLotDebit" type="d2p1:ListLotDebitType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="RecordLot" type="d2p1:RecordLotType"/>
+	<property xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="RecordLotDebit" type="d2p1:RecordLotDebitType"/>
+	<valueType name="LotKindType" base="xs:string" variety="Atomic">
+		<enumeration>RESIDUES</enumeration>
+		<enumeration>ANOTHER_BATCH_GRAIN</enumeration>
+		<enumeration>EXTINGUISH</enumeration>
+		<enumeration>SDIZ</enumeration>
+		<enumeration>PART</enumeration>
+		<enumeration>IMPORTED</enumeration>
+		<enumeration>FIELD</enumeration>
+	</valueType>
+	<valueType name="LotStatusType" base="xs:string" variety="Atomic">
+		<enumeration>SUBSCRIBED</enumeration>
+		<enumeration>CANCELED</enumeration>
+		<enumeration>BLOCKED</enumeration>
+		<enumeration>IN_ARCHIVE</enumeration>
+	</valueType>
+	<objectType name="CanceledLotDebitType">
+		<property name="lotDebitId" type="xs:integer" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType name="CanceledLotType">
+		<property name="lotNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType name="CreateLotDebitType">
+		<property name="amount" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property name="lotNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="comment" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7" name="Reason" type="d3p1:ReasonWriteOffCodeType"/>
+	</objectType>
+	<objectType name="CreateLotFromAnotherType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="ParentLot" type="d3p1:ParentLotType" upperBound="-1"/>
+	</objectType>
+	<objectType name="CreateLotFromFieldType">
+		<property name="amount" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property name="reserchNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType name="CreateLotFromHarvestedCropType">
+		<property name="harvestedCropId" type="xs:integer" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType name="CreateLotFromImportType">
+		<property name="amount" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="PlaceOfOrigin" type="d3p1:AddressType"/>
+	</objectType>
+	<objectType name="CreateLotFromPaperSDIZType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="ParentLot" type="d3p1:ParentLotType"/>
+	</objectType>
+	<objectType name="CreateLotFromResiduesType">
+		<property name="amount" type="xs:decimal" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="CreateLotOnElevatorType" base="d2p1:CreateLotType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Owner" type="d3p1:SubjectType"/>
+	</objectType>
+	<objectType name="CreateLotType" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="LotFromAnother" type="d3p1:CreateLotFromAnotherType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="LotFromResidues" type="d3p1:CreateLotFromResiduesType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="LotFromField" type="d3p1:CreateLotFromFieldType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="LotFromImport" type="d3p1:CreateLotFromImportType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="LotFromPaperSDIZ" type="d3p1:CreateLotFromPaperSDIZType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="LotFromHarvestedCrop" type="d3p1:CreateLotFromHarvestedCropType" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.7" name="Crop" type="d3p1:GrainProductType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7" name="Target" type="d3p1:LotsTargetCodeType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/dictionary/1.0.7" name="Purpose" type="d3p1:LotsPurposeCodeType"/>
+		<property name="HarvestYear" type="xs:integer"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="StoragePlace" type="d3p1:AddressRFType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.7" name="ListValueQualityIndicator" type="d3p1:ListValueQualityIndicatorType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="CountryDestination" type="d3p1:CountryType" lowerBound="0"/>
+	</objectType>
+	<objectType name="ListLotDebitType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="Record" type="d3p1:RecordLotDebitType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ListLotType">
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="Record" type="d3p1:RecordLotType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ParentLotType">
+		<property name="lotNumber" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="amount" type="xs:decimal" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="RecordLotDebitType" base="d2p1:CreateLotDebitType">
+		<property name="id" type="xs:integer" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/common/1.0.7" name="status" type="d3p1:StatusRecordType" lowerBound="1" form="Attribute"/>
+		<property name="dateRegistration" type="xs:date" lowerBound="1" form="Attribute"/>
+	</objectType>
+	<objectType xmlns:d2p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/lots/1.0.7" name="RecordLotType" base="d2p1:CreateLotType">
+		<property name="id" type="xs:integer" lowerBound="1" form="Attribute"/>
+		<property name="number" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="status" type="d2p1:LotStatusType" lowerBound="1" form="Attribute"/>
+		<property name="amountOriginal" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property name="amountAvailable" type="xs:decimal" lowerBound="1" form="Attribute"/>
+		<property name="dateRegistration" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="lastModified" type="xs:dateTime" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Owner" type="d3p1:SubjectType"/>
+		<property xmlns:d3p1="urn://x-artefacts-mcx-gov-ru/fgiz-zerno/api/organizations/1.0.7" name="Repository" type="d3p1:SubjectType" lowerBound="0"/>
+	</objectType>
+</package>

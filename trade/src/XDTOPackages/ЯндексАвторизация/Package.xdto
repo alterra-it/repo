@@ -1,0 +1,33 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="oauth.yandex.ru">
+	<objectType name="authorizeRequest" open="true" ordered="false">
+		<property name="response_type" type="xs:string" default="code" form="Attribute"/>
+		<property name="client_id" type="xs:string" form="Attribute"/>
+		<property name="redirect_uri" type="xs:string" default="https://oauth.yandex.ru/verification_code" form="Attribute"/>
+	</objectType>
+	<objectType name="authorizeResponse" open="true" ordered="false">
+		<property name="access_token" type="xs:string"/>
+		<property name="expires_in" type="xs:int"/>
+	</objectType>
+	<objectType name="tokenRequest" open="true" ordered="false">
+		<property name="grant_type" type="xs:string" default="authorization_code" form="Attribute"/>
+		<property name="code" type="xs:string" form="Attribute"/>
+		<property name="client_id" type="xs:string" form="Attribute"/>
+		<property name="client_secret" type="xs:string" form="Attribute"/>
+	</objectType>
+	<objectType name="tokenResponse" open="true" ordered="false">
+		<property name="token_type" type="xs:string" default="bearer"/>
+		<property name="access_token" type="xs:string"/>
+		<property name="expires_in" type="xs:int"/>
+		<property name="refresh_token" type="xs:string"/>
+	</objectType>
+	<objectType name="refreshRequest" open="true" ordered="false">
+		<property name="grant_type" type="xs:string" default="refresh_token" form="Attribute"/>
+		<property name="refresh_token" type="xs:string" form="Attribute"/>
+		<property name="client_id" type="xs:string" form="Attribute"/>
+		<property name="client_secret" type="xs:string" form="Attribute"/>
+	</objectType>
+	<objectType name="error" open="true" ordered="false">
+		<property name="error" type="xs:string"/>
+		<property name="error_description" type="xs:string"/>
+	</objectType>
+</package>

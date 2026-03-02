@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="b3e8a0d4-76bd-404b-9937-4691f2d86bcd">
+  <producedTypes>
+    <objectType typeId="43dc74e6-8b73-4dfb-9913-306305446bfd" valueTypeId="be4c34dd-2e6a-47aa-a314-7709bf29e732"/>
+    <refType typeId="6cae9feb-460f-4df1-a57c-7c85bff8660b" valueTypeId="f94e5d14-8a15-4d2a-8030-caaa16fa2e29"/>
+    <selectionType typeId="47805400-0e54-4681-940a-facf0a3af2bf" valueTypeId="e30f17d6-d137-43f6-b722-27da2c453192"/>
+    <listType typeId="13ffb308-dac5-4bf0-93fc-321aca2995a7" valueTypeId="f7bcc6f3-63cf-405b-bdb7-6fbf476ece03"/>
+    <managerType typeId="c7d6f214-65a9-4fab-a5d6-fdf2eedf9c70" valueTypeId="12fd2e5c-7d4c-4d5d-9f56-38bbf058de85"/>
+  </producedTypes>
+  <name>НормативыПриемкиНаСклад</name>
+  <synonym>
+    <key>ru</key>
+    <value>Нормативы приемки на склад</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Catalog.НормативыПриемкиНаСклад.StandardAttribute.Description</inputByString>
+  <inputByString>Catalog.НормативыПриемкиНаСклад.StandardAttribute.Code</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <levelCount>2</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <codeLength>9</codeLength>
+  <descriptionLength>25</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <attributes uuid="f9049471-ad69-4e41-b754-b97ac3401142">
+    <name>Склад</name>
+    <synonym>
+      <key>ru</key>
+      <value>Склад</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Склады</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="2cd528ca-dd62-4c9c-98a4-a4f77de1cd59">
+    <name>ВремяФормирования</name>
+    <synonym>
+      <key>ru</key>
+      <value>Время формирования</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Time</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <tabularSections uuid="a2817941-6a90-43d0-bd6f-e2c7f9d509ed">
+    <producedTypes>
+      <objectType typeId="6baf8439-cb12-4a74-b51b-e8f0d7b06102" valueTypeId="0728723e-44dd-4200-a399-2f5021047a92"/>
+      <rowType typeId="bf4ec0cb-cf14-47f2-b00c-62e9820789a0" valueTypeId="f7108008-461e-49ac-8a0c-1588cd6065be"/>
+    </producedTypes>
+    <name>ВремяПоЭтапам</name>
+    <synonym>
+      <key>ru</key>
+      <value>Время по этапам</value>
+    </synonym>
+    <attributes uuid="c7ef1463-6bd6-4bfe-8225-c4009bdcc59d">
+      <name>Этап</name>
+      <synonym>
+        <key>ru</key>
+        <value>Этап</value>
+      </synonym>
+      <type>
+        <types>EnumRef.ЭтапыПеремещения</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="94863140-8972-476a-b025-7dd6d5ebc7f6">
+      <name>Время</name>
+      <synonym>
+        <key>ru</key>
+        <value>Время</value>
+      </synonym>
+      <comment>время в минутах</comment>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </type>
+      <format>
+        <key>ru</key>
+        <value>ДФ=dd:HH:mm:ss</value>
+      </format>
+      <editFormat>
+        <key>ru</key>
+        <value>ДФ=dd:HH:mm:ss</value>
+      </editFormat>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="e694aa54-9679-47a7-a3c9-32331f1ab082">
+      <name>Дней</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дней</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>2</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:StringValue">
+        <value>0</value>
+      </minValue>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="1b0ed8cb-2d06-4970-b3f2-3fbbec044e97">
+      <name>Часов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Часов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>2</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:StringValue">
+        <value>0</value>
+      </minValue>
+      <maxValue xsi:type="core:StringValue">
+        <value>23</value>
+      </maxValue>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="020e0e94-bbbb-4f63-ac10-2bedd9dca5b0">
+      <name>Минут</name>
+      <synonym>
+        <key>ru</key>
+        <value>Минут</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>2</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:StringValue">
+        <value>0</value>
+      </minValue>
+      <maxValue xsi:type="core:StringValue">
+        <value>59</value>
+      </maxValue>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+  </tabularSections>
+</mdclass:Catalog>

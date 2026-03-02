@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="d6b66674-5992-41e5-b8d2-1fcd3b815cc3">
+  <producedTypes>
+    <selectionType typeId="fe96027e-3e4a-4941-a979-2cbf1743faeb" valueTypeId="98a88f90-f418-494c-812e-8c86c23fbbc6"/>
+    <listType typeId="3a5563ee-9737-4b09-ae2e-2253693de2b7" valueTypeId="ff03511d-448a-4a53-a6b7-56e8eb14c1e3"/>
+    <managerType typeId="10d6433d-b2dd-4133-94ea-42e03140a3f4" valueTypeId="56cb56e1-d6a5-4517-a1b9-3ffca9aee733"/>
+    <recordSetType typeId="892d0e2e-e5bb-4f0a-bc8a-b4b5b65f603c" valueTypeId="18de2c84-43f2-467d-93cd-091d9616963e"/>
+    <recordKeyType typeId="b4ffbb8b-73f4-4d0e-990a-b2c6bb97c7d0" valueTypeId="436d1123-0e77-48ab-a1d1-79b099cc075e"/>
+    <recordType typeId="96848de5-38e7-4729-b4aa-53651bef3a02" valueTypeId="c959a0f8-81a9-49d2-a79c-dffde5b3bd71"/>
+  </producedTypes>
+  <name>РасходыПоОбъектам</name>
+  <synonym>
+    <key>ru</key>
+    <value>Расходы по объектам</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <registerType>Turnovers</registerType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="a392285a-6119-45f5-aa54-3e6acbe66ccf">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <dimensions uuid="8c2fdd05-cd40-4184-be5f-379faa428ceb">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="e839c81a-cdd4-4dfd-9be0-c870bd1cf936">
+    <name>Подразделение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Подразделение</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СтруктураПредприятия</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="14564c23-f86f-40cb-b88a-02818ec1ee11">
+    <name>ОбъектРасходов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Объект расходов</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="4769a2c2-43e7-4dda-ae78-586a38ba0032">
+    <name>АналитикаОбъекта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Аналитика объекта</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.АналитикаОбъекта</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="b7ef545b-628c-4fff-907b-f1f855223068">
+    <name>СтатьяРасходов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статья расходов</value>
+    </synonym>
+    <type>
+      <types>ChartOfCharacteristicTypesRef.СтатьиРасходов</types>
+      <types>ChartOfCharacteristicTypesRef.СтатьиАктивовПассивов</types>
+      <types>ChartOfCharacteristicTypesRef.СтатьиДоходов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="d92febdf-6b23-4fd4-90db-9f08c678e232">
+    <name>АналитикаРасходов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Аналитика расходов</value>
+    </synonym>
+    <type>
+      <types>Characteristic.СтатьиРасходов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

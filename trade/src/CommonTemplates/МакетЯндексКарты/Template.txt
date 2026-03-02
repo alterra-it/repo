@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta charset="utf-8">
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0px; padding: 0px }
+        input {width: 300px}
+        .btn {width: 50px; background: #666;}
+    </style>
+    <!--
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"  type="text/javascript"></script>
+    -->
+   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=#КлючЯндекс#" type="text/javascript"></script>
+</head>
+<body>
+
+<div id="map" style="width:100%; height:100%"></div>
+
+<form style="display: !none;">
+    CoordX <input id="CoordX" name="CoordX" value="0"><br>
+    CoordY <input id="CoordY" name="CoordY" value="0"><br>
+    distance <input id="distance" name="distance" value=""><br>
+    duration <input id="duration" name="duration" value=""><br>
+    adress <input id="adress" name="distance" value=""><br>
+	routeinfo <input id="routeinfo" name="routeinfo" value=""><br>
+	
+    WebClientOperation <input id="WebClientOperation" name="WebClientOperation" value="0"><br>
+
+    data <input id="data" name="data" value=""> <br>
+    calcMultiRouter <input id="calc_MultiRouter" height="50px" type="button" class="btn" onclick="calcMultiRouter();"><br>
+    calcRouter <input id="calc_Router" height="50px" type="button" class="btn" onclick="calcRouter();"><br>
+
+    WebClient <input id="WebClient" name="WebClient" onclick="WebClientClick();"><br> <!-- Событие Click bp 1C-->
+
+    ans <input id="ans" name="answere" value=""> <input height="50px" type="button" class="btn" onclick="Test();"><br>
+</form>
+
+
+<script type="text/javascript">
+    var MyMap;
+    var Polygon1, Polygon2, Polygon3, Polygon4;
+
+    ymaps.ready(init);
+
+    function init(){
+        myMap = new ymaps.Map ("map", {
+            //center: [53.348053, 83.779875],
+            center: #КоординатыФилиала#,
+        zoom: 10
+    });
+        Reset();
+        myMap.behaviors.enable('scrollZoom');
+        myMap.behaviors.enable('router');
+        myMap.behaviors.disable('dblClickZoom');
+        myMap.controls.remove('searchControl');
+
+        myMap.events.add('click', function (e) {
+            var mCords = e.get('coords');
+            
+            getAddressByCoords(mCords);
+            addMarker(mCords);
+            
+            document.getElementById('CoordX').value = mCords[0];
+            document.getElementById('CoordY').value = mCords[1];
+            document.getElementById('ans').value = '';
+            
+            var mes = "Стоимость доставки уточните у логиста-диспетчера (вн.тел. 1622), при удалении свыше 100 км от подразделения отгрузки применяется тариф за км, расстояние учитывается в обе стороны";
+            alert(mes);            
+
+        });
+
+        // ************* Начинаем рисовать области *********************
+        var strokeColor = '000';
+        var opacity = 0.5;
+        var strokeWidth = 2;
+
+        //Зоны
+        ViewZones();         
+    }//init
+    
+	function ViewZones() {
+        var strokeColor = '000';
+        var opacity = 0.5;
+        var strokeWidth = 2;    
+        
+	    #стрФункций#
+    }
+
+    function WebClientClick() {
+        //очистка перед кликом координат, иначе после клика в упр. формах идет считывание координат
+        document.getElementById('CoordX').value = "0";
+        document.getElementById('CoordY').value = "0";
+
+        var WebClientOperation = document.getElementById("WebClientOperation").value;
+        //alert(WebClientOperation);
+        switch (WebClientOperation) {
+            case "0":   // ничего не делаем
+                var a = 1;
+            default:   // запускаем функцию
+            //alert(WebClientOperation);
+	
+                eval(WebClientOperation);
+        }
+        //document.getElementById('WebClientOperation').value = "0";
+    }
+</script>
+
+<!--  ************* Функции обработки запросов из 1С ***************** -->
+
+<!-- Функции работа с зонами -->
+<script>
+    function GetCoordsZone(sZone) {
+        var arCoordX = Array();
+        var arCoordY = Array();
+
+        //console.log(zone);
+        //console.log(sZone);
+        sZone = sZone.replace(/,0/g, '');
+        var arTemp = sZone.split(' ');
+        arTemp.forEach(function(item, i, arr) {
+            var arCoords = item.split(',');
+            arCoords = arCoords.reverse();
+            arCoordX[i] = arCoords;
+        });
+        var arCoordXY = Array(arCoordX, arCoordY);
+
+        return arCoordXY;
+    }
+
+    function AddEventPoligon(Polygon) {
+        myMap.geoObjects.add(Polygon);
+
+        Polygon.events.add('click', function (e) {
+            var position = e.get('coords');
+            var zone = Polygon.properties._data.hintContent;
+            
+            getAddressByCoords(position);
+            
+            //alert(position);
+            document.getElementById('CoordX').value = position[0];
+            document.getElementById('CoordY').value = position[1];
+            document.getElementById('ans').value = zone;
+            //console.log(Polygon.properties);
+            //console.log(Polygon.properties._data.hintContent);
+            addMarker(position, zone);
+
+        });
+    }
+
+    function GetZoneOnCoords(position) {
+
+        document.getElementById('ans').value = '';
+        
+		#стрСобытий#
+
+    }
+
+
+</script>
+
+<!-- Вспомагательные -->
+<script>  
+ //Маршрут по точкам с расчетом растояний
+    function calcRouter () {
+        var data = document.getElementById("data").value;
+        if (!data) {
+            //console.log('data is empty');
+            return;
+        }
+        var ArrayPoints = JSON.parse(data);
+
+        var routeinfo = document.getElementById('routeinfo').value;
+        routeinfo = '';
+        var Route = new ymaps.route(ArrayPoints);
+        Route.then(function (route) {
+            myMap.geoObjects.add(route);
+
+            var points = route.getWayPoints();
+            points.options.set('preset', 'islands#blueStretchyIcon');
+            for (var i=0; i < points.getLength() ; i++) {
+                var point = points.get(i);
+                if (i == 0 || i == points.getLength()-1) {
+                    point.properties.set('iconContent', 'Старт');
+                    point.options.set('preset', 'islands#redStretchyIcon');
+                } else {
+                    point.properties.set('iconContent', i + ' - ' + ArrayPoints[i]);
+                }
+            }
+
+            for (var i=0; i < route.getPaths().toArray().length; i++) {
+                var curPath = route.getPaths().get(i);
+                var length = curPath.getLength();
+                routeinfo= routeinfo+length+';';
+            }
+            document.getElementById('routeinfo').value = routeinfo;
+
+            var distance = route.getLength();
+            document.getElementById('distance').value = distance;
+        });
+    }  
+   
+ function calcMultiRouter () {
+        var data = document.getElementById("data").value;
+        if (!data) {
+            //console.log('data is empty');
+            return;
+        }
+        var ArrayPoint = JSON.parse(data);
+        //ArrayPoint = ["658087, Алтайский край, г. Новоалтайск, ул. Молодежная 26 В","659660, Алтайский край, село Сосновка, Лесная ул., д. 1","658087, Алтайский край, г. Новоалтайск, ул. Молодежная 26 В"];
+        var multiRoute = new ymaps.multiRouter.MultiRoute({
+            referencePoints: ArrayPoint,
+        }, {
+            editorDrawOver: false,
+            wayPointDraggable: true,
+            viaPointDraggable: true,
+            // Задаем собственное оформление линий мультимаршрута.
+            routeStrokeColor: "000088",
+            routeActiveStrokeColor: "ff0000",
+            pinIconFillColor: "ff0000",
+            boundsAutoApply: true,
+            zoomMargin: 30
+        });
+        myMap.geoObjects.add(multiRoute);
+
+        multiRoute.events.once('update', function () {
+            var activeRoute = multiRoute.getActiveRoute();
+            var distance = activeRoute.properties._data.distance.value;
+            var duration = activeRoute.properties._data.duration.value;
+            var distance_text = activeRoute.properties._data.distance.text;
+            var duration_text = activeRoute.properties._data.duration.text;
+
+            document.getElementById('duration').value = distance;
+            document.getElementById('distance').value = distance;
+
+            document.getElementById('routeinfo').value = distance_text + '; ' +duration_text;
+        });
+
+    }    
+	
+	//Маршрут по точкам с расчетом растояний для оптовых поставок
+    function calcRouterPostavki (ArrayPoints) {
+        var routeinfo = document.getElementById('routeinfo').value;
+        routeinfo = '';
+        var Route = new ymaps.route(ArrayPoints);
+        Route.then(function (route) {
+            myMap.geoObjects.add(route);
+
+            var points = route.getWayPoints();
+            points.options.set('preset', 'islands#blueStretchyIcon');
+            for (var i=0; i < points.getLength() ; i++) {
+                var point = points.get(i);
+                if (i == points.getLength()-1) {
+                    //point.properties.set('iconContent', 'Старт');
+                    point.properties.set('iconContent', i + ' - ' + ArrayPoints[i]);
+                    point.options.set('preset', 'islands#redStretchyIcon');
+                } else {
+                    point.properties.set('iconContent', i + ' - ' + ArrayPoints[i]);
+                }
+            }
+
+            for (var i=0; i < route.getPaths().toArray().length; i++) {
+                var curPath = route.getPaths().get(i);
+                var length = curPath.getLength();
+                routeinfo= routeinfo+length+';';
+            }
+            document.getElementById('routeinfo').value = routeinfo;
+
+            var distance = route.getLength();
+            document.getElementById('distance').value = distance;
+        });
+    }
+        
+    //Адрес по координатам
+    function getAddressByCoords(coords) {
+        ymaps.geocode(coords).then(function (res) {
+           var firstGeoObject = res.geoObjects.get(0);
+           var adress = firstGeoObject.getAddressLine();
+           document.getElementById('adress').value = adress;
+        });
+    }
+    
+    function Reset(){
+        // Удаляем все геообъекты на карте
+        myMap.geoObjects.removeAll();
+
+        PointArray = [];
+        index = 1;
+
+        document.getElementById('CoordX').value = '';
+        document.getElementById('CoordY').value = '';
+        document.getElementById('WebClientOperation').value = '';
+        document.getElementById('ans').value = '';
+        document.getElementById('routeinfo').value = '';
+        document.getElementById('distance').value = '';
+        document.getElementById('adress').value = '';   
+    }
+
+    function addMarker(coordPosition, name){
+        myPlacemark = new ymaps.Placemark(coordPosition, {
+            // Свойства
+            // Текст метки
+            iconContent: name
+        }, {
+            // Опции
+            // Иконка метки будет растягиваться под ее контент
+            preset: 'islands#blueStretchyIcon'
+        });
+        myMap.geoObjects.add(myPlacemark);
+    }
+
+    function FindAdres(Adres){
+        //Reset();
+        var myGeocoder = ymaps.geocode(Adres);
+        myGeocoder.then(
+            function (res){
+                var firstGeoObject = res.geoObjects.get(0);
+                if(firstGeoObject != null){
+                var mCoords = firstGeoObject.geometry.getCoordinates();
+                    myMap.panTo(
+                        // Координаты нового центра карты
+                        	mCoords, {
+                            /* Опции перемещения:
+                               разрешить уменьшать и затем увеличивать зум
+                               карты при перемещении между точками 
+                            */
+                            flying: true
+                        }
+                    );
+                    
+                    GetZoneOnCoords(mCoords);
+                    var zone = document.getElementById('ans').value;
+                    //alert(zone);
+                    addMarker(mCoords, zone);
+
+                   /* myPlacemark = new ymaps.Placemark(firstGeoObject.geometry.getCoordinates(), {
+                        // Свойства
+                        // Текст метки
+                        iconContent: Adres
+                    }, {
+                        // Опции
+                        // Иконка метки будет растягиваться под ее контент
+                        preset: 'islands#blueStretchyIcon'
+                    });
+                    myMap.geoObjects.add(myPlacemark); */
+                } else {
+                    alert("Ничего не найдено");}
+            }
+        );
+    }
+    
+    const getGoordsByAddressAddMarker=(Address)=> {
+            var myGeocoder = ymaps.geocode(Address);
+            myGeocoder.then(
+                function (res) {
+                    var firstGeoObject = res.geoObjects.get(0);
+                    if (firstGeoObject != null) {
+                        var mCoords = firstGeoObject.geometry.getCoordinates();
+                        document.getElementById('CoordX').value = mCoords[0]
+                        document.getElementById('CoordY').value = mCoords[1]
+
+                        addMarker(mCoords, Address)
+                    }
+                }
+            );
+        }
+
+        function getDistance(point1, point2) {
+            var dist = ymaps.coordSystem.geo.getDistance(point1, point2);
+            document.getElementById('routeinfo').value = dist;
+        }
+</script>
+
+<script>
+    function Test() {
+        // var ArrayPoints = ["658087, Алтайский край, г. Новоалтайск, ул. Молодежная 26 В",
+        //     "659660, Алтайский край, Петропавловский р-н, Петропавловское с, Жукова ул, дом № 52"];
+        //var ArrayPoints = ["658087, Алтайский край, г. Новоалтайск, ул. Молодежная 26 В","659660, Алтайский край, село Сосновка, Лесная ул., д. 1","658087, Алтайский край, г. Новоалтайск, ул. Молодежная 26 В"];
+                //"658087, Алтайский край, г. Новоалтайск, ул. Магистральная, дом № 17"];
+        //calcRouter(ArrayPoints);
+        //calcRouterPostavki(ArrayPoints);
+        calcRouter2();
+        // var multiRoute = new ymaps.multiRouter.MultiRoute({
+        //     referencePoints: ArrayPoints,
+        // });
+        // myMap.geoObjects.add(multiRoute);
+        
+        calcRouter2();
+    }
+</script>
+</body>
+</html>
