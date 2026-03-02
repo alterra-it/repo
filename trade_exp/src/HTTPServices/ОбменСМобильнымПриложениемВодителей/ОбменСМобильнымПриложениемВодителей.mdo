@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:HTTPService xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="feceae4b-0689-4c98-92e1-55f316a03d79">
+  <name>ОбменСМобильнымПриложениемВодителей</name>
+  <synonym>
+    <key>ru</key>
+    <value>Обмен с мобильным приложением водителей</value>
+  </synonym>
+  <rootURL>mobiledrivers</rootURL>
+  <reuseSessions>AutoUse</reuseSessions>
+  <sessionMaxAge>20</sessionMaxAge>
+  <urlTemplates uuid="348da566-1686-42f1-9fd2-51a6dd183a34">
+    <name>MobDelivery</name>
+    <synonym>
+      <key>ru</key>
+      <value>Mob delivery</value>
+    </synonym>
+    <template>/*</template>
+    <methods uuid="bf974e76-f989-4f48-b4b6-49837e6e9ad1">
+      <name>Echo</name>
+      <synonym>
+        <key>ru</key>
+        <value>Echo</value>
+      </synonym>
+      <handler>MobDeliveryEcho</handler>
+    </methods>
+    <methods uuid="b3902621-773c-4a35-8db0-6b7eb1eaea63">
+      <name>Обмен</name>
+      <synonym>
+        <key>ru</key>
+        <value>Обмен</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>MobDeliveryОбмен</handler>
+    </methods>
+  </urlTemplates>
+</mdclass:HTTPService>

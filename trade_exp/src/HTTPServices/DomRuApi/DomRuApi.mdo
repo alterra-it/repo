@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:HTTPService xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="066897c8-01a7-46ce-801a-a37feb3bb8b9">
+  <name>DomRuApi</name>
+  <synonym>
+    <key>ru</key>
+    <value>Дом.ru</value>
+  </synonym>
+  <comment>Облачная АТС Дом.ru Бизнес</comment>
+  <rootURL>domru-api</rootURL>
+  <sessionMaxAge>20</sessionMaxAge>
+  <urlTemplates uuid="e9f74960-027e-4142-8436-d48ebacc5c88">
+    <name>Event</name>
+    <synonym>
+      <key>ru</key>
+      <value>Event</value>
+    </synonym>
+    <template>/*</template>
+    <methods uuid="0fd128f3-9a89-415b-98fc-38395df8d514">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>EventPOST</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="0d36a207-b478-421f-9223-143cca1b85d8">
+    <name>ping</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ping</value>
+    </synonym>
+    <template>/ping</template>
+    <methods uuid="cb8ebf5a-7b46-418b-ae18-51b47d6c334e">
+      <name>GET</name>
+      <synonym>
+        <key>ru</key>
+        <value>GET</value>
+      </synonym>
+      <handler>pingGET</handler>
+    </methods>
+  </urlTemplates>
+</mdclass:HTTPService>

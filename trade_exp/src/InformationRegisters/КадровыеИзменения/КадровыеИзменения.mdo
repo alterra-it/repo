@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="fb99182b-9518-4818-b140-a8ed0d666e58" extendedConfigurationObject="cefcb96d-5b3a-4f37-93ee-4630e2f507a5">
+  <producedTypes>
+    <selectionType typeId="6d4c8c7b-f3ca-4eaa-9228-fc1057bb5e53" valueTypeId="0225c84d-9e9b-461b-b596-be460f3e5a77"/>
+    <listType typeId="8f07ee1f-c2c1-4a3e-8e03-a67061065e64" valueTypeId="f284da0f-bd51-4f9f-91a2-baa2c4777bcc"/>
+    <managerType typeId="fbdff9db-6cac-44f9-b4f3-909b9e624bd2" valueTypeId="f95de4fc-780e-4fee-8b2d-eed817d69ae7"/>
+    <recordSetType typeId="288cc334-eb37-43b1-b242-c31b82c484bd" valueTypeId="eb6ae37c-3924-43a9-8121-ddeb51eade34"/>
+    <recordKeyType typeId="b42b17fb-e640-409b-b729-f744c0ffb78b" valueTypeId="5f5bfe1c-a080-45ac-a16e-f9f868e3840a"/>
+    <recordType typeId="f76b5c42-c825-4ae9-b9d8-8ee57c4d07c6" valueTypeId="b2e5d70f-bd28-41f6-84df-c3b4643acd1e"/>
+    <recordManagerType typeId="a8555746-3b49-4fa5-a9a2-161c0efb534d" valueTypeId="08ca17ff-eeb7-4da7-b3ac-d86a83e969a0"/>
+  </producedTypes>
+  <name>КадровыеИзменения</name>
+  <objectBelonging>Adopted</objectBelonging>
+  <extension xsi:type="mdclassExtension:InformationRegisterExtension">
+    <extendedConfigurationObject>Checked</extendedConfigurationObject>
+    <informationRegisterPeriodicity>Checked</informationRegisterPeriodicity>
+    <writeMode>Checked</writeMode>
+    <defaultRecordForm>Extended</defaultRecordForm>
+  </extension>
+  <defaultRecordForm>InformationRegister.КадровыеИзменения.Form.ФормаЗаписи</defaultRecordForm>
+  <informationRegisterPeriodicity>Day</informationRegisterPeriodicity>
+  <dimensions uuid="84bdf128-f4d3-4c63-962e-42734f18829a" extendedConfigurationObject="7a9b89e1-fd34-4e28-a51f-69d890065bfd">
+    <name>Сотрудник</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.ФизическиеЛица</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <dimensions uuid="21934088-5fc6-48e0-8ac5-2baa5be7dffd" extendedConfigurationObject="fc20a892-2359-42ee-84ef-6f3a0ac2163b">
+    <name>СтруктурноеПодразделение</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.СтруктураПредприятия</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <dimensions uuid="5a70cde9-b140-400d-a848-09c39c3fc09c" extendedConfigurationObject="b2dedc49-79b3-4cba-b2bf-a761b7921bcf">
+    <name>Должность</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.Должности</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <forms uuid="353b2fd8-c047-4ce7-a232-a9a9133fb54c">
+    <name>ФормаЗаписи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма записи</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <commands uuid="a381b7c3-ed85-44aa-9739-f680bac0c187">
+    <name>КадровыеИзменения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кадровые изменения</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicCommandExtension">
+      <synonym>Extended</synonym>
+      <group>Checked</group>
+    </extension>
+    <group>FormNavigationPanelImportant</group>
+    <commandParameterType>
+      <types>CatalogRef.ФизическиеЛица</types>
+    </commandParameterType>
+    <representation>Auto</representation>
+  </commands>
+</mdclass:InformationRegister>

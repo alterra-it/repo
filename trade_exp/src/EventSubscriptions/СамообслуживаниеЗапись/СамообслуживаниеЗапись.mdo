@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:EventSubscription xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="bf02bdf7-7b1f-4472-a087-0adeb91a2e0b">
+  <name>СамообслуживаниеЗапись</name>
+  <synonym>
+    <key>ru</key>
+    <value>Самообслуживание запись</value>
+  </synonym>
+  <source>
+    <types>DocumentObject.РеализацияТоваровУслуг</types>
+    <types>DocumentObject.ЗаказКлиента</types>
+    <types>DocumentObject.ЧекККМ</types>
+  </source>
+  <event>BeforeWrite</event>
+  <handler>CommonModule.ДопМодульСервер.СамообслуживаниеЗаписьПередЗаписью</handler>
+</mdclass:EventSubscription>

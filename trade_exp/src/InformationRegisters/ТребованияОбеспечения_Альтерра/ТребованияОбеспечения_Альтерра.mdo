@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="31a83caf-cb3e-4592-a06d-bac4cd1a26d2" extendedConfigurationObject="7afdcd22-fc53-44b7-ae46-badd077f9430">
+  <producedTypes>
+    <selectionType typeId="ff158e88-8987-4754-9e58-e83445acfe7f" valueTypeId="051f49ac-b9f1-4777-b113-fb111f81493a"/>
+    <listType typeId="e9ea393c-d35e-4575-b594-b144719c428e" valueTypeId="a6cd50c3-e10d-4aee-806f-88d45fba3131"/>
+    <managerType typeId="89c5c808-502c-4715-98ee-a57d149c9b32" valueTypeId="8bc8b764-3bdd-45e2-9626-c61f2bf03335"/>
+    <recordSetType typeId="81fbd75d-f3c0-45a1-b33a-c5d72a0ca1d7" valueTypeId="da819519-8125-4320-a44a-62f9c8e3617c"/>
+    <recordKeyType typeId="248ea175-3348-4c3f-9655-9f0dce79df22" valueTypeId="050f69b3-dac8-416f-9427-5d12e5dc7ecd"/>
+    <recordType typeId="0199c992-e639-4262-95a1-bbe93feab23e" valueTypeId="dc1b7407-f76f-4868-86c2-1de5ab363141"/>
+    <recordManagerType typeId="a27e7a50-408c-411c-a027-c9aec5469435" valueTypeId="6e3e62ff-1ee6-4b65-9e6c-c901cc041e52"/>
+  </producedTypes>
+  <name>ТребованияОбеспечения_Альтерра</name>
+  <objectBelonging>Adopted</objectBelonging>
+  <extension xsi:type="mdclassExtension:InformationRegisterExtension">
+    <extendedConfigurationObject>Checked</extendedConfigurationObject>
+    <informationRegisterPeriodicity>Checked</informationRegisterPeriodicity>
+    <writeMode>Checked</writeMode>
+  </extension>
+  <resources uuid="264caa1f-7e9e-4359-ae16-c6f5320a022c" extendedConfigurationObject="5c118a09-aa98-4e57-9bb1-ba7e43cde57c">
+    <name>МинимальныйОстаток</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>Number</type>
+        </types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>3</scale>
+        </numberQualifiers>
+      </typeExtension>
+    </extension>
+  </resources>
+  <resources uuid="7a2e3efa-25d0-4643-b476-b27a466d7aa3" extendedConfigurationObject="b302b04a-4b68-4e27-a26c-60996fe5c0db">
+    <name>МаксимальныйОстаток</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>Number</type>
+        </types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>3</scale>
+        </numberQualifiers>
+      </typeExtension>
+    </extension>
+  </resources>
+  <dimensions uuid="50af75af-2e72-476c-b4ac-d86574dd6d61" extendedConfigurationObject="7d27e4f8-2790-4b50-91e7-d0d69ca2430b">
+    <name>Склад</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.Склады</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <dimensions uuid="9fb65d32-dc49-4ea2-ae23-5aa5f8dbad56" extendedConfigurationObject="83cbaded-f671-4a57-bf78-387b974da038">
+    <name>Номенклатура</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.Номенклатура</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <commands uuid="c848ff84-1bae-44f1-b11d-dfc362486e5f">
+    <name>ТребованияОбеспечения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Требования обеспечения</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicCommandExtension">
+      <synonym>Extended</synonym>
+      <group>Checked</group>
+    </extension>
+    <group>FormNavigationPanelGoTo</group>
+    <commandParameterType>
+      <types>CatalogRef.Номенклатура</types>
+    </commandParameterType>
+    <representation>Auto</representation>
+  </commands>
+</mdclass:InformationRegister>

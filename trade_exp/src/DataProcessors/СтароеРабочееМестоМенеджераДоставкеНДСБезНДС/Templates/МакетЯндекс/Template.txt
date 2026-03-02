@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+	<meta charset="utf-8">
+    <style type="text/css">
+		html { height: 100% }
+		body { height: 100%; margin: 0px; padding: 0px }
+	</style>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"  type="text/javascript"></script>
+</head>
+<body>
+
+<div id="map" style="width:100%; height:100%"></div>
+
+<form>
+	<input type="hidden" id="CoordX" name="CoordX" value="0"></input><br>
+	<input type="hidden" id="CoordY" name="CoordY" value="0"></input><br>
+	<input type="hidden" id="WebClientOperation" name="WebClientOperation" value="0"></input><br>
+	<input type="hidden" id="ans" name="answere" value=""></input> <input height="50px" type="button" onclick="Test();"></input> <br>
+	<input type="hidden" id="WebClient" name="WebClient" onclick="WebClientClick();"></input> <!-- Событие Click bp 1C-->
+</form>
+
+<script type="text/javascript">
+	var MyMap;
+	var Polygon1, Polygon2, Polygon3, Polygon4;
+	
+	ymaps.ready(init);
+
+	function init(){  
+		myMap = new ymaps.Map ("map", {
+			center: [53.348053, 83.779875],
+			zoom: 10
+            //center: [55.73, 37.75],
+            //zoom: 10			
+		});
+		Reset();
+		myMap.behaviors.enable('scrollZoom');
+		myMap.behaviors.disable('dblClickZoom');
+			
+
+        // ************* Начинаем рисовать области *********************
+		var strokeColor = '000';
+		var opacity = 0.5;
+		var strokeWidth = 2;
+		//Зона 1
+		var arCoordsZone = GetCoordsZone(1);
+		Polygon1 = new ymaps.Polygon(arCoordsZone, {hintContent: "Зона 1"}, {fillColor: '#00CCCC', strokeColor: strokeColor, strokeWidth: strokeWidth, opacity: opacity});
+		AddEventPoligon(Polygon1);			
+		//Зона 2
+		var arCoordsZone = GetCoordsZone(2);
+		Polygon2 = new ymaps.Polygon(arCoordsZone, {hintContent: "Зона 2"}, {fillColor: '#336600', strokeColor: strokeColor, strokeWidth: strokeWidth, opacity: opacity});
+		AddEventPoligon(Polygon2);
+		//Зона 3
+		var arCoordsZone = GetCoordsZone(3);
+		Polygon3 = new ymaps.Polygon(arCoordsZone, {hintContent: "Зона 3"}, {fillColor: '#0066CC', strokeColor: strokeColor, strokeWidth: strokeWidth, opacity: opacity});
+		AddEventPoligon(Polygon3);
+		//Зона 4
+		var arCoordsZone = GetCoordsZone(4);
+		Polygon4 = new ymaps.Polygon(arCoordsZone, {hintContent: "Зона 4"}, {fillColor: '#CCCC33', strokeColor: strokeColor, strokeWidth: strokeWidth, opacity: opacity});
+		AddEventPoligon(Polygon4);
+	}//init
+
+	//Событие Click на карте
+    function WebClientClick() {
+    	//очистка перед кликом координат, иначе после клика в упр. формах идет считывание координат
+    	document.getElementById('CoordX').value = "0";
+		document.getElementById('CoordY').value = "0";
+    	
+    	var WebClientOperation = document.getElementById("WebClientOperation").value;
+		//alert(WebClientOperation);
+		switch (WebClientOperation) {
+        	case "0":   // ничего не делаем
+        	   var a = 1; 
+        	default:   // запускаем функцию
+        	    eval(WebClientOperation);
+        }
+        document.getElementById('WebClientOperation').value = "0";
+	}    	
+</script>	
+
+<!--  ************* Функции обработки запросов из 1С ***************** -->
+
+<!-- Функции работа с зонами -->
+<script>
+	function GetCoordsZone(zone) {
+		var arCoordX = Array();
+    	var arCoordY = Array();
+		var sZone1 = '83.7458837509,53.3392091881,0 83.7451756477,53.339106693,0 83.7444407225,53.3391323168,0 83.7429869652,53.3395935424,0 83.7412059784,53.3401444442,0 83.739661026,53.3405704274,0 83.7381697178,53.3412109955,0 83.7344682693,53.3441510799,0 83.7374562502,53.3454833389,0 83.7382126331,53.3459701155,0 83.7389743805,53.3464184574,0 83.7399775267,53.3468796042,0 83.74109869,53.3473823766,0 83.7447840452,53.351814203,0 83.7499017,53.3583426222,0 83.7457281828,53.3622579133,0 83.7567359686,53.366592166,0 83.7541074037,53.3689895801,0 83.7555343389,53.3701866363,0 83.7568432569,53.3712780405,0 83.758871007,53.3729615007,0 83.7630230665,53.3746640963,0 83.7713057279,53.378059483,0 83.7784511328,53.3809394291,0 83.808816421,53.3902883117,0 83.8082370639,53.3910369014,0 83.8072070956,53.3916703132,0 83.8060376525,53.3927195806,0 83.804696548,53.3938008109,0 83.8034412741,53.3944405791,0 83.8023040175,53.3948820136,0 83.8012204051,53.3952978535,0 83.8008878112,53.3953426361,0 83.8000402331,53.395253071,0 83.7983558059,53.3952274809,0 83.7432229996,53.3985796475,0 83.7047802388,53.3982406045,0 83.687099117,53.3945429412,0 83.6796318471,53.393749629,0 83.662165302,53.3941590823,0 83.6619078099,53.390755382,0 83.6640964925,53.3906786037,0 83.6641394078,53.3897572529,0 83.6649547994,53.3886055364,0 83.6631892353,53.3882632146,0 83.6601422459,53.3876361508,0 83.6547778278,53.3866251509,0 83.6473534733,53.3770258548,0 83.6373327404,53.3642618398,0 83.6340711742,53.3603435314,0 83.6292002827,53.3540555582,0 83.6327193409,53.3528388372,0 83.6284123838,53.3485608263,0 83.6203013837,53.3492781275,0 83.6187564313,53.338594214,0 83.6163102567,53.3232426125,0 83.6241637647,53.3127572931,0 83.6207305371,53.3115393935,0 83.6203657567,53.3112188878,0 83.622833389,53.308526545,0 83.6222540319,53.3079752348,0 83.6256443441,53.3059430184,0 83.6273824155,53.3047890354,0 83.627940315,53.3032375203,0 83.6281119764,53.3023014549,0 83.6367165029,53.2928915763,0 83.6838375508,53.2550644449,0 83.6892448842,53.249441411,0 83.6902748525,53.2497495416,0 83.7056814611,53.2404789756,0 83.7393270909,53.2504428273,0 83.7705694616,53.2782676861,0 83.7770925939,53.2807310075,0 83.7824140966,53.3033048392,0 83.7989968538,53.3233034916,0 83.7862992763,53.3228549066,0 83.780199933,53.320727268,0 83.7707907438,53.3190962201,0 83.7701148271,53.3200863922,0 83.7688059091,53.3218583903,0 83.761912632,53.3284618798,0 83.7555182457,53.3344845501,0 83.748887825,53.3403398205,0 83.7458837509,53.3392091881,0';
+		var sZone2 = '83.9723944664,53.3026777813,0 83.991792202,53.3099605336,0 84.0106749534,53.2693253803,0 84.0055251121,53.2444737573,0 83.9210677147,53.1556294625,0 83.8702559471,53.1601583914,0 83.8699126243,53.1778578019,0 83.9723944664,53.3026777813,0';
+		var sZone3 = '83.6892443895,53.249445879,0 83.6879515648,53.2507650473,0 83.6874526739,53.2513106769,0 83.686170578,53.2526426256,0 83.6838424205,53.2551010052,0 83.6811065673,53.2572704238,0 83.6782097816,53.2596130157,0 83.6722981929,53.2643491519,0 83.6621701717,53.2724596899,0 83.6485660076,53.2833654242,0 83.6428153515,53.2882400289,0 83.6372363567,53.2927293044,0 83.630541563,53.2997829271,0 83.6282026767,53.3022193624,0 83.6279451847,53.3036170441,0 83.6273014545,53.3049762137,0 83.6222696304,53.3079732861,0 83.6224305629,53.3081591938,0 83.6228489875,53.3085374174,0 83.621840477,53.3097041198,0 83.6203813553,53.3113002709,0 83.6231279373,53.3123963883,0 83.6242330074,53.3127553446,0 83.6226987838,53.314800056,0 83.6173343658,53.3220038384,0 83.6163419485,53.3233015436,0 83.6164170503,53.3239359629,0 83.6167281866,53.3259000396,0 83.6205047369,53.3492569674,0 83.6284279823,53.3485492726,0 83.6327087879,53.3527536399,0 83.629168272,53.3539895745,0 83.6550247669,53.3866583992,0 83.6649543047,53.3885715988,0 83.6641657352,53.3897521087,0 83.6641281843,53.3900112407,0 83.6641067266,53.3906670614,0 83.6619073152,53.3907534371,0 83.6621701717,53.3941635352,0 83.6601585149,53.3965913841,0 83.6118733883,53.4148965509,0 83.5751378536,53.4252289033,0 83.5603749752,53.435047426,0 83.5469853878,53.4360700583,0 83.4487521648,53.4222368714,0 83.4075534343,53.3812990632,0 83.4717547893,53.1696392889,0 83.5980975628,53.160171257,0 83.6717402935,53.1548703056,0 83.796967268,53.1930688286,0 83.7792003154,53.2198261052,0 83.7341445684,53.2299103669,0 83.7057131529,53.2404738134,0 83.7030309438,53.2420597107,0 83.696475625,53.2460338267,0 83.6926561594,53.2483128382,0 83.6902958154,53.2497572192,0 83.6892443895,53.249445879,0';
+		var sZone4 = '83.771226108,53.3191455435,0 83.7707754969,53.3190942719,0 83.7698414177,53.3204914012,0 83.7691547721,53.3213886162,0 83.768806085,53.3218500336,0 83.7667193264,53.3239071258,0 83.7627067417,53.3277294652,0 83.7562372535,53.3337458321,0 83.748877272,53.3403506847,0 83.7457444519,53.3391623992,0 83.7451114505,53.3390983397,0 83.744424805,53.3391239635,0 83.7434699386,53.3393866065,0 83.7424527109,53.3397517417,0 83.7410365045,53.3401553085,0 83.7402157485,53.3404051337,0 83.7389175594,53.3407894772,0 83.7369541824,53.3420257587,0 83.7344650924,53.3441779561,0 83.7374262512,53.3454845944,0 83.7386493385,53.3462659961,0 83.7400011718,53.3469064787,0 83.7410955131,53.3473804296,0 83.7433056533,53.3499806612,0 83.7453655898,53.352593542,0 83.7498931587,53.3583438773,0 83.7456874549,53.3621855398,0 83.756545037,53.3664877906,0 83.7540774047,53.3689844334,0 83.7589053809,53.3729915593,0 83.7784318626,53.3809534829,0 83.9240503311,53.4255485524,0 83.9298868179,53.4352647374,0 83.9415597916,53.4412978816,0 84.0158891678,53.4081561512,0 84.0447282791,53.3810302787,0 83.9853334427,53.3427175483,0 83.9913415909,53.309909251,0 83.972287178,53.3027290727,0 83.9228057861,53.3112938607,0 83.9140510559,53.3288283644,0 83.9137077332,53.3298535511,0 83.9121627808,53.3273930618,0 83.7863028049,53.3228561627,0 83.7841999531,53.3222153189,0 83.7809813022,53.3209592371,0 83.7801980972,53.3206452109,0 83.7772342562,53.3200940572,0 83.771226108,53.3191455435,0';
+		var sZone;
+
+ 		switch(zone) {
+			case 1: 
+				sZone = sZone1; 
+				break;
+			case 2: 
+				sZone = sZone2; 
+				break;
+			case 3: 
+				sZone = sZone3; 
+				break;
+			case 4: 
+				sZone = sZone4; 
+				break;
+		}
+		//console.log(zone);
+		//console.log(sZone);
+		sZone = sZone.replace(/,0/g, '');
+		var arTemp = sZone.split(' ');
+		arTemp.forEach(function(item, i, arr) {
+			var arCoords = item.split(',');
+			arCoords = arCoords.reverse();
+			arCoordX[i] = arCoords;
+		});
+		var arCoordXY = Array(arCoordX, arCoordY);
+	
+		return arCoordXY;
+    }
+	function AddEventPoligon(Polygon) {
+		myMap.geoObjects.add(Polygon);
+		
+		Polygon.events.add('click', function (e) {
+		    var position = e.get('coords');
+			//alert(position);
+			document.getElementById('CoordX').value = position[0];
+			document.getElementById('CoordY').value = position[1];
+			document.getElementById('ans').value = Polygon.properties._data.hintContent;
+			//console.log(Polygon.properties);
+			//console.log(Polygon.properties._data.hintContent);
+
+	});
+	}	
+    function GetZoneOnCoords(position) {
+
+        document.getElementById('ans').value = '';
+        if (Polygon1.geometry.contains(position)) {
+            document.getElementById('ans').value = Polygon1.properties._data.hintContent;
+        }
+        if (Polygon2.geometry.contains(position)) {
+            document.getElementById('ans').value = Polygon2.properties._data.hintContent;
+        }
+        if (Polygon3.geometry.contains(position)) {
+            document.getElementById('ans').value = Polygon3.properties._data.hintContent;
+        }
+        if (Polygon4.geometry.contains(position)) {
+            document.getElementById('ans').value = Polygon4.properties._data.hintContent;
+        }
+        
+    }		
+</script>
+
+<!-- Вспомагательные -->
+<script>
+	function Reset(){
+			// Удаляем все геообъекты на карте
+			myMap.geoObjects.removeAll();
+					
+			PointArray = [];
+			index = 1;
+			
+			document.getElementById('CoordX').value = '';
+			document.getElementById('CoordY').value = '';
+			document.getElementById('WebClientOperation').value = '';	
+			document.getElementById('ans').value = '';
+	}
+
+	function addMarker(coordPosition, name){
+		myPlacemark = new ymaps.Placemark(coordPosition, {
+			// Свойства
+			// Текст метки
+			iconContent: name
+		}, {
+			// Опции
+			// Иконка метки будет растягиваться под ее контент
+			preset: 'islands#blueStretchyIcon'
+		});
+		myMap.geoObjects.add(myPlacemark);
+	}	    
+</script>
+</body>
+</html>

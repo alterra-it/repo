@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:HTTPService xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="ed33e38d-0eea-4b6b-9f9a-8248dce50fae">
+  <name>vatsDsiApi</name>
+  <synonym>
+    <key>ru</key>
+    <value>vats DSI</value>
+  </synonym>
+  <comment>Виртуальная АТС Деловой Сети – Иркутск</comment>
+  <rootURL>dsi-api</rootURL>
+  <reuseSessions>AutoUse</reuseSessions>
+  <sessionMaxAge>20</sessionMaxAge>
+  <urlTemplates uuid="9b9c30e0-03ae-43a0-bbdc-928eadf5afb0">
+    <name>Event</name>
+    <synonym>
+      <key>ru</key>
+      <value>Event</value>
+    </synonym>
+    <template>/*</template>
+    <methods uuid="e66dc82d-3c3a-479a-b35d-3a37e3d6e717">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>EventPOST</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="4a044d95-3de2-4fba-af3f-617622dde12f">
+    <name>ping</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ping</value>
+    </synonym>
+    <template>/ping</template>
+    <methods uuid="a7b32039-dca3-4253-bd5d-a12048b9bafc">
+      <name>GET</name>
+      <synonym>
+        <key>ru</key>
+        <value>GET</value>
+      </synonym>
+      <handler>pingGET</handler>
+    </methods>
+  </urlTemplates>
+</mdclass:HTTPService>

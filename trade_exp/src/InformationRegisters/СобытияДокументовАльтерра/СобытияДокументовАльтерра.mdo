@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="42272910-bc34-4039-80bf-a5809418ae50" extendedConfigurationObject="3e883146-7b48-4081-a003-71ee5e8f1efb">
+  <producedTypes>
+    <selectionType typeId="e4e79aac-b594-493d-bb4a-bca7ef586aea" valueTypeId="0650d95a-b661-4b0d-9f9d-e9d00281bf25"/>
+    <listType typeId="3971c3fd-53cf-43d4-9ee9-959d071bb7d8" valueTypeId="b966c39e-fb93-41e6-8ecb-753cd38d64ac"/>
+    <managerType typeId="1fd5e6fe-edf7-450e-81ea-c56c0ca89af2" valueTypeId="56009acf-16f8-4684-8f49-255c4aadc076"/>
+    <recordSetType typeId="cbb3594e-5c56-4874-8bba-72d2fde43f7a" valueTypeId="4ebb8172-a829-4e38-be02-f3755b40109f"/>
+    <recordKeyType typeId="af06ba52-960e-4498-ac69-6bdaa9838d46" valueTypeId="76955981-d568-4723-909d-1b27d1c475a2"/>
+    <recordType typeId="8278b697-9c05-47cc-ba5d-d8b09f4346e1" valueTypeId="8965dc14-cdf5-43c1-bea9-7bd6ad7b85a0"/>
+    <recordManagerType typeId="d3070f4b-cd56-4aac-85bb-0400cb719f4a" valueTypeId="6dc11cfa-8a1e-4afd-9c59-3b527f4fc617"/>
+  </producedTypes>
+  <name>СобытияДокументовАльтерра</name>
+  <objectBelonging>Adopted</objectBelonging>
+  <extension xsi:type="mdclassExtension:InformationRegisterExtension">
+    <extendedConfigurationObject>Checked</extendedConfigurationObject>
+    <informationRegisterPeriodicity>Checked</informationRegisterPeriodicity>
+    <writeMode>Checked</writeMode>
+    <managerModule>Extended</managerModule>
+    <defaultListForm>Extended</defaultListForm>
+  </extension>
+  <defaultListForm>InformationRegister.СобытияДокументовАльтерра.Form.ФормаСписка</defaultListForm>
+  <informationRegisterPeriodicity>Second</informationRegisterPeriodicity>
+  <attributes uuid="bbc9ca34-b515-425d-a188-7d4386c6e90b" extendedConfigurationObject="75c3f75b-2122-4ca4-882f-2a48b8400bb0">
+    <name>Пользователь</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.Пользователи</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </attributes>
+  <dimensions uuid="88bacecf-2e0f-456e-9b51-36f63b53c515" extendedConfigurationObject="8dba71fd-f575-4686-9841-236c53c988bc">
+    <name>Документ</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>DocumentRef</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <dimensions uuid="39710606-ad64-4960-9c83-9ef195bd3150" extendedConfigurationObject="d2a1c204-387f-4476-88e2-11c124366a2b">
+    <name>Событие</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>EnumRef.СобытияДокументов</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <forms uuid="774b8f8a-10a4-4483-926e-1fd65d406f2a">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <commands uuid="f1203841-3e49-4bcd-b848-b0965a859847">
+    <name>СобытияДокумента</name>
+    <synonym>
+      <key>ru</key>
+      <value>События</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicCommandExtension">
+      <synonym>Extended</synonym>
+      <group>Checked</group>
+    </extension>
+    <group>FormNavigationPanelGoTo</group>
+    <commandParameterType>
+      <types>DocumentRef.РеализацияТоваровУслуг</types>
+      <types>DocumentRef.ЧекККМ</types>
+    </commandParameterType>
+    <representation>Auto</representation>
+  </commands>
+  <commands uuid="349c8e40-7ef1-411e-b1cb-87e4c478df71">
+    <name>СобытияРейса</name>
+    <synonym>
+      <key>ru</key>
+      <value>События</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicCommandExtension">
+      <synonym>Extended</synonym>
+      <group>Checked</group>
+    </extension>
+    <group>FormNavigationPanelGoTo</group>
+    <commandParameterType>
+      <types>DocumentRef.ЗаданиеНаПеревозкуРейс</types>
+    </commandParameterType>
+    <representation>Auto</representation>
+  </commands>
+</mdclass:InformationRegister>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="6b6edaff-c98d-4c7e-ab42-673fda6ad0c1" extendedConfigurationObject="4800be07-b74e-45d9-83ee-9b740463b7f0">
+  <producedTypes>
+    <selectionType typeId="c7fb590c-ddc3-4a79-a19d-9716c8c38b9b" valueTypeId="602f5473-937c-4bc9-8013-1673d2c0b1e5"/>
+    <listType typeId="635be26c-dc50-491b-bcde-b4cb4fc32831" valueTypeId="36220251-510a-43f9-a9b0-0866c54c4144"/>
+    <managerType typeId="d9a4dd11-3888-4251-a055-d1c9c70f9ef2" valueTypeId="cb9e1d7c-dc68-4c3a-a620-beed34f31ab2"/>
+    <recordSetType typeId="416e842d-333d-4db0-88eb-0cfcacd008c4" valueTypeId="32be90b8-6dca-4a76-a500-80889d42fc71"/>
+    <recordKeyType typeId="73bf6ed5-e8d3-4705-b1b7-a980b380a70b" valueTypeId="03b6319e-fd1b-4e56-a577-eb65b1dde8d8"/>
+    <recordType typeId="1d6dcf3c-480e-40cb-b11d-1672cd4d2c7d" valueTypeId="bef0d8b6-aa6f-4ba2-b369-9c6e9d1fe143"/>
+    <recordManagerType typeId="16cca3b2-8a85-49a0-96ab-b48bc5eacaf5" valueTypeId="088ab9ff-7471-4146-b7c3-e9629c88fcf1"/>
+  </producedTypes>
+  <name>СтатусыПартнеровВПрограммеЛояльности_Альтерра</name>
+  <objectBelonging>Adopted</objectBelonging>
+  <extension xsi:type="mdclassExtension:InformationRegisterExtension">
+    <extendedConfigurationObject>Checked</extendedConfigurationObject>
+    <informationRegisterPeriodicity>Checked</informationRegisterPeriodicity>
+    <writeMode>Checked</writeMode>
+    <defaultListForm>Extended</defaultListForm>
+  </extension>
+  <defaultListForm>InformationRegister.СтатусыПартнеровВПрограммеЛояльности_Альтерра.Form.ФормаСписка</defaultListForm>
+  <informationRegisterPeriodicity>Day</informationRegisterPeriodicity>
+  <resources uuid="a5d5e423-a729-4b62-a8de-759adc1d668b" extendedConfigurationObject="bfe880f2-2a83-40a2-a158-a0f2d42f161c">
+    <name>Статус</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.СтатусыПартнеровВПрограммеЛояльности_Альтерра</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </resources>
+  <dimensions uuid="3769d6f3-f4e5-43b3-8133-42f208a1dfb8" extendedConfigurationObject="1f84bef1-2672-42f1-b0e6-a423f2692fb4">
+    <name>БонуснаяПрограммаЛояльности</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.БонусныеПрограммыЛояльности</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <dimensions uuid="77ce894e-de97-4920-bb76-2400d1d67523" extendedConfigurationObject="c4f8fdda-814a-4f15-a3f5-667b1d927020">
+    <name>Партнер</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.Партнеры</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <forms uuid="02364089-5acd-404c-8358-292163e67bf8">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <commands uuid="1391444f-119f-41af-81c1-6f1f87a91ca5">
+    <name>ИсторияСтатусовПоБонуснойПрограмме</name>
+    <synonym>
+      <key>ru</key>
+      <value>История статусов по бонусной программе</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicCommandExtension">
+      <synonym>Extended</synonym>
+      <group>Checked</group>
+    </extension>
+    <group>FormNavigationPanelSeeAlso</group>
+    <commandParameterType>
+      <types>CatalogRef.Партнеры</types>
+    </commandParameterType>
+    <representation>Auto</representation>
+  </commands>
+</mdclass:InformationRegister>

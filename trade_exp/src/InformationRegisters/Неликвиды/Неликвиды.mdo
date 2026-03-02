@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="78c327cf-b47c-4fc8-af2d-cb33dd92ba69" extendedConfigurationObject="6135d411-f6c1-4357-98b2-8efecc3556b2">
+  <producedTypes>
+    <selectionType typeId="f02aff86-f24d-44e1-868b-8fb063f16c1e" valueTypeId="334d0dd2-f30d-471a-bed9-8e8c776e035c"/>
+    <listType typeId="ab8702bb-b076-4e9e-88eb-8b4d810f4ca0" valueTypeId="852938d0-d5ea-4c23-bf29-c35c65e9ebf2"/>
+    <managerType typeId="a4f5f2f9-39a6-4fd6-a111-774c9d85ef1b" valueTypeId="168448a8-032f-44db-818b-e0f4b5a53c76"/>
+    <recordSetType typeId="a7b88586-d3db-4b29-a178-fcdd9863293b" valueTypeId="f97ff57a-ccb6-4397-9300-275a39e7d962"/>
+    <recordKeyType typeId="24a46110-71d4-42fd-9859-c242fd900c63" valueTypeId="43532738-1ca2-4846-b07b-6162841a73ae"/>
+    <recordType typeId="9acd4590-f3ab-4c22-9b86-f965acc1aedd" valueTypeId="fea221a9-e082-4a19-91f5-47396f9f6b37"/>
+    <recordManagerType typeId="0c972dcd-7956-4b0e-bd42-1909fd618cc8" valueTypeId="31fa3671-4e99-413b-ad14-f6def5eb648e"/>
+  </producedTypes>
+  <name>Неликвиды</name>
+  <objectBelonging>Adopted</objectBelonging>
+  <extension xsi:type="mdclassExtension:InformationRegisterExtension">
+    <extendedConfigurationObject>Checked</extendedConfigurationObject>
+    <informationRegisterPeriodicity>Checked</informationRegisterPeriodicity>
+    <writeMode>Checked</writeMode>
+    <managerModule>Extended</managerModule>
+    <defaultRecordForm>Extended</defaultRecordForm>
+    <defaultListForm>Extended</defaultListForm>
+  </extension>
+  <defaultRecordForm>InformationRegister.Неликвиды.Form.ФормаЗаписи</defaultRecordForm>
+  <defaultListForm>InformationRegister.Неликвиды.Form.ФормаСписка</defaultListForm>
+  <informationRegisterPeriodicity>Day</informationRegisterPeriodicity>
+  <resources uuid="75a43e67-3747-42ac-847e-052229cd4f22" extendedConfigurationObject="1d5252ff-fc63-4e13-9707-bb7deec18032">
+    <name>Ликвидность</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>EnumRef.Ликвидность</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </resources>
+  <resources uuid="1d7714e4-bc35-4e5a-839e-7d45ea807fbf" extendedConfigurationObject="8808cf9a-cb1b-4ca8-a2ac-e01687e6c2f9">
+    <name>Дата</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>Date</type>
+        </types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </typeExtension>
+    </extension>
+  </resources>
+  <attributes uuid="5663f9a3-9b79-4cbb-90b9-89e1bc939bb3" extendedConfigurationObject="a0e4f1bf-e5ec-49fc-a362-54516c94aadb">
+    <name>Менеджер</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.Пользователи</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </attributes>
+  <dimensions uuid="528932e1-467a-4c38-9c97-bed5e61f54a4" extendedConfigurationObject="abb41226-3835-47ce-8649-d3ec24658d9d">
+    <name>Номенклатура</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.Номенклатура</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <dimensions uuid="b78ea746-1a91-47c8-8b2c-627b735edd1a" extendedConfigurationObject="2789d090-8df4-4ecb-9284-5e015e1aacd3">
+    <name>Подразделение</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.СтруктураПредприятия</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <forms uuid="5739874b-9954-459f-840e-cbf8de6d17d8">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="d3728019-b975-42be-b858-8b1ca6f10e6f">
+    <name>ФормаЗаписи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма записи</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="89402a9f-e04e-495f-8bc2-c603bc37a112">
+    <name>ТекущаяЛиквидность</name>
+    <synonym>
+      <key>ru</key>
+      <value>Текущая ликвидность</value>
+    </synonym>
+  </templates>
+  <commands uuid="10dd33a0-cd7c-44a5-af83-31c4e199a73e">
+    <name>Ликвидность</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ликвидность</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicCommandExtension">
+      <synonym>Extended</synonym>
+      <group>Checked</group>
+    </extension>
+    <group>FormNavigationPanelGoTo</group>
+    <commandParameterType>
+      <types>CatalogRef.Номенклатура</types>
+    </commandParameterType>
+    <representation>Auto</representation>
+  </commands>
+</mdclass:InformationRegister>

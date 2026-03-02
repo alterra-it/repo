@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="efafdf86-0c04-483e-8ae6-e603df86e00d">
+  <producedTypes>
+    <objectType typeId="8e7a776b-82f6-4d48-b18c-584f7f4425c2" valueTypeId="0b9a3772-9c0c-485d-861d-3376b2b553c7"/>
+    <managerType typeId="a8ccecbc-0e5b-46c9-83a7-3aead6a8feaf" valueTypeId="195f2926-e1ed-4dc9-a588-2009f0e3b5fd"/>
+  </producedTypes>
+  <name>ПроверкаАдресногоХранения</name>
+  <synonym>
+    <key>ru</key>
+    <value>Проверка адресного хранения</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.ПроверкаАдресногоХранения.Form.Форма</defaultForm>
+  <attributes uuid="e8d84dff-f11b-4d36-8a15-56fdcb1e5c5f">
+    <name>Склад</name>
+    <synonym>
+      <key>ru</key>
+      <value>Склад</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Склады</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="fc68d0a8-a081-4492-a8f2-4e0d96b11d33">
+    <name>Ячейка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ячейка</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СкладскиеЯчейки</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameterLinks>
+      <name>Отбор.Владелец</name>
+      <field>DataProcessor.ПроверкаАдресногоХранения.Attribute.Склад</field>
+    </choiceParameterLinks>
+  </attributes>
+  <attributes uuid="956e4caf-cc9d-4bc2-807d-651cc4b08b79">
+    <name>Сотрудник</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сотрудник</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Сотрудники</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="5e9c247a-68ed-4b27-a678-7c0129759a9d">
+    <producedTypes>
+      <objectType typeId="1f1bb10e-f45f-443c-9d5c-7b4266294110" valueTypeId="447b60c4-596c-4432-94d7-31657def87fc"/>
+      <rowType typeId="a502db89-3924-4e2e-91dd-4aecfc614bad" valueTypeId="56224d56-1086-4544-9283-ef541c00076f"/>
+    </producedTypes>
+    <name>Товары</name>
+    <synonym>
+      <key>ru</key>
+      <value>Товары</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="e6660eb3-7ee1-4207-bc38-3d1b48a94464">
+      <name>Номенклатура</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номенклатура</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Номенклатура</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="a08fe16c-4ce0-41a1-b400-f7ccf25ab3bc">
+      <name>ИсходнаяЯчейка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Исходная ячейка</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.СкладскиеЯчейки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2e3204d1-f362-41e6-8364-c8dffc49198d">
+      <name>ЦелеваяЯчейка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Фактическая ячейка</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.СкладскиеЯчейки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2a80ca95-e2c1-4c01-bd9e-351351f2b1c2">
+      <name>Проверено</name>
+      <synonym>
+        <key>ru</key>
+        <value>Проверено</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="aa18a604-4387-4824-8c12-214bb29ed05a">
+      <name>Действие</name>
+      <synonym>
+        <key>ru</key>
+        <value>Действие</value>
+      </synonym>
+      <type>
+        <types>EnumRef.ДействияПриПроверкеАдресногоХранения</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="ebeccc61-6861-4c7e-91bc-112d0a0dd24f">
+      <name>НетЭтикетки</name>
+      <synonym>
+        <key>ru</key>
+        <value>Нет этикетки</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="9d33dbaa-108b-41b3-b642-66929ca6d903">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="53a26af4-e65c-4b4f-82e6-8edaf0d96223">
+    <name>ФормаТСД</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма ТСД</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:DataProcessor>

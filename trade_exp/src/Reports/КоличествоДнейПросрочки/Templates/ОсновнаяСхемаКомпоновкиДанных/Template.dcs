@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗадолженностьКлиента</dataPath>
+			<field>ЗадолженностьКлиента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задолженность клиента</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасчетныйДокумент</dataPath>
+			<field>РасчетныйДокумент</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗадолженностьПогашено</dataPath>
+			<field>ЗадолженностьПогашено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задолженность погашено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстатокЗадолженности</dataPath>
+			<field>ОстатокЗадолженности</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остаток задолженности</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АналитикаУчетаПоПартнерам</dataPath>
+			<field>АналитикаУчетаПоПартнерам</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВсегоДнейПросрочки</dataPath>
+			<field>ВсегоДнейПросрочки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Всего дней просрочки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДопустимаяСуммаЗадолженности</dataPath>
+			<field>ДопустимаяСуммаЗадолженности</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Допустимая сумма задолженности</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДнейОтсрочкиПоДоговору</dataPath>
+			<field>ДнейОтсрочкиПоДоговору</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дней отсрочки по договору</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказКлиента</dataPath>
+			<field>ЗаказКлиента</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УдалитьДатаПлатежа</dataPath>
+			<field>УдалитьДатаПлатежа</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НеДопустимыхДнейПросрочки</dataPath>
+			<field>НеДопустимыхДнейПросрочки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не допустимых дней просрочки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	РасчетыСКлиентами.РасчетныйДокумент КАК РасчетныйДокумент,
+	СУММА(РасчетыСКлиентами.ДолгПриход) КАК ЗадолженностьКлиента,
+	СУММА(РасчетыСКлиентами.ДолгРасход) КАК ЗадолженностьПогашено,
+	СУММА(РасчетыСКлиентами.ДолгПриход - РасчетыСКлиентами.ДолгРасход) КАК ОстатокЗадолженности,
+	РАЗНОСТЬДАТ(РасчетыСКлиентами.РасчетныйДокумент.Дата, &amp;ДатаОкончания, ДЕНЬ) КАК ВсегоДнейПросрочки,
+	ВЫБОР
+		КОГДА РАЗНОСТЬДАТ(РасчетыСКлиентами.РасчетныйДокумент.Дата, &amp;ДатаОкончания, ДЕНЬ) - РасчетыСКлиентами.АналитикаУчетаПоПартнерам.Договор.КоличествоДнейПросрочки &gt; 0
+			ТОГДА РАЗНОСТЬДАТ(РасчетыСКлиентами.РасчетныйДокумент.Дата, &amp;ДатаОкончания, ДЕНЬ) - РасчетыСКлиентами.АналитикаУчетаПоПартнерам.Договор.КоличествоДнейПросрочки
+		ИНАЧЕ 0
+	КОНЕЦ КАК НеДопустимыхДнейПросрочки,
+	РасчетыСКлиентами.АналитикаУчетаПоПартнерам.Договор.ДопустимаяСуммаЗадолженности КАК ДопустимаяСуммаЗадолженности,
+	РасчетыСКлиентами.АналитикаУчетаПоПартнерам.Договор.КоличествоДнейПросрочки КАК ДнейОтсрочкиПоДоговору
+ИЗ
+	РегистрНакопления.РасчетыСКлиентамиПоСрокам.ОстаткиИОбороты(, &amp;ДатаОкончания, Регистратор, , АналитикаУчетаПоПартнерам.Договор = &amp;Договор) КАК РасчетыСКлиентами
+
+СГРУППИРОВАТЬ ПО
+	РасчетыСКлиентами.РасчетныйДокумент,
+	РАЗНОСТЬДАТ(РасчетыСКлиентами.РасчетныйДокумент.Дата, &amp;ДатаОкончания, ДЕНЬ),
+	ВЫБОР
+		КОГДА РАЗНОСТЬДАТ(РасчетыСКлиентами.РасчетныйДокумент.Дата, &amp;ДатаОкончания, ДЕНЬ) - РасчетыСКлиентами.АналитикаУчетаПоПартнерам.Договор.КоличествоДнейПросрочки &gt; 0
+			ТОГДА РАЗНОСТЬДАТ(РасчетыСКлиентами.РасчетныйДокумент.Дата, &amp;ДатаОкончания, ДЕНЬ) - РасчетыСКлиентами.АналитикаУчетаПоПартнерам.Договор.КоличествоДнейПросрочки
+		ИНАЧЕ 0
+	КОНЕЦ,
+	РасчетыСКлиентами.АналитикаУчетаПоПартнерам.Договор.ДопустимаяСуммаЗадолженности,
+	РасчетыСКлиентами.АналитикаУчетаПоПартнерам.Договор.КоличествоДнейПросрочки
+
+ИМЕЮЩИЕ
+	СУММА(РасчетыСКлиентами.ДолгОборот) &lt;&gt; 0
+
+УПОРЯДОЧИТЬ ПО
+	РасчетныйДокумент</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ВсегоДнейПросрочки</dataPath>
+		<expression>Максимум(ВсегоДнейПросрочки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДнейОтсрочкиПоДоговору</dataPath>
+		<expression>Сумма(ДнейОтсрочкиПоДоговору)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДопустимаяСуммаЗадолженности</dataPath>
+		<expression>Сумма(ДопустимаяСуммаЗадолженности)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗадолженностьКлиента</dataPath>
+		<expression>Сумма(ЗадолженностьКлиента)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗадолженностьПогашено</dataPath>
+		<expression>Сумма(ЗадолженностьПогашено)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОстатокЗадолженности</dataPath>
+		<expression>Сумма(ОстатокЗадолженности)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НеДопустимыхДнейПросрочки</dataPath>
+		<expression>Максимум(НеДопустимыхДнейПросрочки)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>На дату</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Договор</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Договор</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ДоговорыКонтрагентов.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>КоличествоДнейПросрочки</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Количество дней просрочки</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РасчетныйДокумент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗадолженностьКлиента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗадолженностьПогашено</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокЗадолженности</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВсегоДнейПросрочки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НеДопустимыхДнейПросрочки</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>334c6bb7-d0b5-48ee-90f5-62fa9f7dd517</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Договор</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>25252840-7b6f-4cc7-8878-151ef2f7f765</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>НеДопустимыхДнейПросрочки</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">НеДопустимыхДнейПросрочки</dcsset:left>
+							<dcsset:comparisonType>Greater</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:NegativeTextColor</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInHierarchicalGroup>DontUse</dcsset:useInHierarchicalGroup>
+					<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

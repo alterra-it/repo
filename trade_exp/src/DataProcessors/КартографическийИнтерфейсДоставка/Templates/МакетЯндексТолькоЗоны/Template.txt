@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta charset="utf-8">
+    
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=#КлючЯндекс#&suggest_apikey=#КлючГеосаджест#" type="text/javascript"></script>
+    
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0px; padding: 0px }
+        #map {
+            z-index: 1;
+            width:100%;
+            height:100%;
+        }
+        #control {
+            display: inline-block;
+            position: absolute;
+            bottom: 54px;
+            left: 5px;
+            z-index: 100;
+        }
+        .btn-top {
+            position: relative;
+            overflow: hidden;
+            background-color: rgb(255, 219, 77);
+            border-color: transparent;
+            box-shadow: 0 1px 2px 1px rgba(0,0,0,.15), 0 2px 5px -3px rgba(0,0,0,.15);
+            box-sizing: border-box!important;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 3px;
+            background-clip: border-box;
+            color: #000;
+            vertical-align: middle;
+            text-decoration: none;
+            font-family: Arial,Helvetica,sans-serif;
+            cursor: pointer;
+            -webkit-transition: background-color .15s ease-out,border-color .15s ease-out,opacity .15s ease-out;
+            transition: background-color .15s ease-out,border-color .15s ease-out,opacity .15s ease-out;
+            display: inline-block;
+            text-align: left;
+            height: 28px;
+        }
+        #popup {
+            display: none;
+            position: absolute;
+            min-width: 200px;
+            min-height: 30px;
+            height: auto;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            background: #fff;
+            padding: 10px;
+            bottom: 54px;
+            right: 5px;
+            z-index: 100;
+            border-color: transparent;
+            box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .15), 0 2px 5px -3px rgba(0, 0, 0, .15);
+            box-sizing: border-box !important;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 3px;
+        }        
+    </style>
+
+</head>
+<body>
+    <div id="control">
+        <button class="btn-top" onclick="calcRouter();">Построить маршрут</button>
+        <button class="btn-top" onclick="initMap();">Очистить</button>
+    </div>
+
+
+    <div id="map"></div>
+
+    <div id="popup"></div>
+</body>
+
+</html>
+
+<script>
+    var myMap;
+    const mapData = {}
+    ymaps.ready(init);
+
+    function init() {
+        myMap = new ymaps.Map("map", {
+            //center: [53.348053, 83.779875],
+            center: mCordsFilial,
+            zoom: 10
+        });
+
+        initMap();
+
+        myMap.behaviors.enable('scrollZoom');
+        myMap.behaviors.enable('router');
+        myMap.behaviors.disable('dblClickZoom');
+        myMap.controls.remove('searchControl');
+
+        var searchControl = new ymaps.control.SearchControl({
+            options: {
+                noSelect: true,
+                suppressYandexSearch: true,
+                noPlacemark: true,
+                maxWidth: 500,
+                fitMaxWidth: true
+            }
+        });
+        searchControl.events.add('load', function (event) {
+            if (!event.get('skip') && searchControl.getResultsCount()) {
+                searchControl.showResult(0);
+                var data = searchControl.getResult(0)._value.properties._data;
+                var geometry = searchControl.getResult(0)._value.geometry;
+
+                mCordsPoint = geometry._coordinates;
+                mapData.Address = data.text;
+                mapData.mCords = mCordsPoint;
+
+                addMarker(mCordsPoint, mapData.Address);
+                getZones(mapData.mCords);
+
+                setPopup();
+            }
+        });
+        myMap.controls.add(searchControl);
+        searchControl.search(startAddress)
+
+        myMap.events.add('click', function (e) {
+            var mCords = e.get('coords');
+
+            //clear_mapData()
+            clickPoligonHandler(mCords)
+
+            mapData.mCords = mCords;
+        });
+    }//init
+    
+    function initMap() {
+        // Удаляем все геообъекты на карте
+        myMap.geoObjects.removeAll();
+
+        clear_mapData()
+        
+        ViewZones();
+        addMarker(mCordsFilial, nameFilial);
+
+        if (mapData.Address) {
+            setGoordsOnAddress(mapData.Address, (mCords) => {
+                mapData.mCords = mCords
+
+                addMarker(mapData.mCords, mapData.Address);
+                getZones(mapData.mCords);
+
+                setPopup();
+            })
+        }
+
+        if (mAdreses.length) {
+            mAdreses.forEach((adress) => {
+                setGoordsOnAddress(adress, (mCords) => {
+
+                addMarker(mCords, adress);
+                })             
+           })
+
+           calcRouter() 
+        }
+        setPopup();
+    }
+
+    //Функции работа с зонами
+    function ViewZones() {
+        var strokeColor = '000';
+        //var opacity = 0.5;
+        var strokeWidth = 2;
+
+        Zones.forEach(function (elem) {
+            var arCoordsZone = GetCoordsZone(elem.sZone);
+            var Polygon = new ymaps.Polygon(arCoordsZone, { hintContent: elem.hintContent }, { fillColor: elem.fillColor, strokeColor: strokeColor, strokeWidth: strokeWidth, opacity: elem.opacity, zone: elem.zone });
+            AddEventPolygon(Polygon);
+            elem.Polygon = Polygon;
+        });
+    }
+
+    function GetCoordsZone(sZone) {
+        var arCoordinates = Array();
+
+        sZone = sZone.replace(/,0/g, '');
+        var arTemp = sZone.split(' ');
+        arTemp.forEach(function (item, i, arr) {
+            var arCoords = item.split(',');
+            arCoords = arCoords.reverse();
+            arCoordinates[i] = arCoords;
+        });
+        var arCoordXY = Array(arCoordinates, []);
+
+        return arCoordXY;
+    }
+
+    function AddEventPolygon(Polygon) {
+        myMap.geoObjects.add(Polygon);
+
+        Polygon.events.add('click', function (e) {
+            var mCordsPoint = e.get('coords');
+            var info = Polygon.properties._data.hintContent;
+
+            getZones(mCordsPoint)
+        });
+    }
+
+    const getZones = (mCordsPoint) => {
+        //clear_mapData()
+        const arCurZone = Zones.filter(function (currentValue, index) {
+            if (currentValue.Polygon.geometry.contains(mCordsPoint)) return true;
+        });
+
+        if (arCurZone[0]) {
+            const Polygon = arCurZone[0];
+            mapData.zone = Polygon.zone;
+            mapData.price = Polygon.price;
+            mapData.mCords = mCordsPoint;
+            mapData.Info = Polygon.hintContent;
+            mapData.mCurZones = arCurZone;
+
+            clickPoligonHandler(mCordsPoint);
+            return true
+        }
+
+        clear_mapData()
+
+        return false
+    }    
+    //Работа с картой //
+    //не использую
+    function calcMultiRouter() {
+        var ArrayPoint = [...mapData.mPoints]
+        var multiRoute = new ymaps.multiRouter.MultiRoute({
+            referencePoints: ArrayPoint,
+        }, {
+                editorDrawOver: false,
+                wayPointDraggable: true,
+                viaPointDraggable: true,
+                // Задаем собственное оформление линий мультимаршрута.
+                routeStrokeColor: "000088",
+                routeActiveStrokeColor: "ff0000",
+                pinIconFillColor: "ff0000",
+                boundsAutoApply: true,
+                zoomMargin: 30
+            })
+
+        myMap.geoObjects.add(multiRoute);
+
+        multiRoute.events.add('activeroutechange', function () {
+            var activeRoute = multiRoute.getActiveRoute();
+            var Distance = activeRoute.properties._data.distance.value.toFixed(2);
+            mapData.Distance = Distance * 2;
+            var Duration = activeRoute.properties._data.duration.value;
+            mapData.Duration = Duration * 2;
+            var distance_text = activeRoute.properties._data.distance.text;
+            var duration_text = activeRoute.properties._data.duration.text;
+            mapData.Info = distance_text + '; ' + duration_text + ' в одну сторону';
+
+            setPopup();
+        });
+
+        multiRoute.events.once('update', function () {    
+        let routeinfo = ''
+        var routes = multiRoute.getRoutes();
+        for (var i = 0, l = routes.getLength(); i < l; i++) {
+            var route = routes.get(i);
+            var path = route.getPaths();
+            const length = path.getLength();
+            routeinfo = routeinfo + length + ';';
+        }   
+
+        })        
+    }
+
+    function calcRouter() {
+        var ArrayPoints = [...mapData.mPoints]
+
+        var Route = new ymaps.route(ArrayPoints);
+        Route.then(function (route) {
+            myMap.geoObjects.add(route);
+
+            const points = route.getWayPoints()
+            const path = route.getPaths()
+            for (var i = 0; i < path.toArray().length; i++) {
+                const curPath = path.get(i);
+                const curPoint = points.get(i+1);
+
+                const length = curPath.getLength();
+                const lengthInfo = (length/1000).toFixed(2)+" км."
+
+                curPoint.properties.set('iconContent', lengthInfo);
+                curPoint.options.set('preset', 'islands#redStretchyIcon');
+
+                mapData.мDestantions.push(length)
+            }
+
+            mapData.Distance = route.getLength()
+            mapData.Duration = route.getTime()
+
+            const distance_text = route.getHumanLength()
+            const duration_text = route.getHumanTime()            
+
+            mapData.Info = distance_text + '; ' + duration_text + ' в одну сторону';            
+
+            setPopup();
+        });
+    }    
+
+    const clickPoligonHandler = (mCordsPoint) => {
+        ymaps.geocode(mCordsPoint).then(function (res) {
+            var firstGeoObject = res.geoObjects.get(0);
+            var address = firstGeoObject.getAddressLine();
+            mapData.Address = address;
+            addMarker(mCordsPoint, mapData.Info + ' (' + mapData.Address + ')');
+            setPopup();
+        });
+    }
+
+    function addMarker(coordPosition, name) {
+        mapData.mPoints.push(coordPosition)
+        var myPlacemark = new ymaps.Placemark(coordPosition, {
+            // Свойства
+            // Текст метки
+            iconContent: name
+        }, {
+                // Опции
+                // Иконка метки будет растягиваться под ее контент
+                preset: 'islands#blueStretchyIcon'
+            });
+        myMap.geoObjects.add(myPlacemark);
+    }
+
+    function setGoordsOnAddress(Address, callback) {
+        var myGeocoder = ymaps.geocode(Address);
+        myGeocoder.then(
+            function (res) {
+                var firstGeoObject = res.geoObjects.get(0);
+                if (firstGeoObject != null) {
+                    var mCoords = firstGeoObject.geometry.getCoordinates();
+                    callback(mCoords)
+                }
+            }
+        );
+    }
+
+    function addMarkerOnAdress(Address) {
+        var myGeocoder = ymaps.geocode(Address);
+        myGeocoder.then(
+            function (res) {
+                var firstGeoObject = res.geoObjects.get(0);
+                if (firstGeoObject != null) {
+                    var mCoords = firstGeoObject.geometry.getCoordinates();
+                    addMarker(mCoords, Address)
+                }
+            }
+        );
+    }
+    
+    function addMarkerOnCoords(lat, lon, name) {
+		coordPosition = [lat, lon];
+        mapData.mPoints.push(coordPosition)
+        var myPlacemark = new ymaps.Placemark(coordPosition, {
+            // Свойства
+            // Текст метки
+            iconContent: name
+        }, {
+                // Опции
+                // Иконка метки будет растягиваться под ее контент
+                preset: 'islands#blueStretchyIcon'
+            });
+        myMap.geoObjects.add(myPlacemark);
+    }
+    
+
+    function setPopup() {
+        let innerHTML = '<b>Информация: </b>' + mapData.Info;
+        const popup = document.getElementById('popup');
+        
+        popup.innerHTML = innerHTML;
+        popup.style.display = 'block';
+    }
+
+    const clear_mapData = () => {
+        mapData.mCords = [];
+        mapData.Address = startAddress;
+        mapData.zone = '';
+        mapData.price = 0;
+        mapData.Destantion = 0;
+        mapData.Duration = 0;
+        mapData.distanseCost = 0;        
+        mapData.Info = '';
+        mapData.mCurZones = [];
+        mapData.mPoints = [];
+        mapData.мDestantions = [];
+    }
+</script>

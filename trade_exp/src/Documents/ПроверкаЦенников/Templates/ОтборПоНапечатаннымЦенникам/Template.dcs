@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цена</dataPath>
+			<field>Цена</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Характеристика</dataPath>
+			<field>Характеристика</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидЦены</dataPath>
+			<field>ВидЦены</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ШаблонЦенника</dataPath>
+			<field>ШаблонЦенника</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаУстановкиЦены</dataPath>
+			<field>ДатаУстановкиЦены</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	СобытияПечатиЦенниковСрезПоследних.Номенклатура КАК Номенклатура,
+	СобытияПечатиЦенниковСрезПоследних.Цена КАК Цена
+ИЗ
+	РегистрСведений.СобытияПечатиЦенников.СрезПоследних КАК СобытияПечатиЦенниковСрезПоследних
+ГДЕ
+	СобытияПечатиЦенниковСрезПоследних.ВидЦены = &amp;ВидЦены
+	И СобытияПечатиЦенниковСрезПоследних.Подразделение = &amp;Подразделение
+	И СобытияПечатиЦенниковСрезПоследних.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И НЕ (СобытияПечатиЦенниковСрезПоследних.Период, СобытияПечатиЦенниковСрезПоследних.Номенклатура, СобытияПечатиЦенниковСрезПоследних.Цена) В
+				(ВЫБРАТЬ РАЗЛИЧНЫЕ
+					СобытияПечатиЦенниковСрезПоследних.Период КАК Период,
+					СобытияПечатиЦенниковСрезПоследних.Номенклатура КАК Номенклатура,
+					СобытияПечатиЦенниковСрезПоследних.Цена КАК Цена
+				ИЗ
+					РегистрСведений.СобытияПечатиЦенников.СрезПоследних КАК СобытияПечатиЦенниковСрезПоследних
+						ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПроверкаЦенников.Товары КАК ПроверкаЦенников
+						ПО
+							ПроверкаЦенников.Ссылка.Подразделение = СобытияПечатиЦенниковСрезПоследних.Подразделение
+								И ПроверкаЦенников.Ссылка.ВидЦены = СобытияПечатиЦенниковСрезПоследних.ВидЦены
+								И ПроверкаЦенников.Номенклатура = СобытияПечатиЦенниковСрезПоследних.Номенклатура
+				ГДЕ
+					СобытияПечатиЦенниковСрезПоследних.ВидЦены = &amp;ВидЦены
+					И СобытияПечатиЦенниковСрезПоследних.Подразделение = &amp;Подразделение
+					И СобытияПечатиЦенниковСрезПоследних.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+					И ПроверкаЦенников.Ссылка.Дата &gt;= СобытияПечатиЦенниковСрезПоследних.Период)
+					//И ПроверкаЦенников.Ссылка.ВидПроверки = ЗНАЧЕНИЕ(Перечисление.ВидПроверкиЦенников.ПоПереоценке))</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ВидЦены</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид цены</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВидыЦен</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Подразделение</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Подразделение</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтруктураПредприятия</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows"/>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="0eb11c8f-5f2b-458e-b1a9-78894cb02582" extendedConfigurationObject="689f8c86-83d9-4dd5-8dd0-70596c4074d0">
+  <producedTypes>
+    <selectionType typeId="cb58806f-60ff-4fc8-85a6-738cb19d3bba" valueTypeId="7bf042da-ed8a-4c0f-a26e-dcbc234571e7"/>
+    <listType typeId="93f23714-d5f3-4876-9cfc-331a47928e7b" valueTypeId="beee5e3b-6a8a-414a-ab40-9a432271abd0"/>
+    <managerType typeId="e2c9eb94-77dd-44b6-a999-d871946495c3" valueTypeId="1bccfdc3-51d7-426f-9a9c-d04792e99e26"/>
+    <recordSetType typeId="53b78246-0f03-4e50-8075-a86df13394d9" valueTypeId="7f9c6bca-774d-4a9f-94cb-0c6392b4c4a6"/>
+    <recordKeyType typeId="76c3a509-62e2-40ba-92e9-968149fdacd0" valueTypeId="7ed1ad4c-4d7d-49e6-9dcc-6ce4ce6583dc"/>
+    <recordType typeId="8deb585d-2bce-43a5-8053-019febbe10bd" valueTypeId="d5a54d52-972e-4bb5-b208-76a453127d30"/>
+    <recordManagerType typeId="e163863b-e54f-4109-8902-8cf24361f47f" valueTypeId="83840ecf-afac-43bc-975e-7aad035d3a46"/>
+  </producedTypes>
+  <name>ИсторияРейсов</name>
+  <objectBelonging>Adopted</objectBelonging>
+  <extension xsi:type="mdclassExtension:InformationRegisterExtension">
+    <extendedConfigurationObject>Checked</extendedConfigurationObject>
+    <informationRegisterPeriodicity>Checked</informationRegisterPeriodicity>
+    <writeMode>Checked</writeMode>
+    <defaultListForm>Extended</defaultListForm>
+  </extension>
+  <defaultListForm>InformationRegister.ИсторияРейсов.Form.ФормаСписка</defaultListForm>
+  <informationRegisterPeriodicity>Second</informationRegisterPeriodicity>
+  <resources uuid="9ace7866-2d07-46e2-805c-079c80e30e7e" extendedConfigurationObject="3ad6e5ae-cb96-4b1c-b499-21c2b02a012a">
+    <name>Статус</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>EnumRef.СтатусыРейсов</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </resources>
+  <dimensions uuid="52635314-f28a-40c4-817c-213d6e410b0a" extendedConfigurationObject="840658c6-34b2-483d-a00f-0aafbd0e64bf">
+    <name>Рейс</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>DocumentRef.ЗаданиеНаПеревозкуРейс</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <forms uuid="42af22ea-3582-430d-b626-f4ce20985753">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <commands uuid="3df076e3-b302-431a-b938-59ff372796f1">
+    <name>ПосмотретьИсторию</name>
+    <synonym>
+      <key>ru</key>
+      <value>История статусов</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicCommandExtension">
+      <synonym>Extended</synonym>
+      <group>Checked</group>
+    </extension>
+    <group>FormNavigationPanelSeeAlso</group>
+    <commandParameterType>
+      <types>DocumentRef.ЗаданиеНаПеревозкуРейс</types>
+    </commandParameterType>
+    <representation>Auto</representation>
+  </commands>
+</mdclass:InformationRegister>

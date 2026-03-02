@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:HTTPService xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="6e39103a-48bd-4252-b088-aa6e70534e5a">
+  <name>ОперацииОплаты</name>
+  <synonym>
+    <key>ru</key>
+    <value>Операции оплаты</value>
+  </synonym>
+  <rootURL>handlePayment</rootURL>
+  <reuseSessions>AutoUse</reuseSessions>
+  <sessionMaxAge>20</sessionMaxAge>
+  <urlTemplates uuid="bb62cbc3-54ff-4423-a806-8eaee5f08f4c">
+    <name>Операция</name>
+    <synonym>
+      <key>ru</key>
+      <value>Операция</value>
+    </synonym>
+    <template>/operation</template>
+    <methods uuid="6ddcf2c0-7526-4c16-8177-c9baf734e148">
+      <name>getOperation</name>
+      <synonym>
+        <key>ru</key>
+        <value>getOperation</value>
+      </synonym>
+      <handler>getOperation</handler>
+    </methods>
+    <methods uuid="2c308ea1-4fcd-4f37-b79c-0bc306025707">
+      <name>postOperation</name>
+      <synonym>
+        <key>ru</key>
+        <value>postOperation</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>postOperation</handler>
+    </methods>
+  </urlTemplates>
+</mdclass:HTTPService>

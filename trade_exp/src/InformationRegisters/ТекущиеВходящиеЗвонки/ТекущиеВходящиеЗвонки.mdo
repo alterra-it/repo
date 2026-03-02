@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="dbac06b6-69bf-4586-a959-3cc1c0f447a4" extendedConfigurationObject="35ced2b0-06de-405d-990f-31d745b98f24">
+  <producedTypes>
+    <selectionType typeId="9a1ec15a-0d3c-41d2-9018-872dfa459091" valueTypeId="b8f655be-bbbd-4b52-9b88-d5810fbafd58"/>
+    <listType typeId="bac2e3cf-8f47-4edc-9218-55ef88800e59" valueTypeId="647c568c-1e61-488d-bbeb-ca8978dda498"/>
+    <managerType typeId="7e11845a-5c5d-4d4b-bbd1-455baa43359f" valueTypeId="0ed1f5dc-feeb-4c18-b3ef-4b9f2711ff18"/>
+    <recordSetType typeId="3c30576b-d299-49f8-b801-3227477ede87" valueTypeId="1938c0f3-6a49-4967-bcc5-99199fa5c599"/>
+    <recordKeyType typeId="741389ed-e0d4-461f-9a27-64a3fec2d729" valueTypeId="12809dbe-14ea-43e7-9430-120e473b0e4d"/>
+    <recordType typeId="4034fb1b-8c50-40db-96fb-685760059592" valueTypeId="77893667-65b1-4838-8496-0db5e4e3f3ed"/>
+    <recordManagerType typeId="1ce0ba95-4ae9-4d93-a63e-e1d772350ea9" valueTypeId="329f9e5a-8b14-4598-abae-21ec5e09ad77"/>
+  </producedTypes>
+  <name>ТекущиеВходящиеЗвонки</name>
+  <objectBelonging>Adopted</objectBelonging>
+  <extension xsi:type="mdclassExtension:InformationRegisterExtension">
+    <extendedConfigurationObject>Checked</extendedConfigurationObject>
+    <informationRegisterPeriodicity>Checked</informationRegisterPeriodicity>
+    <writeMode>Checked</writeMode>
+  </extension>
+  <resources uuid="b496e2aa-cb69-4be2-80e6-116d74045461" extendedConfigurationObject="7400503e-22e8-4022-b314-8254abffdd79">
+    <name>АбонентОтКого</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>AnyRef</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </resources>
+  <resources uuid="2148f8ea-1b27-433b-a52d-0ee975088f09" extendedConfigurationObject="3afa3d5a-77ed-4cf3-9750-0c9723a9486a">
+    <name>НомерТелефонаАбонента</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>String</type>
+        </types>
+        <stringQualifiers>
+          <length>50</length>
+        </stringQualifiers>
+      </typeExtension>
+    </extension>
+  </resources>
+  <resources uuid="e548b42a-c326-4d1f-952e-9148d0860e71" extendedConfigurationObject="65a39337-cc81-4d69-a47b-477374b626e2">
+    <name>ИдентификаторЗвонкаВАТС</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>String</type>
+        </types>
+        <stringQualifiers>
+          <length>128</length>
+        </stringQualifiers>
+      </typeExtension>
+    </extension>
+  </resources>
+  <dimensions uuid="b84184ae-6b2e-4f7f-8d05-b7665bfcefaa" extendedConfigurationObject="acb9e54b-62bc-4683-9450-39bf8f950d60">
+    <name>ПользовательКому</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.Пользователи</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </dimensions>
+  <commands uuid="80f0d165-b4dd-4480-b5c6-8f73b68f7817">
+    <name>ТекущийЗвонокПользователя</name>
+    <synonym>
+      <key>ru</key>
+      <value>Текущий звонок</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicCommandExtension">
+      <synonym>Extended</synonym>
+      <group>Checked</group>
+    </extension>
+    <group>NavigationPanelOrdinary</group>
+    <commandParameterType/>
+    <representation>Auto</representation>
+    <shortcut>F8</shortcut>
+  </commands>
+  <commands uuid="0ebfed84-d9cd-4e36-8690-cc308657e00c">
+    <name>ТекущийЗвонокПользователя1</name>
+    <synonym>
+      <key>ru</key>
+      <value>Текущий звонок</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicCommandExtension">
+      <synonym>Extended</synonym>
+      <group>Checked</group>
+    </extension>
+    <group>NavigationPanelOrdinary</group>
+    <commandParameterType/>
+    <representation>Auto</representation>
+    <shortcut>Ctrl+F8</shortcut>
+  </commands>
+</mdclass:InformationRegister>

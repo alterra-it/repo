@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="d17c4ec0-6916-481c-8ddc-0073124bb02c" extendedConfigurationObject="ec36221d-37a4-4c12-9c34-7cb1eceaead1">
+  <producedTypes>
+    <objectType typeId="1f3135fc-6e45-484d-be5e-13df4a302e7b" valueTypeId="13a1cfbc-5846-4380-8b44-cc779e64e491"/>
+    <refType typeId="8b489a80-f997-451e-a510-6442e97718a3" valueTypeId="ad22375d-66ae-4b38-adc1-1ad99da336a1"/>
+    <selectionType typeId="19a5e226-8789-4f85-8ca2-a4aea0a3be50" valueTypeId="dae78697-9833-42cc-9b7a-a34270733faa"/>
+    <listType typeId="874c4907-1a6f-43ad-a4dc-151ff3ff779a" valueTypeId="4affd8d9-dc08-4d4e-9c63-5311f69baee3"/>
+    <managerType typeId="8e41c1da-9e41-40d7-9d6e-3e7046dbc6c9" valueTypeId="07a4442d-2085-4686-802f-4ed536035658"/>
+  </producedTypes>
+  <name>БлокировкаДвиженияТоваров</name>
+  <objectBelonging>Adopted</objectBelonging>
+  <extension xsi:type="mdclassExtension:DocumentExtension">
+    <extendedConfigurationObject>Checked</extendedConfigurationObject>
+    <objectModule>Extended</objectModule>
+    <managerModule>Extended</managerModule>
+    <defaultObjectForm>Extended</defaultObjectForm>
+    <defaultListForm>Extended</defaultListForm>
+  </extension>
+  <defaultObjectForm>Document.БлокировкаДвиженияТоваров.Form.ФормаДокумента</defaultObjectForm>
+  <defaultListForm>Document.БлокировкаДвиженияТоваров.Form.ФормаСписка</defaultListForm>
+  <registerRecords>AccumulationRegister.РаспределениеЗапасовДвижения</registerRecords>
+  <registerRecords>AccumulationRegister.ЗапасыИПотребности</registerRecords>
+  <attributes uuid="cc2b0c0c-64b2-4a8f-842c-8c2cd6e8d14a" extendedConfigurationObject="bcd3b202-1b4b-4cb7-9c80-2a93e9f648db">
+    <name>ДокументОснование</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>AnyRef</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </attributes>
+  <attributes uuid="66713de7-a679-4011-bd9f-05d6ed829ce5" extendedConfigurationObject="8173986d-73df-48fa-9cc8-38cfe45d8748">
+    <name>БлокировкаОснование</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>DocumentRef.БлокировкаДвиженияТоваров</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </attributes>
+  <attributes uuid="bbed0ee9-f96d-4e0f-983a-a88cf738ecbc" extendedConfigurationObject="5f9d0fad-e42e-4731-8107-06e3f90b212d">
+    <name>Комментарий</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>String</type>
+        </types>
+        <stringQualifiers/>
+      </typeExtension>
+    </extension>
+  </attributes>
+  <attributes uuid="919cf6b2-fa61-4867-a9ef-687002571624" extendedConfigurationObject="441ea6d9-ec19-4570-b97b-f8e66ebbde99">
+    <name>Статус</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>EnumRef.СтатусыБлокировкиДвиженияНоменклатуры</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </attributes>
+  <attributes uuid="92ade39e-f577-485e-9538-32d0a59f6ee2" extendedConfigurationObject="8671922f-e1fb-486a-bbb5-fd960e199e94">
+    <name>Склад</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.Склады</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </attributes>
+  <attributes uuid="59fb2534-1ec3-442a-ab53-d4f0d14cc791" extendedConfigurationObject="250a0493-3164-44eb-9b46-4baeac4f1c2c">
+    <name>ПричинаБлокировки</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.ПричиныБлокировкиДвиженияТоваров</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </attributes>
+  <attributes uuid="ea21e61e-6980-45b3-83ab-e8778995936e" extendedConfigurationObject="c23c42b8-9959-4ace-91a6-5a7cbc2fbb63">
+    <name>Ответственный</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>CatalogRef.Пользователи</type>
+        </types>
+      </typeExtension>
+    </extension>
+  </attributes>
+  <forms uuid="f07acee2-2ce6-47bf-a804-1f209156b2d7">
+    <name>ФормаДокумента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма документа</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="a7484588-72d6-4b8d-84e1-8eba408b4c4c">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="e2bdefc9-9d78-4926-a3a5-113cebfdef31">
+    <name>ФормаИзмененияПричины</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма изменения причины</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="4f716969-b915-4f38-b011-ca3581b75e68">
+    <name>Док_ФормаДокументаТСД</name>
+    <synonym>
+      <key>ru</key>
+      <value>Док форма документа ТСД</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <tabularSections uuid="4a8ab699-b37c-4c3b-a302-f16af9116c63" extendedConfigurationObject="a9f05fa3-fa19-43ed-95dd-01e6677ecdf1">
+    <producedTypes>
+      <objectType typeId="51397e99-22ae-48e3-957b-ea03349ee383" valueTypeId="a451ecd0-be59-43ac-af2d-b728f2098700"/>
+      <rowType typeId="d3d72f45-bcfd-4fc2-98a5-ad4a8a5cf4c8" valueTypeId="413ee9bf-d484-44ce-82aa-6b56829ce264"/>
+    </producedTypes>
+    <name>Товары</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:MdObjectExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+    </extension>
+    <attributes uuid="d6708992-dbdd-4996-9662-7c6e95ecd795" extendedConfigurationObject="d8f9f1e5-d2cd-4da7-ad72-aefa73478085">
+      <name>Номенклатура</name>
+      <objectBelonging>Adopted</objectBelonging>
+      <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+        <extendedConfigurationObject>Checked</extendedConfigurationObject>
+        <typeExtension>
+          <types>
+            <state>Checked</state>
+            <type>CatalogRef.Номенклатура</type>
+          </types>
+        </typeExtension>
+      </extension>
+    </attributes>
+    <attributes uuid="1bc8144d-00b7-4367-9fef-0e9db9a5ced8" extendedConfigurationObject="89a7e0a8-ebb3-4118-ac5f-b614e1a2fac3">
+      <name>Характеристика</name>
+      <objectBelonging>Adopted</objectBelonging>
+      <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+        <extendedConfigurationObject>Checked</extendedConfigurationObject>
+        <typeExtension>
+          <types>
+            <state>Checked</state>
+            <type>CatalogRef.ХарактеристикиНоменклатуры</type>
+          </types>
+        </typeExtension>
+      </extension>
+    </attributes>
+    <attributes uuid="859941cb-2594-4311-bfc0-afb90f0e6058" extendedConfigurationObject="42ebd587-1a10-4279-b4c1-ce101094cfa4">
+      <name>КоличествоУпаковок</name>
+      <objectBelonging>Adopted</objectBelonging>
+      <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+        <extendedConfigurationObject>Checked</extendedConfigurationObject>
+        <typeExtension>
+          <types>
+            <state>Checked</state>
+            <type>Number</type>
+          </types>
+          <numberQualifiers>
+            <precision>15</precision>
+            <scale>3</scale>
+            <nonNegative>true</nonNegative>
+          </numberQualifiers>
+        </typeExtension>
+      </extension>
+    </attributes>
+    <attributes uuid="d52304c5-fe56-4624-9d19-714ccacccfa6" extendedConfigurationObject="a7742230-e6be-4988-9a70-2b9318d2e6e8">
+      <name>Упаковка</name>
+      <objectBelonging>Adopted</objectBelonging>
+      <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+        <extendedConfigurationObject>Checked</extendedConfigurationObject>
+        <typeExtension>
+          <types>
+            <state>Checked</state>
+            <type>CatalogRef.УпаковкиЕдиницыИзмерения</type>
+          </types>
+        </typeExtension>
+      </extension>
+    </attributes>
+  </tabularSections>
+  <templates uuid="bd692ad4-b826-43a0-a2fd-430d4ab448f1">
+    <name>ПФ_MXL_ПечатнаяФорма_БлокировкаДвиженияТоваров</name>
+    <synonym>
+      <key>ru</key>
+      <value>П ф MXL печатная форма блокировка движения товаров</value>
+    </synonym>
+  </templates>
+  <templates uuid="9d1e5822-67ee-405c-9c6d-00fa136a81f7">
+    <name>ПФ_MXL_ПечатнаяФорма_БлокировкаДвиженияТоваровСЦенойПокупки</name>
+    <synonym>
+      <key>ru</key>
+      <value>П ф MXL печатная форма блокировка движения товаров с ценой покупки</value>
+    </synonym>
+  </templates>
+</mdclass:Document>

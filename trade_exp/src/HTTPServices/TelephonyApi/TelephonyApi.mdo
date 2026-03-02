@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:HTTPService xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="4314f061-dc1f-4a08-aead-9ea9ccb8e3b1">
+  <name>TelephonyApi</name>
+  <synonym>
+    <key>ru</key>
+    <value>Telephony api</value>
+  </synonym>
+  <rootURL>telephony</rootURL>
+  <reuseSessions>AutoUse</reuseSessions>
+  <sessionMaxAge>20</sessionMaxAge>
+  <urlTemplates uuid="cda0257e-9017-4884-9ce7-a6d90bb4b099">
+    <name>ping</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ping</value>
+    </synonym>
+    <template>/ping</template>
+    <methods uuid="bfb6795a-e117-43ab-8d9f-67f6fa7651d3">
+      <name>GET</name>
+      <synonym>
+        <key>ru</key>
+        <value>GET</value>
+      </synonym>
+      <handler>pingGET</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="620f70c7-6593-459b-af94-63ce45754142">
+    <name>itoolabsPing</name>
+    <synonym>
+      <key>ru</key>
+      <value>Itoolabs ping</value>
+    </synonym>
+    <template>/itoolabs/ping</template>
+    <methods uuid="bde9022a-e944-4f08-bb39-48fd7e3c9816">
+      <name>GET</name>
+      <synonym>
+        <key>ru</key>
+        <value>GET</value>
+      </synonym>
+      <handler>itoolabsPingGET</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="81450402-3b04-45dc-99e7-06613adeed04">
+    <name>itoolabsEvent</name>
+    <synonym>
+      <key>ru</key>
+      <value>Itoolabs: event</value>
+    </synonym>
+    <template>/itoolabs/*</template>
+    <methods uuid="608c7e40-7398-4548-8392-08e66cc6ca62">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>itoolabsEventPOST</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="e8f245a9-f752-4fbc-a746-bbca789cb4d4">
+    <name>mangoPing</name>
+    <synonym>
+      <key>ru</key>
+      <value>Mango ping</value>
+    </synonym>
+    <template>/mango/ping</template>
+    <methods uuid="f20d4e85-1526-40b5-ad8c-390003878d9f">
+      <name>GET</name>
+      <synonym>
+        <key>ru</key>
+        <value>GET</value>
+      </synonym>
+      <handler>mangoPingGET</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="e982e6c9-a77a-4485-ac3c-229bd2aa750d">
+    <name>mangoEventsCall</name>
+    <synonym>
+      <key>ru</key>
+      <value>mango: events call</value>
+    </synonym>
+    <template>/mango/events/call</template>
+    <methods uuid="fbd920b5-a297-4c12-8061-55760038d509">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>mangoEventsCallPOST</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="677b4eb1-d100-46da-9b77-7857e161cef2">
+    <name>mangoEventsRecording</name>
+    <synonym>
+      <key>ru</key>
+      <value>mango: events recording</value>
+    </synonym>
+    <template>/mango/events/recording</template>
+    <methods uuid="417570c2-8846-4b66-807b-097a834a7dc1">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>mangoEventsRecordingPOST</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="a48e8265-74c0-4d7a-98b1-7aded4e49e9b">
+    <name>mangoResultCallback</name>
+    <synonym>
+      <key>ru</key>
+      <value>mango: result callback</value>
+    </synonym>
+    <template>/mango/result/callback</template>
+    <methods uuid="70200b9f-6dc5-4a97-9030-78d8d688645c">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>mangoResultCallbackPOST</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="cbe2a573-e5a6-4617-92e9-ed4253b3466d">
+    <name>mangoResultStats</name>
+    <synonym>
+      <key>ru</key>
+      <value>mango: result stats</value>
+    </synonym>
+    <template>/mango/result/stats</template>
+    <methods uuid="1704589e-1ba8-45b3-b438-32ec54428a7f">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>mangoResultStatsPOST</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="4617efaa-8d8c-449f-bca0-e2906f08f9b2">
+    <name>mangoResultRoute</name>
+    <synonym>
+      <key>ru</key>
+      <value>mango: result route</value>
+    </synonym>
+    <template>/mango/result/route</template>
+    <methods uuid="4cff005e-2653-413e-bc9e-929e2b965553">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>mangoResultRoutePOST</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="52aeb182-d97e-4dcc-a519-5153d6cae906">
+    <name>yandexPing</name>
+    <synonym>
+      <key>ru</key>
+      <value>Yandex ping</value>
+    </synonym>
+    <template>/yandex/ping</template>
+    <methods uuid="429ee242-1fee-4bf3-9fb6-ba19619667f1">
+      <name>GET</name>
+      <synonym>
+        <key>ru</key>
+        <value>GET</value>
+      </synonym>
+      <handler>yandexPingGET</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="21766f85-e036-4f92-b74e-1af244bb3cdb">
+    <name>yandexEvent</name>
+    <synonym>
+      <key>ru</key>
+      <value>yandex: event</value>
+    </synonym>
+    <template>/yandex/*</template>
+    <methods uuid="4290645d-5270-4c26-ad1a-87883760d902">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>yandexEventPOST</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="a09ee9bd-f1af-4c03-8e29-0cfd704d7b5e">
+    <name>rtPing</name>
+    <synonym>
+      <key>ru</key>
+      <value>Rt ping</value>
+    </synonym>
+    <template>/rt/ping</template>
+    <methods uuid="baf2b696-e970-43c9-9ee9-3917b703fa29">
+      <name>GET</name>
+      <synonym>
+        <key>ru</key>
+        <value>GET</value>
+      </synonym>
+      <handler>rtPingGET</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="c02923d6-9e1c-43c5-b4a6-618a152c4d4e">
+    <name>rtCallEvents</name>
+    <synonym>
+      <key>ru</key>
+      <value>Rt call events</value>
+    </synonym>
+    <template>/rt/call_events</template>
+    <methods uuid="d171c8b6-8425-43e0-8a4f-542a2a1eeb9a">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>rtCallEventsPOST</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="eb1b63f0-2c58-4c55-840d-f70230ad4723">
+    <name>rtGetNumberInfo</name>
+    <synonym>
+      <key>ru</key>
+      <value>Rt get number info</value>
+    </synonym>
+    <template>/rt/get_number_info</template>
+    <methods uuid="6c6ba4e0-f6d6-4c21-96f1-d551c29d6fcc">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>rtGetNumberInfoPOST</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="1c503076-e0e3-49db-b082-b45f08c5e9fc">
+    <name>working_hours_department</name>
+    <synonym>
+      <key>en</key>
+      <value>Working hours department</value>
+    </synonym>
+    <synonym>
+      <key>ru</key>
+      <value>Получить рабочее время отдела</value>
+    </synonym>
+    <template>/asterisk/working_hours_department</template>
+    <methods uuid="f0e37cd0-76f3-4657-a25f-73a58668775a">
+      <name>POST</name>
+      <synonym>
+        <key>en</key>
+        <value>POST</value>
+      </synonym>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>working_hours_department</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="fe7d86e8-af41-42ec-9298-4209f492a63b">
+    <name>branch_office_hours</name>
+    <synonym>
+      <key>en</key>
+      <value>Branch office hours</value>
+    </synonym>
+    <synonym>
+      <key>ru</key>
+      <value>Получить рабочее время филиала</value>
+    </synonym>
+    <template>/asterisk/branch_office_hours</template>
+    <methods uuid="69f5c214-d3f3-4f41-a632-c69f49cc9ba2">
+      <name>POST</name>
+      <synonym>
+        <key>en</key>
+        <value>POST</value>
+      </synonym>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>branch_office_hours</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="51d127b5-db05-470b-a061-a6ec587a8783">
+    <name>get_phone_duty_logistician</name>
+    <synonym>
+      <key>en</key>
+      <value>Get phone duty logistician</value>
+    </synonym>
+    <synonym>
+      <key>ru</key>
+      <value>Получить номер телефона дежурного логиста</value>
+    </synonym>
+    <template>/asterisk/get_phone_duty_logistician</template>
+    <methods uuid="de94f7d2-1a08-4e7c-8deb-e396eaa6f7f3">
+      <name>GET</name>
+      <synonym>
+        <key>en</key>
+        <value>GET</value>
+      </synonym>
+      <synonym>
+        <key>ru</key>
+        <value>GET</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>phone_duty_logistician</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="35ee8ce1-5864-4791-8a89-6cb46ce0d8ce">
+    <name>is_driver_phone</name>
+    <synonym>
+      <key>en</key>
+      <value>Is driver phone</value>
+    </synonym>
+    <synonym>
+      <key>ru</key>
+      <value>Номер позвонившего - это номер водителя?</value>
+    </synonym>
+    <template>/asterisk/is_driver_phone</template>
+    <methods uuid="e0ca0c75-eb8c-408d-8c90-eeb31a440f5a">
+      <name>POST</name>
+      <synonym>
+        <key>en</key>
+        <value>POST</value>
+      </synonym>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>is_driver_phone</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="6ae142e6-f393-4749-a290-a5a44034ca88">
+    <name>request_callback</name>
+    <synonym>
+      <key>en</key>
+      <value>Request callback</value>
+    </synonym>
+    <synonym>
+      <key>ru</key>
+      <value>Сохранить запрос на перезвон</value>
+    </synonym>
+    <template>/asterisk/request_callback</template>
+    <methods uuid="ad5ece4b-5d77-47d1-9f3d-83b551a2b765">
+      <name>POST</name>
+      <synonym>
+        <key>en</key>
+        <value>POST</value>
+      </synonym>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>request_callback</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="27cef059-4220-4c1c-9d49-a030cd6d52dd">
+    <name>get_employee_status</name>
+    <synonym>
+      <key>ru</key>
+      <value>Get employee status</value>
+    </synonym>
+    <template>/asterisk/get_employee_status</template>
+    <methods uuid="e0aef868-38ee-40fd-a638-92a7366d91b8">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>get_employee_statusPOST</handler>
+    </methods>
+  </urlTemplates>
+</mdclass:HTTPService>
